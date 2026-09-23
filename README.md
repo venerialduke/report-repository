@@ -62,4 +62,5 @@ The site is live at **https://venerialduke.github.io/report-repository/**. GitHu
 
 ## Plan & roadmap
 
-See [docs/PLAN.md](docs/PLAN.md).
+- **Readable plan** (goals, features, Databricks target, roadmap, risks): published in the Hub itself at `report.html?id=insights-hub-plan` ([live](https://venerialduke.github.io/report-repository/report.html?id=insights-hub-plan)).
+- **Build plan** (architecture, metadata schema): [docs/PLAN.md](docs/PLAN.md).

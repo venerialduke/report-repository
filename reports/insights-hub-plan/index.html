@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insights Hub plan: one home for every analysis, prototyped on GitHub Pages and headed for Databricks — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+  <style>
+    /* Diagrams: plain SVG, light and print-friendly */
+    .flow { width: 100%; height: auto; display: block; font-family: var(--font-sans); }
+    .flow .box { fill: #fff; stroke: var(--line-strong); stroke-width: 1.2; }
+    .flow .box.pine { fill: var(--brand-pine-100); stroke: var(--brand-pine); }
+    .flow .box.clay { fill: var(--brand-clay-100); stroke: var(--brand-clay); }
+    .flow .box.muted { fill: var(--surface-2); stroke: var(--line); stroke-dasharray: 4 3; }
+    .flow .t { font-size: 13px; font-weight: 650; fill: var(--ink-1); }
+    .flow .s { font-size: 11.5px; fill: var(--ink-2); }
+    .flow .lbl { font-size: 11px; fill: var(--ink-3); }
+    .flow .arrow { stroke: var(--ink-3); stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+    .flow .arrow.dash { stroke-dasharray: 5 4; }
+    .diagram-wrap { overflow-x: auto; margin: 8px 0 4px; }
+    .diagram-wrap svg { min-width: 640px; }
+
+    .roadmap { list-style: none; padding: 0 !important; margin: 20px 0 28px; position: relative; }
+    .roadmap::before { content: ""; position: absolute; left: 11px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+    .roadmap > li { position: relative; padding: 0 0 22px 40px; margin: 0 !important; break-inside: avoid; }
+    .roadmap > li::before { content: ""; position: absolute; left: 4px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid var(--line-strong); }
+    .roadmap > li.done::before { background: var(--brand-pine); border-color: var(--brand-pine); }
+    .roadmap > li.next::before { border-color: var(--brand-clay); }
+    .roadmap h3 { margin: 0 0 4px !important; font-size: 16px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .roadmap p { margin: 0 0 6px; font-size: 14.5px; color: var(--ink-2); }
+    .roadmap ul { margin: 4px 0 0; font-size: 14.5px; }
+
+    .goal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 20px 0 28px; }
+    .goal { border: 1px solid var(--line); border-top: 4px solid var(--brand-pine); border-radius: var(--radius-m); padding: 14px 16px; break-inside: avoid; }
+    .goal b { display: block; font-size: 15px; margin-bottom: 4px; }
+    .goal span { font-size: 13.5px; color: var(--ink-2); }
+  </style>
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Article · September 2026</span>
+    </div>
+    <span class="pp-eyebrow">Methods &amp; Standards</span>
+    <h1>Insights Hub plan: one home for every analysis, prototyped on GitHub Pages and headed for Databricks</h1>
+    <p class="pp-subtitle">What the Hub is for, what works today, the decisions we have made, and how it moves to a Databricks App with team-only and company-wide spaces.</p>
+    <div class="pp-byline">
+      <span>By <b>Insights Hub working group</b></span>
+      <span>Published <b>Sep 23, 2026</b></span>
+      <span>Status <b>Living plan, updated as decisions land</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key points">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>The prototype is live.</strong> Reports are plain HTML files in git, and GitHub Pages serves them. The site has discovery, full-text search, area pages, a report viewer, PDF export, AI summaries, chart downloads, shared brand assets and Claude skills.</li>
+      <li><strong>Reports stay simple:</strong> a folder with <code>index.html</code> and <code>report.json</code>, relative links, and charts written as JSON. That keeps them portable from git to GitHub Pages to Databricks without edits.</li>
+      <li><strong>The destination is a Databricks App.</strong> It brings single sign-on, and each audience's reports sit in their own Unity Catalog Volume: <em>team</em> (Insights only), <em>org</em> (everyone) and later restricted spaces. Promotion is one field change.</li>
+      <li><strong>We keep it static for now.</strong> Charts embed their data; there are no live queries. Published reports can be frozen into self-contained snapshots so later asset changes can't break them.</li>
+      <li><strong>First decision needed:</strong> confirm that business readers can access a Databricks App. That decides whether the Hub can reach its whole audience there.</li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Sample reports &amp; articles</div><div class="pp-kpi-value">22</div><div class="pp-kpi-delta">across 7 areas</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Features live in the prototype</div><div class="pp-kpi-value">14</div><div class="pp-kpi-delta">see section 02</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Claude skills</div><div class="pp-kpi-value">5</div><div class="pp-kpi-delta">build, review, style, metadata</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Servers needed today</div><div class="pp-kpi-value">0</div><div class="pp-kpi-delta">static site on GitHub Pages</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>Goals: make every analysis findable, trustworthy and reusable</h2>
+  <p class="pp-lede">Insights work is scattered across emails, drives and notebooks. The Hub gives it one address and one standard.</p>
+  <div class="goal-grid">
+    <div class="goal"><b>Discover</b><span>Anyone can find the analysis that answers their question, by area, topic, owner or anything in the text.</span></div>
+    <div class="goal"><b>Trust</b><span>Every report carries its owners, date, status, data sources and code links, so readers know how current and how solid it is.</span></div>
+    <div class="goal"><b>Consistency</b><span>Shared brand, templates, chart library and review skills make reports look and read like one team produced them.</span></div>
+    <div class="goal"><b>Leverage</b><span>AI summaries, cross-report synthesis, PDF bundles and chart downloads help readers act on the work, not just read it.</span></div>
+    <div class="goal"><b>Control</b><span>Publish privately to the team first, then promote to the company, with access enforced by the platform.</span></div>
+  </div>
+
+  <h2><span class="pp-num">02</span>What works today: a complete prototype on GitHub Pages</h2>
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <thead><tr><th>Feature</th><th>What it does</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><b>Landing page</b></td><td>Hero search, <em>What's new</em> carousel, area tiles, and one carousel per area.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Search &amp; filters</b></td><td>Instant search across titles, findings, tags, owners and the full text of every report, including chart data. Filter by area, type, topic, owner, tag and status. Searches can be shared as links.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Area pages</b></td><td>A landing page per area: latest report, a <em>What we know</em> digest, the full list with in-area search, authors and topics, plus an AI brief and PDF of the whole area.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Report viewer</b></td><td>The report beside a side panel with owners, key findings, code links, data sources and related reports.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Report metadata</b></td><td><code>report.json</code>: area, topics, tags, owners, status, summary, key findings, code, data sources, related. Validated in CI.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>PDF export</b></td><td>One report via print styles, or several reports as one bundle with a cover page and contents.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>AI summaries</b></td><td>Summary, exec brief, synthesis across selected reports, and ask-a-question. Runs with the reader's own key, or <em>Copy prompt</em> to paste into Claude. Pre-generated summaries appear once a repo key is added.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Chart expand &amp; downloads</b></td><td>Every chart opens in an enlarged view, with CSV, copy-to-clipboard, and PNG/SVG downloads for slides.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Selection tray</b></td><td>Pick reports on any page, then get an AI summary or a PDF bundle of all of them.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Comments</b></td><td>A discussion section on every report. It uses GitHub Discussions once configured; until then comments are saved only in the reader's browser.</td><td><span class="pp-badge warn">Needs setup</span></td></tr>
+        <tr><td><b>Shared assets</b></td><td>Brand tokens, report stylesheet, chart library, report template, chart gallery and brand guide, shown on the Resources page.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Claude skills</b></td><td>Report construction, storytelling review, visualization review, brand style, report metadata.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Quality gates</b></td><td>CI validates metadata, chart JSON and links, and checks that the generated catalog is committed. A workflow on <code>main</code> refreshes the catalog and AI summaries.</td><td><span class="pp-badge good">Live</span></td></tr>
+        <tr><td><b>Themes, mobile, RSS</b></td><td>Light and dark mode, phone layouts, and an RSS feed of new reports.</td><td><span class="pp-badge good">Live</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">03</span>How it works today: git is the source of truth and GitHub Pages serves <code>main</code></h2>
+  <p class="pp-lede">Publishing is a pull request. Nothing runs on a server; every feature runs in the reader's browser.</p>
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Today: author → review → merge → live</p>
+    <p class="pp-fig-sub">GitHub Pages prototype</p>
+    <div class="diagram-wrap">
+      <svg class="flow" viewBox="0 0 760 250" role="img" aria-label="Diagram: an analyst writes a report with help from Claude skills, opens a pull request, CI validates it, merging to main publishes it through GitHub Pages to readers; a refresh workflow on main rebuilds the catalog and AI summaries.">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c837f"/></marker></defs>
+        <rect class="box" x="10" y="40" width="140" height="64" rx="10"/><text class="t" x="80" y="67" text-anchor="middle">Analyst</text><text class="s" x="80" y="86" text-anchor="middle">writes HTML + JSON</text>
+        <rect class="box muted" x="10" y="150" width="140" height="56" rx="10"/><text class="t" x="80" y="174" text-anchor="middle">Claude skills</text><text class="s" x="80" y="192" text-anchor="middle">build · review · style</text>
+        <path class="arrow dash" d="M80 150 V106"/>
+        <rect class="box" x="200" y="40" width="140" height="64" rx="10"/><text class="t" x="270" y="67" text-anchor="middle">Pull request</text><text class="s" x="270" y="86" text-anchor="middle">peer review</text>
+        <path class="arrow" d="M150 72 H198"/>
+        <rect class="box clay" x="200" y="150" width="140" height="56" rx="10"/><text class="t" x="270" y="174" text-anchor="middle">CI checks</text><text class="s" x="270" y="192" text-anchor="middle">metadata · charts</text>
+        <path class="arrow" d="M270 104 V148"/>
+        <rect class="box pine" x="390" y="40" width="150" height="64" rx="10"/><text class="t" x="465" y="67" text-anchor="middle">main branch</text><text class="s" x="465" y="86" text-anchor="middle">reports + catalog</text>
+        <path class="arrow" d="M340 72 H388"/><text class="lbl" x="364" y="64" text-anchor="middle">merge</text>
+        <rect class="box muted" x="390" y="150" width="150" height="56" rx="10"/><text class="t" x="465" y="174" text-anchor="middle">Refresh workflow</text><text class="s" x="465" y="192" text-anchor="middle">catalog · AI summaries</text>
+        <path class="arrow dash" d="M455 148 V106"/><path class="arrow dash" d="M475 106 V148"/>
+        <rect class="box pine" x="590" y="40" width="160" height="64" rx="10"/><text class="t" x="670" y="67" text-anchor="middle">GitHub Pages</text><text class="s" x="670" y="86" text-anchor="middle">public URL</text>
+        <path class="arrow" d="M540 72 H588"/>
+        <rect class="box" x="590" y="150" width="160" height="56" rx="10"/><text class="t" x="670" y="174" text-anchor="middle">Readers</text><text class="s" x="670" y="192" text-anchor="middle">search · AI · PDF · CSV</text>
+        <path class="arrow" d="M670 104 V148"/>
+      </svg>
+    </div>
+    <figcaption>Report folder: <code>reports/&lt;id&gt;/index.html</code> + <code>report.json</code> (+ <code>assets/</code>). Shared brand files live in <code>shared/brand/</code>.</figcaption>
+  </figure>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">Prototype limitation</div><p>GitHub Pages sites are public. That's fine for fictional sample content, but real reports need the private hosting in section 04.</p></div>
+
+  <h2><span class="pp-num">04</span>Where it's going: a Databricks App, with Unity Catalog deciding who sees what</h2>
+  <p class="pp-lede">Same reports, same front end. The app adds company login, and Unity Catalog permissions decide who can see which reports.</p>
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Target: one app, one Volume per audience</p>
+    <p class="pp-fig-sub">Databricks App reading from Unity Catalog Volumes in <code>insights.hub</code></p>
+    <div class="diagram-wrap">
+      <svg class="flow" viewBox="0 0 760 300" role="img" aria-label="Diagram: git with review syncs each report by its visibility field into Unity Catalog volumes team, org and a future restricted volume; a Databricks App reads the volumes as the signed-in user, builds a per-user catalog, and uses model serving for AI and a table for comments; readers sign in with company SSO.">
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c837f"/></marker></defs>
+        <style>.flow .a2 { stroke: #7c837f; stroke-width: 1.5; fill: none; marker-end: url(#ah2); } .flow .a2.dash { stroke-dasharray: 5 4; }</style>
+        <rect class="box" x="10" y="110" width="150" height="76" rx="10"/><text class="t" x="85" y="138" text-anchor="middle">Git + CI</text><text class="s" x="85" y="157" text-anchor="middle">review, validate,</text><text class="s" x="85" y="173" text-anchor="middle">snapshot, sync</text>
+        <rect class="box pine" x="215" y="30" width="170" height="60" rx="10"/><text class="t" x="300" y="56" text-anchor="middle">Volume: team</text><text class="s" x="300" y="74" text-anchor="middle">Insights team only</text>
+        <rect class="box pine" x="215" y="118" width="170" height="60" rx="10"/><text class="t" x="300" y="144" text-anchor="middle">Volume: org</text><text class="s" x="300" y="162" text-anchor="middle">all employees</text>
+        <rect class="box muted" x="215" y="206" width="170" height="60" rx="10"/><text class="t" x="300" y="232" text-anchor="middle">Volume: hr (later)</text><text class="s" x="300" y="250" text-anchor="middle">restricted groups</text>
+        <path class="a2" d="M160 136 L213 62"/><path class="a2" d="M160 148 H213"/><path class="a2 dash" d="M160 160 L213 234"/>
+        <text class="lbl" x="85" y="204" text-anchor="middle">syncs by visibility</text>
+        <rect class="box clay" x="440" y="100" width="160" height="96" rx="10"/><text class="t" x="520" y="128" text-anchor="middle">Databricks App</text><text class="s" x="520" y="147" text-anchor="middle">Hub pages + file server</text><text class="s" x="520" y="163" text-anchor="middle">reads as signed-in user</text><text class="s" x="520" y="179" text-anchor="middle">per-user catalog</text>
+        <path class="a2" d="M385 60 L438 120"/><path class="a2" d="M385 148 H438"/><path class="a2 dash" d="M385 236 L438 178"/>
+        <rect class="box" x="440" y="10" width="160" height="50" rx="10"/><text class="t" x="520" y="32" text-anchor="middle">Model serving</text><text class="s" x="520" y="49" text-anchor="middle">AI summaries, Q&amp;A</text>
+        <rect class="box" x="440" y="236" width="160" height="50" rx="10"/><text class="t" x="520" y="258" text-anchor="middle">Comments table</text><text class="s" x="520" y="275" text-anchor="middle">tied to company login</text>
+        <path class="a2" d="M520 100 V62"/><path class="a2" d="M520 196 V234"/>
+        <rect class="box pine" x="640" y="110" width="110" height="76" rx="10"/><text class="t" x="695" y="140" text-anchor="middle">Readers</text><text class="s" x="695" y="158" text-anchor="middle">company SSO</text>
+        <path class="a2" d="M600 148 H638"/>
+      </svg>
+    </div>
+    <figcaption>Readers only ever see, search and summarise the reports in Volumes they can read. Team-only titles never appear for everyone else.</figcaption>
+  </figure>
+
+  <h3>How it works</h3>
+  <ul>
+    <li><b>Storage:</b> each Volume mirrors the repo layout (<code>reports/&lt;id&gt;/…</code>, <code>catalog.json</code>). Shared brand files ship with the app. Relative links resolve the same way in git, on GitHub Pages and in Databricks.</li>
+    <li><b>Visibility:</b> a <code>"visibility": "team" | "org"</code> field in <code>report.json</code>. CI syncs each report to the matching Volume and removes it from the others. New reports default to <code>team</code>.</li>
+    <li><b>Promotion:</b> a one-line pull request (<code>team</code> → <code>org</code>), with review and an audit trail. Demotion is the reverse. A <em>Promote</em> button in the app can come later.</li>
+    <li><b>Access:</b> the app reads Volumes as the signed-in user, so Unity Catalog grants decide what each person sees in listings, search, area pages, AI and file access. A link to a report someone can't see shows a neutral "not available".</li>
+    <li><b>AI and comments:</b> AI calls go to a Databricks model serving endpoint, so readers no longer need their own keys. Comments go in a table, keyed to the reader's company login.</li>
+  </ul>
+
+  <div class="pp-callout recommendation"><div class="pp-callout-title">Checks before a report is promoted to org</div>
+    <p>No links to team-only reports or assets · status is final · metadata complete · embedded data is aggregated and suitable for everyone who can see <code>org</code> (a reviewer checklist item).</p></div>
+
+  <h2><span class="pp-num">05</span>Decisions so far: static reports, snapshots for durability, one catalog</h2>
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <thead><tr><th>Decision</th><th>Choice</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>Report format</b></td><td>Plain HTML folder + <code>report.json</code>, relative links, charts as JSON</td><td>Portable across hosts. Search, AI and CSV downloads can all read the chart data.</td></tr>
+        <tr><td><b>Report data</b></td><td>Embedded (static) only, for now</td><td>No query engine, per-user caching or permission-aware SQL to build. Live data can come later if needed.</td></tr>
+        <tr><td><b>Shared assets</b></td><td>Author against shared assets, publish a frozen snapshot</td><td>Reuse while writing; published reports can't break when a shared asset changes.</td></tr>
+        <tr><td><b>Audiences</b></td><td>One catalog and schema (<code>insights.hub</code>), one Volume per audience</td><td>Volume grants are enough when there is no live data. Separate catalogs would add governance overhead for no gain.</td></tr>
+        <tr><td><b>Status vs visibility</b></td><td>Two separate fields</td><td>Quality (draft/final) and audience (team/org) change independently.</td></tr>
+        <tr><td><b>Source of truth</b></td><td>Git, private to the Insights team</td><td>Review, history and CI checks come for free. The repo holds team-only drafts, so repo access must stay limited.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Snapshots: self-contained published copies</h3>
+  <p>A <code>npm run snapshot</code> script plus a <em>report-snapshot</em> Claude skill will turn a report into one self-contained HTML file:</p>
+  <ul>
+    <li>styles inlined;</li>
+    <li>charts pre-rendered to SVG, with their JSON kept so CSV downloads still work;</li>
+    <li>images compressed and embedded, fonts subset or replaced with system fonts;</li>
+    <li>a size budget (warn at 2 MB, fail at 5 MB);</li>
+    <li>a stamp with the snapshot date and source commit;</li>
+    <li>a check that it loads with the network blocked.</li>
+  </ul>
+  <p>CI snapshots on publish or promotion, and re-snapshots every report that references a shared asset before that asset changes.</p>
+
+  <h2><span class="pp-num">06</span>Roadmap: finish the prototype, then move in three steps</h2>
+  <ol class="roadmap">
+    <li class="done">
+      <h3>Prototype on GitHub Pages <span class="pp-badge good">Done</span></h3>
+      <p>All features in section 02, 22 sample reports and articles, 5 Claude skills, CI and the refresh workflow.</p>
+    </li>
+    <li class="next">
+      <h3>Prototype polish <span class="pp-badge warn">Next</span></h3>
+      <ul>
+        <li><code>visibility</code> field (validated and shown as a badge), and a CI check for links to team-only content.</li>
+        <li>Snapshot script, the <em>report-snapshot</em> skill, and a size budget.</li>
+        <li>Turn on giscus comments; add an <code>ANTHROPIC_API_KEY</code> secret for pre-generated summaries.</li>
+        <li>Folder conventions: <code>shared/assets/</code> for reusable assets and <code>assets/</code> in each report folder.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Databricks step 1: lift and shift</h3>
+      <p>A small app (e.g. FastAPI) serves the current site behind company login. Reports are private immediately, with almost no front-end changes.</p>
+    </li>
+    <li>
+      <h3>Databricks step 2: swap the backends</h3>
+      <p>AI moves to a model serving endpoint (the Hub already supports a proxy URL for this), and comments move to a table. Readers no longer need their own API keys.</p>
+    </li>
+    <li>
+      <h3>Databricks step 3: Volumes and promotion</h3>
+      <p>Team, org and later restricted Volumes; CI sync driven by the visibility field; per-user catalog; neutral "not available" pages; snapshots published to the Volumes.</p>
+    </li>
+    <li>
+      <h3>Later</h3>
+      <ul>
+        <li>View analytics and a "most read" carousel</li>
+        <li>Semantic search</li>
+        <li>Links from data sources to Unity Catalog lineage</li>
+        <li>Per-area subscriptions</li>
+        <li>Optionally, live charts from Delta views, queried as the reader</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2><span class="pp-num">07</span>Risks and open questions: reader access comes first</h2>
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <thead><tr><th>Risk / question</th><th>Impact</th><th>Mitigation / next step</th></tr></thead>
+      <tbody>
+        <tr><td><b>Can business readers open a Databricks App?</b></td><td><span class="pp-badge bad">High</span></td><td>Confirm entitlements and licensing with the workspace admin before building step 1.</td></tr>
+        <tr><td><b>Prototype is public</b></td><td><span class="pp-badge warn">Medium</span></td><td>Sample content only until step 1. Never publish real reports to GitHub Pages.</td></tr>
+        <tr><td><b>Shared assets change and break reports</b></td><td><span class="pp-badge warn">Medium</span></td><td>Change shared assets rarely, version breaking changes (<code>shared/brand/v2/</code>), and publish snapshots.</td></tr>
+        <tr><td><b>Team-only content leaks through the listing</b></td><td><span class="pp-badge warn">Medium</span></td><td>Build a per-user catalog from readable Volumes. Never ship one global catalog.</td></tr>
+        <tr><td><b>Report HTML runs scripts with the reader's session</b></td><td><span class="pp-badge warn">Medium</span></td><td>Reviewed pull requests only. If direct publishing is ever allowed, add a sandboxed iframe and a Content-Security-Policy.</td></tr>
+        <tr><td><b>Running cost and ownership</b></td><td><span class="pp-badge warn">Medium</span></td><td>Name an owner for deploys and monitoring. App compute and AI tokens are the main costs.</td></tr>
+        <tr><td><b>Sensitive numbers in embedded data</b></td><td><span class="pp-badge warn">Medium</span></td><td>Aggregate before publishing. Set visibility by the most sensitive number in the report.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">08</span>What we need from you</h2>
+  <ol class="pp-recs">
+    <li><strong>Confirm reader access to Databricks Apps</strong> for non-analyst staff (entitlements and licensing). <span class="pp-owner">Owner: Insights lead with the workspace admin</span></li>
+    <li><strong>Agree the audience tiers</strong> (team, org, and whether an HR or finance restricted tier is needed at launch). <span class="pp-owner">Owner: Insights lead</span></li>
+    <li><strong>Approve the prototype polish list</strong> (visibility field, snapshots, comments, pre-generated AI summaries). <span class="pp-owner">Owner: Insights Hub working group</span></li>
+    <li><strong>Name an owner</strong> for the Databricks App (deploys, monitoring, cost). <span class="pp-owner">Owner: Insights lead with the platform team</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Where the details live</h2>
+    <dl>
+      <dt>Build plan</dt><dd><code>docs/PLAN.md</code>: architecture, metadata schema, phases.</dd>
+      <dt>Publishing</dt><dd><code>docs/CONTRIBUTING.md</code>: scaffold, write, check, review, merge.</dd>
+      <dt>Comments</dt><dd><code>docs/COMMENTS.md</code>: giscus setup and alternatives.</dd>
+      <dt>Brand</dt><dd><code>shared/brand/BRAND.md</code> and the Resources page.</dd>
+      <dt>Caveat</dt><dd>Databricks specifics (Apps entitlements, limits, region availability) should be confirmed against current Databricks documentation and your workspace admin before building.</dd>
+    </dl>
+  </section>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

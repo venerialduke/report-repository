@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-19",
+  "updated": "2026-09-23",
   "site": {
     "name": "Insights Hub",
     "org": "Parcel & Pine"
@@ -52,10 +52,84 @@
       "slug": "methods",
       "description": "How we measure things, metric definitions and team practice.",
       "color": "#52514e",
-      "count": 4
+      "count": 5
     }
   ],
   "reports": [
+    {
+      "id": "insights-hub-plan",
+      "title": "Insights Hub plan: one home for every analysis, prototyped on GitHub Pages and headed for Databricks",
+      "subtitle": "What the Hub is for, what works today, the decisions we have made, and how it moves to a Databricks App with team-only and company-wide spaces.",
+      "type": "article",
+      "area": "Methods & Standards",
+      "topics": [
+        "Insights Hub",
+        "Roadmap",
+        "Data Governance"
+      ],
+      "tags": [
+        "insights-hub",
+        "roadmap",
+        "databricks",
+        "unity-catalog",
+        "github-pages",
+        "publishing",
+        "snapshots",
+        "access-control"
+      ],
+      "owners": [
+        {
+          "name": "Insights Hub working group",
+          "role": "Plan owner"
+        }
+      ],
+      "published": "2026-09-23",
+      "updated": "2026-09-23",
+      "status": "draft",
+      "summary": "The Insights Hub prototype is live on GitHub Pages. It has search, area pages, a report viewer, PDF export, AI summaries, chart downloads, shared brand assets and Claude skills. The plan is to move it to a Databricks App with Unity Catalog Volumes per audience (team, org, restricted), publish frozen snapshots of reports, and keep reports static for now. The first decision needed is whether business readers can access a Databricks App.",
+      "key_findings": [
+        "The prototype has 14 features live, 22 sample reports and articles, and 5 Claude skills, with no servers needed.",
+        "Reports stay portable: a folder with index.html and report.json, relative links, and charts as JSON.",
+        "Target: a Databricks App that reads Unity Catalog Volumes as the signed-in user; promotion is a one-field change from team to org.",
+        "Reports stay static for now; snapshots make published reports immune to later asset changes.",
+        "Top risk: confirming that non-analyst staff can open Databricks Apps."
+      ],
+      "code": [
+        {
+          "label": "Build plan",
+          "path": "https://github.com/venerialduke/report-repository/blob/main/docs/PLAN.md"
+        },
+        {
+          "label": "Contributing guide",
+          "path": "https://github.com/venerialduke/report-repository/blob/main/docs/CONTRIBUTING.md"
+        }
+      ],
+      "data_sources": [
+        "Insights Hub repository",
+        "Planning discussions, Sep 2026"
+      ],
+      "related": [
+        "insights-team-h1-2026-retro",
+        "metric-glossary-active-member",
+        "experimentation-playbook"
+      ],
+      "url": "reports/insights-hub-plan/",
+      "headings": [
+        "The short version",
+        "01 Goals: make every analysis findable, trustworthy and reusable",
+        "02 What works today: a complete prototype on GitHub Pages",
+        "03 How it works today: git is the source of truth and GitHub Pages serves main",
+        "04 Where it's going: a Databricks App, with Unity Catalog deciding who sees what",
+        "05 Decisions so far: static reports, snapshots for durability, one catalog",
+        "06 Roadmap: finish the prototype, then move in three steps",
+        "07 Risks and open questions: reader access comes first",
+        "08 What we need from you",
+        "Where the details live"
+      ],
+      "charts": 0,
+      "words": 1943,
+      "reading_minutes": 8
+    },
     {
       "id": "peak-2026-capacity-plan",
       "title": "Peak 2026 fits within our physical capacity in the base case, but we are 580 temps and 33k fleet stops short, and the high case breaks Black Friday week",
