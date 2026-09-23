@@ -22,6 +22,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      pages_enabled: ${{ steps.pages.outcome == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -51,6 +53,11 @@ jobs:
 
       - id: pages
         uses: actions/configure-pages@v5
+        continue-on-error: true
+
+      - name: Pages not enabled yet
+        if: steps.pages.outcome != 'success'
+        run: echo "::warning title=GitHub Pages is not enabled::Settings → Pages → Build and deployment → Source = GitHub Actions, then re-run this workflow. Skipping deploy."
 
       - name: Build catalog, search index and feed
         env:
@@ -63,11 +70,13 @@ jobs:
           cp -r index.html report.html bundle.html resources.html site.config.json catalog.json search-index.json feed.xml .nojekyll assets shared reports _site/
 
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outcome == 'success'
         with:
           path: _site
 
   deploy:
     needs: build
+    if: needs.build.outputs.pages_enabled == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
