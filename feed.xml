@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
   <title>Parcel &amp; Pine Insights Hub</title>
-  <link>/</link>
+  <link>https://venerialduke.github.io/report-repository/</link>
   <description>Every analysis from the Insights team, in one place.</description>
   <item>
     <title>Monthly Pine+ members churn twice as fast in month 3, and a third order is the best early warning</title>
-    <link>/report.html?id=month-3-member-churn</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=month-3-member-churn</link>
     <guid isPermaLink="false">month-3-member-churn</guid>
     <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
     <category>Customer &amp; Growth</category>
@@ -13,7 +13,7 @@
   </item>
   <item>
     <title>A $69 Pine+ price wins FY27 and loses on each new cohort</title>
-    <link>/report.html?id=pine-plus-ltv-forecast-fy27</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=pine-plus-ltv-forecast-fy27</link>
     <guid isPermaLink="false">pine-plus-ltv-forecast-fy27</guid>
     <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
     <category>Finance &amp; Pricing</category>
@@ -21,7 +21,7 @@
   </item>
   <item>
     <title>Only Pine Fleet meets the 95% on-time promise, and padding our delivery dates has hidden how far carriers have slipped</title>
-    <link>/report.html?id=last-mile-delivery-sla-review</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=last-mile-delivery-sla-review</link>
     <guid isPermaLink="false">last-mile-delivery-sla-review</guid>
     <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
     <category>Operations &amp; Supply Chain</category>
@@ -29,7 +29,7 @@
   </item>
   <item>
     <title>App search fails customers who say “couch” — synonyms and typos cause 61% of null results</title>
-    <link>/report.html?id=app-search-relevance</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=app-search-relevance</link>
     <guid isPermaLink="false">app-search-relevance</guid>
     <pubDate>Thu, 27 Aug 2026 12:00:00 GMT</pubDate>
     <category>Product &amp; Digital</category>
@@ -37,7 +37,7 @@
   </item>
   <item>
     <title>More shoppers know us; fewer pick us once they compare</title>
-    <link>/report.html?id=brand-tracker-wave-4</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=brand-tracker-wave-4</link>
     <guid isPermaLink="false">brand-tracker-wave-4</guid>
     <pubDate>Thu, 20 Aug 2026 12:00:00 GMT</pubDate>
     <category>Marketing</category>
@@ -45,7 +45,7 @@
   </item>
   <item>
     <title>Half of what returns cost us comes from two causes we can fix: damage in transit and product photos that mislead</title>
-    <link>/report.html?id=returns-root-cause-analysis</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=returns-root-cause-analysis</link>
     <guid isPermaLink="false">returns-root-cause-analysis</guid>
     <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
     <category>Operations &amp; Supply Chain</category>
@@ -53,7 +53,7 @@
   </item>
   <item>
     <title>Late and damaged deliveries cost us 13 NPS points; product and design earn them back</title>
-    <link>/report.html?id=nps-verbatim-themes-h1-2026</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=nps-verbatim-themes-h1-2026</link>
     <guid isPermaLink="false">nps-verbatim-themes-h1-2026</guid>
     <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
     <category>Customer &amp; Growth</category>
@@ -61,7 +61,7 @@
   </item>
   <item>
     <title>Nearly half of new FC associates who leave in their first 90 days are gone within two weeks, and unstable schedules are the biggest cause</title>
-    <link>/report.html?id=fc-associate-attrition</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=fc-associate-attrition</link>
     <guid isPermaLink="false">fc-associate-attrition</guid>
     <pubDate>Wed, 22 Jul 2026 12:00:00 GMT</pubDate>
     <category>People &amp; Workplace</category>
@@ -69,7 +69,7 @@
   </item>
   <item>
     <title>Insights H1 2026 retro: our best work came from planned projects, but ad-hoc requests took almost half our time</title>
-    <link>/report.html?id=insights-team-h1-2026-retro</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=insights-team-h1-2026-retro</link>
     <guid isPermaLink="false">insights-team-h1-2026-retro</guid>
     <pubDate>Wed, 08 Jul 2026 12:00:00 GMT</pubDate>
     <category>Methods &amp; Standards</category>
@@ -77,7 +77,7 @@
   </item>
   <item>
     <title>Engagement slipped 3 points, and nearly all of the drop is in our fulfilment centres</title>
-    <link>/report.html?id=engagement-survey-2026</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=engagement-survey-2026</link>
     <guid isPermaLink="false">engagement-survey-2026</guid>
     <pubDate>Thu, 25 Jun 2026 12:00:00 GMT</pubDate>
     <category>People &amp; Workplace</category>
@@ -85,7 +85,7 @@
   </item>
   <item>
     <title>Single-page checkout lifts conversion 5.6% — but the win is on mobile web, not the app</title>
-    <link>/report.html?id=checkout-redesign-ab-test</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=checkout-redesign-ab-test</link>
     <guid isPermaLink="false">checkout-redesign-ab-test</guid>
     <pubDate>Thu, 18 Jun 2026 12:00:00 GMT</pubDate>
     <category>Product &amp; Digital</category>
@@ -93,7 +93,7 @@
   </item>
   <item>
     <title>Paid social pays back, but retargeting doesn't</title>
-    <link>/report.html?id=paid-social-geo-holdout</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=paid-social-geo-holdout</link>
     <guid isPermaLink="false">paid-social-geo-holdout</guid>
     <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
     <category>Marketing</category>
@@ -101,7 +101,7 @@
   </item>
   <item>
     <title>Reno picks 35% more units per hour than Allentown, and most of the gap comes from slotting and pick paths, not people</title>
-    <link>/report.html?id=warehouse-pick-rate-benchmark</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=warehouse-pick-rate-benchmark</link>
     <guid isPermaLink="false">warehouse-pick-rate-benchmark</guid>
     <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
     <category>Operations &amp; Supply Chain</category>
@@ -109,7 +109,7 @@
   </item>
   <item>
     <title>How to read a confidence interval, and why “significant” doesn’t mean “worth doing”</title>
-    <link>/report.html?id=reading-confidence-intervals</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=reading-confidence-intervals</link>
     <guid isPermaLink="false">reading-confidence-intervals</guid>
     <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
     <category>Methods &amp; Standards</category>
@@ -117,7 +117,7 @@
   </item>
   <item>
     <title>One in five customers drives 59% of revenue: our six customer segments for 2026</title>
-    <link>/report.html?id=customer-segmentation-2026</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=customer-segmentation-2026</link>
     <guid isPermaLink="false">customer-segmentation-2026</guid>
     <pubDate>Wed, 22 Apr 2026 12:00:00 GMT</pubDate>
     <category>Customer &amp; Growth</category>
@@ -125,7 +125,7 @@
   </item>
   <item>
     <title>The $75 free-shipping threshold is paying for itself, at a cost to new customers</title>
-    <link>/report.html?id=free-shipping-threshold-elasticity</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=free-shipping-threshold-elasticity</link>
     <guid isPermaLink="false">free-shipping-threshold-elasticity</guid>
     <pubDate>Wed, 08 Apr 2026 12:00:00 GMT</pubDate>
     <category>Finance &amp; Pricing</category>
@@ -133,7 +133,7 @@
   </item>
   <item>
     <title>Our offices peak on Tuesday–Thursday and sit mostly empty on Mondays and Fridays, so Denver could give back a floor</title>
-    <link>/report.html?id=hybrid-office-utilization</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=hybrid-office-utilization</link>
     <guid isPermaLink="false">hybrid-office-utilization</guid>
     <pubDate>Mon, 30 Mar 2026 12:00:00 GMT</pubDate>
     <category>People &amp; Workplace</category>
@@ -141,7 +141,7 @@
   </item>
   <item>
     <title>“Complete the room” adds $0.32 per product-page session — about $9.6M a year</title>
-    <link>/report.html?id=recommendations-carousel-impact</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=recommendations-carousel-impact</link>
     <guid isPermaLink="false">recommendations-carousel-impact</guid>
     <pubDate>Thu, 12 Mar 2026 12:00:00 GMT</pubDate>
     <category>Product &amp; Digital</category>
@@ -149,7 +149,7 @@
   </item>
   <item>
     <title>Send more email only to people who read it</title>
-    <link>/report.html?id=email-cadence-fatigue</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=email-cadence-fatigue</link>
     <guid isPermaLink="false">email-cadence-fatigue</guid>
     <pubDate>Wed, 25 Feb 2026 12:00:00 GMT</pubDate>
     <category>Marketing</category>
@@ -157,7 +157,7 @@
   </item>
   <item>
     <title>One definition each for active customer, active member, retained member and churn</title>
-    <link>/report.html?id=metric-glossary-active-member</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=metric-glossary-active-member</link>
     <guid isPermaLink="false">metric-glossary-active-member</guid>
     <pubDate>Tue, 10 Feb 2026 12:00:00 GMT</pubDate>
     <category>Methods &amp; Standards</category>
@@ -165,7 +165,7 @@
   </item>
   <item>
     <title>How we run experiments: decide before you look</title>
-    <link>/report.html?id=experimentation-playbook</link>
+    <link>https://venerialduke.github.io/report-repository/report.html?id=experimentation-playbook</link>
     <guid isPermaLink="false">experimentation-playbook</guid>
     <pubDate>Tue, 20 Jan 2026 12:00:00 GMT</pubDate>
     <category>Methods &amp; Standards</category>

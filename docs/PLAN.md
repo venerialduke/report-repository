@@ -24,7 +24,7 @@ shared/brand/           tokens.css, report.css, charts.js, logo, brand guide
 shared/templates/       report-starter (copy me)
 .claude/skills/         Claude skills: report construction, storytelling review, viz review, brand style
 scripts/                build-catalog, validate, new-report, generate-summaries
-.github/workflows/      CI (validate on PR) + Pages deploy (build + publish on main)
+.github/workflows/      CI (validate + stale-catalog check on PR) + refresh (catalog + AI summaries on main)
 ```
 
 ### Report metadata (`report.json`)
@@ -49,7 +49,7 @@ scripts/                build-catalog, validate, new-report, generate-summaries
 
 ### AI summaries
 
-- **Pre-generated** summaries: `scripts/generate-summaries.mjs` runs in the Pages workflow if an `ANTHROPIC_API_KEY` repo secret exists, and writes `ai_summary` into the catalog. Zero cost to readers, no key in the browser.
+- **Pre-generated** summaries: `scripts/generate-summaries.mjs` runs in the refresh workflow on `main` if an `ANTHROPIC_API_KEY` repo secret exists, and writes `ai_summary` into the catalog. Zero cost to readers, no key in the browser.
 - **On-demand** (single report, a selection of reports, or a free-form question across a selection): runs in the browser with the Anthropic JS SDK using the reader's own API key (kept in their `localStorage`, sent only to api.anthropic.com).
 - **No key?** "Copy prompt" builds the same prompt with the report text so it can be pasted into Claude.
 - **Upgrade path:** a small proxy (Cloudflare Worker / internal gateway) holding a team key → set `ai.proxyUrl` in config.
@@ -76,13 +76,13 @@ scripts/                build-catalog, validate, new-report, generate-summaries
 | 5 | AI | single / multi-report summaries, ask-a-question, copy-prompt fallback, build-time summaries | ✅ |
 | 6 | Comments | giscus integration + local prototype fallback | ✅ |
 | 7 | Shared assets | brand guide, resources page, Claude skills | ✅ |
-| 8 | CI/CD | validate on PR, build + deploy Pages on main | ✅ |
+| 8 | CI/CD | validate on PR; Pages serves `main`; refresh workflow keeps generated files and AI summaries current | ✅ |
 
 ## Later / not in the prototype
 
 - SSO-gated hosting (GitHub Pages on a private repo requires Enterprise; alternatives: Cloudflare Access, internal static host).
 - Per-report view analytics, "most read" carousel.
 - Versioning / report history UI (git already has it; surface `updated` + a changelog link).
-- Subscriptions ("notify me when Area X publishes") via GitHub watch or an RSS feed (`feed.xml` is cheap to add to the build).
+- Per-area subscriptions ("notify me when Area X publishes"); `feed.xml` already covers everything.
 - Server-side AI proxy with a shared team key and usage limits.
 - Semantic (embedding) search.

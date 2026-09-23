@@ -64,7 +64,7 @@ Open a pull request. CI runs the same validation. Before asking a human reviewer
 - "Use the **visualization-review** skill on reports/<id>"
 - "Use the **brand-style** skill on reports/<id>"
 
-Merging to `main` deploys the site. If the repo has an `ANTHROPIC_API_KEY` secret, the deploy also generates the report's AI summary.
+Merging to `main` publishes the report, because GitHub Pages serves `main` directly. Commit the regenerated `catalog.json`, `search-index.json` and `feed.xml` with your report; CI checks this. If the repo has an `ANTHROPIC_API_KEY` secret, a workflow on `main` then adds the report's AI summary.
 
 ## Pre-PR checklist
 

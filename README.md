@@ -13,7 +13,7 @@ One place to find every report from the Parcel & Pine Insights team. It's a stat
 | **Rich metadata** | Each report has a `report.json` with area, topics, tags, owners, key findings, code links to the team repo, data sources and related reports. CI validates it. |
 | **Viewer** | `report.html?id=…` shows the report next to its metadata: owners, key findings, code, data sources and related reports. |
 | **Export to PDF** | Single report: the **PDF** button (print-optimised stylesheet). Several reports: select them and choose **PDF bundle** to get a cover page, contents and page breaks. |
-| **AI summaries** | Claude can summarise one report, write an exec brief, synthesise across a selection, or answer a question about the selection. It runs in the reader's browser with their own API key, or a team proxy. **Copy prompt** works with no key at all. There are also optional pre-generated summaries at deploy time. |
+| **AI summaries** | Claude can summarise one report, write an exec brief, synthesise across a selection, or answer a question about the selection. It runs in the reader's browser with their own API key, or a team proxy. **Copy prompt** works with no key at all. Optional pre-generated summaries are added by a workflow on `main`. |
 | **Comments** | giscus (GitHub Discussions) once configured. Until then, a browser-local prototype mode. |
 | **Shared assets** | Brand tokens, report stylesheet, chart library, templates, a chart gallery, a brand guide and **Claude skills** (report construction, storytelling review, visualization review, brand style, metadata). See the Resources page. |
 | **RSS** | `feed.xml` for new reports. |
@@ -47,11 +47,14 @@ To add a report, see **[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)**. In short:
 npm run new -- my-report-id --title "Headline that states the finding" --area "Marketing" --owner "Lena Kowalski <lena.kowalski@parcelandpine.com>"
 ```
 
-## Deploying (one-time setup)
+## Deploying
 
-1. **Settings → Pages → Build and deployment → Source: GitHub Actions.** The `Deploy to GitHub Pages` workflow then publishes on every push to `main`.
-2. *(Optional)* **Settings → Secrets and variables → Actions → `ANTHROPIC_API_KEY`**. With it, the deploy pre-generates an AI summary for each new or changed report and caches it in `data/ai-summaries.json`.
-3. *(Optional)* Turn on shared comments: follow [docs/COMMENTS.md](docs/COMMENTS.md).
+The site is live at **https://venerialduke.github.io/report-repository/**. GitHub Pages serves `main` directly (Settings → Pages → Deploy from a branch → `main` / root), so **whatever is on `main` is the site**.
+
+- Generated files (`catalog.json`, `search-index.json`, `feed.xml`) are committed. `npm run check` rebuilds them, and CI fails a PR that forgets.
+- The `Refresh catalog & AI summaries` workflow runs on every push to `main` as a safety net. It rebuilds the generated files and commits them if they changed.
+- *(Optional)* **Settings → Secrets and variables → Actions → `ANTHROPIC_API_KEY`**. The same workflow then writes an AI summary for each new or changed report into `data/ai-summaries.json`, and it shows in the viewer's side panel.
+- *(Optional)* Turn on shared comments: follow [docs/COMMENTS.md](docs/COMMENTS.md).
 
 > GitHub Pages sites are public unless the repo belongs to an Enterprise org with private Pages. That's fine for a prototype with fictional data. For real reports, see the hosting options in [docs/PLAN.md](docs/PLAN.md).
 

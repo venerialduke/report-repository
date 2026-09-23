@@ -19,5 +19,11 @@ jobs:
         run: node scripts/validate.mjs
       - name: Build catalog
         run: node scripts/build-catalog.mjs
+      - name: Check generated files are committed
+        run: |
+          if ! git diff --exit-code --stat -- catalog.json search-index.json feed.xml; then
+            echo "::error title=Stale catalog::Run 'npm run check' and commit catalog.json, search-index.json and feed.xml. GitHub Pages serves them straight from main."
+            exit 1
+          fi
       - name: Syntax-check site scripts
         run: for f in assets/js/*.js shared/brand/charts.js scripts/*.mjs scripts/lib/*.mjs; do node --check "$f" || exit 1; done
