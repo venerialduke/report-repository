@@ -42,7 +42,8 @@ const skills = fs.existsSync(skillsDir)
   : [];
 
 const catalog = {
-  generated: new Date().toISOString(),
+  // Deterministic (no build timestamp) so CI can check the committed copy is current
+  updated: reports.reduce((a, r) => (r.updated > a ? r.updated : a), ""),
   site: { name: cfg.siteName, org: cfg.orgName },
   areas: cfg.areas.map((a) => ({ ...a, count: reports.filter((r) => r.area === a.name).length })),
   reports,
@@ -53,7 +54,7 @@ fs.writeFileSync(path.join(ROOT, "catalog.json"), JSON.stringify(catalog, null, 
 fs.writeFileSync(path.join(ROOT, "search-index.json"), JSON.stringify(index) + "\n");
 
 // RSS feed (relative links are resolved against SITE_URL when set, e.g. in CI)
-const base = (process.env.SITE_URL || "").replace(/\/?$/, "/");
+const base = (process.env.SITE_URL || cfg.siteUrl || "").replace(/\/?$/, "/");
 const x = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 const items = reports.filter((r) => r.status !== "draft").slice(0, 30).map((r) => `  <item>
     <title>${x(r.title)}</title>
