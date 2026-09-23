@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reno picks 35% more units per hour than Allentown, and most of the gap comes from slotting and pick paths, not people — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · May 2026</span>
+    </div>
+    <span class="pp-eyebrow">Operations &amp; Supply Chain</span>
+    <h1>Reno picks 35% more units per hour than Allentown, and most of the gap comes from slotting and pick paths, not people</h1>
+    <p class="pp-subtitle">A benchmark of pick productivity across our four fulfilment centres, with the gap broken down by cause and a plan for spreading Reno's practices to the other sites.</p>
+    <div class="pp-byline">
+      <span>By <b>Tom Becker</b></span>
+      <span>Published <b>May 20, 2026</b></span>
+      <span>Data through <b>Apr 30, 2026</b></span>
+    </div>
+  </header>
+
+  <blockquote class="pp-quote">"We re-slot every Sunday night. It's the least glamorous thing we do, and I'd bet it's worth more than anything else."<cite>Reno FC operations manager, site visit, April 2026</cite></blockquote>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Pick productivity varies widely by site.</strong> Reno averaged 62 units per labour hour (UPH) from January to April. Dallas averaged 55, Columbus 51 and Allentown 46. The network averaged 53.</li>
+      <li><strong>Process explains 83% of the Reno–Allentown gap.</strong> Of the 16 UPH gap, slotting accounts for 5.8, pick-path travel for 4.3 and batch size for 3.2. Associate tenure explains only 1.8.</li>
+      <li><strong>These practices can be copied.</strong> Reno re-slots weekly by velocity, batches 10–12 orders per tote cart and uses optimised pick paths. The other three sites do each of these partly or not at all.</li>
+      <li><strong>Recommendation:</strong> move Allentown and Columbus halfway to Reno's practices before peak. That would save about 21,800 pick hours a year (≈$0.53M) and cut peak temp-labour needs. <em>Owners: FC General Managers, Engineering &amp; Continuous Improvement.</em></li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Network pick rate, Jan–Apr</div><div class="pp-kpi-value">53 UPH</div><div class="pp-kpi-delta">5.22M units / 98.0k pick hours</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Best vs. worst FC</div><div class="pp-kpi-value">+35%</div><div class="pp-kpi-delta">Reno 62 vs. Allentown 46 UPH</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Gap explained by process</div><div class="pp-kpi-value">83%</div><div class="pp-kpi-delta">slotting, path, batching</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Hours saved at half-gap</div><div class="pp-kpi-value">21.8k</div><div class="pp-kpi-delta up">≈$0.53M per year</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>Reno leads the network by a wide margin, and Allentown trails it</h2>
+  <p class="pp-lede">Every FC has the same WMS, the same tote carts and roughly the same product catalogue. Pick rate still ranges from 46 to 62 units per labour hour.</p>
+  <p>From January to April the four FCs picked 5.22M units in 98,000 pick labour hours. Reno picked 1.36M units at 62 UPH, Dallas 1.46M at 55, Columbus 1.22M at 51 and Allentown 1.17M at 46. The spread has been stable. Allentown was the slowest site in each of the last six quarters, so this is not a one-off. The ranking holds after we remove big-and-bulky units (which are handled by a separate team with its own productivity standard) and after we weight each site to the same category mix.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Reno is 9 UPH above the network average and Allentown 7 below</p>
+    <p class="pp-fig-sub">Units picked per pick labour hour, each-pick only (excludes big &amp; bulky), Jan–Apr 2026</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "int", "highlight": ["Reno, NV"],
+        "ref": { "value": 53, "label": "Network 53" },
+        "categories": ["Reno, NV", "Dallas, TX", "Columbus, OH", "Allentown, PA"],
+        "series": [{ "name": "Units per labour hour", "values": [62, 55, 51, 46] }] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_pick_task, dw.fct_labor_hours (indirect time allocated pro rata). n = 212,400 associate-shifts.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>FC profiles: the practices that differ, Jan–Apr 2026</caption>
+      <thead><tr><th>FC</th><th class="num">UPH</th><th class="num">Units picked</th><th class="num">Pick hours</th><th class="num">Top-500 SKUs in golden zone</th><th class="num">Travel per pick</th><th class="num">Avg batch (orders)</th><th class="num">Pickers &lt;90 days tenure</th></tr></thead>
+      <tbody>
+        <tr><td><b>Reno</b></td><td class="num">62</td><td class="num">1.36M</td><td class="num">22.0k</td><td class="num">71%</td><td class="num">9.8 m</td><td class="num">11.2</td><td class="num">14%</td></tr>
+        <tr><td>Dallas</td><td class="num">55</td><td class="num">1.46M</td><td class="num">26.5k</td><td class="num">58%</td><td class="num">12.1 m</td><td class="num">9.6</td><td class="num">19%</td></tr>
+        <tr><td>Columbus</td><td class="num">51</td><td class="num">1.22M</td><td class="num">24.0k</td><td class="num">52%</td><td class="num">13.4 m</td><td class="num">8.1</td><td class="num">22%</td></tr>
+        <tr><td>Allentown</td><td class="num">46</td><td class="num">1.17M</td><td class="num">25.5k</td><td class="num">41%</td><td class="num">15.9 m</td><td class="num">6.4</td><td class="num">27%</td></tr>
+        <tr class="total"><td>Network</td><td class="num">53</td><td class="num">5.22M</td><td class="num">98.0k</td><td class="num">55%</td><td class="num">12.9 m</td><td class="num">8.8</td><td class="num">21%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>"Golden zone" means the waist-to-shoulder shelf levels nearest the pick-path spine. Reno keeps 71% of its 500 fastest-moving SKUs there, while Allentown keeps 41%, mainly because Allentown last ran a full re-slot in September 2025.</p>
+
+  <h2><span class="pp-num">02</span>Slotting, travel and batching explain 13.3 of the 16 UPH gap</h2>
+  <p class="pp-lede">We fitted a model of pick rate at the associate-shift level and used it to split the Reno–Allentown gap into its drivers.</p>
+  <p>The model is a linear mixed model with random effects for each associate, fitted to 212,400 associate-shifts. It explains 61% of the variance in shift-level UPH. The four drivers are all significant and have the expected signs. We controlled for category mix, units per order, shift (day/night) and week. Holding everything else constant:</p>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Estimated effect on UPH (associate-shift mixed model, R² = 0.61)</caption>
+      <thead><tr><th>Driver</th><th>Change</th><th class="num">Effect on UPH</th><th class="num">95% CI</th><th class="num">Reno–Allentown difference</th><th class="num">Gap explained</th></tr></thead>
+      <tbody>
+        <tr><td>Slotting</td><td>+10 pp of top-500 SKUs in golden zone</td><td class="num">+1.9</td><td class="num">1.6 to 2.2</td><td class="num">30 pp</td><td class="num">5.8 UPH</td></tr>
+        <tr><td>Pick-path travel</td><td>−1 m travel per pick (net of slotting)</td><td class="num">+0.70</td><td class="num">0.58 to 0.82</td><td class="num">6.1 m</td><td class="num">4.3 UPH</td></tr>
+        <tr><td>Batch size</td><td>+1 order per cart (up to 12)</td><td class="num">+0.67</td><td class="num">0.52 to 0.81</td><td class="num">4.8 orders</td><td class="num">3.2 UPH</td></tr>
+        <tr><td>Tenure</td><td>Picker &lt;90 days vs. 1 year+</td><td class="num">−14</td><td class="num">−15.5 to −12.5</td><td class="num">13 pp more new pickers</td><td class="num">1.8 UPH</td></tr>
+        <tr><td>Unexplained</td><td>Building layout, mezzanine lifts, other</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">0.9 UPH</td></tr>
+        <tr class="total"><td colspan="5">Total Reno–Allentown gap</td><td class="num">16.0 UPH</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Slotting alone accounts for more than a third of the gap</p>
+    <p class="pp-fig-sub">Decomposition of the 16.0 UPH difference between Reno and Allentown, Jan–Apr 2026 · UPH</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "dec1", "highlight": ["Slotting (golden-zone share)"],
+        "categories": ["Slotting (golden-zone share)", "Pick-path travel", "Batch size", "Associate tenure", "Unexplained / layout"],
+        "series": [{ "name": "UPH of gap", "values": [5.8, 4.3, 3.2, 1.8, 0.9] }] }
+      </script>
+    </div>
+    <figcaption>Source: model coefficients × Reno–Allentown differences in each driver. Slotting and travel are correlated; travel is measured net of slotting, so the two effects are not double-counted.</figcaption>
+  </figure>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">This isn't about Allentown's people</div><p>The GM, and some of the site review decks, have put Allentown's gap down to "a newer, greener workforce". Tenure does matter, since a new picker is 14 UPH slower than a one-year veteran. But Allentown's extra share of new pickers explains only 1.8 of the 16 UPH gap. If Allentown had Reno's tenure mix tomorrow and kept its current slotting and batching, it would still be the slowest site.</p></div>
+
+  <h2><span class="pp-num">03</span>Batching is the cheapest lever, and it stops paying off at about 12 orders</h2>
+  <p class="pp-lede">Allentown's carts carry 6.4 orders on average and Reno's carry 11.2. Allentown's small batches come from a wave-release setting, not from any physical limit.</p>
+  <p>Each extra order on the cart spreads the walk across more units. The effect is strong up to about 12 orders, after which cart capacity and sort-at-pack errors take most of the gain away. At Reno, batches above 12 had a 0.9% mis-sort rate compared with 0.3% below 12. Changing Allentown's and Columbus's wave release rule to a 10–12 order target is a WMS configuration change and needs no capital.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Pick rate rises steeply up to 12 orders per batch, then levels off</p>
+    <p class="pp-fig-sub">UPH by batch size, all FCs, each-pick tasks, Jan–Apr 2026</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "int", "highlight": ["9–12 orders"],
+        "categories": ["1–4 orders", "5–8 orders", "9–12 orders", "13–16 orders"],
+        "series": [{ "name": "Units per labour hour", "values": [41, 49, 58, 60] }] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_pick_task (batch_id, order count per batch). Shares of pick tasks: 1–4 = 18%, 5–8 = 37%, 9–12 = 38%, 13–16 = 7%.</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">04</span>New pickers need about 12 weeks to reach the network average, so tenure matters most in peak</h2>
+  <p class="pp-lede">Tenure is a small part of the site gap, but it matters a lot for peak planning, when a third of the workforce will be new.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">A new picker starts at about half a veteran's rate and reaches the network average around week 12</p>
+    <p class="pp-fig-sub">Median UPH by weeks since first pick shift, associates hired Jan 2025 – Jan 2026 (n = 1,140) · UPH</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "int", "yMin": 0, "yMax": 70, "labels": false,
+        "ref": { "value": 53, "label": "Network avg 53" },
+        "categories": ["Wk 1", "Wk 2", "Wk 4", "Wk 8", "Wk 12", "Wk 26", "Wk 52"],
+        "series": [{ "name": "Median UPH", "values": [29, 36, 43, 49, 52, 57, 60] }] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_pick_task joined to Workday hire dates. Survivors only: associates who left before week 12 are excluded after they leave, so later weeks slightly overstate the typical ramp.</figcaption>
+  </figure>
+  <p>Reno ramps new pickers faster than the other sites. In a new picker's fourth week Reno measures 47 UPH, compared with 41 at Allentown. Reno pairs each new hire with a "pick buddy" for the first two weeks and starts them on single-zone batches before moving them onto full paths. That program costs about 6 hours of veteran time per new hire. The benefit is roughly 30 additional pick hours saved over the first 12 weeks<sup>1</sup>.</p>
+
+  <h2><span class="pp-num">05</span>Moving Allentown and Columbus halfway to Reno's practices would save ~21,800 pick hours a year</h2>
+  <p>We do not assume either site can match Reno completely. Reno's building has a single-level pick module, while Allentown's has a mezzanine. Our target is for each site to close <em>half</em> its gap to Reno. That means Allentown from 46 to 54 UPH and Columbus from 51 to 56.5. At January–April volumes this saves 3,800 hours at Allentown and 2,300 at Columbus, or 6,100 hours in four months. January–April is about 28% of annual unit volume, so the annual saving is about 21,800 hours, or <strong>$0.53M at a $24.50 loaded rate</strong>. Nearly half of that saving would come in November and December, when each hour saved is an hour we don't have to fill with a temp.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">Caveat</div><p>The model shows association at the shift level, and slotting is not randomly assigned. Before scaling, we recommend a controlled pilot: re-slot one Allentown zone and use the other zones as the comparison.</p></div>
+
+  <h2><span class="pp-num">06</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Raise wave-release batch targets to 10–12 orders at Allentown and Columbus.</strong> This is a configuration change with no capital cost and the quickest win (≈3 UPH at Allentown). <span class="pp-owner">Owner: FC Systems (WMS) with site GMs · By: Jun 15, 2026</span></li>
+    <li><strong>Pilot weekly velocity re-slotting in one Allentown zone.</strong> Use Reno's Sunday-night playbook and a before/after comparison against the other zones. Scale to all zones if the gain is at least 3 UPH. <span class="pp-owner">Owner: Engineering &amp; Continuous Improvement · By: pilot live Jul 6, readout Aug 14, 2026</span></li>
+    <li><strong>Switch Columbus and Allentown to optimised pick-path sequencing.</strong> Reno uses largest-gap routing, while the other sites still use S-shape. <span class="pp-owner">Owner: FC Systems · By: Aug 31, 2026</span></li>
+    <li><strong>Roll out Reno's pick-buddy onboarding to all sites before peak hiring.</strong> <span class="pp-owner">Owner: FC Training with People Partners · By: Oct 1, 2026</span></li>
+    <li><strong>Publish UPH and the four driver metrics per FC on the weekly ops review</strong> so each site can see how it's doing on each driver. <span class="pp-owner">Owner: Tom Becker (Ops Analytics) · By: Jun 5, 2026</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Population</dt><dd>All each-pick tasks at the four FCs, Jan 5 – Apr 30, 2026 (5.22M units; 212,400 associate-shifts; 1,062 distinct pickers). Excludes big-and-bulky (team-lift) picks, replenishment and returns put-away.</dd>
+      <dt>Metric</dt><dd>UPH = units picked ÷ pick labour hours. Pick hours include direct task time plus a pro-rata share of indirect time (start-up meetings, cart staging) from Workday time clocks.</dd>
+      <dt>Model</dt><dd>Linear mixed model of shift-level UPH with associate random intercepts. Fixed effects: golden-zone share of the shift's picks, mean travel per pick (from WMS location coordinates), batch size (piecewise, knot at 12), tenure band, category mix, units per order, shift and week. Decomposition = coefficient × Reno–Allentown difference in each driver's mean.</dd>
+      <dt>Validation</dt><dd>Out-of-sample R² on May 1–10 data was 0.58. The site ranking and the size of the effects were stable when the model was fitted to each FC separately.</dd>
+      <dt>Limitations</dt><dd>Observational: better-run sites may also do other things well that we haven't measured. Travel distance is estimated from bin coordinates, not measured. Building constraints (Allentown's mezzanine) are grouped under "unexplained".</dd>
+    </dl>
+  </section>
+
+  <div class="pp-footnotes">
+    <p><sup>1</sup> The difference between Reno's and the other sites' ramp curves over weeks 1–12, multiplied by average hours worked. The estimate is sensitive to early attrition, which is higher at Allentown.</p>
+  </div>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

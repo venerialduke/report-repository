@@ -1,0 +1,29 @@
+{
+  "id": "email-cadence-fatigue",
+  "title": "Send more email only to people who read it",
+  "subtitle": "In a 12-week, 450,000-subscriber cadence test, going from 2 to 4 emails a week raised revenue by 21%. Going to 6 added almost nothing, burned through the list and cost us revenue once the test ended. A cadence set by engagement beats any single frequency.",
+  "type": "report",
+  "area": "Marketing",
+  "topics": ["CRM", "Experimentation", "Customer Engagement"],
+  "tags": ["email", "send-frequency", "fatigue-curve", "unsubscribes", "revenue-per-recipient", "engagement-tiers", "ab-test"],
+  "owners": [{ "name": "Lena Kowalski", "email": "lena.kowalski@parcelandpine.com", "role": "Author" }],
+  "published": "2026-02-25",
+  "updated": "2026-02-25",
+  "status": "final",
+  "summary": "We randomised 450,000 email subscribers to 2, 4 or 6 promotional emails a week for 12 weeks. Four a week lifted revenue per recipient by 21% over two. Six a week added no significant revenue, tripled unsubscribes and earned less once the test ended. We recommend an engagement-based cadence (6/4/2 by tier), worth an estimated +$4.6M a year with no more unsubscribes than today.",
+  "key_findings": [
+    "Going from 2 to 4 emails a week lifted 12-week revenue per recipient by +$0.85 (+21%, 95% CI +$0.61 to +$1.09). Going from 4 to 6 added only +$0.17 (not significant).",
+    "Unsubscribes rose from 1.9% at 2/wk to 6.1% at 6/wk. Weekly clickers in the 6/wk arm fell by a third over 12 weeks.",
+    "Over 21 weeks including follow-up, 4/wk ($8.43) beat 6/wk ($8.17), and 6/wk earned 15% less than 2/wk after the test.",
+    "High-engagement subscribers (22% of the list) earned the most at 6/wk. Lapsed subscribers (47%) earned the least at 6/wk and 8.6% of them unsubscribed.",
+    "An engagement-based 6/4/2 cadence is modelled at +15% revenue per recipient, or about +$4.6M a year, with flat unsubscribes."
+  ],
+  "code": [
+    { "label": "Randomisation & assignment", "path": "analyses/2025-08-email-cadence-test/01_assignment.sql" },
+    { "label": "Revenue per recipient & CIs", "path": "analyses/2025-08-email-cadence-test/02_rpr_bootstrap.py" },
+    { "label": "Fatigue curve & follow-up", "path": "analyses/2025-08-email-cadence-test/03_fatigue_followup.ipynb" },
+    { "label": "Engagement-tier cadence model", "path": "analyses/2025-08-email-cadence-test/04_tiered_cadence_model.py" }
+  ],
+  "data_sources": ["crm.fct_email_events", "crm.dim_email_test_assignment", "crm.fct_email_subscription_changes", "dw.fct_orders", "Qualtrics — Unsubscribe survey"],
+  "related": ["paid-social-geo-holdout", "customer-segmentation-2026", "experimentation-playbook", "reading-confidence-intervals"]
+}

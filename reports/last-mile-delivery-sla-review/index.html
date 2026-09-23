@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Only Pine Fleet meets the 95% on-time promise, and padding our delivery dates has hidden how far carriers have slipped — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · September 2026</span>
+    </div>
+    <span class="pp-eyebrow">Operations &amp; Supply Chain</span>
+    <h1>Only Pine Fleet meets the 95% on-time promise, and padding our delivery dates has hidden how far carriers have slipped</h1>
+    <p class="pp-subtitle">On-time delivery across the network was 92.1% from January to August. Adding buffer days to the promise made the headline number look better, cost us conversion and left the late tail where it was.</p>
+    <div class="pp-byline">
+      <span>By <b>Tom Becker</b></span>
+      <span>Published <b>Sep 4, 2026</b></span>
+      <span>Data through <b>Aug 31, 2026</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Only Pine Fleet meets the SLA.</strong> Our in-house fleet delivered 96.4% of parcels by the promised date. National carriers managed 90.8% and white-glove partners 84.1%, so the network as a whole reached 92.1% against a 95% target.</li>
+      <li><strong>The gap comes from the carriers, not the metros.</strong> In the same six metros and the same ZIP codes, Pine Fleet beats the national carriers by 3.9 to 5.8 pp.</li>
+      <li><strong>Padding the promise hid a ~4 pp decline in carrier performance.</strong> Since March we have added a buffer day on 38% of national-carrier volume. Measured against their unpadded transit standard, the carriers fell from 92.1% to 86.0%. The padded lanes also lost 1.2% of checkout conversion (≈$3.6M a year).</li>
+      <li><strong>Late parcels cost us NPS.</strong> Late deliveries are 7.9% of parcels but 23% of transactional-NPS detractors. When a parcel is two or more days late, NPS drops from +52 to −8.</li>
+      <li><strong>Recommendation:</strong> remove padding lane by lane, hold carriers to scan-based SLAs with penalties, and grow Pine Fleet ZIP coverage in Chicago and Philadelphia first. <em>Owners: Delivery Experience, Transportation, CX Ops.</em></li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">On-time vs. promise, Jan–Aug</div><div class="pp-kpi-value">92.1%</div><div class="pp-kpi-delta down">−2.9 pp vs. 95% SLA</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Pine Fleet on-time</div><div class="pp-kpi-value">96.4%</div><div class="pp-kpi-delta up">+1.4 pp above SLA</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Misses that are 2+ days late</div><div class="pp-kpi-value">61%</div><div class="pp-kpi-delta">of 559k late parcels</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Blended cost per parcel</div><div class="pp-kpi-value">$10.41</div><div class="pp-kpi-delta">7.08M parcels delivered</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>Pine Fleet has stayed above 95% all year. National carriers and white-glove have both drifted down since March</h2>
+  <p class="pp-lede">The network missed the 95% SLA in every month of 2026. Pine Fleet cleared it every month, including the July Pine Days peak. The two partner channels are moving the wrong way.</p>
+  <p>From January to August we delivered 7.08M parcels: 2.19M by Pine Fleet (31%), 4.46M by national carriers (63%) and 0.43M big-and-bulky shipments by white-glove partners (6%). Pine Fleet's monthly on-time rate stayed between 95.8% and 96.9%. The national carriers fell from 92.4% in January to 88.9% in July and recovered only to 90.1% in August. White-glove fell further, from 86.2% to a low of 82.7% in June. Because national carriers carry nearly two-thirds of our volume, their slide drives the network number. A 1 pp change in carrier on-time moves the network by about 0.6 pp.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Pine Fleet is the only channel above the 95% SLA in every month</p>
+    <p class="pp-fig-sub">Share of parcels delivered on or before the promised date shown at checkout, by delivery channel · %</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "pct1", "yMin": 80, "yMax": 100,
+        "ref": { "value": 95, "label": "SLA 95%" },
+        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+        "series": [
+          { "name": "Pine Fleet", "values": [95.8, 96.1, 96.6, 96.9, 96.8, 96.2, 95.9, 96.7] },
+          { "name": "National carriers", "values": [92.4, 91.8, 91.5, 91.0, 90.6, 90.2, 88.9, 90.1] },
+          { "name": "White-glove", "values": [86.2, 85.5, 84.9, 83.8, 83.1, 82.7, 83.0, 83.6] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_shipments joined to dw.fct_carrier_scans (first delivered scan), Jan 1 – Aug 31, 2026. n = 7.08M parcels. Promise = the date shown at checkout, including any padding.</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">02</span>Carriers are 4–6 pp behind Pine Fleet even on the same streets</h2>
+  <p class="pp-lede">One explanation for Pine Fleet's lead would be that it only serves dense, easy metros. The data doesn't support that.</p>
+  <p>National carriers still deliver about 18% of parcels inside the six Pine Fleet metros, either as overflow or for ZIPs at the edge of fleet coverage. When we compare the two channels on the same metro, ZIP-code ring and parcel size class, Pine Fleet is ahead by 3.9 to 5.8 pp. Chicago and Philadelphia have the largest gaps and are also the two metros where Pine Fleet is itself closest to the SLA line. The cause is capacity. Fleet routes there are at 94–97% of planned stops on Mondays, so some Monday overflow goes to carriers, and those overflow parcels are late 11% of the time.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Pine Fleet leads carriers by 4–6 pp in every metro, and by the most in Chicago and Philadelphia</p>
+    <p class="pp-fig-sub">Pine Fleet on-time minus national-carrier on-time in the same ZIPs, Jan–Aug 2026, matched on ZIP ring and parcel size class · percentage points</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pp", "highlight": ["Chicago", "Philadelphia"],
+        "categories": ["Denver", "Dallas", "Chicago", "Columbus", "Philadelphia", "Phoenix"],
+        "series": [{ "name": "Pine Fleet lead (pp)", "values": [4.1, 4.7, 5.8, 3.9, 5.1, 4.6] }] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_shipments, dw.dim_zip_ring. Pine Fleet on-time: Denver 97.1%, Dallas 96.8%, Chicago 95.2%, Columbus 97.4%, Philadelphia 95.9%, Phoenix 96.3%. National carriers in the same ZIPs: 93.0%, 92.1%, 89.4%, 93.5%, 90.8%, 91.7%. Carrier parcels restricted to ZIPs Pine Fleet also serves (n = 402k carrier parcels; 2.19M fleet parcels).</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">03</span>Padding the promise lifted the headline rate by ~4 pp and hid the carriers' decline</h2>
+  <p class="pp-lede">From March, the Delivery Promise team added one buffer day to national-carrier lanes that had missed 92% in the previous four weeks. That rule now applies to 38% of national-carrier volume.</p>
+  <p>The padding did what it was designed to do on paper. In the padded lanes, on-time against the customer promise rose by 2.1 pp in the first month. It did not change carrier performance. When we measure the same parcels against the carrier's <em>unpadded</em> scan-based transit standard (the date we would have promised without the buffer), national-carrier on-time fell from 92.1% in January to 86.0% in August. Against the padded promise the fall was only to 90.1%. The ~4 pp difference is decline we stopped seeing.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Against the unpadded standard, national carriers have fallen twice as far as the reported number shows</p>
+    <p class="pp-fig-sub">National-carrier on-time rate measured two ways, 2026 · % of parcels. Padding began in March.</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "pct1", "yMin": 80, "yMax": 100,
+        "ref": { "value": 95, "label": "SLA 95%" },
+        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+        "series": [
+          { "name": "Padded", "values": [92.4, 91.8, 91.5, 91.0, 90.6, 90.2, 88.9, 90.1] },
+          { "name": "Unpadded", "values": [92.1, 91.4, 89.8, 88.6, 87.7, 86.9, 85.1, 86.0] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_shipments, dw.fct_delivery_promise (promise_days_raw vs. promise_days_shown). Jan–Feb gap reflects a small padding pilot in two Texas lanes.</figcaption>
+  </figure>
+
+  <p>Padding also has a cost that the delivery dashboards don't show. A longer promise at checkout loses orders. We compared padded lanes with similar unpadded lanes before and after March (difference-in-differences, weekly lane panels). Checkout conversion in padded lanes fell by <strong>1.2%</strong> relative (95% CI −0.4% to −2.0%). Padded lanes carry about 24% of our orders, so the loss is roughly <strong>$3.6M in annualised revenue</strong>. That is about what Transportation would pay out in a year of late-delivery credits on the same parcels.</p>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">Why padding can't fix this</div><p>A buffer day helps only when a parcel is exactly one day late. In 2026, 61% of our late parcels were two or more days late. Most of those are lost-in-network, sort-centre missorts and failed first attempts, and one extra day would not have saved them. The padding moved the promise date, but the late parcels are still late.</p></div>
+
+  <h2><span class="pp-num">04</span>Late parcels are 8% of deliveries and 23% of detractors</h2>
+  <p class="pp-lede">We linked 61,200 transactional NPS responses to the delivery outcome of the order they rated.</p>
+  <p>Customers whose parcel arrived on time gave an NPS of +52. One day late brought it down to +31, and two or more days late to −8. Late parcels make up 7.9% of deliveries (3.1% one day late, 4.8% two or more), but because the detractor rate for 2+-days-late orders is 41%, they account for about 23% of all delivery-related detractors. This matches the "late and no update" theme in the <a href="../nps-verbatim-themes-h1-2026/index.html">H1 NPS verbatim analysis</a>. There, customers were more upset about how little they were told than about the delay.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">NPS falls 60 points when a parcel is two or more days late</p>
+    <p class="pp-fig-sub">Transactional NPS by delivery outcome, Jan–Aug 2026 · NPS score (−100 to +100)</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "int", "highlight": ["2+ days late"],
+        "categories": ["On time", "1 day late", "2+ days late"],
+        "series": [{ "name": "NPS", "values": [52, 31, -8] }] }
+      </script>
+    </div>
+    <figcaption>Source: Qualtrics — Post-delivery NPS, joined on order_id to dw.fct_shipments. n = 56,300 on time, 2,140 one day late, 2,760 two+ days late. 95% CIs ±0.8, ±4.1 and ±3.6 points.</figcaption>
+  </figure>
+
+  <blockquote class="pp-quote">"The date moved twice and nobody told me. I took a day off for a sofa that turned up on Thursday instead of Monday."<cite>Detractor verbatim, white-glove delivery, Phoenix, July 2026</cite></blockquote>
+
+  <h2><span class="pp-num">05</span>Where Pine Fleet operates, it costs less per parcel and delivers more on time</h2>
+  <p class="pp-lede">In most networks, reliability costs extra. Here the cheaper channel is also the more reliable one.</p>
+  <p>In its metros Pine Fleet costs $6.85 per parcel, fully loaded (drivers, vans, fuel, sort labour, depot lease). National carriers cost $7.60 on average, before peak and residential surcharges. White-glove costs much more because each stop is a scheduled two-person delivery. At $58.40 a stop and 84.1% on time, white-glove is our most expensive channel and our least reliable one.</p>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Delivery channel scorecard, Jan–Aug 2026</caption>
+      <thead><tr><th>Channel</th><th class="num">Parcels</th><th class="num">Share</th><th class="num">On-time</th><th class="num">Late 2+ days</th><th class="num">Cost / parcel</th><th class="num">Detractor rate</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Pine Fleet (6 metros)</td><td class="num">2.19M</td><td class="num">31%</td><td class="num">96.4%</td><td class="num">1.9%</td><td class="num">$6.85</td><td class="num">8.9%</td><td><span class="pp-badge good">Meets SLA</span></td></tr>
+        <tr><td>Carrier A</td><td class="num">2.63M</td><td class="num">37%</td><td class="num">91.9%</td><td class="num">4.7%</td><td class="num">$7.45</td><td class="num">10.6%</td><td><span class="pp-badge warn">Below SLA</span></td></tr>
+        <tr><td>Carrier B</td><td class="num">1.38M</td><td class="num">20%</td><td class="num">89.6%</td><td class="num">6.4%</td><td class="num">$7.70</td><td class="num">11.9%</td><td><span class="pp-badge warn">Below SLA</span></td></tr>
+        <tr><td>Regional carrier pool</td><td class="num">0.45M</td><td class="num">6%</td><td class="num">88.2%</td><td class="num">7.3%</td><td class="num">$8.10</td><td class="num">12.4%</td><td><span class="pp-badge bad">Well below</span></td></tr>
+        <tr><td>White-glove partners</td><td class="num">0.43M</td><td class="num">6%</td><td class="num">84.1%</td><td class="num">12.4%</td><td class="num">$58.40</td><td class="num">17.8%</td><td><span class="pp-badge bad">Well below</span></td></tr>
+        <tr class="total"><td>Network</td><td class="num">7.08M</td><td class="num">100%</td><td class="num">92.1%</td><td class="num">4.8%</td><td class="num">$10.41</td><td class="num">10.8%</td><td><span class="pp-badge warn">Below SLA</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Carrier A and Carrier B are the two national contracts. Both renew in Q1 2027, and neither contract currently puts penalties on on-time performance<sup>1</sup>. Expanding Pine Fleet coverage by 15% of ZIPs in Chicago and Philadelphia would move about 240k parcels a year from carriers to the fleet. Using the per-parcel costs above, that saves about $180k a year in delivery cost. On its own it adds only ~0.1 pp to network on-time, so the carriers remain the bigger lever.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">What this doesn't tell us</div><p>We don't observe the carriers' internal network, so we can't yet separate their own sort-centre delays from late handoffs by our FCs. About 9% of late carrier parcels had a first carrier scan more than 12 hours after our dispatch cut-off, which points to our dock. Transportation is pulling trailer departure logs so we can split that out.</p></div>
+
+  <h2><span class="pp-num">06</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Remove promise padding lane by lane, with a guardrail.</strong> Take the buffer off lanes where the carrier is meeting 93% or more against the unpadded standard, and send late-risk notifications instead. Expected result: most of the 1.2% conversion loss in those lanes comes back (≈$2M+ a year) for under 1 pp of reported on-time. <span class="pp-owner">Owner: Delivery Promise (Product) with Transportation · By: Oct 15, 2026</span></li>
+    <li><strong>Report the unpadded on-time rate.</strong> Put "on-time vs. unpadded standard" next to the customer-promise rate on the weekly ops dashboard so a carrier decline can't be absorbed by padding again. <span class="pp-owner">Owner: Jonah Feld (Analytics Engineering) · By: Sep 30, 2026</span></li>
+    <li><strong>Negotiate scan-based SLAs with penalties in the 2027 carrier renewals.</strong> Target ≥94% against the transit standard, with credits at 1% of spend per pp below target. <span class="pp-owner">Owner: Transportation Procurement · By: Jan 31, 2027</span></li>
+    <li><strong>Add Monday capacity to Pine Fleet in Chicago and Philadelphia, then extend ZIP coverage.</strong> Four more Monday routes per metro would absorb the overflow that currently goes to carriers late. <span class="pp-owner">Owner: Pine Fleet Ops · By: Nov 1, 2026 (before peak)</span></li>
+    <li><strong>Start a white-glove partner review.</strong> Make proactive rescheduling messages mandatory and add a partner scorecard to the quarterly business review. <span class="pp-owner">Owner: CX Ops with Big &amp; Bulky Logistics · By: Oct 31, 2026</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Population</dt><dd>All customer parcels delivered Jan 1 – Aug 31, 2026 (7.08M). Excludes marketplace orders fulfilled by the marketplace (≈10% of orders), returns and store transfers.</dd>
+      <dt>On-time definition</dt><dd>First "delivered" carrier or fleet scan on or before the promised date shown at checkout (local time). For white-glove, "delivered" means the completed-installation event.</dd>
+      <dt>Unpadded standard</dt><dd><code>promise_days_raw</code> from the promise engine, i.e. the carrier transit standard plus FC handling time, before the lane buffer rule was applied.</dd>
+      <dt>Metro comparison</dt><dd>Carrier and fleet parcels matched on metro, ZIP ring (distance from depot) and parcel size class. Differences shown are simple rates within matched cells, weighted to fleet volume.</dd>
+      <dt>Conversion impact</dt><dd>Difference-in-differences on weekly lane-level checkout conversion, 118 padded vs. 164 comparable unpadded lanes, Jan 5 – Aug 30. Pre-trends were parallel (p = 0.62). Standard errors clustered by lane.</dd>
+      <dt>NPS link</dt><dd>Post-delivery survey responses (Qualtrics) joined on order_id. The response rate is 4.1%, and late-delivery customers are slightly more likely to respond, so we reweighted by outcome.</dd>
+      <dt>Limitations</dt><dd>Carrier scans can be delayed or falsified ("delivered" before arrival). We estimate this at under 0.5% from customer "not received" contacts. Cost per parcel for Pine Fleet uses full allocation, so marginal costs are lower.</dd>
+    </dl>
+  </section>
+
+  <div class="pp-footnotes">
+    <p><sup>1</sup> Current contracts include only a guaranteed-service refund on express tiers, which make up under 2% of our volume.</p>
+  </div>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

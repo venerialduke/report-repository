@@ -1,0 +1,28 @@
+{
+  "id": "paid-social-geo-holdout",
+  "title": "Paid social pays back, but retargeting doesn't",
+  "subtitle": "A 28-market geo holdout shows paid social returns $2.15 per dollar, well under the 5.6× the platforms report. Nearly all of the gap is in retargeting, so we recommend moving $3.4M of it into prospecting and new tests.",
+  "type": "report",
+  "area": "Marketing",
+  "topics": ["Marketing Effectiveness", "Experimentation", "Budget Allocation"],
+  "tags": ["geo-holdout", "incrementality", "iroas", "paid-social", "retargeting", "attribution", "synthetic-control"],
+  "owners": [{ "name": "Lena Kowalski", "email": "lena.kowalski@parcelandpine.com", "role": "Author" }],
+  "published": "2026-06-03",
+  "updated": "2026-06-05",
+  "status": "final",
+  "summary": "A six-week matched-market holdout across 28 DMAs shows paid social drives real revenue: 2.15× incremental ROAS, against the 5.6× the platforms report. Prospecting clears our 1.8× hurdle at 2.81×. Retargeting returns only 0.97×, so we recommend moving $3.4M out of it for an expected +$2.0M a year in revenue.",
+  "key_findings": [
+    "Pausing paid social cut revenue in holdout markets by 4.1% (95% CI 2.7–5.5%): $3.95M of revenue on $1.84M of withheld spend.",
+    "Blended incremental ROAS is 2.15× vs. 5.6× platform-reported, so the platforms over-credit by about 2.6×.",
+    "Prospecting iROAS is 2.81× (over-credit 1.5×). Retargeting is 0.97× (over-credit 8.1×), below the 1.8× hurdle.",
+    "Moving $3.4M from retargeting into prospecting ($2.4M) and a test reserve ($1.0M) should add about $2.0M a year in revenue at flat spend."
+  ],
+  "code": [
+    { "label": "Market matching & randomisation", "path": "analyses/2026-04-paid-social-holdout/01_market_matching.py" },
+    { "label": "Synthetic control estimation", "path": "analyses/2026-04-paid-social-holdout/02_synthetic_control.R" },
+    { "label": "Platform vs. incremental ROAS reconciliation", "path": "analyses/2026-04-paid-social-holdout/03_roas_reconciliation.sql" },
+    { "label": "Budget reallocation scenarios", "path": "analyses/2026-04-paid-social-holdout/04_reallocation_scenarios.ipynb" }
+  ],
+  "data_sources": ["dw.fct_orders", "dw.dim_geo_dma", "mkt.stg_social_spend_daily", "mkt.fct_platform_attribution", "FP&A — Marketing budget plan v3"],
+  "related": ["brand-tracker-wave-4", "email-cadence-fatigue", "experimentation-playbook", "reading-confidence-intervals"]
+}

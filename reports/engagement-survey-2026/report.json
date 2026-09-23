@@ -1,0 +1,31 @@
+{
+  "id": "engagement-survey-2026",
+  "title": "Engagement slipped 3 points, and nearly all of the drop is in our fulfilment centres",
+  "subtitle": "The 2026 engagement survey had our highest response rate yet (81%). Corporate engagement held steady. FC engagement fell 4 points, driven by workload and unpredictable schedules, and Dallas fell furthest.",
+  "type": "report",
+  "area": "People & Workplace",
+  "topics": ["Employee Engagement", "Survey Research", "Fulfilment"],
+  "tags": ["engagement-survey", "key-drivers", "culture-amp", "fc-associates", "schedule-predictability", "workload", "internal-mobility"],
+  "owners": [
+    { "name": "Hannah Liu", "email": "hannah.liu@parcelandpine.com", "role": "Author" }
+  ],
+  "published": "2026-06-25",
+  "updated": "2026-06-30",
+  "status": "final",
+  "summary": "81% of employees took the 2026 engagement survey, a record. The engagement index fell from 71% to 68% favourable. Corporate was flat, while FCs fell 4 points and Dallas FC fell 8. Manager support, growth and workload are the biggest drivers company-wide, and for FC associates schedule predictability matters most. We recommend acting first on FC scheduling (starting in Dallas) and on internal mobility.",
+  "key_findings": [
+    "Response rate was 81% (2,317 of 2,860), up 4 pp; FC response reached a record 77%.",
+    "The engagement index fell 3 points to 68% favourable. Corporate was flat at 74%, FCs fell 4 points to 64%.",
+    "Dallas FC fell 8 points to 59% (±4.8), the lowest of any group; its schedule predictability score is 34%.",
+    "Manager support, growth and workload explain 62% of the modelled variation in engagement. For FC associates alone, schedule predictability is the top driver (22%).",
+    "Workload and staffing (27%) and career paths (21%) are the most common themes across 1,142 written comments."
+  ],
+  "code": [
+    { "label": "Response rates and index by group", "path": "analyses/2026-06-engagement-survey/01_index_by_group.sql" },
+    { "label": "Relative-weights driver model", "path": "analyses/2026-06-engagement-survey/02_key_drivers.py" },
+    { "label": "Non-response sensitivity weighting", "path": "analyses/2026-06-engagement-survey/03_nonresponse_weighting.py" },
+    { "label": "Comment theme coding summary", "path": "analyses/2026-06-engagement-survey/04_comment_themes.ipynb" }
+  ],
+  "data_sources": ["Culture Amp — Annual Engagement 2026", "Culture Amp — Annual Engagement 2022–2025", "hris.dim_employee", "Workday"],
+  "related": ["fc-associate-attrition", "hybrid-office-utilization", "peak-2026-capacity-plan"]
+}

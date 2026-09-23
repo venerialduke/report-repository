@@ -1,0 +1,30 @@
+{
+  "id": "hybrid-office-utilization",
+  "title": "Our offices peak on Tuesday–Thursday and sit mostly empty on Mondays and Fridays, so Denver could give back a floor",
+  "subtitle": "Ten weeks of badge and desk-booking data show Denver HQ never used more than 612 of its 900 desks. People rate office days as worth the commute when their own team is in, which is a matter of coordination, not of desk count.",
+  "type": "report",
+  "area": "People & Workplace",
+  "topics": ["Hybrid Work", "Workplace", "Survey Research"],
+  "tags": ["office-utilization", "badge-data", "desk-booking", "anchor-days", "real-estate", "denver-hq", "chicago-office", "co-presence"],
+  "owners": [
+    { "name": "Hannah Liu", "email": "hannah.liu@parcelandpine.com", "role": "Author" }
+  ],
+  "published": "2026-03-30",
+  "updated": "2026-04-06",
+  "status": "final",
+  "summary": "Badge and desk-booking data for Denver HQ and Chicago show attendance concentrated on Tuesday–Thursday. Denver averages 42% desk utilisation and its busiest day in 10 weeks used 612 of 900 desks, so the floor 6 give-back option (worth about $1.1M a year) is viable if midweek demand is spread more evenly. Teams with anchor days are together 2.3× as often, and people rate office days as worth the commute when their team is there.",
+  "key_findings": [
+    "Denver desk utilisation averages 42%, from 11% on Fridays to 62% on Wednesdays. Chicago averages 31%, peaking at 48%.",
+    "Denver's busiest day used 612 desks, which is 85% of four-floor capacity. Giving back floor 6 saves about $1.1M a year from 2027.",
+    "Teams with anchor days have at least half the team in on 63% of office days, compared with 27% for teams without (2.3×).",
+    "78% rated an office day as 'worth the commute' when 75%+ of their team was in, compared with 36% when under 25% was."
+  ],
+  "code": [
+    { "label": "Daily utilisation from badge + booking events", "path": "analyses/2026-03-hybrid-office/01_daily_utilisation.sql" },
+    { "label": "Team co-presence metric", "path": "analyses/2026-03-hybrid-office/02_team_copresence.sql" },
+    { "label": "Pulse survey linkage and analysis", "path": "analyses/2026-03-hybrid-office/03_pulse_linkage.py" },
+    { "label": "Floor consolidation scenarios", "path": "analyses/2026-03-hybrid-office/04_floor_scenarios.ipynb" }
+  ],
+  "data_sources": ["facilities.fct_badge_events", "facilities.fct_desk_bookings", "hris.dim_employee", "Qualtrics — Workplace Pulse Feb 2026", "Workday"],
+  "related": ["engagement-survey-2026", "fc-associate-attrition"]
+}

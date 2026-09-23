@@ -1,0 +1,31 @@
+{
+  "id": "app-search-relevance",
+  "title": "App search fails customers who say “couch” — synonyms and typos cause 61% of null results",
+  "subtitle": "The app still runs on the old search index that web moved off last year. Porting web's synonym and typo handling to the app is worth about $5M a year.",
+  "type": "report",
+  "area": "Product & Digital",
+  "topics": ["Search", "Digital Experience", "UX Research"],
+  "tags": ["app-search", "null-results", "synonyms", "typo-tolerance", "usability-testing", "mixed-methods", "opportunity-sizing"],
+  "owners": [
+    { "name": "Priya Natarajan", "email": "priya.natarajan@parcelandpine.com", "role": "Lead Data Scientist, Experimentation" },
+    { "name": "Aisha Rahman", "email": "aisha.rahman@parcelandpine.com", "role": "UX Researcher" }
+  ],
+  "published": "2026-08-27",
+  "updated": "2026-08-27",
+  "status": "final",
+  "summary": "App search trails web on null-result rate (8.7% vs 5.2%), top-3 click-through (31% vs 38%) and reformulation (22% vs 15%), because the app still queries the legacy v1 index with no synonym or typo handling. Log analysis of 9.8M queries and 12 usability sessions show that vocabulary mismatches such as “couch” vs “sofa” cause most failures. Porting web's synonym list and typo tolerance before peak is worth about $5.1M a year.",
+  "key_findings": [
+    "8.7% of app queries return zero results, compared with 5.2% on web; top-3 CTR is 31% vs 38%.",
+    "Synonym mismatches (34%) and misspellings (27%) cause 61% of app null results; only 18% are for products we don't sell.",
+    "7 of 12 usability participants typed “couch” first, and 4 of them concluded Parcel & Pine doesn't sell sofas.",
+    "App sessions that hit a null convert at 1.3%, versus 4.2% for sessions that reformulate and then click.",
+    "Fixing synonym and typo nulls is sized at about $5.1M a year (range $2.0–8.0M)."
+  ],
+  "code": [
+    { "label": "Search metrics build", "path": "analyses/2026-08-app-search-relevance/01_search_metrics.sql" },
+    { "label": "Null-query sampling & coding", "path": "analyses/2026-08-app-search-relevance/02_null_query_coding.ipynb" },
+    { "label": "Opportunity sizing", "path": "analyses/2026-08-app-search-relevance/03_opportunity_sizing.py" }
+  ],
+  "data_sources": ["dw.fct_search_queries", "dw.fct_app_sessions", "dw.dim_product", "Dovetail — App search usability study (Jul 2026)"],
+  "related": ["checkout-redesign-ab-test", "recommendations-carousel-impact", "nps-verbatim-themes-h1-2026"]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "recommendations-carousel-impact",
+  "title": "“Complete the room” adds $0.32 per product-page session — about $9.6M a year",
+  "subtitle": "An 8-week holdout shows the carousel is truly incremental in furniture and bedding, and does almost nothing in decor. The next test should be the cart page.",
+  "type": "report",
+  "area": "Product & Digital",
+  "topics": ["Experimentation", "Personalisation", "Digital Experience"],
+  "tags": ["recommendations", "holdout", "incrementality", "cannibalisation", "product-page", "attach-rate", "cart-page"],
+  "owners": [{ "name": "Priya Natarajan", "email": "priya.natarajan@parcelandpine.com", "role": "Lead Data Scientist, Experimentation" }],
+  "published": "2026-03-12",
+  "updated": "2026-03-16",
+  "status": "final",
+  "summary": "A 10% customer holdout over eight weeks shows the “Complete the room” carousel adds $0.32 of revenue per product-page session (95% CI $0.20–$0.44), about $9.6M a year. That is 43% less than last-click attribution claims. The effect is concentrated in sofas and bedding, while decor is almost entirely cannibalised, so we recommend testing the carousel on the cart page and suppressing it on decor PDPs.",
+  "key_findings": [
+    "Exposed PDP sessions earned $6.44 vs $6.12 in the holdout: +$0.32 per session (+5.2%, CI $0.20–$0.44), about $9.6M a year.",
+    "Multi-category orders rose from 35.1% to 38.2%; conversion was essentially flat (+0.8%).",
+    "43% of last-click carousel revenue is cannibalised; the dashboard's $0.56 per session overstates impact by 75%.",
+    "Sofas & seating (+$0.52) and bedding (+$0.41) drive the effect; in decor & storage, 90% of attributed revenue is cannibalised.",
+    "Tiles 1–4 receive 83% of carousel clicks."
+  ],
+  "code": [
+    { "label": "Holdout session build", "path": "analyses/2026-03-reco-carousel-holdout/01_pdp_sessions.sql" },
+    { "label": "Incrementality & category cuts", "path": "analyses/2026-03-reco-carousel-holdout/02_incrementality.py" },
+    { "label": "Cart-page opportunity sizing", "path": "analyses/2026-03-reco-carousel-holdout/03_cart_page_sizing.ipynb" }
+  ],
+  "data_sources": ["exp.assignments", "dw.fct_pdp_sessions", "dw.fct_reco_events", "dw.fct_orders", "dw.dim_product"],
+  "related": ["experimentation-playbook", "checkout-redesign-ab-test", "app-search-relevance"]
+}

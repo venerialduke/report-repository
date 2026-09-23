@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peak 2026 fits within our physical capacity in the base case, but we are 580 temps and 33k fleet stops short, and the high case breaks Black Friday week — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span><span class="pp-badge warn">Draft — for review</span> Report · September 2026</span>
+    </div>
+    <span class="pp-eyebrow">Operations &amp; Supply Chain</span>
+    <h1>Peak 2026 fits within our physical capacity in the base case, but we are 580 temps and 33k fleet stops short, and the high case breaks Black Friday week</h1>
+    <p class="pp-subtitle">Weekly forecast, by FC, of orders from Black Friday to Christmas under three scenarios, with the labour and carrier capacity we need to commit by mid-October.</p>
+    <div class="pp-byline">
+      <span>By <b>Tom Becker</b></span>
+      <span>Draft circulated <b>Sep 19, 2026</b></span>
+      <span>Data through <b>Sep 13, 2026</b></span>
+      <span>Comments by <b>Sep 30, 2026</b></span>
+    </div>
+  </header>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">Draft — numbers will move</div><p>This is the first draft for the Peak Steering Group. The forecast will be refreshed on Oct 5 with September actuals and the final promo calendar from Marketing. Figures marked "TBC" depend on agency and carrier responses that are still open. Please send comments to #peak-2026 or add them on this page by Sep 30.</p></div>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Base forecast: 1.82M orders in the six peak weeks, up 9.6% on 2025.</strong> The largest week is Black Friday week (Nov 23–29) at 410k orders, 2.5× a normal week.</li>
+      <li><strong>Labour: we need about 1,400 temps at peak and have 820 committed.</strong> Agencies need 5–6 weeks of lead time, so the remaining 580 have to be signed by <b>Oct 12</b>.</li>
+      <li><strong>Carriers: the base case has two gaps.</strong> Pine Fleet is 33k stops short over the window, and national carriers' weekly caps are 18k parcels short in Black Friday week.</li>
+      <li><strong>High scenario (+12%): Black Friday week goes past the FCs' physical ceiling by ~19k orders.</strong> More labour can't fix that. We would need to shape demand, for example by starting deals earlier or lengthening promise dates.</li>
+      <li><strong>Decisions needed:</strong> approve temp hiring for the base case plus a 10% buffer, sign surge terms with Carrier B, and agree a demand-shaping trigger with Marketing. <em>Owners: FC Ops, Transportation, Marketing.</em></li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Peak-window orders (base)</div><div class="pp-kpi-value">1.82M</div><div class="pp-kpi-delta up">+9.6% vs. 2025</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Black Friday week orders (base)</div><div class="pp-kpi-value">410k</div><div class="pp-kpi-delta">vs. 440k physical ceiling</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Temps needed / committed</div><div class="pp-kpi-value">1,400 / 820</div><div class="pp-kpi-delta down">580 still to hire</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Incremental peak cost (base)</div><div class="pp-kpi-value">$11.3M</div><div class="pp-kpi-delta">vs. $9.8M in 2025</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>We expect a peak 9.6% bigger than 2025's, concentrated in Black Friday week</h2>
+  <p class="pp-lede">The base forecast follows the FY26 revenue plan (+9%) and last year's weekly shape, aligned to Thanksgiving week (Nov 26 this year, Nov 27 in 2025).</p>
+  <p>The forecast is a weekly model of order volume by FC. It combines the 2023–2025 peak curves, year-to-date growth (orders +8.8% through August), Pine+ member growth, and Marketing's draft promo calendar. We expect 1.82M orders over the six weeks from Nov 16 to Dec 27, against 1.66M in the same weeks of 2025. The low scenario (−8%) assumes a softer consumer and no early-access deals, which gives 1.67M. The high scenario (+12%) assumes the early-access event runs as a site-wide sale and paid social is pushed into November, which gives 2.04M. The 80% prediction interval of the base model is roughly ±6%, so the low and high scenarios sit just outside it on each side.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Only the high scenario breaks the physical ceiling, and only in Black Friday week</p>
+    <p class="pp-fig-sub">Forecast weekly orders, all FCs, by scenario, week starting Monday · orders. For reference, 2025 Black Friday week shipped 372k.</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "num", "yMin": 0,
+        "ref": { "value": 440000, "label": "Physical ceiling 440k" },
+        "categories": ["Nov 16", "Nov 23", "Nov 30", "Dec 7", "Dec 14", "Dec 21"],
+        "series": [
+          { "name": "Low (−8%)", "values": [225000, 377000, 354000, 304000, 276000, 138000] },
+          { "name": "Base", "values": [245000, 410000, 385000, 330000, 300000, 150000] },
+          { "name": "High (+12%)", "values": [274000, 459000, 431000, 370000, 336000, 168000] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_orders (2025 actuals: 222k, 372k, 352k, 302k, 275k, 137k in the aligned weeks), analyses/2026-09-peak-capacity forecast v0.3. The week of Nov 23 contains Thanksgiving and Black Friday. Cyber Monday (Nov 30) opens the following week. Ceiling = 2 shifts × 7 days at full dock and pack-station capacity.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Scenario summary, peak window Nov 16 – Dec 27, 2026</caption>
+      <thead><tr><th>Scenario</th><th class="num">Orders</th><th class="num">vs. 2025</th><th class="num">Black Friday week</th><th class="num">Parcels</th><th class="num">Temps at peak</th><th class="num">Incremental cost</th><th>Feasible?</th></tr></thead>
+      <tbody>
+        <tr><td>Low</td><td class="num">1.67M</td><td class="num">+0.8%</td><td class="num">377k</td><td class="num">2.18M</td><td class="num">1,050</td><td class="num">$9.4M</td><td><span class="pp-badge good">Yes</span></td></tr>
+        <tr><td><b>Base</b></td><td class="num">1.82M</td><td class="num">+9.6%</td><td class="num">410k</td><td class="num">2.37M</td><td class="num">1,400</td><td class="num">$11.3M</td><td><span class="pp-badge warn">Yes, if we hire by Oct 12</span></td></tr>
+        <tr><td>High</td><td class="num">2.04M</td><td class="num">+22.8%</td><td class="num">459k</td><td class="num">2.65M</td><td class="num">1,850</td><td class="num">$13.6M TBC</td><td><span class="pp-badge bad">No, Black Friday over ceiling</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">02</span>Every FC has more physical capacity than the base case needs, but none has the staff</h2>
+  <p class="pp-lede">With core staff on mandatory overtime, the network can ship about 270k orders a week. Black Friday week needs 410k.</p>
+  <p>The 1,800 core associates, on 50-hour weeks, give 270k orders a week across the four FCs. That leaves a 140k-order gap in Black Friday week, spread fairly evenly: Reno 38k, Dallas 36k, Columbus 36k and Allentown 30k. Each building's physical ceiling (two shifts, seven days, every pack station open) is above its base-case peak. Columbus and Allentown have the least headroom, at 6k and 4k orders. Those are also the two sites with the lowest pick rates. The <a href="../warehouse-pick-rate-benchmark/index.html">pick-rate benchmark</a> changes (batching and re-slotting) went live at both over the summer, and their Q3 gains of +3 and +4 UPH are already included in these capacities.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">In Black Friday week each FC needs 30–38k more orders than its core staff can ship</p>
+    <p class="pp-fig-sub">Week of Nov 23, base scenario, by FC · orders per week</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "num",
+        "categories": ["Reno", "Dallas", "Columbus", "Allentown"],
+        "series": [
+          { "name": "Core-staff capacity", "values": [80000, 76000, 60000, 54000] },
+          { "name": "Base forecast", "values": [118000, 112000, 96000, 84000] },
+          { "name": "Physical ceiling", "values": [128000, 122000, 102000, 88000] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: forecast v0.3; capacity model from dw.fct_labor_hours and engineered station rates. Core-staff capacity assumes 50-hour weeks and 6% absenteeism.</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">03</span>We need 1,400 temps at peak and have 820, and the agencies need the rest signed by Oct 12</h2>
+  <p class="pp-lede">A temp ships about 100 orders a week at peak. That figure already reflects the ramp curve, since a new picker starts at roughly half a veteran's rate.</p>
+  <p>Temp requirements come from each site's gap divided by expected temp productivity, plus 12% for absenteeism and early attrition. Last year 1 in 6 temps left before Black Friday week. Columbus and Allentown need more temps per 1,000 orders of gap (10.3 and 11.0, against 9.2 at Reno) because their pick rates are lower. Agencies are quoting 5–6 weeks from signature to a trained associate on the floor. Working back from a Nov 16 start date, that gives <b>Oct 12</b> as the latest date to sign.</p>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Temp labour by FC, base scenario</caption>
+      <thead><tr><th>FC</th><th class="num">Black Friday gap (orders)</th><th class="num">Temps needed</th><th class="num">Committed (Sep 19)</th><th class="num">Still to hire</th><th class="num">High scenario need</th><th>Agency status</th></tr></thead>
+      <tbody>
+        <tr><td>Reno</td><td class="num">38k</td><td class="num">350</td><td class="num">260</td><td class="num">90</td><td class="num">460</td><td><span class="pp-badge good">On track</span></td></tr>
+        <tr><td>Dallas</td><td class="num">36k</td><td class="num">350</td><td class="num">240</td><td class="num">110</td><td class="num">460</td><td><span class="pp-badge good">On track</span></td></tr>
+        <tr><td>Columbus</td><td class="num">36k</td><td class="num">370</td><td class="num">180</td><td class="num">190</td><td class="num">490</td><td><span class="pp-badge warn">Second agency TBC</span></td></tr>
+        <tr><td>Allentown</td><td class="num">30k</td><td class="num">330</td><td class="num">140</td><td class="num">190</td><td class="num">440</td><td><span class="pp-badge bad">At risk: tight local market</span></td></tr>
+        <tr class="total"><td>Network</td><td class="num">140k</td><td class="num">1,400</td><td class="num">820</td><td class="num">580</td><td class="num">1,850</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">Allentown is the labour risk</div><p>The Lehigh Valley has three other large DCs hiring for peak. Agency fill rates for our Allentown orders were 71% last year, compared with 88% or more at the other sites. <a href="../fc-associate-attrition/index.html">FC attrition analysis</a> shows 90-day temp attrition at Allentown running 9 pp above the network. We suggest planning Allentown at 110% of need and pre-approving a $1.50/hour peak premium.</p></div>
+
+  <h2><span class="pp-num">04</span>Carrier commitments cover the window in total, but not Black Friday week or Pine Fleet</h2>
+  <p class="pp-lede">The base case is 2.37M parcels (1.3 per order). We assume the current mix of 31% Pine Fleet, 63% national carriers and 6% white-glove.</p>
+  <p>Across the whole window, the national carriers' combined commitment (1.52M parcels) covers the base case with 29k to spare. Their weekly caps are the problem. In Black Friday week we expect 336k national-carrier parcels against combined caps of 318k. Carrier B has offered surge capacity at a $0.85 per parcel premium, and this draft assumes we accept it. Pine Fleet has confirmed capacity for 700k stops, including 40 rented vans, which is 33k short of the base case. White-glove partners have committed 128k deliveries against a need of 142k. Since white-glove on-time was 84.1% in Jan–Aug (see the <a href="../last-mile-delivery-sla-review/index.html">last-mile SLA review</a>), we should not push those partners past their stated capacity.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Base-case parcel needs against confirmed carrier capacity</p>
+    <p class="pp-fig-sub">Parcels over the peak window (Nov 16 – Dec 27), base scenario · thousand parcels</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": { "suffix": "k", "decimals": 0 },
+        "categories": ["Pine Fleet", "National carriers", "White-glove"],
+        "series": [
+          { "name": "Base need", "values": [733, 1491, 142] },
+          { "name": "Committed", "values": [700, 1520, 128] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: forecast v0.3 × 2026 YTD parcels per order and channel mix; carrier commitments from Transportation (Carrier A 880k, Carrier B 470k, regional pool 170k).</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Carrier capacity: needs vs. commitments</caption>
+      <thead><tr><th>Channel</th><th class="num">Committed</th><th class="num">Base need</th><th class="num">Base gap</th><th class="num">High need</th><th class="num">High gap</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Pine Fleet</td><td class="num">700k</td><td class="num">733k</td><td class="num">−33k</td><td class="num">821k</td><td class="num">−121k</td><td>12 more rented vans + Sunday routes in Dallas/Phoenix (TBC)</td></tr>
+        <tr><td>National carriers (window)</td><td class="num">1,520k</td><td class="num">1,491k</td><td class="num">+29k</td><td class="num">1,670k</td><td class="num">−150k</td><td>Carrier B surge tier; regional pool overflow</td></tr>
+        <tr><td>National carriers (Black Friday week)</td><td class="num">318k</td><td class="num">336k</td><td class="num">−18k</td><td class="num">376k</td><td class="num">−58k</td><td>Carrier B surge at +$0.85/parcel; pre-BF promo pull-forward</td></tr>
+        <tr><td>White-glove</td><td class="num">128k</td><td class="num">142k</td><td class="num">−14k</td><td class="num">159k</td><td class="num">−31k</td><td>Longer big &amp; bulky promise dates from Nov 20</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">05</span>If demand comes in high, the fix is demand shaping, not hiring</h2>
+  <p>In the high scenario, Black Friday week needs 459k orders against a 440k ceiling. The overage is Reno 4k, Dallas 3k, Columbus 6k and Allentown 6k. Extra labour can't close it, because every pack station would already be staffed on both shifts. We see three options. <b>(a)</b> Start early-access deals for Pine+ members on Nov 16 instead of Nov 20, which moves an estimated 15–25k orders out of Black Friday week. <b>(b)</b> Add one day to the promise date on non-member orders for Black Friday week only. This costs some conversion, which we measured at about 1.2% in the <a href="../last-mile-delivery-sla-review/index.html">SLA review</a>, so it is a short-term measure. <b>(c)</b> Rent a temporary overflow pack line in Dallas for about $0.4M. We recommend agreeing on (a) as a pre-planned trigger. If orders in the week of Nov 9 run more than 6% above base, Marketing would pull early access forward.</p>
+
+  <div class="pp-callout recommendation"><div class="pp-callout-title">Decisions for the Peak Steering Group (Sep 30)</div><p>1) Approve temp hiring to base + 10% (≈1,540 heads, about $0.8M above base cost). 2) Approve the Carrier B surge tier for Black Friday week. 3) Agree the early-access pull-forward trigger with Marketing. 4) Approve the Allentown wage premium.</p></div>
+
+  <h2><span class="pp-num">06</span>Recommendations and owners</h2>
+  <ol class="pp-recs">
+    <li><strong>Sign the remaining 580 temp positions (plus a 10% buffer) with agencies.</strong> Allentown and Columbus first. <span class="pp-owner">Owner: FC Ops Directors with Talent Acquisition · By: Oct 12, 2026</span></li>
+    <li><strong>Accept the Carrier B surge tier and lock weekly caps for Black Friday week in writing.</strong> <span class="pp-owner">Owner: Transportation Procurement · By: Oct 9, 2026</span></li>
+    <li><strong>Close the 33k-stop Pine Fleet gap</strong> with 12 more rented vans and Sunday routes in Dallas and Phoenix. <span class="pp-owner">Owner: Pine Fleet Ops · By: Oct 30, 2026</span></li>
+    <li><strong>Set a demand-shaping trigger</strong>: pull early access forward if orders in the week of Nov 9 are 6% or more above base. <span class="pp-owner">Owner: Lifecycle Marketing with Tom Becker · By: Oct 16, 2026</span></li>
+    <li><strong>Refresh the forecast weekly from Oct 5</strong> and publish the final (non-draft) plan on Oct 16. <span class="pp-owner">Owner: Tom Becker (Ops Analytics) · By: Oct 16, 2026</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Forecast</dt><dd>Weekly orders by FC from a hierarchical model: 2026 run-rate × peak lift curves from 2023–2025 aligned to Thanksgiving week, with regressors for promo events and Pine+ member count. It was backtested on 2024 and 2025 peaks, with MAPE of 5.1% and 4.3% at the weekly-network level and 7–9% at the weekly-FC level.</dd>
+      <dt>Scenarios</dt><dd>Low and high are −8% and +12% on total volume with the same weekly shape. We have not yet modelled a change in shape, such as a bigger Cyber Monday. That is planned for v0.4.</dd>
+      <dt>Labour</dt><dd>Core capacity = scheduled core hours at 50 hours/week, less 6% absenteeism, × engineered orders per hour by site (Q3 2026 actuals). Temp productivity follows the tenure ramp curve from the pick-rate benchmark, blended over the peak weeks. Buffer: 12% for absenteeism and attrition.</dd>
+      <dt>Carriers</dt><dd>Parcels = orders × 1.30 (2026 YTD). Channel mix from Jan–Aug actuals. Commitments are as confirmed in writing by Sep 18. Anything verbal is marked TBC.</dd>
+      <dt>Cost</dt><dd>Temp wages and agency fees ($8.4M base), carrier peak surcharges ($1.6M), Pine Fleet van rental and overtime ($1.3M). Excludes marketing spend and any stock-out cost.</dd>
+      <dt>Limitations</dt><dd>This is a draft. The promo calendar isn't final, marketplace volume (≈10% of orders) is only partly under our control, and weather or carrier network events aren't modelled. The high-scenario cost is a rough estimate.</dd>
+    </dl>
+  </section>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal · DRAFT</span><span>Questions? #peak-2026 · #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

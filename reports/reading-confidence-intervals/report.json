@@ -1,0 +1,25 @@
+{
+  "id": "reading-confidence-intervals",
+  "title": "How to read a confidence interval, and why “significant” doesn’t mean “worth doing”",
+  "subtitle": "A five-minute guide for anyone who reads our experiment and survey results. No formulas.",
+  "type": "article",
+  "area": "Methods & Standards",
+  "topics": ["Experimentation", "Statistics", "Data Literacy"],
+  "tags": ["confidence-intervals", "statistical-significance", "minimum-detectable-effect", "sample-size", "ab-testing", "stakeholder-guide"],
+  "owners": [{ "name": "Priya Natarajan", "email": "priya.natarajan@parcelandpine.com", "role": "Lead Data Scientist, Experimentation" }],
+  "published": "2026-05-06",
+  "updated": "2026-05-06",
+  "status": "final",
+  "summary": "A plain-language guide to reading the confidence intervals in our experiment and survey reports. It explains why “statistically significant” and “meaningful” are separate questions, and how to judge a result against the minimum meaningful effect.",
+  "key_findings": [
+    "A 95% CI is the range of plausible values for the true effect; decisions should hold at both ends.",
+    "Halving the width of a CI takes four times the sample size.",
+    "At a 4% baseline, a test needs about 30k+ visitors per arm to separate a 0.3 pp effect from zero.",
+    "A significant result can still be too small to matter, and a non-significant one can be either ‘don’t know yet’ or ‘confidently no’."
+  ],
+  "code": [
+    { "label": "CI width & sample-size calculator", "path": "tools/stats/ci_width_calculator.py" }
+  ],
+  "data_sources": ["Illustrative example (no production data)", "dw.fct_experiment_assignments"],
+  "related": ["experimentation-playbook", "checkout-redesign-ab-test", "metric-glossary-active-member"]
+}

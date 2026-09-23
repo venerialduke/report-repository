@@ -1,0 +1,27 @@
+{
+  "id": "free-shipping-threshold-elasticity",
+  "title": "The $75 free-shipping threshold is paying for itself, at a cost to new customers",
+  "subtitle": "Five weeks after we raised the non-member threshold from $49 to $75, basket-building and Pine+ sign-ups more than cover the lost orders. We estimate +$8.7M a year in contribution. The loss falls on first-time buyers, and that needs fixing.",
+  "type": "report",
+  "area": "Finance & Pricing",
+  "topics": ["Pricing", "Shipping", "Membership", "Unit Economics"],
+  "tags": ["free-shipping-threshold", "price-elasticity", "difference-in-differences", "aov", "conversion", "basket-building", "pine-plus"],
+  "owners": [{ "name": "Samuel Ortiz", "email": "samuel.ortiz@parcelandpine.com", "role": "Author" }],
+  "published": "2026-04-08",
+  "updated": "2026-04-10",
+  "status": "final",
+  "summary": "Raising the non-member free-shipping threshold from $49 to $75 on 2 March lifted non-member AOV by 12.6% and cut conversion by 6.8% relative to a marketplace control. Pine+ checkout sign-ups rose 23%. Net, we estimate +$8.7M a year in contribution, but new customers absorbed most of the conversion loss, and we recommend targeted fixes for them.",
+  "key_findings": [
+    "Non-member AOV rose 12.6% net of trend (95% CI 10.9–14.3%). The share of orders in the $75–99 band went from 12% to 20%.",
+    "Non-member conversion fell 6.8% relative to the marketplace control (CI −9.1 to −4.5%). For new customers it fell 10.4%.",
+    "Pine+ checkout sign-ups rose 23% after seasonal adjustment, about 720 extra members a week.",
+    "The net contribution effect is +$8.7M a year (80% range +$3.9M to +$13.5M), and revenue per non-member session is up 4.9%."
+  ],
+  "code": [
+    { "label": "Basket distribution & bunching", "path": "analyses/2026-03-free-shipping-threshold/01_bunching.py" },
+    { "label": "Difference-in-differences models", "path": "analyses/2026-03-free-shipping-threshold/02_did_models.R" },
+    { "label": "Contribution bridge", "path": "analyses/2026-03-free-shipping-threshold/03_contribution_bridge.ipynb" }
+  ],
+  "data_sources": ["dw.fct_orders", "dw.fct_sessions", "mkt.fct_marketplace_orders", "dw.fct_membership_events", "fin.fct_order_margin"],
+  "related": ["pine-plus-ltv-forecast-fy27", "checkout-redesign-ab-test", "customer-segmentation-2026"]
+}

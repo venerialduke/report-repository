@@ -1,0 +1,32 @@
+{
+  "id": "fc-associate-attrition",
+  "title": "Nearly half of new FC associates who leave in their first 90 days are gone within two weeks, and unstable schedules are the biggest cause",
+  "subtitle": "38% of new associates leave within 90 days, costing about $2.3M a year. The risk is highest in the first two weeks, and it is highest for people whose shifts change at short notice, who have long commutes, or who train in large groups. We propose two pilots to run before peak.",
+  "type": "report",
+  "area": "People & Workplace",
+  "topics": ["Retention", "Fulfilment", "Workforce Planning"],
+  "tags": ["fc-associates", "early-attrition", "survival-analysis", "onboarding", "schedule-stability", "buddy-programme", "cost-of-turnover", "dallas-fc"],
+  "owners": [
+    { "name": "Hannah Liu", "email": "hannah.liu@parcelandpine.com", "role": "Author" },
+    { "name": "Tom Becker", "email": "tom.becker@parcelandpine.com", "role": "Co-author" }
+  ],
+  "published": "2026-07-22",
+  "updated": "2026-07-29",
+  "status": "final",
+  "summary": "38% of the 2,140 FC associates hired between January 2025 and March 2026 left within 90 days, and 46% of those left in their first two weeks. The strongest predictors are a shift change at short notice in the first 14 days, a trainer ratio worse than 1:8 and a commute over 30 minutes. Pay above the local median made no significant difference. We propose a randomised buddy programme and a 21-day schedule guarantee in Dallas before peak, targeting about $480k a year of the $2.3M annual cost.",
+  "key_findings": [
+    "90-day attrition is 38% (818 of 2,140 hires), from 34% in Reno to 45% in Dallas, and from 31% on day shifts to 49% on weekend/flex shifts.",
+    "17.5% of hires leave by day 14, which is 46% of all 90-day leavers.",
+    "A short-notice shift change in the first 14 days raises the hazard of leaving 1.71× (95% CI 1.49–1.96). Pay above the local median has no significant effect (0.94×).",
+    "Each early leaver costs about $3,500, or $2.3M a year across the network, with $0.87M of that in Dallas.",
+    "An 8-point reduction would avoid about 137 early leavers and save about $480k a year."
+  ],
+  "code": [
+    { "label": "Hire cohort and 90-day outcomes", "path": "analyses/2026-07-fc-attrition/01_hire_cohort.sql" },
+    { "label": "Schedule-change and trainer-ratio features", "path": "analyses/2026-07-fc-attrition/02_onboarding_features.sql" },
+    { "label": "Kaplan–Meier curves and Cox model", "path": "analyses/2026-07-fc-attrition/03_survival_model.py" },
+    { "label": "Cost of attrition and pilot power calculation", "path": "analyses/2026-07-fc-attrition/04_cost_and_power.ipynb" }
+  ],
+  "data_sources": ["hris.fct_employment_events", "wfm.fct_shift_assignments", "ops.fct_associate_productivity", "Qualtrics — FC Exit Interview", "Workday"],
+  "related": ["engagement-survey-2026", "peak-2026-capacity-plan", "warehouse-pick-rate-benchmark", "hybrid-office-utilization"]
+}

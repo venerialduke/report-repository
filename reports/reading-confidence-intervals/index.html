@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to read a confidence interval, and why “significant” doesn’t mean “worth doing” — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Article · May 2026</span>
+    </div>
+    <span class="pp-eyebrow">Methods &amp; Standards</span>
+    <h1>How to read a confidence interval, and why “significant” doesn’t mean “worth doing”</h1>
+    <p class="pp-subtitle">A five-minute guide for anyone who reads our experiment and survey results. No formulas.</p>
+    <div class="pp-byline">
+      <span>By <b>Priya Natarajan</b></span>
+      <span>Published <b>May 6, 2026</b></span>
+      <span>Reading time <b>6 min</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key points">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Read the range, not just the number.</strong> “+1.2 pp (95% CI 0.4 to 2.0)” means the true effect is probably somewhere between +0.4 and +2.0 pp. Plan with the whole range.</li>
+      <li><strong>“Statistically significant” only means the range doesn’t include zero.</strong> It tells you nothing about whether the effect is big enough to matter.</li>
+      <li><strong>Ask two questions:</strong> Is the effect real (the range excludes zero)? Is it worth it (the range sits above the smallest effect we’d act on)?</li>
+    </ol>
+  </section>
+
+  <h2><span class="pp-num">01</span>A confidence interval is a range of plausible values</h2>
+  <p>Every number we report from a sample, whether an A/B test, a survey or a cohort, is an estimate. If we ran the same checkout test again next month with different customers, we would get a slightly different answer. A <strong>confidence interval</strong> (CI) shows how far that answer could reasonably move.</p>
+  <p>Suppose we write: <em>“The new checkout lifted conversion by 1.2 pp (95% CI 0.4 to 2.0 pp).”</em> Read it like this:</p>
+  <ul>
+    <li>Our best single estimate is <strong>+1.2 pp</strong>.</li>
+    <li>Given the data, anything from about <strong>+0.4 pp to +2.0 pp</strong> is plausible. Values outside that range are unlikely.</li>
+    <li>“95%” describes how reliable the method is: if we repeated the test many times, about 95 in 100 of the intervals we built would contain the true effect.</li>
+  </ul>
+  <p>In practice: <strong>when you make a decision, check that it still makes sense at both ends of the range.</strong> If the plan only works when the effect is +2.0 pp, that is a risk worth stating.</p>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">A common mix-up</div><p>A 95% CI does <em>not</em> mean “95% of customers fall in this range”. It is about the uncertainty in <em>our estimate of the average</em>, not about how much individual customers vary.</p></div>
+
+  <h2><span class="pp-num">02</span>More data gives a narrower range, but with diminishing returns</h2>
+  <p>The width of the interval depends mostly on how much data we have and how noisy the metric is. Conversion, which is a yes/no outcome, settles down quickly. Revenue per visitor, where a single sofa order can swing the average, needs much more data.</p>
+  <p>The chart shows how precise a two-arm A/B test is on a metric with a 4% baseline, similar to our web checkout conversion. To halve the width of the interval you need <strong>four times</strong> as many visitors.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Doubling precision takes four times the traffic</p>
+    <p class="pp-fig-sub">± half-width of the 95% CI on the difference between two arms · baseline conversion 4% · by visitors per arm</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": { "suffix": " pp", "decimals": 2 }, "labels": false,
+        "ref": { "value": 0.3, "label": "Smallest effect we'd act on (0.3 pp)" },
+        "categories": ["1k", "5k", "10k", "25k", "50k", "100k"],
+        "series": [{ "name": "± CI half-width", "values": [1.72, 0.77, 0.54, 0.34, 0.24, 0.17] }] }
+      </script>
+    </div>
+    <figcaption>Illustrative. Half-width = 1.96 × √(2 × 0.04 × 0.96 ⁄ n). Only past about 30k visitors per arm is the interval tight enough to separate a 0.3 pp effect from zero.</figcaption>
+  </figure>
+
+  <p>This is why the Experimentation team sometimes asks for a test to run for four weeks instead of two. It is not caution for its own sake. With less data, the interval would still include both “nothing happened” and “this is worth $2M”.</p>
+
+  <h2><span class="pp-num">03</span>“Statistically significant” and “meaningful” are different questions</h2>
+  <p>A result is <strong>statistically significant</strong> (at the 95% level) when its confidence interval does not include zero. That is all it means: the effect is probably not zero. It does not mean large, important or worth shipping.</p>
+  <p>Before every test we agree on a <strong>minimum meaningful effect</strong>, the smallest change that would justify the build, rollout or cost. For a checkout change this might be +0.3 pp of conversion. For a Pine+ price change it might be −1 pp of churn. Then we read the interval against both zero and that line:</p>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Four results, read two ways (minimum meaningful effect = +0.3 pp)</caption>
+      <thead><tr><th>Example</th><th class="num">Estimate</th><th class="num">95% CI</th><th>Significant?</th><th>Meaningful?</th><th>How to read it</th></tr></thead>
+      <tbody>
+        <tr><td>A. Big test, tiny effect</td><td class="num">+0.08 pp</td><td class="num">+0.02 to +0.14</td><td><span class="pp-badge good">Yes</span></td><td><span class="pp-badge bad">No</span></td><td>Real but too small to matter. Don’t ship because it’s “significant”.</td></tr>
+        <tr><td>B. Clear win</td><td class="num">+0.9 pp</td><td class="num">+0.5 to +1.3</td><td><span class="pp-badge good">Yes</span></td><td><span class="pp-badge good">Yes</span></td><td>Even the low end clears the bar. Ship it.</td></tr>
+        <tr><td>C. Promising but unsure</td><td class="num">+0.6 pp</td><td class="num">−0.1 to +1.3</td><td><span class="pp-badge warn">No</span></td><td><span class="pp-badge warn">Maybe</span></td><td>Could be nothing, could be great. Get more data rather than calling it a failure.</td></tr>
+        <tr><td>D. Confident “no effect”</td><td class="num">+0.02 pp</td><td class="num">−0.15 to +0.19</td><td><span class="pp-badge warn">No</span></td><td><span class="pp-badge bad">No</span></td><td>The whole range is below the bar. A useful result: stop investing here.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Examples C and D are both “not significant”, but they lead to opposite decisions. C says we don’t know yet. D says we know it doesn’t matter. Reporting both as “no significant difference” loses that distinction, which is why our reports always show the interval and not just a verdict.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">Watch for these phrases</div><p><strong>“Trending towards significance”</strong> usually means example C. Treat it as unknown, not as a weak yes. <strong>“Highly significant (p &lt; 0.001)”</strong> says the effect is very probably real, not that it is very big. Example A could be p &lt; 0.001 with a large enough sample.</p></div>
+
+  <h2><span class="pp-num">04</span>Questions to ask when you read one of our reports</h2>
+  <ol class="pp-recs">
+    <li><strong>What is the range, and does my decision hold at both ends?</strong> If the low end would change your mind, say so in the review.</li>
+    <li><strong>What was the minimum meaningful effect, and was it set before the test?</strong> It should appear in the pre-registration (see the <em>experimentation playbook</em>). A threshold chosen after seeing the results is not reliable.</li>
+    <li><strong>How many comparisons were made?</strong> If we looked at 20 segments, about one will look “significant” by chance. Our reports mark any segment cut that was not pre-planned as exploratory.</li>
+    <li><strong>Is the sample the right population?</strong> A narrow interval around the wrong group is still the wrong answer. For example, a survey of app users only tells you about app users.</li>
+  </ol>
+
+  <p>If you’re unsure how to read a specific result, ask in #experimentation. We would much rather answer a question before a decision than explain a result afterwards.</p>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

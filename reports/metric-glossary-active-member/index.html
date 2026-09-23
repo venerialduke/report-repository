@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One definition each for active customer, active member, retained member and churn — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Article · February 2026</span>
+    </div>
+    <span class="pp-eyebrow">Methods &amp; Standards</span>
+    <h1>One definition each for active customer, active member, retained member and churn</h1>
+    <p class="pp-subtitle">The canonical definitions behind our customer and Pine+ metrics, how each is calculated, the edge cases, and why two dashboards can show different numbers on the same day.</p>
+    <div class="pp-byline">
+      <span>By <b>Jonah Feld</b></span>
+      <span>Published <b>Feb 10, 2026</b></span>
+      <span>Applies from <b>Q1 2026 reporting</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key points">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Active customer</strong> means at least one net-positive order shipped in the trailing 365 days. On Jan 31, 2026 there were 2.29M.</li>
+      <li><strong>Active member</strong> means a Pine+ member who has benefits on the as-of date. This includes the payment-retry grace period and gifted memberships, and excludes free trials. On Jan 31, 2026 there were 463,200.</li>
+      <li><strong>Churn</strong> is counted on the date access <em>ends</em>, not the date someone clicks cancel, and is always split into voluntary and involuntary.</li>
+      <li>If your dashboard shows a different number, check the table in section 04 before raising a data-quality ticket.</li>
+    </ol>
+  </section>
+
+  <h2><span class="pp-num">01</span>Why we need one definition</h2>
+  <p>In January the Exec KPI deck, the Membership Ops dashboard and the CRM team each reported a different Pine+ member count for the same week. The largest and smallest were about 25,000 apart. None of them was wrong. Each answered a slightly different question. But a VP seeing three numbers can’t tell which one to plan with, and FP&amp;A had to reconcile them by hand every month.</p>
+  <p>These definitions are now built once in dbt (<code>fct_member_status_daily</code> and <code>fct_customer_activity_daily</code>) and every certified dashboard reads from those models. If you calculate these metrics yourself, use the models rather than rebuilding the logic.</p>
+
+  <h2><span class="pp-num">02</span>The definitions</h2>
+
+  <h3>Active customer</h3>
+  <p>A customer is <strong>active</strong> on a date if they had at least one <em>net-positive</em> order shipped in the 365 days up to and including that date. Net-positive means the order was not fully cancelled or fully returned. A customer who bought a lamp and returned it still counts if they kept anything else from that order.</p>
+  <p>In prose SQL: take shipped orders from <code>dw.fct_orders</code> where net revenue after returns is greater than zero, keep those with a ship date in the window, remove test, employee and trade (B2B) accounts using <code>dw.dim_customer</code>, and count distinct <code>customer_id</code>.</p>
+  <ul>
+    <li><strong>Marketplace orders</strong> count only when matched to a known customer (68% of marketplace orders). Unmatched marketplace buyers are not in the count.</li>
+    <li><strong>Guest checkouts</strong> are merged onto an account by email. Two emails means two customers, even if it is the same household.</li>
+    <li><strong>Ship date, not order date.</strong> A pre-order placed in December and shipped in February counts from February.</li>
+  </ul>
+
+  <h3>Active member</h3>
+  <p>A customer is an <strong>active member</strong> on a date if their Pine+ subscription gives them benefits on that date. That includes:</p>
+  <ul>
+    <li>paid monthly and annual members, including those who have <em>cancelled but are still inside the period they paid for</em> (they still get free shipping, so they are still members);</li>
+    <li>members in the <strong>14-day payment retry</strong> (“grace”) window after a failed charge;</li>
+    <li>gifted and partner-bundled memberships.</li>
+  </ul>
+  <p>It excludes <strong>free trials</strong>. Trialists are counted separately as <code>trial_members</code> because about 40% never pay, and counting them would inflate membership every time Growth runs a trial campaign. Employee memberships are also excluded.</p>
+
+  <h3>Retained member</h3>
+  <p>A member is <strong>retained</strong> over a period if they were an active member at the start and are still one at the end. <strong>Retention rate</strong> is retained members divided by active members at the start. People who join during the period are left out of both the numerator and the denominator, so a big sign-up month cannot make retention look better.</p>
+  <p>A member who churns and re-joins within the period counts as retained only if they are active on the end date. We flag these as <code>is_rejoin = true</code> so they can be excluded when that matters, for example in cohort survival curves.</p>
+
+  <h3>Churn: voluntary and involuntary</h3>
+  <p>A member <strong>churns</strong> on the first day they no longer have benefits. <strong>Monthly churn rate</strong> is members who churned during the month divided by active members at the start of the month. We always report the two types separately:</p>
+  <ul>
+    <li><strong>Voluntary churn:</strong> the member cancelled, or turned off auto-renew, and their paid period ran out.</li>
+    <li><strong>Involuntary churn:</strong> a renewal charge failed and was still failing at the end of the 14-day retry window. The churn date is the end of the grace period.</li>
+  </ul>
+  <p>In January 2026, total monthly churn was 3.1%: 2.4% voluntary and 0.7% involuntary. These are all-plan figures. Monthly-plan churn runs much higher than annual.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">The cancel-click trap</div><p>An annual member who cancels in March but paid through November churns in <em>November</em>. Dashboards built on cancellation events from the app will show that churn eight months early. The cancel click is still useful as a leading indicator of intent, so it is available as <code>cancel_requested_at</code>. Just don’t call it churn.</p></div>
+
+  <h2><span class="pp-num">03</span>Edge cases we’ve already decided</h2>
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Edge-case rulings</caption>
+      <thead><tr><th>Situation</th><th>Ruling</th></tr></thead>
+      <tbody>
+        <tr><td>Member switches monthly → annual</td><td>Not churn. Same membership, new <code>plan_type</code> from the switch date.</td></tr>
+        <tr><td>Member pauses (up to 3 months)</td><td>Not active while paused, and not churned. Counted as <code>paused_members</code>.</td></tr>
+        <tr><td>Refund within the 30-day guarantee</td><td>Churn (voluntary), dated to the refund date. The member is removed from “active” on that date.</td></tr>
+        <tr><td>Charge fails, then succeeds on day 9</td><td>Never churned. Active throughout.</td></tr>
+        <tr><td>Rejoins within 90 days of churning</td><td>A new membership spell with <code>is_rejoin = true</code>. The original churn still counts.</td></tr>
+        <tr><td>Time zone</td><td>All dates in America/Denver (company time), not UTC.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">04</span>Why your dashboard shows a different number</h2>
+  <p>Most “data discrepancies” reported to #insights-help are dashboards using a different definition. On Jan 31, 2026, four common sources gave four different member counts:</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Four “member counts” for the same day, 25,500 apart</p>
+    <p class="pp-fig-sub">Pine+ members as of Jan 31, 2026, by the definition each source uses</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "num", "highlight": ["Canonical active member"],
+        "categories": ["Billing: paying subs", "Canonical active member", "Membership Ops (incl. trials)", "CRM member flag (30-day)"],
+        "series": [{ "name": "Members", "values": [452900, 463200, 471900, 478400] }] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_member_status_daily, Stripe billing export, Braze audience export.</figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Billing (452.9k)</strong> counts successfully charged subscriptions. It leaves out the grace window (≈6,100) and gifted or partner memberships (≈4,200).</li>
+    <li><strong>Membership Ops (471.9k)</strong> adds free trialists (≈8,700).</li>
+    <li><strong>CRM (478.4k)</strong> keeps anyone flagged as a member at any point in the last 30 days, so recent churners stay on the list for a month.</li>
+    <li>Other common causes: <strong>refresh lag</strong> (billing syncs nightly, and Braze lags a further day), <strong>UTC cut-offs</strong> that move a day of activity, and an <strong>average-over-month</strong> figure compared with an end-of-month figure.</li>
+  </ul>
+
+  <div class="pp-callout recommendation"><div class="pp-callout-title">What to use</div><p>For anything that goes to leadership, FP&amp;A or the board, use the canonical definition and label it “active members (canonical)”. If you use another definition for an operational reason, say so in the chart subtitle. Questions and proposed changes go through the #metrics-council channel. Definitions change only by versioned PR to the dbt project.</p></div>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

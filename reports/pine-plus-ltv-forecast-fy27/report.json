@@ -1,0 +1,29 @@
+{
+  "id": "pine-plus-ltv-forecast-fy27",
+  "title": "A $69 Pine+ price wins FY27 and loses on each new cohort",
+  "subtitle": "Member lifetime value is rising within each plan type but flat overall, because more members now join on the monthly plan. Raising the annual price from $59 to $69 would add about $1.1M in FY27 at real downside risk. $65 captures most of that gain with far less risk.",
+  "type": "report",
+  "area": "Finance & Pricing",
+  "topics": ["Membership", "Pricing", "Forecasting", "Retention"],
+  "tags": ["pine-plus", "ltv", "cohort-analysis", "survival-model", "price-change", "scenario-planning", "fy27-plan"],
+  "owners": [{ "name": "Samuel Ortiz", "email": "samuel.ortiz@parcelandpine.com", "role": "Author" }],
+  "published": "2026-09-10",
+  "updated": "2026-09-14",
+  "status": "final",
+  "summary": "Three-year contribution LTV is $418 for annual Pine+ members and $189 for monthly members. Blended LTV is slipping because 29% of new joiners now choose monthly. Raising the annual price from $59 to $69 adds about $1.1M in FY27 in the central case but risks −$2.1M, so we recommend $65 from February 2027 and a year-end FY27 base of about 540k members.",
+  "key_findings": [
+    "3-year contribution LTV is $418 for annual-plan members and $189 for monthly-plan members (2025 cohort).",
+    "The share of joiners choosing monthly rose from 14% (2023) to 29% (2026 H1), pulling blended LTV per new member from $366 to $355 even though both plans improved.",
+    "Price tests at $69 cut annual renewal by 3.9 pp (67.8% to 63.9%) and join rate by 6%.",
+    "FY27 contribution vs. holding at $59: +$0.9M at $65, +$1.1M at $69 central, −$2.1M at $69 downside.",
+    "We forecast 548k members at the end of FY27 at $59 (80% range 522–574k), 540k at $65 and 531k at $69."
+  ],
+  "code": [
+    { "label": "Cohort LTV build", "path": "analyses/2026-08-pine-plus-ltv/01_cohort_ltv.sql" },
+    { "label": "Survival model by plan", "path": "analyses/2026-08-pine-plus-ltv/02_survival_model.py" },
+    { "label": "Price test readout", "path": "analyses/2026-08-pine-plus-ltv/03_price_tests.ipynb" },
+    { "label": "Member base scenarios (simulation)", "path": "analyses/2026-08-pine-plus-ltv/04_member_base_scenarios.py" }
+  ],
+  "data_sources": ["dw.fct_membership_events", "dw.dim_member", "dw.fct_orders", "fin.member_ltv_model", "fin.member_base_forecast"],
+  "related": ["month-3-member-churn", "free-shipping-threshold-elasticity", "customer-segmentation-2026", "brand-tracker-wave-4"]
+}

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our offices peak on Tuesday–Thursday and sit mostly empty on Mondays and Fridays, so Denver could give back a floor — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · March 2026</span>
+    </div>
+    <span class="pp-eyebrow">People &amp; Workplace</span>
+    <h1>Our offices peak on Tuesday–Thursday and sit mostly empty on Mondays and Fridays, so Denver could give back a floor</h1>
+    <p class="pp-subtitle">Ten weeks of badge and desk-booking data show Denver HQ never used more than 612 of its 900 desks. People rate office days as worth the commute when their own team is in, which is a matter of coordination, not of desk count.</p>
+    <div class="pp-byline">
+      <span>By <b>Hannah Liu</b></span>
+      <span>Published <b>Mar 30, 2026</b></span>
+      <span>Data <b>Jan 5 – Mar 13, 2026</b> (10 weeks)</span>
+    </div>
+  </header>
+
+  <blockquote class="pp-quote">“The days I come in and my team isn't there, I spend the day on video calls from a desk I commuted 40 minutes to.”<cite>Denver HQ employee, February workplace pulse (paraphrased)</cite></blockquote>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Attendance is concentrated midweek.</strong> Denver desk utilisation averages 42% but runs from 11% on Fridays to 62% on Wednesdays. Chicago follows the same pattern at a lower level (31% average, 48% on Wednesdays).</li>
+      <li><strong>Denver's busiest day in 10 weeks used 612 desks (68%).</strong> That is 85% of the capacity of four floors. Denver could exercise the floor 6 give-back option (deadline Jun 30) and save about <strong>$1.1M a year</strong>, as long as midweek demand is spread more evenly.</li>
+      <li><strong>Teams with agreed anchor days are together 2.3× as often.</strong> On 63% of their office days at least half the team is in, compared with 27% for teams without anchor days. Employees whose team was in rated the day as “worth the commute” at 78%, compared with 36% when it wasn't.</li>
+      <li><strong>Recommendation:</strong> make team anchor days standard, assign them so Thursday takes some of Wednesday's load, and approve the floor 6 give-back.</li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Denver average utilisation</div><div class="pp-kpi-value">42%</div><div class="pp-kpi-delta">of 900 desks, Mon–Fri</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Denver busiest day</div><div class="pp-kpi-value">612</div><div class="pp-kpi-delta">desks used (68%)</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Floor give-back saving</div><div class="pp-kpi-value">$1.1M</div><div class="pp-kpi-delta up">per year from 2027</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Team together, anchor vs. none</div><div class="pp-kpi-value">2.3×</div><div class="pp-kpi-delta">63% vs. 27% of office days</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>Both offices peak on Tuesday–Thursday and are close to empty on Fridays</h2>
+  <p class="pp-lede">We have no shortage of desks. The problem is timing: most people choose the same three days.</p>
+  <p>Across 48 working days, an average of 374 of Denver's 780 office-assigned employees badged in each day. That average hides a steep weekly pattern. Wednesday is busiest (62% of desks used), and Tuesday (57%) and Thursday (52%) are not far behind. Monday is at 26% and Friday at 11%. Chicago's 175 employees follow the same pattern at lower levels, peaking at 48% of its 240 desks on Wednesdays.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Wednesday uses more than five times as many desks as Friday</p>
+    <p class="pp-fig-sub">Average daily desk utilisation by weekday, % of desks with a badge-in and a booked or walk-up desk, Jan 5 – Mar 13, 2026</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pct", "yMin": 0, "yMax": 100,
+        "ref": { "value": 85, "label": "Comfortable maximum (85%)" },
+        "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        "series": [
+          { "name": "Denver HQ (900 desks)", "values": [26, 57, 62, 52, 11] },
+          { "name": "Chicago (240 desks)", "values": [19, 45, 48, 32, 9] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: facilities.fct_badge_events joined to facilities.fct_desk_bookings; one count per person per day. Company holidays (Jan 19, Feb 16) excluded.</figcaption>
+  </figure>
+
+  <p>Individual attendance varies a lot. Denver employees averaged 2.4 office days a week and Chicago employees 2.1. Only 15% of Denver staff and 10% of Chicago staff come in four or more days, while 8–11% come in less than once a week. These low-attenders are mostly people whose managers and teams sit in the other office or work remotely.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">In both offices, most people come in 2–3 days a week</p>
+    <p class="pp-fig-sub">Employees by average office days per week over the 10 weeks, % of office-assigned employees</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "stacked-bar", "format": "pct", "yMax": 100,
+        "categories": ["Denver HQ (n = 780)", "Chicago (n = 175)"],
+        "series": [
+          { "name": "Under 1 day", "values": [8, 11] },
+          { "name": "About 1 day", "values": [17, 21] },
+          { "name": "About 2 days", "values": [28, 31] },
+          { "name": "About 3 days", "values": [32, 27] },
+          { "name": "4+ days", "values": [15, 10] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: facilities.fct_badge_events; hris.dim_employee for office assignment. Employees on leave for 2+ weeks of the period are excluded.</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">02</span>What makes an office day worthwhile is having your team there, not having a desk</h2>
+  <p class="pp-lede">Survey responses linked to badge data show that the value of a day in the office depends almost entirely on whether your team is there too.</p>
+  <p>The February workplace pulse (n = 612, 64% response) asked people to rate their most recent office day. With consent, we linked those ratings to badge data to see how much of the person's team was in that day.<sup>1</sup> When fewer than a quarter of their team was in, 36% said the day was “worth the commute”. When three-quarters or more were in, 78% did.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">An office day is more than twice as likely to feel worthwhile when most of the team is in</p>
+    <p class="pp-fig-sub">% rating their last office day “worth the commute”, by share of their team in the office that day (n = 488 linked responses)</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pct", "yMin": 0, "yMax": 100, "highlight": ["75%+ of team in"],
+        "categories": ["Under 25% of team in", "25–49%", "50–74%", "75%+ of team in"],
+        "series": [{ "name": "Worth the commute", "values": [36, 52, 69, 78] }] }
+      </script>
+    </div>
+    <figcaption>Source: Qualtrics — Workplace Pulse Feb 2026, linked to facilities.fct_badge_events. Each bin has at least 90 responses. 95% CIs about ±8–10 pts.</figcaption>
+  </figure>
+
+  <p>The rest of the pulse tells the same story. 58% named “seeing my team” as their main reason to come in, well ahead of in-person meetings (41%) and a better setup than at home (22%).<sup>2</sup> 71% agreed that office days are better for collaboration, and 78% said focused work goes better at home. People are not avoiding the office. They are avoiding days when it can't give them what they come in for.</p>
+
+  <h2><span class="pp-num">03</span>Anchor days work, but only a third of teams have them</h2>
+  <p class="pp-lede">Teams that agree anchor days are together more than twice as often as teams that leave attendance to each individual.</p>
+  <p>We measured <em>co-presence</em>: the share of a person's office days on which at least half their team was also in. Teams with one or two agreed anchor days reached 63% on average. Teams without them reached 27%. Their overall attendance was about the same (2.4 vs. 2.3 days a week), so the difference comes from coordination, not from coming in more.</p>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Team anchor days and co-presence, largest teams (10+ people)</caption>
+      <thead>
+        <tr><th>Team</th><th>Site</th><th class="num">Headcount</th><th>Anchor day(s)</th><th class="num">Avg days/week</th><th class="num">Co-presence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Merchandising &amp; Buying</td><td>Denver</td><td class="num">96</td><td>Tue + Wed</td><td class="num">2.6</td><td class="num"><span class="pp-badge good">81%</span></td></tr>
+        <tr><td>Finance &amp; Accounting</td><td>Denver</td><td class="num">58</td><td>Tue + Wed</td><td class="num">2.5</td><td class="num"><span class="pp-badge good">77%</span></td></tr>
+        <tr><td>Technology — Platform</td><td>Denver</td><td class="num">142</td><td>Wed</td><td class="num">2.2</td><td class="num"><span class="pp-badge good">74%</span></td></tr>
+        <tr><td>Marketing</td><td>Chicago</td><td class="num">68</td><td>Tue + Wed</td><td class="num">2.3</td><td class="num"><span class="pp-badge warn">69%</span></td></tr>
+        <tr><td>People &amp; Legal</td><td>Denver</td><td class="num">41</td><td>Thu</td><td class="num">2.1</td><td class="num"><span class="pp-badge warn">63%</span></td></tr>
+        <tr><td>Customer Care leadership</td><td>Denver</td><td class="num">44</td><td>None</td><td class="num">2.5</td><td class="num"><span class="pp-badge bad">31%</span></td></tr>
+        <tr><td>Technology — Customer Apps</td><td>Denver</td><td class="num">118</td><td>None</td><td class="num">2.3</td><td class="num"><span class="pp-badge bad">29%</span></td></tr>
+        <tr><td>Supply Chain &amp; Ops (HQ)</td><td>Denver</td><td class="num">104</td><td>None</td><td class="num">2.2</td><td class="num"><span class="pp-badge bad">24%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>There is a catch. Four of the five teams with anchor days chose Tuesday or Wednesday. If every team copied them, Wednesday would move from 62% towards 80% and we would lose the headroom that makes the floor saving possible. Anchor days need to be <em>assigned</em> with the whole building in mind, not only chosen by each team.</p>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">Thursday is underused</div><p>Thursday is 10 points below Wednesday in Denver and 16 points below in Chicago. Moving two large teams without anchor days (Customer Apps and Supply Chain &amp; Ops HQ, 222 people together) to a Tue + Thu anchor would raise co-presence for both. We estimate it would also lower Denver's busiest day by about 40 desks.</p></div>
+
+  <h2><span class="pp-num">04</span>Denver fits on four floors. Chicago should be resized when its lease renews in 2027</h2>
+  <p class="pp-lede">Even Denver's busiest days fit within four floors with room to spare. The fifth floor costs about $1.1M a year.</p>
+  <p>Denver HQ has five floors (2–6) of 180 desks each, or 900 desks. In 10 weeks the busiest day used 612 desks, and the typical weekly peak was 588. Four floors give 720 desks, so our worst day would have filled 85% of them. That is the level Workplace Services treats as the comfortable limit for booked desks, given that some desks are always out of use.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Every weekly peak in Denver was below four-floor capacity</p>
+    <p class="pp-fig-sub">Desks used on the busiest day of each week, Denver HQ, Jan 5 – Mar 13, 2026</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "int", "yMin": 400, "yMax": 950, "labels": false,
+        "ref": { "value": 720, "label": "4-floor capacity (720 desks)" },
+        "categories": ["Jan 5", "Jan 12", "Jan 19", "Jan 26", "Feb 2", "Feb 9", "Feb 16", "Feb 23", "Mar 2", "Mar 9"],
+        "series": [{ "name": "Peak-day desks used", "values": [548, 571, 590, 603, 585, 612, 598, 577, 606, 594] }] }
+      </script>
+    </div>
+    <figcaption>Source: facilities.fct_badge_events. Week of: Monday date. Current capacity is 900 desks (5 floors).</figcaption>
+  </figure>
+
+  <p>Floor 6 (about 21,000 rentable sq ft) has a give-back option in the lease. Written notice is due by <strong>June 30, 2026</strong>, and the floor would be surrendered on January 1, 2027. At a fully loaded cost of about $52/sq ft, that saves <strong>about $1.09M a year</strong>, less about $180k of one-off move and reconfiguration costs (FP&amp;A estimate). The main risk is growth. At today's attendance, Denver corporate headcount would need to grow about 22% before a typical peak day filled all 720 desks. The 2026 headcount plan is +4%, which would take the typical peak to about 612 desks (85%).</p>
+  <p>Chicago's pattern supports resizing, but not yet. Its 95th-percentile day used 131 desks, more than one floor of 120. The lease renews in August 2027. We recommend going into that renewal aiming for about 150 desks rather than 240.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">What could change the answer</div><p>January to March is a seasonally average quarter for office attendance. Our 2025 data shows September–October running about 5% higher. Allowing for that, the typical weekly peak would reach about 620 desks (86% of four floors) in the busiest months. That is still workable, but only with the Thursday rebalancing described above.</p></div>
+
+  <h2><span class="pp-num">05</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Exercise the Denver floor 6 give-back option.</strong> Saves about $1.1M a year from 2027. The decision must be made before the notice deadline. <span class="pp-owner">Owner: VP Workplace &amp; Real Estate with FP&amp;A · Decision by: Jun 15, 2026 (notice due Jun 30)</span></li>
+    <li><strong>Make anchor days standard for every team of 10 or more, and assign them centrally.</strong> Workplace Services allocates Tue/Wed or Tue/Thu anchors so no day goes above 70% of four-floor capacity. Customer Apps and Supply Chain &amp; Ops HQ go first. <span class="pp-owner">Owner: People Partners with Workplace Services · By: May 1, 2026</span></li>
+    <li><strong>Plan the floor moves around teams, not desks.</strong> Put teams that share anchor days on the same floor so the space they give up is the space that is empty on their anchor days. <span class="pp-owner">Owner: Workplace Services · By: Sep 30, 2026</span></li>
+    <li><strong>Go into the Chicago renewal aiming for about 150 desks.</strong> Re-run this analysis on Q1 2027 data before signing. <span class="pp-owner">Owner: VP Workplace &amp; Real Estate; analysis refresh Hannah Liu · By: Apr 2027</span></li>
+    <li><strong>Track co-presence as a workplace KPI.</strong> Add it to the monthly workplace dashboard next to utilisation, so we measure whether office days bring teams together, not only whether desks are used. <span class="pp-owner">Owner: Jonah Feld (Analytics Engineering) · By: Jun 1, 2026</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Population</dt><dd>955 employees assigned to an office in Workday (Denver 780, Chicago 175). Remote employees and visitors are excluded from per-employee measures but included in the desk counts (about 3% of daily badge-ins).</dd>
+      <dt>Period</dt><dd>Jan 5 – Mar 13, 2026: 10 weeks, 48 working days after excluding two company holidays.</dd>
+      <dt>Utilisation</dt><dd>Unique people per day with a badge-in, divided by the number of assignable desks. A cross-check against desk check-ins agreed within 2 points, since most people who badge in also check in to a desk.</dd>
+      <dt>Co-presence</dt><dd>For each person-day in the office, whether at least 50% of their Workday team (same manager, teams of 10 or more) also badged in that day. Averaged per person, then per team.</dd>
+      <dt>Survey linkage</dt><dd>612 pulse respondents; 488 consented to linkage. Results are shown only for groups of 10 or more. People Analytics performed the linkage, and badge data was never shown to managers at individual level.</dd>
+      <dt>Limitations</dt><dd>Badge data misses tailgating (estimated 2–4% of entries). We have one quarter of data and seasonality is estimated from 2025. People who consented to linkage may differ from those who did not: their overall attendance was 0.2 days a week higher.</dd>
+    </dl>
+  </section>
+
+  <section class="pp-footnotes">
+    <p><sup>1</sup> Linkage used a salted employee key held by People Analytics. Only aggregates were exported for this report.</p>
+    <p><sup>2</sup> Respondents could choose up to two reasons, so the percentages add up to more than 100%.</p>
+  </section>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

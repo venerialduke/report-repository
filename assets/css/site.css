@@ -145,7 +145,7 @@ main.page { padding: 8px 0 120px; }
 
 /* ---------- Results ---------- */
 .results-layout { display: grid; grid-template-columns: 240px 1fr; gap: 28px; margin-top: 28px; }
-@media (max-width: 900px) { .results-layout { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .results-layout { grid-template-columns: minmax(0, 1fr); } }
 .facets { position: sticky; top: 76px; align-self: start; display: flex; flex-direction: column; gap: 18px; }
 @media (max-width: 900px) { .facets { position: static; } }
 .facet h4 { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); margin: 0 0 8px; }
@@ -206,7 +206,7 @@ textarea.input { min-height: 84px; resize: vertical; }
 .crumbs .cur { color: var(--text); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .viewer-actions { display: flex; gap: 6px; flex-wrap: wrap; }
 .viewer { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; padding-top: 24px; }
-@media (max-width: 1080px) { .viewer { grid-template-columns: 1fr; } }
+@media (max-width: 1080px) { .viewer { grid-template-columns: minmax(0, 1fr); } }
 .frame-wrap { background: #fcfcfb; border: 1px solid var(--border); border-radius: var(--radius-l); overflow: hidden; }
 .frame-wrap iframe { display: block; width: 100%; border: 0; min-height: 70vh; background: #fcfcfb; }
 .rail { display: flex; flex-direction: column; gap: 16px; }

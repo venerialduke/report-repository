@@ -1,0 +1,29 @@
+{
+  "id": "last-mile-delivery-sla-review",
+  "title": "Only Pine Fleet meets the 95% on-time promise, and padding our delivery dates has hidden how far carriers have slipped",
+  "subtitle": "On-time delivery across the network was 92.1% from January to August. Adding buffer days to the promise made the headline number look better, cost us conversion and left the late tail where it was.",
+  "type": "report",
+  "area": "Operations & Supply Chain",
+  "topics": ["Delivery", "Carrier Performance", "Customer Experience"],
+  "tags": ["last-mile", "on-time-delivery", "sla", "pine-fleet", "carriers", "promise-padding", "white-glove", "nps"],
+  "owners": [{ "name": "Tom Becker", "email": "tom.becker@parcelandpine.com", "role": "Operations Analytics Lead" }],
+  "published": "2026-09-04",
+  "updated": "2026-09-04",
+  "status": "final",
+  "summary": "From January to August, 92.1% of parcels arrived by the promised date against a 95% SLA. Only the in-house Pine Fleet (96.4%) met the target; national carriers reached 90.8% and white-glove partners 84.1%. Promise padding introduced in March hid a ~4 pp decline in carrier performance and cost about 1.2% of conversion in the padded lanes, so we recommend removing it lane by lane and moving carriers to scan-based SLAs with penalties.",
+  "key_findings": [
+    "Network on-time vs. promise was 92.1% in Jan–Aug 2026, 2.9 pp below the 95% SLA; Pine Fleet reached 96.4%, national carriers 90.8% and white-glove 84.1%.",
+    "In the same ZIPs, Pine Fleet beats national carriers by 3.9–5.8 pp in all six fleet metros.",
+    "Against the unpadded transit standard, national-carrier on-time fell from 92.1% to 86.0%; padding hid about 4 pp of that decline.",
+    "Padded lanes lost 1.2% of checkout conversion (95% CI 0.4–2.0%), about $3.6M a year in revenue.",
+    "Late parcels are 7.9% of deliveries but ~23% of detractors; NPS is +52 when on time and −8 when a parcel is 2+ days late."
+  ],
+  "code": [
+    { "label": "On-time fact build (SQL)", "path": "analyses/2026-09-last-mile-sla/01_on_time_fact.sql" },
+    { "label": "Padded vs. unpadded promise comparison", "path": "analyses/2026-09-last-mile-sla/02_promise_padding.py" },
+    { "label": "Conversion diff-in-diff", "path": "analyses/2026-09-last-mile-sla/03_padding_conversion_did.ipynb" },
+    { "label": "NPS × delivery outcome join", "path": "analyses/2026-09-last-mile-sla/04_nps_delivery_link.sql" }
+  ],
+  "data_sources": ["dw.fct_shipments", "dw.fct_carrier_scans", "dw.fct_delivery_promise", "dw.fct_checkout_sessions", "Qualtrics — Post-delivery NPS"],
+  "related": ["nps-verbatim-themes-h1-2026", "returns-root-cause-analysis", "peak-2026-capacity-plan", "free-shipping-threshold-elasticity"]
+}

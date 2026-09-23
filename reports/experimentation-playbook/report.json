@@ -1,0 +1,25 @@
+{
+  "id": "experimentation-playbook",
+  "title": "How we run experiments: decide before you look",
+  "subtitle": "The Parcel & Pine experimentation playbook: pre-registration, power, guardrails, peeking, when to use a holdout or a geo test, and the one-page decision memo.",
+  "type": "article",
+  "area": "Methods & Standards",
+  "topics": ["Experimentation", "Methods"],
+  "tags": ["ab-testing", "pre-registration", "statistical-power", "mde", "guardrail-metrics", "peeking", "geo-testing", "decision-memo"],
+  "owners": [{ "name": "Priya Natarajan", "email": "priya.natarajan@parcelandpine.com", "role": "Lead Data Scientist, Experimentation" }],
+  "published": "2026-01-20",
+  "updated": "2026-05-06",
+  "status": "final",
+  "summary": "This is the team standard for running A/B tests, holdouts and geo tests at Parcel & Pine. Every test is pre-registered with one primary metric, guardrails, an MDE and a fixed end date. The primary metric is read once, and every test ends in a one-page decision memo.",
+  "key_findings": [
+    "At 3.4% baseline conversion, detecting a 2% relative lift needs about 1.1M sessions per arm; a 5% lift needs 178k.",
+    "Daily peeking with stop-at-significance inflates the false-positive rate from 5% to about 25% over four weeks.",
+    "5 of 14 tests from 2025 that looked like clear winners at week 1 were flat or negative by their planned end date.",
+    "Plan on 40–60% of a winning test's point estimate when forecasting impact."
+  ],
+  "code": [
+    { "label": "MDE / power calculator", "path": "tools/power/mde_calculator.py" }
+  ],
+  "data_sources": ["exp.assignments", "exp.experiment_registry"],
+  "related": ["reading-confidence-intervals", "checkout-redesign-ab-test", "recommendations-carousel-impact", "paid-social-geo-holdout"]
+}

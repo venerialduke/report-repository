@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How we run experiments: decide before you look — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Article · January 2026</span>
+    </div>
+    <span class="pp-eyebrow">Methods &amp; Standards</span>
+    <h1>How we run experiments: decide before you look</h1>
+    <p class="pp-subtitle">The Parcel &amp; Pine experimentation playbook: pre-registration, power, guardrails, peeking, when to use a holdout or a geo test, and the one-page decision memo.</p>
+    <div class="pp-byline">
+      <span>By <b>Priya Natarajan</b></span>
+      <span>Published <b>Jan 20, 2026</b></span>
+      <span>Applies to <b>all product, CRM and pricing tests</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key points">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Write the decision rule before launch.</strong> Every test gets a pre-registration: one primary metric, guardrails with margins, the MDE and a fixed end date.</li>
+      <li><strong>Size tests for the effect you would act on, not the one you hope for.</strong> At our 3.4% site conversion, detecting a 2% lift takes about 1.1M sessions per arm. Most squads should plan for 5%.</li>
+      <li><strong>Don't stop early on a good-looking result.</strong> Guardrails can stop a test at any time. The primary metric is read once, at the end.</li>
+      <li><strong>Every test ends in a decision memo,</strong> including tests that find nothing.</li>
+    </ol>
+  </section>
+
+  <h2><span class="pp-num">01</span>Pre-register: the decision rule comes first</h2>
+  <p class="pp-lede">Most bad experiment calls we have reviewed came from choosing the metric after the data arrived, not from bad statistics.</p>
+  <p>Before any test goes live, the owning squad and an Insights partner fill in a pre-registration in the <code>insights-analysis</code> repo (template: <code>templates/experiment_preregistration.md</code>). It takes about 30 minutes and records:</p>
+  <ul>
+    <li><b>Hypothesis</b> in one sentence: “Collapsing checkout to one page will increase session conversion because it removes two page loads on mobile.”</li>
+    <li><b>Primary metric</b>, exactly one, with its warehouse definition (e.g. <code>dw.fct_checkout_sessions.converted</code>).</li>
+    <li><b>Guardrail metrics</b>, each with a tolerance, for example “AOV must not fall more than 3%”.</li>
+    <li><b>Unit of randomisation</b> (customer, session, store or DMA) and the population.</li>
+    <li><b>MDE, power and duration</b>, and the end date.</li>
+    <li><b>Pre-declared segments</b>: at most two, chosen for a product reason.</li>
+    <li><b>Decision rule</b>: what we do if the result is a win, a loss, or inconclusive.</li>
+  </ul>
+  <p>The pre-registration is committed before launch. After launch it can only be changed by appending a dated note, never by editing it.</p>
+
+  <h2><span class="pp-num">02</span>Power and MDE: small effects need very large tests</h2>
+  <p class="pp-lede">The minimum detectable effect (MDE) is the smallest true lift the test can reliably detect. Required sample size grows with the inverse square of the MDE, so halving the MDE takes four times the traffic.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Detecting a 2% lift takes 25× the traffic of detecting a 10% lift</p>
+    <p class="pp-fig-sub">Sessions needed per arm, baseline conversion 3.4%, α = 0.05 two-sided, 80% power · sessions</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "num", "highlight": ["5% MDE"],
+        "categories": ["2% MDE", "3% MDE", "5% MDE", "10% MDE"],
+        "series": [{ "name": "Sessions per arm", "values": [1116000, 496000, 178000, 44600] }] }
+      </script>
+    </div>
+    <figcaption>Normal approximation, n ≈ 15.7 · p(1−p) / (p · MDE)². CUPED typically cuts these figures by 15–25%. Calculator: <code>tools/power/mde_calculator.py</code>.</figcaption>
+  </figure>
+
+  <p>For scale: web and app together see about 600k checkout-eligible sessions in a typical off-peak four weeks. A 50/50 test on all of that traffic can reliably detect about a 3.5% lift once CUPED is applied. Tests on a single platform or a single category page usually cannot. If the MDE you can afford is bigger than any effect you would realistically expect, the test will not tell you anything. Change the design (a broader population, a more sensitive metric, a longer run), or make the decision without a test and say so.</p>
+  <p>We use <b>CUPED</b> (variance reduction using each customer's pre-period behaviour) by default for customer-randomised tests. It is free power.</p>
+
+  <h2><span class="pp-num">03</span>Guardrails protect the business; the primary metric decides</h2>
+  <p>Guardrails are the metrics a change must not damage. Every test includes the standard set below, plus any that are specific to the test.</p>
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Standard guardrails</caption>
+      <thead><tr><th>Guardrail</th><th>Default tolerance</th><th>Monitored</th></tr></thead>
+      <tbody>
+        <tr><td>Sample ratio (assignment split)</td><td>p &lt; 0.001 on χ² stops the test</td><td>Daily, automatic</td></tr>
+        <tr><td>Payment / checkout error rate</td><td>+1 pp absolute stops the test</td><td>Daily, automatic</td></tr>
+        <tr><td>Average order value</td><td>−3% non-inferiority margin</td><td>At readout</td></tr>
+        <tr><td>Support contacts per 1k orders</td><td>+10%</td><td>Weekly</td></tr>
+        <tr><td>Page performance (p75 load time)</td><td>+200 ms</td><td>Daily</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">04</span>Peeking: look at guardrails any time, and at the primary metric once</h2>
+  <p class="pp-lede">If you check a fixed-horizon test every day and stop the first time p &lt; 0.05, the real false-positive rate over four weeks is closer to 25% than 5%.</p>
+  <p>The experiment dashboard hides the primary-metric result until the pre-registered end date. If a squad genuinely needs to be able to stop early (a risky pricing change, or a launch tied to a date), we design the test as a <b>sequential test</b> from the start. We use group-sequential boundaries (O'Brien–Fleming) with up to three planned looks. This costs about 10% more sample. What we will not do is turn a fixed test into a sequential one after launch.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">“But it's clearly winning”</div><p>In 2025 we reviewed 14 tests that looked like clear winners at week 1. Five of them were flat or negative by the planned end date. Early novelty effects, weekday mix and a single big order can all create a week-1 “win”.</p></div>
+
+  <h2><span class="pp-num">05</span>A/B test, holdout or geo test?</h2>
+  <p>Randomising customers is the gold standard, but it is not always possible or sufficient. Use this table to pick the design, and ask in #insights-help if you are unsure.</p>
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Choosing a design</caption>
+      <thead><tr><th>Design</th><th>Use when</th><th>Example</th><th>Watch out for</th></tr></thead>
+      <tbody>
+        <tr><td><b>A/B test</b></td><td>You can randomise individual customers or sessions and the effect shows up within weeks.</td><td>Checkout layout, search ranking, email subject lines</td><td>Spill-over between arms (shared carts, households)</td></tr>
+        <tr><td><b>Holdout</b></td><td>A feature is already live and you want its ongoing incremental value, or you need to measure long-run effects.</td><td>Recommendation carousel, Pine+ perks, lifecycle emails</td><td>Holdout customers get a worse experience, so keep it small (5–10%) and time-boxed or rotating</td></tr>
+        <tr><td><b>Geo test</b></td><td>The treatment cannot be targeted at individuals, such as media, pricing seen in public, or delivery promises.</td><td>Paid social spend, TV, Pine Fleet delivery windows</td><td>Few units (DMAs), so you need synthetic control and pre-period matching; allow 6–10 weeks</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">06</span>Every test ends in a one-page decision memo</h2>
+  <p class="pp-lede">Inconclusive tests are results too. Writing them up stops the same idea being retested in six months.</p>
+  <p>The memo template (<code>templates/decision_memo.md</code>) has seven headings, in this order:</p>
+  <ol>
+    <li><b>Decision</b>: ship, don't ship, or iterate, in one line at the top.</li>
+    <li><b>What we tested and why</b>: two sentences, with a link to the pre-registration.</li>
+    <li><b>Primary result</b>: absolute and relative effect with a 95% CI, stated as a sentence and not only as a p-value.</li>
+    <li><b>Guardrails</b>: a table with a pass, watch or fail read for each.</li>
+    <li><b>Pre-declared segments</b>: results for those segments only. Anything else is labelled exploratory.</li>
+    <li><b>Expected impact</b>: the annualised figure <i>and</i> the planning figure after a haircut. Our rule of thumb is to plan on 40–60% of the point estimate, because winning tests shrink after rollout.</li>
+    <li><b>Next steps</b>: each with an owner and a date.</li>
+  </ol>
+  <p>The memo is posted in #experiments and filed in the Insights Hub. Longer write-ups are welcome, but the decision memo is required.</p>
+
+  <div class="pp-callout recommendation"><div class="pp-callout-title">Getting started</div><p>Book 30 minutes with the Experimentation pod (Priya Natarajan) at least a week before launch. We will help size the test, set up the pre-registration and flag any guardrail specific to your area. For CRM and media tests, include Lena Kowalski. For anything touching price or shipping thresholds, include Samuel Ortiz.</p></div>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

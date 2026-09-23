@@ -1,0 +1,32 @@
+{
+  "id": "returns-root-cause-analysis",
+  "title": "Half of what returns cost us comes from two causes we can fix: damage in transit and product photos that mislead",
+  "subtitle": "A mixed-methods look at H1 2026 returns: 889k returned units, $29.4M in cost, and about $5.6M a year that three changes could save.",
+  "type": "report",
+  "area": "Operations & Supply Chain",
+  "topics": ["Returns", "Customer Experience", "Fulfilment"],
+  "tags": ["returns", "root-cause", "damaged-in-transit", "packaging", "big-and-bulky", "product-photography", "mixed-methods", "cost-savings"],
+  "owners": [
+    { "name": "Tom Becker", "email": "tom.becker@parcelandpine.com", "role": "Operations Analytics Lead" },
+    { "name": "Aisha Rahman", "email": "aisha.rahman@parcelandpine.com", "role": "UX Researcher" }
+  ],
+  "published": "2026-08-12",
+  "updated": "2026-08-12",
+  "status": "final",
+  "summary": "In H1 2026, 11.0% of units shipped were returned (889k), at a cost of $29.4M. Damage in transit (31% of cost, concentrated in carton-shipped flat-pack furniture and fragile items packed on two auto-bagger lines) and 'didn't match description' (tied to missing scale shots and colour-calibrated swatches) make up about half of it. Repacking fragile SKUs, protecting or rerouting the most damage-prone furniture, and reshooting 1,200 SKUs would save about $5.6M a year, net of cost.",
+  "key_findings": [
+    "Returns cost $29.4M in H1 2026 (11.0% of units, 889k); furniture is 8% of returned units but 42% of the cost.",
+    "Damage in transit is 21% of returned units but 31% of return cost; carton-shipped flat-pack furniture is damaged at 58 per 1,000 vs. 16.5 for white-glove.",
+    "Fragile items packed on the Allentown L4 and Columbus L2 auto-baggers are damaged at 92 per 1,000, 8× the rate for pulp-insert cartons.",
+    "SKUs missing a scale shot or calibrated swatch are returned as 'didn't match description' at 2.6–3.9% of units, vs. 1.4% with a full photo set.",
+    "Three actions (fragile repack, furniture protection, photo reshoots) would save ≈$5.6M a year net."
+  ],
+  "code": [
+    { "label": "Returns & cost fact build (SQL)", "path": "analyses/2026-08-returns-root-cause/01_returns_cost_fact.sql" },
+    { "label": "Damage by pack spec & line", "path": "analyses/2026-08-returns-root-cause/02_damage_pack_spec.py" },
+    { "label": "Photo completeness logistic model", "path": "analyses/2026-08-returns-root-cause/03_photo_completeness_model.ipynb" },
+    { "label": "Savings sizing", "path": "analyses/2026-08-returns-root-cause/04_savings_sizing.py" }
+  ],
+  "data_sources": ["dw.fct_returns", "dw.fct_return_cost", "dw.fct_pack_events", "dw.dim_product", "Dovetail — Returns interviews (Jun 2026)"],
+  "related": ["last-mile-delivery-sla-review", "nps-verbatim-themes-h1-2026", "warehouse-pick-rate-benchmark"]
+}
