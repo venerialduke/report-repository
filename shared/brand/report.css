@@ -4,6 +4,7 @@
  * Reports are light, print-first documents. Structure reference: shared/templates/report-starter.
  */
 @import url("tokens.css");
+@import url("charts.css");
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -91,41 +92,6 @@ body.pp-report {
 .pp-figure .pp-fig-title { font-weight: 650; font-size: 15.5px; margin: 0 0 2px; }
 .pp-figure .pp-fig-sub { font-size: 13.5px; color: var(--ink-2); margin: 0 0 12px; }
 .pp-figure figcaption, .pp-figure .pp-fig-source { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
-.pp-chart { position: relative; width: 100%; }
-.pp-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
-.pp-chart text { font-family: var(--font-sans); }
-.pp-chart-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin: 0 0 8px; padding: 0; list-style: none; }
-.pp-chart-legend li { display: inline-flex; align-items: center; gap: 6px; margin: 0; }
-.pp-chart-legend .sw { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
-.pp-chart-legend .sw.line { height: 3px; border-radius: 2px; width: 14px; }
-.pp-chart-tip {
-  position: absolute; pointer-events: none; z-index: 5; min-width: 120px;
-  background: #fff; color: var(--ink-1); border: 1px solid var(--line); border-radius: 8px;
-  box-shadow: var(--shadow-2); padding: 8px 10px; font-size: 12.5px; line-height: 1.45;
-  opacity: 0; transform: translateY(4px); transition: opacity .12s, transform .12s;
-}
-.pp-chart-tip.on { opacity: 1; transform: none; }
-.pp-chart-tip .tt-h { font-weight: 650; margin-bottom: 4px; }
-.pp-chart-tip .tt-r { display: flex; align-items: center; gap: 6px; justify-content: space-between; }
-.pp-chart-tip .tt-r span:first-child { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
-.pp-chart-tip .tt-r b { font-variant-numeric: tabular-nums; font-weight: 600; }
-.pp-chart-tip .sw { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
-.pp-chart-table { margin-top: 6px; font-size: 12.5px; }
-.pp-chart-table summary { cursor: pointer; color: var(--ink-3); width: max-content; }
-.pp-chart-table summary:hover { color: var(--brand-pine); }
-.pp-chart .hit { fill: transparent; cursor: default; }
-.pp-chart .mark { transition: opacity .12s; }
-.pp-chart.hovering .mark.dim { opacity: .35; }
-
-/* ---------- Tables ---------- */
-.pp-table-wrap { overflow-x: auto; margin: 20px 0 28px; }
-table.pp-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
-table.pp-table caption { text-align: left; font-weight: 650; font-size: 15px; margin-bottom: 8px; }
-table.pp-table th, table.pp-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-table.pp-table thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-2); font-weight: 600; border-bottom: 1.5px solid var(--line-strong); }
-table.pp-table td.num, table.pp-table th.num { text-align: right; }
-table.pp-table tr.total td { font-weight: 650; border-top: 1.5px solid var(--line-strong); }
-
 /* ---------- Callouts ---------- */
 .pp-callout { border: 1px solid var(--line); border-radius: var(--radius-m); padding: 16px 20px; margin: 24px 0; background: var(--surface-1); break-inside: avoid; }
 .pp-callout > :last-child { margin-bottom: 0; }
@@ -179,7 +145,7 @@ html.pp-embedded .pp-report main { box-shadow: none; }
   .pp-report h2 { break-after: avoid; margin-top: 28pt; }
   .pp-report h3 { break-after: avoid; }
   .pp-figure, .pp-kpis, .pp-callout, table.pp-table, .pp-tldr { break-inside: avoid; }
-  .pp-chart-table, .pp-chart-tip, .pp-no-print { display: none !important; }
+  .pp-chart-table, .pp-chart-tip, .pp-chart-tools, .pp-no-print { display: none !important; }
   a { color: inherit; text-decoration: none; }
   .pp-masthead { padding-bottom: 14pt; margin-bottom: 18pt; }
 }

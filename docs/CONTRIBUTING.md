@@ -35,6 +35,7 @@ This creates `reports/<id>/index.html` and `reports/<id>/report.json` from `shar
 </figure>
 ```
 
+- Every chart automatically gets a toolbar: **Expand** opens an enlarged view, and readers can download the data as **CSV**, copy it, or save the chart as **PNG/SVG** (title, legend and source included). To turn this off, set `"downloads": false` on a chart, or add `<meta name="pp:downloads" content="false">` to hide it for the whole report. Charts pasted in as images can't offer data downloads, which is another reason to use chart JSON.
 - Already have an HTML report built elsewhere (notebook export, Quarto, R Markdown)? That's fine. Drop it in as `index.html`. The hub still indexes its text, and the viewer, PDF export, AI and comments all work. Using the shared stylesheet is recommended but not required.
 
 ## 3. Fill in `report.json`

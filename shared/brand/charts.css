@@ -1,0 +1,81 @@
+/*
+ * Parcel & Pine Insights — chart styles (used by shared/brand/charts.js)
+ * Imported by report.css. The Insights Hub also loads this file on its own page when a
+ * report opens a chart in the enlarged view.
+ */
+.pp-chart { position: relative; width: 100%; }
+.pp-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.pp-chart text { font-family: var(--font-sans); }
+.pp-chart-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin: 0 0 8px; padding: 0; list-style: none; }
+.pp-chart-legend li { display: inline-flex; align-items: center; gap: 6px; margin: 0; }
+.pp-chart-legend .sw { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.pp-chart-legend .sw.line { height: 3px; border-radius: 2px; width: 14px; }
+.pp-chart-tip {
+  position: absolute; pointer-events: none; z-index: 5; min-width: 120px;
+  background: #fff; color: var(--ink-1); border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: var(--shadow-2); padding: 8px 10px; font-size: 12.5px; line-height: 1.45;
+  opacity: 0; transform: translateY(4px); transition: opacity .12s, transform .12s;
+}
+.pp-chart-tip.on { opacity: 1; transform: none; }
+.pp-chart-tip .tt-h { font-weight: 650; margin-bottom: 4px; }
+.pp-chart-tip .tt-r { display: flex; align-items: center; gap: 6px; justify-content: space-between; }
+.pp-chart-tip .tt-r span:first-child { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+.pp-chart-tip .tt-r b { font-variant-numeric: tabular-nums; font-weight: 600; }
+.pp-chart-tip .sw { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.pp-chart-table { margin-top: 6px; font-size: 12.5px; }
+.pp-chart-table summary { cursor: pointer; color: var(--ink-3); width: max-content; }
+.pp-chart-table summary:hover { color: var(--brand-pine); }
+.pp-chart .hit { fill: transparent; cursor: default; }
+.pp-chart .mark { transition: opacity .12s; }
+.pp-chart.hovering .mark.dim { opacity: .35; }
+
+/* ---------- Tables (chart data tables and report tables) ---------- */
+.pp-table-wrap { overflow-x: auto; margin: 20px 0 28px; }
+table.pp-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.pp-table caption { text-align: left; font-weight: 650; font-size: 15px; margin-bottom: 8px; }
+table.pp-table th, table.pp-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+table.pp-table thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-2); font-weight: 600; border-bottom: 1.5px solid var(--line-strong); }
+table.pp-table td.num, table.pp-table th.num { text-align: right; }
+table.pp-table tr.total td { font-weight: 650; border-top: 1.5px solid var(--line-strong); }
+
+
+/* ---------- Chart toolbar ---------- */
+.pp-chart-tools {
+  position: absolute; top: 0; right: 0; z-index: 4; display: flex; gap: 2px; padding: 3px;
+  background: var(--surface-1, #fcfcfb); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow-1);
+  opacity: 0; transition: opacity .12s;
+}
+.pp-chart:hover > .pp-chart-tools, .pp-chart-tools:focus-within { opacity: 1; }
+@media (hover: none) { .pp-chart-tools { opacity: .9; } }
+.pp-chart-tools button {
+  width: 28px; height: 28px; display: grid; place-items: center; border: 0; border-radius: 6px;
+  background: transparent; color: var(--ink-2); cursor: pointer;
+}
+.pp-chart-tools button:hover { background: var(--surface-2); color: var(--ink-1); }
+.pp-chart-tools button:focus-visible { outline: 2px solid var(--series-1); outline-offset: 1px; }
+
+/* ---------- Enlarged chart (modal) ---------- */
+dialog.pp-chart-modal {
+  width: min(1180px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: 16px;
+  background: #fcfcfb; color: var(--ink-1); box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+  font: 15px/1.5 var(--font-sans); overflow: auto; color-scheme: light;
+}
+dialog.pp-chart-modal::backdrop { background: rgba(10, 14, 12, .55); }
+.pp-cm-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; padding: 20px 24px 8px; }
+.pp-cm-head h2 { font: 650 19px/1.3 var(--font-sans); margin: 0; }
+.pp-cm-sub { margin: 4px 0 0; color: var(--ink-2); font-size: 14px; }
+.pp-cm-sub:empty, .pp-cm-source:empty { display: none; }
+.pp-cm-close { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink-2); cursor: pointer; }
+.pp-cm-close:hover { color: var(--ink-1); border-color: var(--line-strong); }
+.pp-cm-body { padding: 8px 24px 4px; }
+.pp-cm-body .pp-chart-table { margin-top: 10px; }
+.pp-cm-source { font-size: 12px; color: var(--ink-3); margin: 8px 0 0; }
+.pp-cm-foot { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 14px 24px 20px; border-top: 1px solid var(--line); margin-top: 12px; }
+.pp-cm-foot button {
+  display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border-radius: 9px;
+  border: 1px solid var(--line); background: #fff; color: var(--ink-1); font: 550 13.5px var(--font-sans); cursor: pointer;
+}
+.pp-cm-foot button:first-child { background: var(--brand-pine); border-color: var(--brand-pine); color: #fff; }
+.pp-cm-foot button:hover { border-color: var(--line-strong); }
+.pp-cm-hint { margin-left: auto; font-size: 12px; color: var(--ink-3); }
+@media (max-width: 640px) { .pp-cm-hint { display: none; } .pp-cm-head, .pp-cm-body, .pp-cm-foot { padding-left: 16px; padding-right: 16px; } }

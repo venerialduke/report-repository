@@ -13,16 +13,21 @@
  * Series: {name, values, color?}  color may be "series-1".."series-8" to pin a palette slot across charts
  * Options: format ("num" | "pct" | "pct1" | "pp" | "usd" | "usd2" | "x" | {prefix, suffix, decimals, compact})
  *          yMin, yMax, height, highlight: [category...], ref: {value, label}, labels: bool, yLabel
- * Charts are data-first: the JSON is also exposed as a table (accessibility, AI and print friendly).
+ *          downloads: false  (hide the Expand / Download toolbar for this chart; for a whole report use
+ *                             <meta name="pp:downloads" content="false">)
+ * Charts are data-first: the JSON is also exposed as a table (accessibility, AI and print friendly),
+ * and every chart gets an Expand button (enlarged view) plus CSV, copy, PNG and SVG downloads.
  */
 (function (global) {
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
   var SERIES = ["--series-1", "--series-2", "--series-3", "--series-4", "--series-5", "--series-6", "--series-7", "--series-8"];
+  var SCRIPT_SRC = (document.currentScript && document.currentScript.src) || "";
+  var curDoc = document; // document being rendered into (the hub page when a chart opens in its modal)
   var FALLBACK = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"];
 
   function cssVar(el, name, fb) {
-    var v = getComputedStyle(el).getPropertyValue(name).trim();
+    var v = (el.ownerDocument.defaultView || global).getComputedStyle(el).getPropertyValue(name).trim();
     return v || fb;
   }
   function colorFor(el, i, s) {
@@ -33,7 +38,7 @@
     return cssVar(el, SERIES[i % 8], FALLBACK[i % 8]);
   }
   function h(tag, attrs, parent) {
-    var n = document.createElementNS(NS, tag);
+    var n = (parent ? parent.ownerDocument : curDoc).createElementNS(NS, tag);
     for (var k in attrs) if (attrs[k] !== undefined && attrs[k] !== null) n.setAttribute(k, attrs[k]);
     if (parent) parent.appendChild(n);
     return n;
@@ -102,6 +107,7 @@
   function render(el) {
     var cfg = parse(el);
     if (!cfg) return;
+    curDoc = el.ownerDocument;
     Array.prototype.slice.call(el.children).forEach(function (c) { if (c.tagName !== "SCRIPT") el.removeChild(c); });
     var type = cfg.type || "column";
     var cats = cfg.categories || [];
@@ -111,7 +117,7 @@
     var multi = series.length > 1;
 
     if (multi) {
-      var ul = document.createElement("ul");
+      var ul = curDoc.createElement("ul");
       ul.className = "pp-chart-legend";
       series.forEach(function (s) {
         ul.insertAdjacentHTML("beforeend", '<li><span class="sw' + (type === "line" ? " line" : "") + '" style="background:' + s.color + '"></span>' + esc(s.name) + "</li>");
@@ -119,7 +125,7 @@
       el.appendChild(ul);
     }
 
-    var tip = document.createElement("div");
+    var tip = curDoc.createElement("div");
     tip.className = "pp-chart-tip";
     var svg;
     if (type === "bar" || type === "stacked-bar") svg = drawBar(el, cfg, cats, series, fmt, W, type === "stacked-bar");
@@ -130,6 +136,7 @@
     el.appendChild(svg);
     el.appendChild(tip);
     el.appendChild(dataTable(cfg, cats, series, fmt));
+    if (!el.hasAttribute("data-pp-modal") && downloadsAllowed(el, cfg)) el.appendChild(toolbar(el));
 
     // hover wiring (each draw* registers hit targets with data-i)
     function show(i, evt) {
@@ -389,7 +396,7 @@
   }
 
   function dataTable(cfg, cats, series, fmt) {
-    var det = document.createElement("details");
+    var det = curDoc.createElement("details");
     det.className = "pp-chart-table";
     var html = "<summary>View data table</summary><div class=\"pp-table-wrap\"><table class=\"pp-table\"><thead><tr><th></th>";
     series.forEach(function (s) { html += '<th class="num">' + esc(s.name || "Value") + "</th>"; });
@@ -401,6 +408,203 @@
     });
     det.innerHTML = html + "</tbody></table></div>";
     return det;
+  }
+
+  // ---------- expand (modal) & downloads ----------
+  var ICONS = {
+    expand: '<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>',
+    csv: '<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>',
+    copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/>',
+    img: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 8"/>',
+    x: '<path d="M6 6l12 12M18 6 6 18"/>'
+  };
+  function ico(n) { return '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[n] + "</svg>"; }
+
+  // Opt out per chart ("downloads": false) or per report (<meta name="pp:downloads" content="false">)
+  function downloadsAllowed(el, cfg) {
+    if (cfg.downloads === false) return false;
+    var m = el.ownerDocument.querySelector('meta[name="pp:downloads"]');
+    return !(m && m.getAttribute("content") === "false");
+  }
+
+  function figureInfo(el) {
+    var fig = el.closest(".pp-figure");
+    var q = function (sel) { var n = fig && fig.querySelector(sel); return n ? n.textContent.trim() : ""; };
+    var cfg = parse(el) || {};
+    return { title: q(".pp-fig-title") || cfg.title || "Chart", sub: q(".pp-fig-sub"), source: q("figcaption") || q(".pp-fig-source") };
+  }
+  function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "chart"; }
+  function reportId(el) {
+    var art = el.closest("article[id^='r-']"); // inside a PDF bundle
+    if (art) return art.id.slice(2);
+    var m = el.ownerDocument.location.pathname.match(/\/reports\/([a-z0-9-]+)\//);
+    return m ? m[1] : slug(el.ownerDocument.title);
+  }
+  function fileBase(el) { return reportId(el) + "__" + slug(figureInfo(el).title); }
+
+  function toolbar(el) {
+    var bar = curDoc.createElement("div");
+    bar.className = "pp-chart-tools";
+    bar.innerHTML = '<button type="button" data-act="expand" title="Expand chart" aria-label="Expand chart">' + ico("expand") + "</button>" +
+      '<button type="button" data-act="csv" title="Download data (CSV)" aria-label="Download data as CSV">' + ico("csv") + "</button>";
+    bar.addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      if (b.dataset.act === "expand") openModal(el, b);
+      if (b.dataset.act === "csv") downloadCSV(el);
+    });
+    return bar;
+  }
+
+  function table(cfg) {
+    var head = ["Category"].concat((cfg.series || []).map(function (s) { return s.name || "Value"; }));
+    var rows = (cfg.categories || []).map(function (c, i) { return [c].concat((cfg.series || []).map(function (s) { return s.values[i]; })); });
+    return [head].concat(rows);
+  }
+  function toCSV(cfg) {
+    return table(cfg).map(function (r) {
+      return r.map(function (v) {
+        if (v === null || v === undefined) return "";
+        v = String(v);
+        return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+      }).join(",");
+    }).join("\r\n") + "\r\n";
+  }
+  function save(el, blob, name) {
+    var d = el.ownerDocument, a = d.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    d.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+  }
+  function downloadCSV(el) {
+    // BOM so Excel opens UTF-8 (en dashes, ×, etc.) correctly
+    save(el, new Blob(["\ufeff" + toCSV(parse(el))], { type: "text/csv;charset=utf-8" }), fileBase(el) + ".csv");
+  }
+  function copyData(el, win, btn) {
+    var tsv = table(parse(el)).map(function (r) { return r.map(function (v) { return v == null ? "" : String(v).replace(/[\t\n]/g, " "); }).join("\t"); }).join("\n");
+    var done = function (ok) { var t = btn.innerHTML; btn.textContent = ok ? "Copied" : "Copy failed"; setTimeout(function () { btn.innerHTML = t; }, 1400); };
+    try { win.navigator.clipboard.writeText(tsv).then(function () { done(true); }, function () { done(false); }); } catch (e) { done(false); }
+  }
+
+  // Self-contained SVG: title, legend, chart and source baked in (for slides)
+  function exportSVG(chartEl, info) {
+    var cfg = parse(chartEl);
+    var src = chartEl.querySelector("svg");
+    var W = +src.getAttribute("width"), Hc = +src.getAttribute("height");
+    var doc = chartEl.ownerDocument, ink = cssVar(chartEl, "--ink-1", "#0f1714"), ink2 = cssVar(chartEl, "--ink-2", "#4a524e");
+    var font = "Inter, system-ui, -apple-system, 'Segoe UI', sans-serif";
+    var out = doc.createElementNS(NS, "svg");
+    out.setAttribute("xmlns", NS);
+    var lines = [], words = info.title.split(" "), line = "";
+    words.forEach(function (w) { if (textW(line + " " + w, 17, true) > W && line) { lines.push(line); line = w; } else line = line ? line + " " + w : w; });
+    if (line) lines.push(line);
+    var y = 26, g = doc.createElementNS(NS, "g");
+    var add = function (tag, attrs, text) { var n = doc.createElementNS(NS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); if (text != null) n.textContent = text; g.appendChild(n); return n; };
+    lines.forEach(function (l) { add("text", { x: 0, y: y, "font-size": 17, "font-weight": 700, fill: ink }, l); y += 22; });
+    if (info.sub) { add("text", { x: 0, y: y, "font-size": 13, fill: ink2 }, info.sub); y += 20; }
+    var series = cfg.series || [];
+    if (series.length > 1) {
+      var lx = 0; y += 4;
+      series.forEach(function (s, i) {
+        add("rect", { x: lx, y: y - 10, width: 11, height: 11, rx: 3, fill: colorFor(chartEl, i, s) });
+        add("text", { x: lx + 16, y: y, "font-size": 12.5, fill: ink2 }, s.name);
+        lx += 16 + textW(s.name, 12.5) + 18;
+      });
+      y += 14;
+    }
+    var body = src.cloneNode(true);
+    ["rect.hit", "line.xhair"].forEach(function (sel) { body.querySelectorAll(sel).forEach(function (n) { n.remove(); }); });
+    body.querySelectorAll(".dot").forEach(function (n) { if (n.style.opacity === "0") n.remove(); });
+    body.querySelectorAll(".mark").forEach(function (n) { n.classList.remove("dim"); });
+    var inner = doc.createElementNS(NS, "g");
+    inner.setAttribute("transform", "translate(0," + (y + 6) + ")");
+    while (body.firstChild) inner.appendChild(body.firstChild);
+    g.appendChild(inner);
+    y += 6 + Hc + 8;
+    if (info.source) { add("text", { x: 0, y: y + 12, "font-size": 11.5, fill: cssVar(chartEl, "--ink-3", "#7c837f") }, info.source); y += 20; }
+    var pad = 24, Ht = y + pad;
+    out.setAttribute("viewBox", -pad + " " + (-pad / 2) + " " + (W + pad * 2) + " " + (Ht + pad / 2));
+    out.setAttribute("width", W + pad * 2); out.setAttribute("height", Ht + pad / 2);
+    out.setAttribute("font-family", font);
+    var bg = doc.createElementNS(NS, "rect");
+    bg.setAttribute("x", -pad); bg.setAttribute("y", -pad / 2); bg.setAttribute("width", W + pad * 2); bg.setAttribute("height", Ht + pad / 2); bg.setAttribute("fill", "#ffffff");
+    out.appendChild(bg); out.appendChild(g);
+    return new XMLSerializer().serializeToString(out);
+  }
+  function downloadImage(chartEl, info, kind, base, dlEl) {
+    var svg = exportSVG(chartEl, info);
+    if (kind === "svg") return save(dlEl, new Blob([svg], { type: "image/svg+xml" }), base + ".svg");
+    var img = new Image(), url = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" }));
+    img.onload = function () {
+      var scale = 2, c = dlEl.ownerDocument.createElement("canvas");
+      c.width = img.width * scale; c.height = img.height * scale;
+      var ctx = c.getContext("2d"); ctx.scale(scale, scale); ctx.drawImage(img, 0, 0);
+      URL.revokeObjectURL(url);
+      c.toBlob(function (b) { save(dlEl, b, base + ".png"); }, "image/png");
+    };
+    img.src = url;
+  }
+
+  // The modal opens in the hub page when the report is embedded there (the hub marks itself with
+  // data-pp-chart-host), so the enlarged chart can use the whole window instead of the report column.
+  function hostWindow() {
+    try {
+      if (global.parent !== global && global.parent.document.documentElement.hasAttribute("data-pp-chart-host")) return global.parent;
+    } catch (e) { /* cross-origin */ }
+    return global;
+  }
+  function ensureStyles(doc) {
+    if (doc === document || doc.getElementById("pp-charts-css") || !SCRIPT_SRC) return;
+    var l = doc.createElement("link");
+    l.id = "pp-charts-css"; l.rel = "stylesheet"; l.href = new URL("charts.css", SCRIPT_SRC).href;
+    doc.head.appendChild(l);
+  }
+
+  function openModal(el, opener) {
+    var win = hostWindow(), doc = win.document;
+    ensureStyles(doc);
+    var cfg = parse(el), info = figureInfo(el), base = fileBase(el);
+    var dlg = doc.createElement("dialog");
+    dlg.className = "pp-chart-modal";
+    dlg.setAttribute("aria-labelledby", "pp-cm-title");
+    dlg.innerHTML = '<div class="pp-cm-head"><div><h2 id="pp-cm-title"></h2><p class="pp-cm-sub"></p></div>' +
+      '<button type="button" class="pp-cm-close" data-act="close" aria-label="Close">' + ico("x") + "</button></div>" +
+      '<div class="pp-cm-body"><div class="pp-chart" data-pp-modal></div><p class="pp-cm-source"></p></div>' +
+      '<div class="pp-cm-foot"><button type="button" data-act="csv">' + ico("csv") + "Download CSV</button>" +
+      '<button type="button" data-act="copy">' + ico("copy") + "Copy data</button>" +
+      '<button type="button" data-act="png">' + ico("img") + "PNG</button>" +
+      '<button type="button" data-act="svg">' + ico("img") + "SVG</button>" +
+      '<span class="pp-cm-hint">Esc to close</span></div>';
+    dlg.querySelector("#pp-cm-title").textContent = info.title;
+    dlg.querySelector(".pp-cm-sub").textContent = info.sub;
+    dlg.querySelector(".pp-cm-source").textContent = info.source;
+    doc.body.appendChild(dlg);
+    var big = dlg.querySelector(".pp-chart");
+    var bigCfg = JSON.parse(JSON.stringify(cfg));
+    bigCfg.height = Math.round(Math.min(560, Math.max(360, win.innerHeight * 0.55)));
+    big.__ppCfg = bigCfg;
+    var draw = function () { render(big); curDoc = document; };
+    var onResize = function () { win.requestAnimationFrame(draw); };
+    dlg.addEventListener("close", function () {
+      win.removeEventListener("resize", onResize);
+      dlg.remove();
+      try { opener && opener.focus(); } catch (e) { /* */ }
+    });
+    dlg.addEventListener("click", function (e) {
+      if (e.target === dlg) return dlg.close(); // backdrop
+      var b = e.target.closest("button[data-act]"); if (!b) return;
+      var act = b.dataset.act;
+      if (act === "close") dlg.close();
+      if (act === "csv") downloadCSV(el);
+      if (act === "copy") copyData(el, win, b);
+      if (act === "png" || act === "svg") downloadImage(big, info, act, base, el);
+    });
+    win.addEventListener("resize", onResize);
+    dlg.showModal();
+    // wait for the stylesheet (first open inside the hub) before measuring
+    var link = doc.getElementById("pp-charts-css");
+    if (link && !link.sheet) link.addEventListener("load", draw, { once: true }); else draw();
+    draw();
   }
 
   /** Plain-text description of every chart in a root — used for AI context and search. */
@@ -433,7 +637,7 @@
   });
   global.addEventListener("beforeprint", function () { renderAll(document); });
 
-  global.PPCharts = { render: render, renderAll: renderAll, describe: describe, format: formatter };
+  global.PPCharts = { render: render, renderAll: renderAll, describe: describe, format: formatter, toCSV: toCSV, open: openModal };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", function () { renderAll(document); });
   else renderAll(document);
 
