@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-23T05:23:57.441Z",
+  "generated": "2026-09-23T05:25:25.208Z",
   "site": {
     "name": "Insights Hub",
     "org": "Parcel & Pine"
@@ -1802,10 +1802,22 @@
   ],
   "skills": [
     {
+      "id": "brand-style",
+      "name": "brand-style",
+      "description": "Copy-edits an Insights report into Parcel & Pine house style, covering voice, number and unit formatting, dates, pp vs %, capitalisation, topics and tags, and the team's preferred words (members, Pine+, FC). Use when asked to proofread, copy-edit, polish or make a report or report.json \"on brand\".",
+      "path": ".claude/skills/brand-style/SKILL.md"
+    },
+    {
       "id": "report-construction",
       "name": "report-construction",
       "description": "Builds a new Insights Hub report end to end, covering scaffolding, HTML in house style, chart JSON, report.json metadata, code links and validation. Use when someone asks to create, draft, or add a report or article to this repo, or to turn analysis results into a publishable report.",
       "path": ".claude/skills/report-construction/SKILL.md"
+    },
+    {
+      "id": "report-metadata",
+      "name": "report-metadata",
+      "description": "Generates or improves report.json for an existing report, covering summary, quantified key findings, topics and tags consistent with catalog.json, related reports by overlap, then validates it. Use when a report's metadata is missing, placeholder, thin or failing validation.",
+      "path": ".claude/skills/report-metadata/SKILL.md"
     },
     {
       "id": "storytelling-review",
@@ -1816,7 +1828,7 @@
     {
       "id": "visualization-review",
       "name": "visualization-review",
-      "description": "Reviews every chart and table in an Insights report against the chart rules in shared/brand/BRAND.md (chart choice, takeaway titles, highlight, axes, formats, palette, legends, clutter, prose-vs-data consistency) and returns per-figure findings with corrected chart JSON. Use when asked to review or fix a report's charts, figures or tables.",
+      "description": "Reviews a report's charts and tables against the BRAND.md chart rules (chart choice, takeaway titles, highlight, axes, formats, palette, legends, prose-vs-data) and returns per-figure findings with fixed chart JSON. Use when asked to review or fix a report's charts, figures or tables.",
       "path": ".claude/skills/visualization-review/SKILL.md"
     }
   ]
