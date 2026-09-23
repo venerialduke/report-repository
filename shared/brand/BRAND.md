@@ -158,7 +158,7 @@ Charts are declared as JSON inside `<div class="pp-chart">` and drawn by `shared
 | Dates in prose: `Mon D, YYYY`. Months: `Sep 2026`. ISO (`2026-09-15`) only in `report.json`. | Published Sep 15, 2026 |
 | Survey scales use "pts" for index or NPS changes. | NPS +3 pts vs. wave 3 |
 
-**KPI deltas.** In `pp-kpi-delta`, the `up` class draws a green ▲ and `down` draws a red ▼. They encode direction *and* good or bad, so use them only when both agree. If a number rose and that is bad (churn up, for example), leave the delta unclassed and say it in words: `+3.5 pp vs. web, worse`.
+**KPI deltas.** In `pp-kpi-delta`, `up` draws ▲ and `down` draws ▼. By default `up` is green and `down` is red. When direction and good/bad disagree, add `bad` or `good`: churn rising is `up bad` (red ▲) and cost falling is `down good` (green ▼). Always state the comparison in words too, e.g. `+3.5 pp vs. web`.
 
 ---
 

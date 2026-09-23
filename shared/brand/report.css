@@ -82,6 +82,9 @@ body.pp-report {
 .pp-kpi .pp-kpi-delta.down { color: var(--critical); }
 .pp-kpi .pp-kpi-delta.up::before { content: "▲ "; font-size: 10px; }
 .pp-kpi .pp-kpi-delta.down::before { content: "▼ "; font-size: 10px; }
+/* Arrow = direction; colour = good/bad. Add .bad or .good when they disagree (e.g. a rising error rate). */
+.pp-kpi .pp-kpi-delta.up.bad { color: var(--critical); }
+.pp-kpi .pp-kpi-delta.down.good { color: var(--good-text); }
 
 /* ---------- Figures & charts ---------- */
 .pp-figure { margin: 28px 0 32px; break-inside: avoid; }

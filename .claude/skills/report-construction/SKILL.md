@@ -46,7 +46,7 @@ Keep the template's structure and classes (full details in `BRAND.md` section 2)
 
 1. `header.pp-masthead`: `.pp-brandline`, `.pp-eyebrow` (area; escape `&` as `&amp;`), `h1`, `p.pp-subtitle`, `.pp-byline`.
 2. `section.pp-tldr` with `<h2>The short version</h2>` and an `ol` of 3–5 `li`. Each starts with `<strong>Finding sentence.</strong>` followed by the evidence. The last `li` is the recommendation, with owners in `<em>`.
-3. `div.pp-kpis` with 3–4 `div.pp-kpi` tiles (`.pp-kpi-label`, `.pp-kpi-value`, `.pp-kpi-delta`). Add `up`/`down` to the delta only when the direction and good/bad agree (`up` = green ▲, `down` = red ▼).
+3. `div.pp-kpis` with 3–4 `div.pp-kpi` tiles (`.pp-kpi-label`, `.pp-kpi-value`, `.pp-kpi-delta`). Add `up`/`down` for direction (green ▲ / red ▼ by default). Add `bad` or `good` when direction and good/bad disagree, e.g. `up bad` for rising churn.
 4. Sections: `<h2><span class="pp-num">01</span>Finding as a sentence</h2>`, then `p.pp-lede`, then the evidence.
 5. Figures: `figure.pp-figure` > `p.pp-fig-title` + `p.pp-fig-sub` + `div.pp-chart` + `figcaption` (source).
 6. Tables: `div.pp-table-wrap` > `table.pp-table` with `<caption>`, `th.num`/`td.num`, `tr.total`, and `span.pp-badge good|warn|bad` for status.
