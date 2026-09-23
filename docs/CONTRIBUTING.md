@@ -7,7 +7,13 @@ npm run new -- <id> --title "Headline that states the finding" --area "<Area>" -
 ```
 
 - `id` is kebab-case, stable, and becomes the URL (`report.html?id=<id>`). Don't rename it after publishing.
-- Areas are listed in `site.config.json`. To add one, add it there (name, slug, description, colour).
+- Areas are listed in `site.config.json`. To add one, add it there (name, slug, description, colour). Each area gets a landing page at `area.html?a=<slug>`. Two optional fields customise it: `intro`, a longer description for the page header, and `links`, which appear in the side panel:
+
+  ```json
+  { "name": "Marketing", "slug": "marketing", "description": "…", "color": "#4a3aa7",
+    "intro": "Media effectiveness, CRM and brand health. Owned by Lena Kowalski.",
+    "links": [{ "label": "Marketing dashboard", "url": "https://…" }] }
+  ```
 
 This creates `reports/<id>/index.html` and `reports/<id>/report.json` from `shared/templates/report-starter/`.
 

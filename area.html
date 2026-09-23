@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Area — Insights Hub</title>
+  <link rel="icon" href="shared/brand/logo.svg">
+  <link rel="alternate" type="application/rss+xml" title="Insights Hub" href="feed.xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try{var t=localStorage.getItem("pp-theme");if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+</head>
+<body>
+  <section class="hero area-hero" id="hero">
+    <div class="wrap">
+      <nav class="crumbs light" aria-label="Breadcrumb"><a href="./">Insights Hub</a><span>/</span><span>Areas</span></nav>
+      <div class="area-hero-head">
+        <span class="area-mark" id="area-mark"></span>
+        <div>
+          <h1 id="area-title">Area</h1>
+          <p id="area-desc"></p>
+        </div>
+      </div>
+      <div class="hero-stats" id="area-stats"></div>
+      <div class="area-actions" id="area-actions"></div>
+      <div class="area-switch" id="area-switch" aria-label="Other areas"></div>
+    </div>
+  </section>
+
+  <main class="page wrap" id="main">
+    <section class="section" id="featured-wrap" aria-labelledby="featured-h">
+      <div class="section-head"><div><h2 id="featured-h">Latest</h2><p>The newest report in this area.</p></div></div>
+      <div id="featured"></div>
+    </section>
+
+    <section class="section" id="digest-wrap" aria-labelledby="digest-h">
+      <div class="section-head"><div><h2 id="digest-h">What we know</h2><p>The headline finding from each recent report. Follow the link for the evidence.</p></div></div>
+      <ol class="digest" id="digest"></ol>
+    </section>
+
+    <div class="area-layout">
+      <section class="section" aria-labelledby="all-h" style="min-width:0">
+        <div class="section-head">
+          <div><h2 id="all-h">All reports &amp; articles</h2><p id="all-sub"></p></div>
+          <div class="actions">
+            <label class="sr-only" for="area-sort">Sort</label>
+            <select id="area-sort" class="sel"><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="title">Title A–Z</option></select>
+          </div>
+        </div>
+        <div class="area-filters">
+          <div class="top-search area-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="area-q" type="search" placeholder="Search in this area…" aria-label="Search in this area"></div>
+          <div class="opts" id="area-chips"></div>
+        </div>
+        <div class="grid" id="area-grid"></div>
+      </section>
+
+      <aside class="area-side">
+        <section class="panel"><h3>Authors</h3><div id="area-people"></div></section>
+        <section class="panel"><h3>Topics</h3><div id="area-topics" style="display:flex;flex-wrap:wrap;gap:6px"></div></section>
+        <section class="panel" id="area-links-panel" hidden><h3>Links</h3><ul class="linklist" id="area-links"></ul></section>
+      </aside>
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/area.js"></script>
+</body>
+</html>
