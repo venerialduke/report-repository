@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report bundle — Insights Hub</title>
+  <link rel="icon" href="shared/brand/logo.svg">
+  <link rel="stylesheet" href="shared/brand/report.css">
+  <style>
+    .bundle-bar { position: sticky; top: 0; z-index: 10; display: flex; gap: 10px; align-items: center; justify-content: space-between; padding: 10px 20px; background: #0f1714; color: #f4f1ea; font: 14px var(--font-sans); }
+    .bundle-bar a { color: #f4f1ea; }
+    .bundle-bar button { font: 600 14px var(--font-sans); border: 0; border-radius: 9px; padding: 8px 14px; background: #f4f1ea; color: #0f1714; cursor: pointer; }
+    .bundle-cover { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
+    .bundle-cover h1 { font-family: var(--font-display); font-size: 44px; line-height: 1.1; margin: 18px 0 8px; }
+    .bundle-toc { list-style: none; padding: 0; margin: 28px 0 0; counter-reset: toc; }
+    .bundle-toc li { counter-increment: toc; display: grid; grid-template-columns: 34px 1fr; gap: 4px 10px; padding: 12px 0; border-top: 1px solid var(--line); }
+    .bundle-toc li::before { content: counter(toc, decimal-leading-zero); color: var(--brand-clay); font-weight: 700; }
+    .bundle-toc small { grid-column: 2; color: var(--ink-3); font-size: 12.5px; }
+    .bundle-report { border-top: 6px solid var(--brand-pine); margin-top: 64px; padding-top: 8px; }
+    @media print {
+      .bundle-bar { display: none; }
+      .bundle-cover { min-height: 0; padding-top: 30vh; break-after: page; }
+      .bundle-report { break-before: page; border-top: 0; margin-top: 0; padding-top: 0; }
+    }
+  </style>
+</head>
+<body class="pp-report">
+  <div class="bundle-bar pp-no-print"><span><a href="./">← Insights Hub</a> · <span id="status">Loading reports…</span></span><button id="print" disabled>Print / Save as PDF</button></div>
+  <main id="bundle">
+    <section class="bundle-cover">
+      <div class="pp-brandline"><span class="pp-logo"><img src="shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span><span id="cover-date"></span></div>
+      <span class="pp-eyebrow">Report bundle</span>
+      <h1 id="cover-title">Selected reports</h1>
+      <p class="pp-subtitle" id="cover-sub"></p>
+      <ol class="bundle-toc" id="toc"></ol>
+    </section>
+  </main>
+  <script src="shared/brand/charts.js"></script>
+  <script type="module" src="assets/js/bundle.js"></script>
+</body>
+</html>

@@ -227,7 +227,9 @@
           base += v;
         } else {
           var bx = gx + si * (barW + gap);
-          var top = y(Math.max(v, 0)), bot = y(Math.min(v, 0));
+          var b0 = Math.min(Math.max(0, d.lo), d.hi); // baseline: zero, or the axis floor when yMin > 0
+          var vc = Math.min(Math.max(v, d.lo), d.hi);
+          var top = y(Math.max(vc, b0)), bot = y(Math.min(vc, b0));
           roundedTopRect(svg, bx, top, barW, bot - top, 4, fill, "mark", i);
           if (labels) {
             h("text", { x: bx + barW / 2, y: (v >= 0 ? top - 6 : bot + 14), "text-anchor": "middle", "font-size": 11.5, "font-weight": 600, fill: C.ink, "class": "mark", "data-i": i }, svg).textContent = fmt(v);
@@ -255,7 +257,7 @@
     var d = yDomain(cfg, series, stacked);
     var labels = cfg.labels !== undefined ? cfg.labels : !stacked;
     var mr = labels ? Math.max.apply(null, series.map(function (s) { return Math.max.apply(null, s.values.map(function (v) { return textW(fmt(v), 12); })); })) + 12 : 12;
-    var m = { t: 6, r: mr, b: 26, l: ml };
+    var m = { t: cfg.ref && cfg.ref.label ? 22 : 6, r: mr, b: 26, l: ml };
     var H = m.t + m.b + rowH * cats.length;
     var iw = W - m.l - m.r;
     var x = function (v) { return m.l + (v - d.lo) / (d.hi - d.lo) * iw; };
@@ -292,8 +294,11 @@
     });
     if (cfg.ref) {
       var rx = x(cfg.ref.value);
-      h("line", { x1: rx, x2: rx, y1: m.t - 2, y2: H - m.b, stroke: C.ink, "stroke-width": 1.25, "stroke-dasharray": "4 3" }, svg);
-      if (cfg.ref.label) h("text", { x: rx + 4, y: m.t + 8, "font-size": 11, fill: C.ink }, svg).textContent = cfg.ref.label;
+      h("line", { x1: rx, x2: rx, y1: m.t - 4, y2: H - m.b, stroke: C.ink, "stroke-width": 1.25, "stroke-dasharray": "4 3" }, svg);
+      if (cfg.ref.label) {
+        var anchorEnd = rx > m.l + iw * 0.7;
+        h("text", { x: anchorEnd ? rx - 4 : rx + 4, y: m.t - 8, "text-anchor": anchorEnd ? "end" : "start", "font-size": 11, fill: C.ink }, svg).textContent = cfg.ref.label;
+      }
     }
     return svg;
   }
@@ -311,7 +316,11 @@
     }
     var direct = series.length > 1 && series.length <= 4 && cfg.directLabels !== false;
     var ml = Math.max.apply(null, d.ticks.map(function (t) { return textW(fmt(t, true), 11.5); })) + 12;
-    var mr = direct ? Math.min(W * 0.28, Math.max.apply(null, series.map(function (s) { return textW(s.name, 12); })) + 18) : 16;
+    var maxName = Math.floor(W * 0.3 / 7);
+    var short = function (n) { n = String(n); return n.length > maxName ? n.slice(0, maxName - 1) + "…" : n; };
+    var lastVal = series.length === 1 ? series[0].values.filter(function (v) { return v != null; }).pop() : null;
+    var mr = direct ? Math.max.apply(null, series.map(function (s) { return textW(short(s.name), 12); })) + 18
+      : (series.length === 1 && cfg.labels !== false ? textW(fmt(lastVal), 12) + 16 : 16);
     var m = { t: 16, r: mr, b: 32, l: ml };
     var iw = W - m.l - m.r, ih = H - m.t - m.b;
     var y = function (v) { return m.t + ih - (v - d.lo) / (d.hi - d.lo) * ih; };
@@ -322,9 +331,15 @@
       h("line", { x1: m.l, x2: W - m.r, y1: y(t), y2: y(t), stroke: t === 0 ? C.axis : C.grid }, svg);
       h("text", { x: m.l - 8, y: y(t) + 4, "text-anchor": "end", "font-size": 11.5, fill: C.label }, svg).textContent = fmt(t, true);
     });
-    var every = Math.max(1, Math.ceil(cats.length / Math.floor(iw / 70)));
+    var labW = Math.max.apply(null, cats.map(function (c) { return textW(c, 11.5); })) + 10;
+    var every = Math.max(1, Math.ceil(labW / (cats.length > 1 ? step : iw)));
+    var lastTick = Math.floor((cats.length - 1) / every) * every;
+    var showLast = (cats.length - 1 - lastTick) * step >= labW;
     cats.forEach(function (c, i) {
-      if (i % every === 0 || i === cats.length - 1) h("text", { x: x(i), y: H - m.b + 20, "text-anchor": "middle", "font-size": 11.5, fill: C.label }, svg).textContent = c;
+      var anchor = "middle";
+      if (i === 0 && x(i) - textW(c, 11.5) / 2 < 0) anchor = "start";
+      if (i === cats.length - 1 && x(i) + textW(c, 11.5) / 2 > W) anchor = "end";
+      if (i % every === 0 || (i === cats.length - 1 && showLast)) h("text", { x: x(i), y: H - m.b + 20, "text-anchor": anchor, "font-size": 11.5, fill: C.label }, svg).textContent = c;
     });
     refLine(svg, cfg, m.l, W - m.r, y, C);
     h("line", { "class": "xhair", x1: 0, x2: 0, y1: m.t, y2: H - m.b, stroke: C.axis, "stroke-width": 1, style: "opacity:0" }, svg);
@@ -343,10 +358,9 @@
     if (direct) {
       ends.sort(function (a, b) { return a.y - b.y; });
       for (var k = 1; k < ends.length; k++) if (ends[k].y - ends[k - 1].y < 15) ends[k].y = ends[k - 1].y + 15;
-      ends.forEach(function (e) { h("text", { x: e.x + 10, y: e.y + 4, "font-size": 12, "font-weight": 600, fill: C.ink }, svg).textContent = e.name; });
+      ends.forEach(function (e) { var t = h("text", { x: e.x + 10, y: e.y + 4, "font-size": 12, "font-weight": 600, fill: C.ink }, svg); t.textContent = short(e.name); if (short(e.name) !== e.name) h("title", {}, t).textContent = e.name; });
     } else if (series.length === 1 && ends[0] && cfg.labels !== false) {
       h("text", { x: ends[0].x + 8, y: ends[0].y + 4, "font-size": 12, "font-weight": 600, fill: C.ink }, svg).textContent = fmt(ends[0].v);
-      svg.setAttribute("style", "overflow:visible");
     }
     cats.forEach(function (c, i) {
       h("rect", { x: x(i) - step / 2, y: m.t, width: step, height: ih, "class": "hit", "data-i": i, "data-cx": x(i) }, svg);

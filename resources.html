@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources — Insights Hub</title>
+  <link rel="icon" href="shared/brand/logo.svg">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try{var t=localStorage.getItem("pp-theme");if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+</head>
+<body>
+<main class="wrap page">
+  <header class="page-head">
+    <h1>Resources</h1>
+    <p>Everything you need to build a report that looks and reads like it came from the Insights team: brand assets, templates, Claude skills, and the publishing guide.</p>
+  </header>
+
+  <section class="section" aria-labelledby="pub-h">
+    <div class="section-head"><div><h2 id="pub-h">Publish a report in 4 steps</h2><p>Reports are plain HTML files in this repo. Merging to <code>main</code> publishes them.</p></div></div>
+    <div class="res-grid">
+      <div class="res-card"><h3>1 · Scaffold</h3><p>Create the folder from the starter template.</p><pre class="code">npm run new -- my-report-id \
+  --title "Headline that states the finding" \
+  --area "Marketing" \
+  --owner "Lena Kowalski &lt;lena.kowalski@parcelandpine.com&gt;"</pre></div>
+      <div class="res-card"><h3>2 · Write</h3><p>Edit <code>reports/&lt;id&gt;/index.html</code> using the brand classes and chart JSON. Fill in <code>report.json</code>: area, topics, tags, owners, key findings, code links.</p></div>
+      <div class="res-card"><h3>3 · Check</h3><p>Validate the metadata and chart JSON, rebuild the catalogue, then preview locally.</p><pre class="code">npm run check
+npm run serve   # http://localhost:8000</pre></div>
+      <div class="res-card"><h3>4 · Review &amp; merge</h3><p>Open a pull request. CI validates it, a teammate reviews the story and charts (the Claude skills below help), and merging deploys it to the hub.</p><div class="links"><a class="btn sm" id="guide-link" href="#" target="_blank" rel="noopener">Full contributing guide</a></div></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="skills-h">
+    <div class="section-head"><div><h2 id="skills-h">Claude skills</h2><p>Reusable instructions that live in <code>.claude/skills/</code>. Claude Code loads them automatically in this repo, and you can upload them to Claude.ai as well.</p></div></div>
+    <div class="res-grid" id="skills"></div>
+  </section>
+
+  <section class="section" aria-labelledby="tpl-h">
+    <div class="section-head"><div><h2 id="tpl-h">Templates</h2><p>Start from these, not a blank page.</p></div></div>
+    <div class="res-grid">
+      <div class="res-card"><h3>Report starter</h3><p>The canonical report structure: masthead, short version, KPI tiles, finding-led sections, recommendations and methodology.</p><div class="links"><a class="btn sm primary" href="shared/templates/report-starter/" target="_blank">Preview</a><a class="btn sm repo" data-path="shared/templates/report-starter" href="#" target="_blank" rel="noopener">Source</a></div></div>
+      <div class="res-card"><h3>Chart gallery</h3><p>Every chart type in the shared chart library, with the JSON that produces it. Copy, paste, and change the data.</p><div class="links"><a class="btn sm primary" href="shared/templates/chart-gallery/" target="_blank">Open gallery</a><a class="btn sm repo" data-path="shared/brand/charts.js" href="#" target="_blank" rel="noopener">charts.js</a></div></div>
+      <div class="res-card"><h3>Brand &amp; style guide</h3><p>Voice, structure, colour and chart rules for Insights reports, as one page.</p><div class="links"><a class="btn sm primary repo" data-path="shared/brand/BRAND.md" href="#" target="_blank" rel="noopener">Read the guide</a></div></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="brand-h">
+    <div class="section-head"><div><h2 id="brand-h">Brand kit</h2><p>Tokens live in <code>shared/brand/tokens.css</code>. Reports link <code>report.css</code>, which imports them.</p></div></div>
+    <div class="res-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+      <div class="res-card" style="align-items:flex-start"><img src="shared/brand/logo.svg" alt="Parcel &amp; Pine Insights logo" width="64" height="64"><h3>Logo mark</h3><p>Use on reports and decks. Keep clear space equal to the dot.</p><div class="links"><a class="btn sm" href="shared/brand/logo.svg" download>Download SVG</a></div></div>
+      <div class="res-card"><h3>Typefaces</h3><p style="font-family:var(--font-display);font-size:26px;color:var(--text)">Newsreader for headlines</p><p style="font-size:16px;color:var(--text)">Inter for body text, UI and charts</p><p>Both come from Google Fonts. Use tabular numbers in tables.</p></div>
+    </div>
+    <h3 style="margin:24px 0 10px">Brand colours</h3>
+    <div class="swatches" id="brand-swatches"></div>
+    <h3 style="margin:24px 0 10px">Chart palette <span style="font-weight:400;color:var(--text-3);font-size:14px">· assign in this order, never cycle, validated for colour-vision deficiency</span></h3>
+    <div class="swatches" id="series-swatches"></div>
+  </section>
+</main>
+<script type="module">
+  import { mountChrome, loadCatalog, esc, $ } from "./assets/js/core.js";
+  const cfg = await mountChrome("resources");
+  const repo = (p) => `${cfg.siteRepo}/blob/main/${p}`;
+  document.querySelectorAll(".repo").forEach((a) => (a.href = repo(a.dataset.path)));
+  $("#guide-link").href = repo("docs/CONTRIBUTING.md");
+  const sw = (name, v) => `<div class="swatch"><div class="c" style="background:var(${v})"></div><div class="l">${name}<br><code>${getComputedStyle(document.documentElement).getPropertyValue(v).trim()}</code></div></div>`;
+  $("#brand-swatches").innerHTML = [["Pine", "--brand-pine"], ["Pine 100", "--brand-pine-100"], ["Clay", "--brand-clay"], ["Clay 100", "--brand-clay-100"], ["Sand", "--brand-sand"], ["Ink", "--ink-1"]].map(([n, v]) => sw(n, v)).join("");
+  $("#series-swatches").innerHTML = [1,2,3,4,5,6,7,8].map((i) => sw(`Series ${i}`, `--series-${i}`)).join("");
+  const cat = await loadCatalog();
+  $("#skills").innerHTML = (cat.skills || []).map((s) => `<div class="res-card"><h3>${esc(s.name)}</h3><p>${esc(s.description)}</p><div class="links"><a class="btn sm primary" href="${repo(s.path)}" target="_blank" rel="noopener">View skill</a></div></div>`).join("") || `<p style="color:var(--text-3)">No skills yet.</p>`;
+</script>
+</body>
+</html>
