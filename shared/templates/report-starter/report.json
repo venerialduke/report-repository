@@ -1,0 +1,22 @@
+{
+  "id": "report-starter",
+  "title": "Your headline states the finding, not the topic",
+  "subtitle": "One sentence that tells the reader why this matters and what to do about it.",
+  "type": "report",
+  "area": "Customer & Growth",
+  "topics": ["Retention"],
+  "tags": ["example-tag"],
+  "owners": [{ "name": "Your Name", "email": "you@parcelandpine.com", "role": "Author" }],
+  "published": "2026-01-01",
+  "updated": "2026-01-01",
+  "status": "draft",
+  "summary": "Two or three sentences a busy VP could forward without edits.",
+  "key_findings": [
+    "Finding one — quantified, with the comparison that makes it meaningful.",
+    "Finding two.",
+    "Finding three."
+  ],
+  "code": [{ "label": "Analysis notebook", "path": "analyses/your-project/notebook.ipynb" }],
+  "data_sources": ["warehouse.table_name"],
+  "related": []
+}

@@ -1,0 +1,58 @@
+/*
+ * Parcel & Pine Insights — design tokens
+ * Shared by the Insights Hub site and every report. Change brand values here only.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap");
+
+:root {
+  /* Brand */
+  --brand-pine: #1d4a3c;        /* primary */
+  --brand-pine-600: #163a2f;
+  --brand-pine-100: #e3eee9;
+  --brand-clay: #c8643b;        /* accent — use sparingly */
+  --brand-clay-100: #f8e7de;
+  --brand-sand: #f4f1ea;        /* warm paper */
+
+  /* Type */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Ink & surfaces (light) */
+  --ink-1: #0f1714;
+  --ink-2: #4a524e;
+  --ink-3: #7c837f;
+  --surface-page: #f7f6f2;
+  --surface-1: #fcfcfb;
+  --surface-2: #f0efea;
+  --line: #e1e0d9;
+  --line-strong: #c3c2b7;
+
+  /* Data viz — validated categorical order (see shared/brand/BRAND.md) */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-8: #e34948;
+  --viz-muted: #cfcdc4;         /* de-emphasised marks */
+  --viz-grid: #e1e0d9;
+  --viz-axis: #c3c2b7;
+  --viz-label: #6f6e69;
+
+  /* Status (never used as a series colour; always with icon + label) */
+  --good: #0ca30c;
+  --good-text: #006300;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+
+  /* Shape */
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 16px;
+  --shadow-1: 0 1px 2px rgba(15, 23, 20, .06), 0 1px 1px rgba(15, 23, 20, .04);
+  --shadow-2: 0 6px 24px rgba(15, 23, 20, .10), 0 2px 6px rgba(15, 23, 20, .06);
+}

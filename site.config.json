@@ -1,0 +1,32 @@
+{
+  "siteName": "Insights Hub",
+  "orgName": "Parcel & Pine",
+  "tagline": "Every analysis from the Insights team, in one place.",
+  "teamRepo": "https://github.com/venerialduke/insights-analysis/blob/main/",
+  "helpChannel": "#insights-help",
+  "areas": [
+    { "name": "Customer & Growth", "slug": "customer-growth", "description": "Acquisition, retention, segmentation and the voice of the customer.", "color": "#2a78d6" },
+    { "name": "Product & Digital", "slug": "product-digital", "description": "Experiments, app and web experience, search and recommendations.", "color": "#1baf7a" },
+    { "name": "Operations & Supply Chain", "slug": "operations", "description": "Fulfilment, delivery, returns and warehouse performance.", "color": "#eb6834" },
+    { "name": "Marketing", "slug": "marketing", "description": "Media effectiveness, CRM, brand health and incrementality.", "color": "#4a3aa7" },
+    { "name": "Finance & Pricing", "slug": "finance-pricing", "description": "Pricing, promotions, unit economics and forecasting.", "color": "#eda100" },
+    { "name": "People & Workplace", "slug": "people", "description": "Engagement, hiring, retention and how we work.", "color": "#e87ba4" },
+    { "name": "Methods & Standards", "slug": "methods", "description": "How we measure things, metric definitions and team practice.", "color": "#52514e" }
+  ],
+  "comments": {
+    "provider": "giscus",
+    "giscus": {
+      "repo": "",
+      "repoId": "",
+      "category": "Report comments",
+      "categoryId": "",
+      "mapping": "specific",
+      "theme": "preferred_color_scheme"
+    }
+  },
+  "ai": {
+    "model": "claude-opus-5",
+    "maxTokens": 4000,
+    "proxyUrl": ""
+  }
+}
