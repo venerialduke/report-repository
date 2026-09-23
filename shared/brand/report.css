@@ -52,7 +52,7 @@ body.pp-report {
   background: var(--brand-sand); border-left: 4px solid var(--brand-pine);
   border-radius: 0 var(--radius-m) var(--radius-m) 0; padding: 20px 24px; margin: 0 0 36px;
 }
-.pp-tldr h2 { font: 700 12px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--brand-pine); margin: 0 0 12px; }
+.pp-report .pp-tldr h2, .pp-tldr h2 { font: 700 12px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--brand-pine); margin: 0 0 12px; }
 .pp-tldr ol, .pp-tldr ul { margin: 0; padding-left: 20px; }
 .pp-tldr li { margin: 6px 0; }
 .pp-tldr li::marker { color: var(--brand-pine); font-weight: 700; }

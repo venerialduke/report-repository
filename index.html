@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insights Hub</title>
+  <meta name="description" content="Every analysis from the Parcel & Pine Insights team, in one place.">
+  <link rel="icon" href="shared/brand/logo.svg">
+  <link rel="alternate" type="application/rss+xml" title="Insights Hub" href="feed.xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try{var t=localStorage.getItem("pp-theme");if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+</head>
+<body>
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <h1 id="hero-title">Find the analysis you need.</h1>
+      <p id="hero-tagline">Every report from the Insights team: searchable, summarised and ready to share.</p>
+      <form class="searchbox" role="search" id="search-form">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" autocomplete="off" placeholder="Search titles, findings, tags, owners, or anything in a report…" aria-label="Search reports">
+        <span class="kbd">/</span>
+      </form>
+      <div class="quick-chips" id="quick-chips"></div>
+      <div class="hero-stats" id="hero-stats"></div>
+    </div>
+  </section>
+
+  <main class="page wrap" id="main">
+    <div id="browse">
+      <section class="section" aria-labelledby="new-h">
+        <div class="section-head">
+          <div><h2 id="new-h">What’s new</h2><p>The latest reports and articles, newest first.</p></div>
+          <div class="actions"><button class="btn icon sm" data-scroll="new" data-dir="-1" aria-label="Scroll left"></button><button class="btn icon sm" data-scroll="new" data-dir="1" aria-label="Scroll right"></button></div>
+        </div>
+        <div class="carousel"><div class="track" id="track-new"></div></div>
+      </section>
+
+      <section class="section" aria-labelledby="areas-h">
+        <div class="section-head">
+          <div><h2 id="areas-h">Browse by area</h2><p>Every report belongs to one business area.</p></div>
+          <div class="actions"><button class="btn icon sm" data-scroll="areas" data-dir="-1" aria-label="Scroll left"></button><button class="btn icon sm" data-scroll="areas" data-dir="1" aria-label="Scroll right"></button></div>
+        </div>
+        <div class="carousel"><div class="track" id="track-areas"></div></div>
+      </section>
+
+      <div id="area-rows"></div>
+    </div>
+
+    <div id="results" hidden>
+      <div class="results-layout">
+        <aside class="facets" id="facets" aria-label="Filters"></aside>
+        <section>
+          <div class="results-head">
+            <div><h2 id="results-title">Results</h2><div class="sub" id="results-sub"></div></div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <label class="sr-only" for="sort">Sort</label>
+              <select id="sort" class="sel"><option value="relevance">Most relevant</option><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="title">Title A–Z</option></select>
+              <button class="btn sm" id="select-all">Select all</button>
+              <button class="btn sm ghost" id="clear-filters">Clear</button>
+            </div>
+          </div>
+          <div class="grid" id="grid"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report — Insights Hub</title>
+  <link rel="icon" href="shared/brand/logo.svg">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try{var t=localStorage.getItem("pp-theme");if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+</head>
+<body>
+  <div class="viewer-bar">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb" id="crumbs"><a href="./">Insights Hub</a></nav>
+      <div class="viewer-actions" id="actions"></div>
+    </div>
+  </div>
+  <main class="wrap" id="main">
+    <div class="viewer">
+      <div>
+        <div class="frame-wrap"><iframe id="frame" title="Report" loading="eager"></iframe></div>
+        <section class="comments" id="comments" aria-labelledby="comments-h"></section>
+      </div>
+      <aside class="rail" id="rail" aria-label="About this report"></aside>
+    </div>
+  </main>
+  <script type="module" src="assets/js/viewer.js"></script>
+</body>
+</html>
