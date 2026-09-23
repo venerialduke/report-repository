@@ -13,6 +13,7 @@ One place to find every report from the Parcel & Pine Insights team. It's a stat
 | **Search** | Instant client-side search across titles, summaries, findings, tags, owners and the **full text of every report, including chart data**. Filter by area, type, topic, owner, tag and status. Everything is in the URL, so searches can be shared. |
 | **Rich metadata** | Each report has a `report.json` with area, topics, tags, owners, key findings, code links to the team repo, data sources and related reports. CI validates it. |
 | **Viewer** | `report.html?id=…` shows the report next to its metadata: owners, key findings, code, data sources and related reports. |
+| **Chart downloads** | Every chart has **Expand** (an enlarged view in a modal) and **Download CSV**, plus copy-to-clipboard and PNG/SVG export for slides. It works in reports, the viewer and PDF bundles, and can be turned off per chart or per report. |
 | **Export to PDF** | Single report: the **PDF** button (print-optimised stylesheet). Several reports: select them and choose **PDF bundle** to get a cover page, contents and page breaks. |
 | **AI summaries** | Claude can summarise one report, write an exec brief, synthesise across a selection, or answer a question about the selection. It runs in the reader's browser with their own API key, or a team proxy. **Copy prompt** works with no key at all. Optional pre-generated summaries are added by a workflow on `main`. |
 | **Comments** | giscus (GitHub Discussions) once configured. Until then, a browser-local prototype mode. |
