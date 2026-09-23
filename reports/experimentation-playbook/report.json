@@ -5,7 +5,7 @@
   "type": "article",
   "area": "Methods & Standards",
   "topics": ["Experimentation", "Methods"],
-  "tags": ["ab-testing", "pre-registration", "statistical-power", "mde", "guardrail-metrics", "peeking", "geo-testing", "decision-memo"],
+  "tags": ["ab-test", "pre-registration", "statistical-power", "mde", "guardrail-metrics", "peeking", "geo-testing", "decision-memo"],
   "owners": [{ "name": "Priya Natarajan", "email": "priya.natarajan@parcelandpine.com", "role": "Lead Data Scientist, Experimentation" }],
   "published": "2026-01-20",
   "updated": "2026-05-06",
