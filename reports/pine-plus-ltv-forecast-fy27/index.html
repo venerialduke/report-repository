@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A $69 Pine+ price wins FY27 and loses on each new cohort — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · September 2026</span>
+    </div>
+    <span class="pp-eyebrow">Finance &amp; Pricing</span>
+    <h1>A $69 Pine+ price wins FY27 and loses on each new cohort</h1>
+    <p class="pp-subtitle">Member lifetime value is rising within each plan type but flat overall, because more members now join on the monthly plan. Raising the annual price from $59 to $69 would add about $1.1M in FY27 at real downside risk. $65 captures most of that gain with far less risk.</p>
+    <div class="pp-byline">
+      <span>By <b>Samuel Ortiz</b></span>
+      <span>Published <b>Sep 10, 2026</b></span>
+      <span>Data through <b>Aug 31, 2026</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>An annual member is worth more than twice a monthly one.</strong> Three-year contribution LTV is <strong>$418</strong> for the annual plan and <strong>$189</strong> for monthly (2025 joiners). The gap comes mostly from retention: 68% of annual members renew at month 12, while only 52% of monthly members are still paying by then.</li>
+      <li><strong>Plan mix is eroding blended LTV.</strong> 29% of 2026 joiners chose monthly, up from 14% in 2023. LTV rose within both plans, yet blended LTV per new member fell from $366 to $355.</li>
+      <li><strong>$69 would lift FY27 contribution by about +$1.1M in the central case</strong>, mostly from existing members renewing at the higher price. In the downside case it costs $2.1M. Each new cohort is worth about 4% less because fewer people join.</li>
+      <li><strong>We forecast 548k members at the end of FY27 if the price holds</strong> (80% range 522–574k), and 531k at $69.</li>
+      <li><strong>Recommendation:</strong> move to $65 in February 2027, not $69, and fix monthly-plan retention before testing further. Decision owner: Pricing Committee, 30 Sep.</li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">3-yr LTV · annual plan</div><div class="pp-kpi-value">$418</div><div class="pp-kpi-delta up">+$20 vs. 2023 cohort</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">3-yr LTV · monthly plan</div><div class="pp-kpi-value">$189</div><div class="pp-kpi-delta up">+$17 vs. 2023 cohort</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Joiners choosing monthly</div><div class="pp-kpi-value">29%</div><div class="pp-kpi-delta down">up from 14% in 2023</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">FY27 year-end members</div><div class="pp-kpi-value">548k</div><div class="pp-kpi-delta">at $59 · 80% range 522–574k</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>Monthly members fall away steadily, while annual members leave in steps at each renewal</h2>
+  <p class="pp-lede">An annual member pays upfront and is retained for 12 months. A monthly member can leave at any point, and many do, especially at month 3.</p>
+  <p>By month 12, 52% of monthly members are still paying, compared with 68% of annual members who renew. The gap widens over time. At month 36, 45% of an annual cohort is still active against 17% of a monthly cohort. Retention in month 3 is the weakest point of the monthly curve, when the first promotional sale ends. The <a href="../month-3-member-churn/index.html">month-3 churn report</a> covers this in detail.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">By year three, an annual cohort keeps 2.6× as many members as a monthly one</p>
+    <p class="pp-fig-sub">Share of joining cohort still an active paying member, by months since joining · 2023–2025 cohorts pooled; months 30–36 partly forecast</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "pct", "yMin": 0, "yMax": 100,
+        "categories": ["M0", "M3", "M6", "M9", "M12", "M15", "M18", "M21", "M24", "M27", "M30", "M33", "M36"],
+        "series": [
+          { "name": "Annual", "values": [100, 100, 100, 100, 68, 68, 68, 68, 55, 55, 55, 55, 45] },
+          { "name": "Monthly", "values": [100, 78, 68, 59, 52, 45, 39, 34, 30, 26, 23, 20, 17] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_membership_events, dw.dim_member. The annual curve drops only at renewal points (M12, M24, M36). Quarterly points make those drops look gradual.</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">02</span>LTV is rising within each plan but flat overall, because of plan mix</h2>
+  <p class="pp-lede">Each cohort is worth more than the one before, within both plan types. Blended value per new member has still slipped, because more joiners pick the lower-value monthly plan.</p>
+  <p>Since mid-2024, when the app's join flow started showing the $6.99 monthly option first, the share of joiners choosing it has doubled. Monthly members are also more likely to have joined during a sale to get free shipping on a single large order. Within-plan LTV has grown 5–13% across cohorts, helped by higher order frequency. The mix shift has more than offset that gain.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Both plans improved, and blended LTV fell anyway</p>
+    <p class="pp-fig-sub">3-year contribution LTV per joining member, by cohort and plan · $, discounted at 10% · 2025 and 2026 H1 cohorts are mostly forecast</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "usd",
+        "categories": ["2023 cohort", "2024 cohort", "2025 cohort", "2026 H1 cohort"],
+        "series": [
+          { "name": "Annual plan", "values": [398, 405, 418, 421] },
+          { "name": "Blended", "values": [366, 365, 363, 355] },
+          { "name": "Monthly plan", "values": [172, 180, 189, 194] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: fin.member_ltv_model v2.3. Blended = weighted by the share of each cohort joining on each plan (below).</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Cohort LTV and plan mix</caption>
+      <thead><tr><th>Joining cohort</th><th class="num">Joiners</th><th class="num">Monthly share</th><th class="num">Annual LTV</th><th class="num">Monthly LTV</th><th class="num">Blended LTV</th><th class="num">Months observed</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>2023</td><td class="num">171k</td><td class="num">14%</td><td class="num">$398</td><td class="num">$172</td><td class="num">$366</td><td class="num">32–43</td><td><span class="pp-badge good">Observed</span></td></tr>
+        <tr><td>2024</td><td class="num">189k</td><td class="num">18%</td><td class="num">$405</td><td class="num">$180</td><td class="num">$365</td><td class="num">20–31</td><td><span class="pp-badge good">Mostly observed</span></td></tr>
+        <tr><td>2025</td><td class="num">204k</td><td class="num">24%</td><td class="num">$418</td><td class="num">$189</td><td class="num">$363</td><td class="num">8–19</td><td><span class="pp-badge warn">Part forecast</span></td></tr>
+        <tr><td>2026 H1</td><td class="num">118k</td><td class="num">29%</td><td class="num">$421</td><td class="num">$194</td><td class="num">$355</td><td class="num">2–7</td><td><span class="pp-badge warn">Mostly forecast</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Membership fees make up less than half of the value of an annual member. Most of it is the extra margin on orders members place because they're members, net of the free-shipping subsidy and the 5% Pine Points cost. That split matters for pricing: a member lost to a price rise takes their order contribution with them.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Most of a member's value comes from extra orders, not the fee</p>
+    <p class="pp-fig-sub">Composition of 3-year contribution LTV, 2025 cohort · $</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "stacked", "format": "usd", "height": 260,
+        "categories": ["Annual plan ($418)", "Monthly plan ($189)"],
+        "series": [
+          { "name": "Membership fees", "values": [122, 104] },
+          { "name": "Incremental order contribution, net of shipping & points", "values": [296, 85] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Incremental order contribution is estimated against matched non-members with similar pre-join purchase history (see Methodology).</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">03</span>At $69, renewals and sign-ups both drop, and the fee gain mostly comes from existing members</h2>
+  <p class="pp-lede">We ran two price tests in June–July 2026 to calibrate the scenarios. Both showed real but moderate sensitivity to price.</p>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Price test results, Jun 2–Jul 27, 2026</caption>
+      <thead><tr><th>Test</th><th class="num">n</th><th class="num">$59</th><th class="num">$69</th><th class="num">Difference (95% CI)</th></tr></thead>
+      <tbody>
+        <tr><td>Annual renewal rate (renewal notice price, randomised)</td><td class="num">12,040 members</td><td class="num">67.8%</td><td class="num">63.9%</td><td class="num">−3.9 pp (−5.6 to −2.2)</td></tr>
+        <tr><td>Join rate on Pine+ landing page (randomised)</td><td class="num">48,300 visitors</td><td class="num">4.12%</td><td class="num">3.87%</td><td class="num">−6% relative (−10 to −2)</td></tr>
+        <tr><td>Share of joiners choosing monthly</td><td class="num">1,925 joiners</td><td class="num">29%</td><td class="num">33%</td><td class="num">+4 pp (−0.2 to +8.2)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>At $69, each annual member who stays is worth more: 3-year LTV rises from $418 to $426. But about 6% fewer people join, and more of those who do choose monthly. The total value of a new cohort therefore falls about <strong>4%</strong>. Most of the FY27 gain comes from existing members renewing at the higher price. That gain is real, but it happens once.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">Why we model a downside case</div><p>The tests ran for eight weeks with no public announcement. A visible price rise can bring press coverage, social backlash and competitor responses that a quiet test can't capture. The downside case assumes that doubles the renewal hit (to 60%) and the acquisition hit (to −12%). Other subscription retailers that raised prices by around 15–20% have seen outcomes in that range.</p></div>
+
+  <h2><span class="pp-num">04</span>The member base keeps growing in every scenario, just more slowly at $69</h2>
+  <p class="pp-lede">We end FY26 at about 505k members in every scenario, since any change would take effect for new joiners on 1 Feb 2027 and for renewals from 1 Apr 2027. The scenarios diverge from Q2 2027.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Holding at $59 ends FY27 with 548k members; $69 ends with 531k</p>
+    <p class="pp-fig-sub">Active Pine+ members at quarter end, by price scenario · Sep 2026 actual, then forecast</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "num", "yMin": 480000, "yMax": 560000,
+        "categories": ["Sep 26", "Dec 26", "Mar 27", "Jun 27", "Sep 27", "Dec 27"],
+        "series": [
+          { "name": "Hold $59", "values": [484000, 505000, 516000, 527000, 534000, 548000] },
+          { "name": "$65", "values": [484000, 505000, 514000, 522000, 527000, 540000] },
+          { "name": "$69 mid", "values": [484000, 505000, 512000, 517000, 520000, 531000] },
+          { "name": "$69 low", "values": [484000, 505000, 507000, 505000, 501000, 509000] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: fin.member_base_forecast (cohort-component model). Sep 2026 is the Aug 31 actual (480k) rolled forward with September-to-date joins. Peak-season joins drive the Q4 increases. "$69 mid" = central case; "$69 low" = downside case.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>FY27 scenarios (price effective 1 Feb 2027 for new members, from 1 Apr 2027 for renewals)</caption>
+      <thead><tr><th>Scenario</th><th class="num">Yr-1 renewal</th><th class="num">Joins vs. hold</th><th class="num">YE FY27 members (80% range)</th><th class="num">FY27 fee revenue</th><th class="num">FY27 contribution vs. hold</th><th class="num">New-cohort value vs. hold</th></tr></thead>
+      <tbody>
+        <tr><td>Hold $59</td><td class="num">68%</td><td class="num">—</td><td class="num">548k (522–574k)</td><td class="num">$34.2M</td><td class="num">—</td><td class="num">—</td></tr>
+        <tr><td><strong>$65</strong></td><td class="num">66%</td><td class="num">−3%</td><td class="num">540k (514–566k)</td><td class="num">$35.6M</td><td class="num"><span class="pp-badge good">+$0.9M</span></td><td class="num">−2%</td></tr>
+        <tr><td>$69 central</td><td class="num">64%</td><td class="num">−6%</td><td class="num">531k (504–558k)</td><td class="num">$36.3M</td><td class="num"><span class="pp-badge good">+$1.1M</span></td><td class="num">−4%</td></tr>
+        <tr><td>$69 downside</td><td class="num">60%</td><td class="num">−12%</td><td class="num">509k (481–537k)</td><td class="num">$35.0M</td><td class="num"><span class="pp-badge bad">−$2.1M</span></td><td class="num">−13%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">The trade-off in one line</div><p>Compared with $65, going to $69 adds about $0.2M in the central case and risks a further $3M in the downside. It would also shrink FY27's new cohorts by twice as much. The expected gain doesn't justify the risk.</p></div>
+
+  <h2><span class="pp-num">05</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Raise the annual price to $65, not $69, effective 1 Feb 2027.</strong> Existing members keep $59 until their first renewal after 1 Apr 2027. <span class="pp-owner">Owner: Pricing Committee (decision) · By: Sep 30, 2026</span></li>
+    <li><strong>Hold the monthly plan at $6.99 for now, but stop featuring it by default in the app's join flow.</strong> Lead with annual, showing its effective monthly cost ($5.42 at $65). <span class="pp-owner">Owner: Membership team &amp; App squad · By: Nov 1, 2026</span></li>
+    <li><strong>Target monthly-plan retention at month 3</strong>, per the month-3 churn recommendations. Each point of monthly M12 retention is worth about $0.4M a year in contribution at the current base. <span class="pp-owner">Owner: Retention squad · Plan by: Oct 15, 2026</span></li>
+    <li><strong>Put the $65 central forecast into the FY27 plan</strong>: 540k members at year end and $35.6M in fees. Stress-test the P&amp;L against the downside range. <span class="pp-owner">Owner: FP&amp;A · By: Oct 10, 2026 (FY27 plan lock)</span></li>
+    <li><strong>Re-test $69 in H2 2027</strong> once the brand-perception work on quality has had time to land. <span class="pp-owner">Owner: Pricing &amp; Finance Analytics (Samuel Ortiz) · Design by: May 2027</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Population</dt><dd>All Pine+ members who joined 1 Jan 2023–30 Jun 2026 (682k joiners). Employee and gifted memberships are excluded. Members who switched plan are assigned to the plan they joined on.</dd>
+      <dt>LTV definition</dt><dd>Three-year contribution, discounted at 10% a year. It includes membership fees plus incremental order contribution (gross margin on orders above the member's matched counterfactual) minus the free-shipping subsidy and Pine Points cost. We matched each member to non-members on 12-month pre-join spend, order count, category mix and region (propensity score, 1:3 nearest neighbour).</dd>
+      <dt>Retention forecast</dt><dd>Discrete-time survival model by plan and cohort, with renewal-month effects for annual members and a month-3 effect for monthly members. It is fitted on observed months and extrapolated to month 36. Back-testing the 2023 cohort from its first 12 months predicted M30 retention within 1.8 pts.</dd>
+      <dt>Member base forecast</dt><dd>Cohort-component model: opening base, minus churn from the survival curves, plus new joins (FY27 plan traffic × join rates, adjusted by scenario). The 80% ranges come from 5,000 simulations that vary join rate, renewal rate and test-estimate uncertainty.</dd>
+      <dt>Limitations</dt><dd>(1) The 2025 and 2026 cohorts rely mainly on forecast retention. (2) Price tests were short and silent, so real-world reaction may be larger, as in the downside case. (3) Incremental order contribution assumes the matched comparison captures self-selection into membership. If members would have spent more anyway, LTV is overstated. The overstatement is likely proportional across scenarios, so the ranking of scenarios should hold. (4) We do not model competitor price responses.</dd>
+    </dl>
+  </section>
+
+  <div class="pp-footnotes">
+    <p>Fee revenue is recognised on a cash basis here for simplicity. FP&amp;A's plan will recognise annual fees ratably, which moves roughly $0.6M of the FY27 fee uplift into FY28 in the $65 scenario.</p>
+    <p>Related: the <a href="../free-shipping-threshold-elasticity/index.html">free-shipping threshold report</a> estimated about 37k extra annual joins from the $75 threshold. These are included in the baseline join rates.</p>
+  </div>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

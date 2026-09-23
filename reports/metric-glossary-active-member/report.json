@@ -1,0 +1,25 @@
+{
+  "id": "metric-glossary-active-member",
+  "title": "One definition each for active customer, active member, retained member and churn",
+  "subtitle": "The canonical definitions behind our customer and Pine+ metrics, how each is calculated, the edge cases, and why two dashboards can show different numbers on the same day.",
+  "type": "article",
+  "area": "Methods & Standards",
+  "topics": ["Metric Definitions", "Membership", "Data Governance"],
+  "tags": ["glossary", "active-customer", "active-member", "churn", "retention-rate", "dbt", "data-quality"],
+  "owners": [{ "name": "Jonah Feld", "email": "jonah.feld@parcelandpine.com", "role": "Analytics Engineer" }],
+  "published": "2026-02-10",
+  "updated": "2026-03-02",
+  "status": "final",
+  "summary": "Canonical definitions for active customer, active member, retained member, and voluntary and involuntary churn, with the logic in prose and rulings on edge cases. It also explains why billing, Membership Ops and CRM dashboards reported member counts about 25,000 apart for the same day.",
+  "key_findings": [
+    "Active member includes the 14-day payment grace window and gifted memberships but excludes free trials: 463,200 on Jan 31, 2026.",
+    "Churn is dated to when benefits end, not when the member clicks cancel.",
+    "January 2026 monthly churn was 3.1% (2.4% voluntary, 0.7% involuntary).",
+    "Four common sources gave member counts from 452.9k to 478.4k on the same day because of differing definitions."
+  ],
+  "code": [
+    { "label": "dbt model: member status daily", "path": "dbt/models/marts/membership/fct_member_status_daily.sql" }
+  ],
+  "data_sources": ["dw.fct_member_status_daily", "dw.fct_customer_activity_daily", "dw.fct_orders", "dw.dim_customer", "Stripe billing export"],
+  "related": ["month-3-member-churn", "pine-plus-ltv-forecast-fy27", "reading-confidence-intervals"]
+}

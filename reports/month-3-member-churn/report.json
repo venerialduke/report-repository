@@ -1,0 +1,28 @@
+{
+  "id": "month-3-member-churn",
+  "title": "Monthly Pine+ members churn twice as fast in month 3, and a third order is the best early warning",
+  "subtitle": "The drop comes once the free-shipping honeymoon ends. Members who place a third order within 60 days mostly stay, so the time to step in is month 2.",
+  "type": "report",
+  "area": "Customer & Growth",
+  "topics": ["Retention", "Membership", "Customer Behaviour"],
+  "tags": ["pine-plus", "churn", "survival-analysis", "leading-indicator", "acquisition-channel", "monthly-plan", "cohort-analysis"],
+  "owners": [{ "name": "Daniel Reyes", "email": "daniel.reyes@parcelandpine.com", "role": "Senior Analyst, Customer" }],
+  "published": "2026-09-15",
+  "updated": "2026-09-15",
+  "status": "final",
+  "summary": "Monthly-plan Pine+ members churn at 18.6% in their third month, more than twice the rate of neighbouring months, while annual members show no such cliff. A third order within 60 days of joining is the strongest early signal of retention, so we recommend testing a month-2 order nudge and an annual-conversion offer.",
+  "key_findings": [
+    "Month-3 churn for monthly-plan members is 18.6%, vs. an average of 8.4% in months 1, 2 and 4.",
+    "Six months after joining, 55.4% of monthly members are still active vs. 96.8% of annual members.",
+    "Members with 3+ orders in their first 60 days churn at 6.1% in month 3 vs. 28.8% for those with one order; a 9.8 pp gap remains after matching.",
+    "Black Friday promo joiners churn at 26.8% in month 3, more than twice the organic rate (11.7%).",
+    "Cutting the month-3 hazard by 4 pp would save about 3,000 members and about $0.6M in contribution a year."
+  ],
+  "code": [
+    { "label": "Cohort build (SQL)", "path": "analyses/2026-09-member-churn/01_cohort_build.sql" },
+    { "label": "Survival curves & hazards", "path": "analyses/2026-09-member-churn/02_survival_model.py" },
+    { "label": "Leading-indicator screen & propensity matching", "path": "analyses/2026-09-member-churn/03_leading_indicators.ipynb" }
+  ],
+  "data_sources": ["dw.fct_member_status_daily", "dw.dim_member", "dw.fct_member_acquisition", "dw.fct_orders", "Qualtrics — Pine+ cancel flow survey"],
+  "related": ["pine-plus-ltv-forecast-fy27", "metric-glossary-active-member", "customer-segmentation-2026", "email-cadence-fatigue"]
+}

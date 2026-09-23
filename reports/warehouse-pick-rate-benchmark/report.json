@@ -1,0 +1,28 @@
+{
+  "id": "warehouse-pick-rate-benchmark",
+  "title": "Reno picks 35% more units per hour than Allentown, and most of the gap comes from slotting and pick paths, not people",
+  "subtitle": "A benchmark of pick productivity across our four fulfilment centres, with the gap broken down by cause and a plan for spreading Reno's practices to the other sites.",
+  "type": "report",
+  "area": "Operations & Supply Chain",
+  "topics": ["Fulfilment", "Productivity", "Benchmarking"],
+  "tags": ["pick-rate", "units-per-hour", "slotting", "pick-path", "batch-picking", "tenure", "fulfilment-centres", "labor-productivity"],
+  "owners": [{ "name": "Tom Becker", "email": "tom.becker@parcelandpine.com", "role": "Operations Analytics Lead" }],
+  "published": "2026-05-20",
+  "updated": "2026-05-22",
+  "status": "final",
+  "summary": "From January to April, pick productivity ranged from 62 units per labour hour at Reno to 46 at Allentown, against a network average of 53. A shift-level model attributes 83% of the Reno–Allentown gap to slotting, pick-path travel and batch size, and only 11% to associate tenure. Moving Allentown and Columbus halfway to Reno's practices would save about 21,800 pick hours (≈$0.53M) a year.",
+  "key_findings": [
+    "Jan–Apr 2026 pick rate: Reno 62 UPH, Dallas 55, Columbus 51, Allentown 46; network 53.",
+    "Of the 16 UPH Reno–Allentown gap, slotting explains 5.8, pick-path travel 4.3, batch size 3.2 and tenure only 1.8.",
+    "UPH rises from 41 at 1–4 orders per batch to 58 at 9–12 and then levels off; Allentown averages 6.4 orders per batch against Reno's 11.2.",
+    "New pickers start at ~29 UPH and reach the network average around week 12.",
+    "Closing half the gap at Allentown and Columbus would save ~21,800 pick hours (≈$0.53M) a year."
+  ],
+  "code": [
+    { "label": "Pick task & labour hours build (SQL)", "path": "analyses/2026-05-pick-rate-benchmark/01_pick_task_hours.sql" },
+    { "label": "Travel distance from bin coordinates", "path": "analyses/2026-05-pick-rate-benchmark/02_travel_per_pick.py" },
+    { "label": "Mixed model & gap decomposition", "path": "analyses/2026-05-pick-rate-benchmark/03_uph_mixed_model.R" }
+  ],
+  "data_sources": ["dw.fct_pick_task", "dw.fct_labor_hours", "dw.dim_bin_location", "Workday"],
+  "related": ["fc-associate-attrition", "peak-2026-capacity-plan", "last-mile-delivery-sla-review"]
+}

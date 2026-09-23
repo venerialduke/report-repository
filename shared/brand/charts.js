@@ -10,6 +10,7 @@
  *   <script src="../../shared/brand/charts.js"></script>   (auto-renders on load)
  *
  * Types:   column | bar | line | stacked | stacked-bar
+ * Series: {name, values, color?}  color may be "series-1".."series-8" to pin a palette slot across charts
  * Options: format ("num" | "pct" | "pct1" | "pp" | "usd" | "usd2" | "x" | {prefix, suffix, decimals, compact})
  *          yMin, yMax, height, highlight: [category...], ref: {value, label}, labels: bool, yLabel
  * Charts are data-first: the JSON is also exposed as a table (accessibility, AI and print friendly).
@@ -25,6 +26,9 @@
     return v || fb;
   }
   function colorFor(el, i, s) {
+    // "color": "series-3" pins a palette slot (keeps an entity's colour stable across charts); hex also accepted
+    var slot = s && typeof s.color === "string" && s.color.match(/^series-([1-8])$/);
+    if (slot) return cssVar(el, "--series-" + slot[1], FALLBACK[slot[1] - 1]);
     if (s && s.color) return s.color;
     return cssVar(el, SERIES[i % 8], FALLBACK[i % 8]);
   }
@@ -84,7 +88,7 @@
     for (var v = lo; v <= hi + step / 2; v += step) t.push(+v.toFixed(10));
     return t;
   }
-  function textW(str, size) { return String(str).length * (size || 12) * 0.56; }
+  function textW(str, size, bold) { return String(str).length * (size || 12) * (bold ? 0.64 : 0.58); }
 
   // ---------- core ----------
   function parse(el) {
@@ -319,8 +323,8 @@
     var maxName = Math.floor(W * 0.3 / 7);
     var short = function (n) { n = String(n); return n.length > maxName ? n.slice(0, maxName - 1) + "…" : n; };
     var lastVal = series.length === 1 ? series[0].values.filter(function (v) { return v != null; }).pop() : null;
-    var mr = direct ? Math.max.apply(null, series.map(function (s) { return textW(short(s.name), 12); })) + 18
-      : (series.length === 1 && cfg.labels !== false ? textW(fmt(lastVal), 12) + 16 : 16);
+    var mr = direct ? Math.max.apply(null, series.map(function (s) { return textW(short(s.name), 12, true); })) + 18
+      : (series.length === 1 && cfg.labels !== false ? textW(fmt(lastVal), 12, true) + 16 : 16);
     var m = { t: 16, r: mr, b: 32, l: ml };
     var iw = W - m.l - m.r, ih = H - m.t - m.b;
     var y = function (v) { return m.t + ih - (v - d.lo) / (d.hi - d.lo) * ih; };

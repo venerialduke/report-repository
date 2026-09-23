@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App search fails customers who say “couch” — synonyms and typos cause 61% of null results — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · August 2026</span>
+    </div>
+    <span class="pp-eyebrow">Product &amp; Digital</span>
+    <h1>App search fails customers who say “couch” — synonyms and typos cause 61% of null results</h1>
+    <p class="pp-subtitle">The app still runs on the old search index that web moved off last year. Porting web's synonym and typo handling to the app is worth about $5M a year.</p>
+    <div class="pp-byline">
+      <span>By <b>Priya Natarajan</b> &amp; <b>Aisha Rahman</b></span>
+      <span>Published <b>Aug 27, 2026</b></span>
+      <span>Data <b>Jun 1 – Jul 31, 2026</b> · 12 usability sessions Jul 13–17</span>
+    </div>
+  </header>
+
+  <blockquote class="pp-quote">“I typed couch and it showed me covers. So I figured you don't sell couches and went to look somewhere else.”<cite>Participant P7, Android, sofa task — usability session, July 15</cite></blockquote>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>App search does noticeably worse than web on every quality metric.</strong> 8.7% of app queries return nothing (web: 5.2%). Top-3 click-through is 31% (web: 38%), and 22% of searches are reformulated (web: 15%).</li>
+      <li><strong>Most nulls are vocabulary problems, not catalogue gaps.</strong> Synonym mismatches (“couch” vs “sofa”, “comforter” vs “duvet”) cause 34% of null results and misspellings cause 27%. Only 18% are for things we don't sell.</li>
+      <li><strong>Usability sessions show why it matters.</strong> 7 of 12 participants typed “couch” first, and 4 of those 7 concluded we don't sell sofas.</li>
+      <li><strong>Recommendation:</strong> port web's 412-pair synonym list and typo tolerance to the app index by October 15, ahead of peak. That recovers about $5.1M a year (range $2.0–8.0M) while the full migration to the v2 search service is pulled forward to Q1 2027.</li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">App null-result rate</div><div class="pp-kpi-value">8.7%</div><div class="pp-kpi-delta down">+3.5 pp vs. web (5.2%)</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Top-3 click-through</div><div class="pp-kpi-value">31%</div><div class="pp-kpi-delta down">−7 pp vs. web (38%)</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Reformulation rate</div><div class="pp-kpi-value">22%</div><div class="pp-kpi-delta down">+7 pp vs. web (15%)</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Opportunity</div><div class="pp-kpi-value">$5.1M</div><div class="pp-kpi-delta">per year · range $2.0–8.0M</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>App search is worse than web on all three quality measures, and has been all summer</h2>
+  <p class="pp-lede">Search matters more in the app than anywhere else. 44% of app sessions include a search, compared with 29% on web.</p>
+  <p>We analysed 9.8 million app queries from 4.1 million search sessions across June and July. We tracked the three metrics the Search &amp; Discovery squad already uses for web. <b>Null-result rate</b> is the share of queries that return zero products. <b>Top-3 click-through</b> is the share of queries where the customer clicks one of the first three results. <b>Reformulation rate</b> is the share of queries followed within 60 seconds by a different query with no click in between. The app was worse than web on all three.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">The app trails web on nulls, top-3 clicks and reformulations</p>
+    <p class="pp-fig-sub">Search quality metrics by platform, Jun–Jul 2026 · % of queries</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pct",
+        "categories": ["Null rate", "Top-3 CTR", "Reformulation"],
+        "series": [
+          { "name": "App (iOS + Android)", "values": [8.7, 31, 22] },
+          { "name": "Web", "values": [5.2, 38, 15] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_search_queries (app n = 9.8M queries; web n = 14.6M queries). Higher is better for click-through only.</figcaption>
+  </figure>
+
+  <p>This is not a seasonal blip. The app's weekly null rate stayed between 8.3% and 9.1% for the whole period and never came near the 5% target the squad set for web in 2025. The reason is technical. When web moved to the v2 search service in October 2025, it gained a curated synonym dictionary and fuzzy matching. The app still queries the v1 index, which matches exact tokens after stemming only.<sup>1</sup></p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">The app null rate has stayed above 8% every week, far from the 5% target</p>
+    <p class="pp-fig-sub">Weekly null-result rate by platform; dashed line = 5% target · % of queries</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "pct1", "yMin": 0, "yMax": 10, "ref": { "value": 5 },
+        "categories": ["Jun 1", "Jun 8", "Jun 15", "Jun 22", "Jun 29", "Jul 6", "Jul 13", "Jul 20", "Jul 27"],
+        "series": [
+          { "name": "App", "values": [8.9, 8.8, 8.6, 9.1, 8.7, 8.5, 8.8, 8.6, 8.3] },
+          { "name": "Web", "values": [5.3, 5.2, 5.1, 5.4, 5.2, 5.1, 5.2, 5.1, 5.2] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Week of Jun 22 includes the Pine Days early-access announcement, when searches for sale-specific terms spiked. Source: dw.fct_search_queries.</figcaption>
+  </figure>
+
+  <h2><span class="pp-num">02</span>Six in ten null results are customers using a different word, or misspelling ours</h2>
+  <p class="pp-lede">We have what these customers want. We just don't recognise the words they use for it.</p>
+  <p>We took a stratified random sample of 3,000 null-result app queries and hand-coded each one. Two coders worked on the sample and agreed 91% of the time (κ = 0.86). Synonym mismatches were the largest group, followed by misspellings. Together they account for 61% of nulls. Queries for products we genuinely don't carry, such as appliances and outdoor grills, are only 18%.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Synonyms and typos explain 61% of app null results</p>
+    <p class="pp-fig-sub">Root cause of null-result queries, hand-coded sample (n = 3,000) · % of null queries</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "pct", "highlight": ["Synonym / vocabulary mismatch", "Misspelling"],
+        "categories": ["Synonym / vocabulary mismatch", "Misspelling", "Not in catalogue", "Over-specified attributes", "Other / unclear"],
+        "series": [{ "name": "Share of nulls", "values": [34, 27, 18, 13, 8] }] }
+      </script>
+    </div>
+    <figcaption>“Over-specified” means valid attribute combinations the v1 index cannot match, e.g. “green velvet 3 seater”. Source: coded sample from dw.fct_search_queries.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>High-volume app queries that fail, compared with the same query on web</caption>
+      <thead><tr><th>Query (app)</th><th class="num">App searches, Jun–Jul</th><th>App result</th><th>Web result</th><th>Cause</th></tr></thead>
+      <tbody>
+        <tr><td>couch</td><td class="num">18,400</td><td>4 products (covers only)</td><td>1,212 sofas</td><td><span class="pp-tag">synonym</span></td></tr>
+        <tr><td>comforter</td><td class="num">14,900</td><td>0</td><td>186 duvets &amp; inserts</td><td><span class="pp-tag">synonym</span></td></tr>
+        <tr><td>throw pillow</td><td class="num">7,300</td><td>0</td><td>402 cushions</td><td><span class="pp-tag">synonym</span></td></tr>
+        <tr><td>sectional couch</td><td class="num">6,100</td><td>0</td><td>214 sectionals</td><td><span class="pp-tag">synonym</span></td></tr>
+        <tr><td>nightstand</td><td class="num">5,800</td><td>12 (lamps)</td><td>96 bedside tables</td><td><span class="pp-tag">synonym</span></td></tr>
+        <tr><td>bookshelf</td><td class="num">4,900</td><td>0</td><td>88 bookcases</td><td><span class="pp-tag">synonym</span></td></tr>
+        <tr><td>mattress protecter</td><td class="num">3,700</td><td>0</td><td>41 protectors</td><td><span class="pp-tag">typo</span></td></tr>
+        <tr><td>armchiar</td><td class="num">2,200</td><td>0</td><td>310 armchairs</td><td><span class="pp-tag">typo</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The pattern is consistent. Our catalogue uses trade and UK-leaning terms (sofa, duvet, cushion, bedside table), while many US customers use everyday words (couch, comforter, throw pillow, nightstand). Web already maps all of these pairs. The app maps none of them.</p>
+
+  <h2><span class="pp-num">03</span>In the lab, a failed first search reads as “they don't sell it”</h2>
+  <p class="pp-lede">The usability sessions show what the logs can't: a null result does not look like a search problem to customers. It looks like a missing product.</p>
+  <p>Aisha Rahman ran 12 moderated remote sessions (6 iOS, 6 Android; 8 existing customers and 4 non-customers who shop online for furniture). Each participant did three search tasks on a production build. We did not coach them on wording.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">7 of 12 participants typed “couch” first when asked to find a sofa</p>
+    <p class="pp-fig-sub">First query typed for the task “Find a three-seat sofa under $1,200” · participants (n = 12)</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "int", "highlight": ["couch"],
+        "categories": ["couch", "sofa", "sectional", "loveseat"],
+        "series": [{ "name": "Participants", "values": [7, 3, 1, 1] }] }
+      </script>
+    </div>
+    <figcaption>Source: moderated usability study, Jul 13–17, 2026 (Aisha Rahman). The single “sectional” participant also got zero results.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Task outcomes across the 12 sessions</caption>
+      <thead><tr><th>Task</th><th class="num">Completed</th><th class="num">Median time</th><th>What got in the way</th></tr></thead>
+      <tbody>
+        <tr><td>Find a three-seat sofa under $1,200</td><td class="num">8 / 12</td><td class="num">2m 40s</td><td>“couch” returned only covers; 4 of 7 gave up</td></tr>
+        <tr><td>Find a king-size comforter</td><td class="num">7 / 12</td><td class="num">3m 05s</td><td>0 results for “comforter”; 3 found duvets by browsing Bedding</td></tr>
+        <tr><td>Find a rug that fits an 8×10 room</td><td class="num">10 / 12</td><td class="num">1m 50s</td><td>“8x10 rug” works; “8 by 10 rug” returned nothing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">Why this matters more than the null rate suggests</div><p>Nine of the 12 participants said they would expect a competitor's app to “just know” that couch means sofa. When search failed, none of them tapped the “Browse categories” link on the empty-results screen, because it sits below the fold. The empty state is effectively a dead end.</p></div>
+
+  <h2><span class="pp-num">04</span>Fixing vocabulary nulls is worth about $5M a year</h2>
+  <p class="pp-lede">Sessions that hit a null result convert at a third of the rate of sessions where the customer reformulated and then clicked.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">App sessions that hit a null result convert at 1.3%</p>
+    <p class="pp-fig-sub">Session conversion by search outcome, app, Jun–Jul 2026 · % of sessions</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "pct1", "highlight": ["Null result"],
+        "categories": ["Top-3 click", "Lower-rank click", "Reformulated + click", "Null result", "No search"],
+        "series": [{ "name": "Conversion", "values": [7.4, 5.1, 4.2, 1.3, 2.9] }] }
+      </script>
+    </div>
+    <figcaption>Descriptive, not causal: intent differs between groups. The sizing below uses the conservative “reformulated, then clicked” rate as the counterfactual. Source: dw.fct_search_queries, dw.fct_app_sessions.</figcaption>
+  </figure>
+
+  <p>In a typical month, 2.05M app search sessions include 238k (11.6%) that hit at least one null. Synonyms and typos cause 61% of those, or 145k sessions. We assume the fix resolves 75% of them (109k sessions). If those sessions go on to convert like “reformulated, then clicked” sessions (4.2% instead of 1.3%), that adds about 3,160 orders a month. At the app AOV of $134, that is <b>$423k a month, or about $5.1M a year</b>. Our low case (50% resolved, converting at 3.0%) gives $2.0M. Our high case (90% resolved, converting at 5.1%) gives $8.0M. None of these figures include the likely gain in top-3 click-through, and none account for peak, when app search volume roughly doubles.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">Caveat</div><p>This is an opportunity estimate, not a measured effect. We will confirm it by releasing the synonym port behind a 50/50 flag for two weeks in October. The pre-registration is already drafted (see the experimentation playbook).</p></div>
+
+  <h2><span class="pp-num">05</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Port web's synonym dictionary (412 pairs) to the app's v1 index.</strong> Search Platform estimates 1.5 sprints, and it removes the largest class of nulls. <span class="pp-owner">Owner: Search &amp; Discovery squad · By: Oct 15, 2026 (behind a 50/50 flag)</span></li>
+    <li><strong>Turn on edit-distance-1 typo tolerance for queries of 5 characters or more.</strong> This covers the most common misspellings with low false-match risk. <span class="pp-owner">Owner: Search Platform · By: Oct 15, 2026</span></li>
+    <li><strong>Redesign the empty-results screen.</strong> Show “Did you mean…” and the top three categories above the fold. <span class="pp-owner">Owner: App squad with Aisha Rahman · By: Nov 6, 2026 (before Black Friday code freeze)</span></li>
+    <li><strong>Move the app to the v2 search service in Q1 2027 instead of Q3.</strong> This retires the dual-index maintenance cost for good. <span class="pp-owner">Owner: Head of Digital Product · Decision by: Sep 30, 2026 planning</span></li>
+    <li><strong>Add null-rate, top-3 CTR and reformulation to the weekly app scorecard.</strong> <span class="pp-owner">Owner: Jonah Feld · By: Sep 15, 2026</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Log analysis</dt><dd>All US app and web search queries from Jun 1 to Jul 31, 2026, excluding bot-flagged traffic (0.9%) and internal accounts. A “session” is a 30-minute inactivity window. Metrics follow the Search &amp; Discovery squad's definitions (dw.fct_search_queries, v3). Root-cause coding used a stratified random sample of 3,000 null queries, weighted by volume decile, coded independently by two analysts (κ = 0.86), with disagreements resolved by discussion.</dd>
+      <dt>Usability study</dt><dd>12 moderated remote sessions, 45 minutes each, recruited via UserInterviews. 8 existing customers and 4 non-customers; 6 iOS and 6 Android. Same three tasks for everyone, with the task order rotated. The sessions show how and why search fails. They are too small a sample to estimate how often it happens.</dd>
+      <dt>Opportunity sizing</dt><dd>Monthly averages from Jun–Jul. Counterfactual conversion is taken from observed outcome groups, which are affected by self-selection, so we report a range and will validate with an experiment.</dd>
+      <dt>Limitations</dt><dd>Two summer months including Pine Days. Assumes app AOV ($134) is unchanged. Does not cover voice search (under 1% of queries) or the marketplace channel.</dd>
+    </dl>
+  </section>
+
+  <section class="pp-footnotes">
+    <p><sup>1</sup> The v1 index applies Porter stemming, so “sofas” matches “sofa”, but it has no synonym expansion and no fuzzy matching. See Search Platform's ADR-031 (Oct 2025) for the web migration.</p>
+  </section>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

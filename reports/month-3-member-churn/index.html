@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monthly Pine+ members churn twice as fast in month 3, and a third order is the best early warning — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · September 2026</span>
+    </div>
+    <span class="pp-eyebrow">Customer &amp; Growth</span>
+    <h1>Monthly Pine+ members churn twice as fast in month 3, and a third order is the best early warning</h1>
+    <p class="pp-subtitle">The drop comes once the free-shipping honeymoon ends. Members who place a third order within 60 days mostly stay, so the time to step in is month 2.</p>
+    <div class="pp-byline">
+      <span>By <b>Daniel Reyes</b></span>
+      <span>Published <b>Sep 15, 2026</b></span>
+      <span>Data through <b>Aug 31, 2026</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Month 3 is where monthly members leave.</strong> Of monthly-plan members still active when month 3 starts, 18.6% churn before month 4. The average for months 1, 2 and 4 is 8.4%. Annual-plan members show no such cliff.</li>
+      <li><strong>It is a habit problem, not a price problem.</strong> Month-3 churn is 28.8% for members who placed only their joining order in the first 60 days and 6.1% for those who placed three or more. After matching on channel, basket and region, a gap of 9.8 pp remains.</li>
+      <li><strong>Promo-driven joiners are the most fragile.</strong> Members who joined in the Black Friday promotion churn at 26.8% in month 3. Organic joiners churn at 11.7%.</li>
+      <li><strong>Recommendation:</strong> test a month-2 “third order” nudge and a month-2 annual-conversion offer. We estimate that together they could save about 3,000 members and about $0.6M in contribution a year. <em>Owners: Retention squad and Membership product.</em></li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Month-3 churn, monthly plan</div><div class="pp-kpi-value">18.6%</div><div class="pp-kpi-delta down">2.2× months 1, 2 &amp; 4 (8.4%)</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">6-month survival, monthly plan</div><div class="pp-kpi-value">55.4%</div><div class="pp-kpi-delta down">vs. 96.8% on annual plan</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Reach 3rd order in 60 days</div><div class="pp-kpi-value">29%</div><div class="pp-kpi-delta">of monthly joiners</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Cohort analysed</div><div class="pp-kpi-value">96,400</div><div class="pp-kpi-delta">new members, Sep 2025–Mar 2026</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>Monthly members leave in a sharp spike at month 3, not gradually</h2>
+  <p class="pp-lede">Churn is usually pictured as a steady leak. For monthly Pine+ members it looks more like a cliff. The hazard more than doubles in the third month of tenure, then drops back to its earlier level.</p>
+  <p>We followed every member who joined Pine+ between September 2025 and March 2026: 96,400 people, of whom 52,100 (54%) chose the $6.99 monthly plan and 44,300 the $59 annual plan. For each month of tenure we measured the <em>hazard</em>, meaning the share of members active at the start of that month who had churned (voluntarily or involuntarily) before the next one began.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Month 3 is the outlier: churn more than doubles, then settles</p>
+    <p class="pp-fig-sub">Monthly-plan Pine+ members · % of members active at start of month who churn during it · n = 52,100 joiners</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pct1", "highlight": ["Month 3"],
+        "categories": ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6"],
+        "series": [{ "name": "Monthly churn hazard", "values": [7.8, 9.4, 18.6, 8.1, 6.2, 5.4] }] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_member_status_daily, dw.dim_member. Joiners Sep 2025–Mar 2026, each observed for 6 full months of tenure.</figcaption>
+  </figure>
+
+  <p>The timing points to a cause. By month 3 a monthly member has been billed three times (up to $20.97 in all). Members who join to save on shipping for one large basket have usually used up that value by the second renewal. Our cancel-flow survey says the same thing: 38% of month-3 cancellers chose “I don’t order often enough to make it worth it” (section 04).</p>
+
+  <h2><span class="pp-num">02</span>Annual members don’t have a month-3 problem; monthly members lose almost half by month 6</h2>
+  <p>The survival curves split early and never meet again. Six months after joining, 55.4% of monthly members are still active, compared with 96.8% of annual members. The annual “churn” here is almost entirely refund requests within the 30-day guarantee. Their real test comes at the 12-month renewal, which we cover in the <em>Pine+ LTV forecast</em>.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Monthly-plan survival falls steepest between months 2 and 3</p>
+    <p class="pp-fig-sub">% of joining cohort still an active member, by months since joining</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "pct1", "yMin": 40, "yMax": 100,
+        "categories": ["Join", "M1", "M2", "M3", "M4", "M5", "M6"],
+        "series": [
+          { "name": "Annual plan", "values": [100, 97.9, 97.4, 97.1, 96.9, 96.8, 96.8] },
+          { "name": "Monthly plan", "values": [100, 92.2, 83.5, 68.0, 62.5, 58.6, 55.4] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Kaplan–Meier estimates; 95% CIs are within ±0.5 pp at every point and are omitted for readability. Axis starts at 40%.</figcaption>
+  </figure>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">This is not a like-for-like comparison of plans</div><p>People choose their plan, so annual members were more committed from day one. The gap shows who picks each plan. It is not evidence that switching someone to annual makes them stay. This is why recommendation 2 is an experiment, not a rollout.</p></div>
+
+  <h2><span class="pp-num">03</span>Promo-driven joiners are the most fragile; organic joiners hold up best</h2>
+  <p>Acquisition channel is a strong predictor of the month-3 drop. Members who signed up during the <strong>Black Friday–Cyber Week promotion</strong> (when the monthly plan’s first month is discounted to $1) churn at 26.8% in month 3. Members from <strong>paid social</strong> churn at 24.1%. <strong>Organic / direct</strong> joiners churn at 11.7%, less than half the Black Friday promo rate. The checkout upsell is our largest channel at 41% of monthly joiners, and it sits in the middle at 16.4%.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Black Friday promo and paid-social joiners churn at twice the rate of organic joiners in month 3</p>
+    <p class="pp-fig-sub">Monthly-plan members · month-3 churn hazard by acquisition channel · dashed line = all monthly joiners (18.6%)</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "pct1", "highlight": ["Black Friday promo", "Paid social"],
+        "ref": { "value": 18.6 },
+        "categories": ["Black Friday promo", "Paid social", "Checkout upsell", "Email / CRM", "Organic / direct"],
+        "series": [{ "name": "Month-3 churn", "values": [26.8, 24.1, 16.4, 14.9, 11.7] }] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_member_status_daily joined to dw.fct_member_acquisition (last-touch channel at sign-up).</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Month-3 churn by acquisition channel, monthly plan</caption>
+      <thead><tr><th>Channel</th><th class="num">Joiners</th><th class="num">Share</th><th class="num">At risk, start M3</th><th class="num">M3 churn</th><th class="num">95% CI</th></tr></thead>
+      <tbody>
+        <tr><td>Checkout upsell</td><td class="num">21,361</td><td class="num">41%</td><td class="num">17,700</td><td class="num">16.4%</td><td class="num">15.9–16.9%</td></tr>
+        <tr><td>Black Friday promo</td><td class="num">9,899</td><td class="num">19%</td><td class="num">8,270</td><td class="num">26.8% <span class="pp-badge bad">High</span></td><td class="num">25.8–27.8%</td></tr>
+        <tr><td>Paid social</td><td class="num">7,294</td><td class="num">14%</td><td class="num">6,090</td><td class="num">24.1% <span class="pp-badge bad">High</span></td><td class="num">23.0–25.2%</td></tr>
+        <tr><td>Organic / direct</td><td class="num">7,294</td><td class="num">14%</td><td class="num">6,090</td><td class="num">11.7% <span class="pp-badge good">Low</span></td><td class="num">10.9–12.5%</td></tr>
+        <tr><td>Email / CRM</td><td class="num">6,252</td><td class="num">12%</td><td class="num">5,350</td><td class="num">14.9%</td><td class="num">13.9–15.9%</td></tr>
+        <tr class="total"><td>All monthly joiners</td><td class="num">52,100</td><td class="num">100%</td><td class="num">43,500</td><td class="num">18.6%</td><td class="num">18.2–19.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">04</span>A third order within 60 days is the clearest early signal of who stays</h2>
+  <p class="pp-lede">We tested about 40 candidate early signals, including app installs, wishlist adds, email engagement and category breadth. The most useful was simple: did the member place a third order (counting the joining order) within 60 days of signing up?</p>
+  <p>Only 29% of monthly joiners do. Their month-3 churn is 6.1%. For members who place just a second order it is 17.9%, and for members who never order again after joining it is 28.8%. As a classifier, the flag alone gets an AUC of 0.71 for month-3 churn. Our full gradient-boosted model reaches 0.76, so the single flag gives up little and is far easier to use.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Members with 3+ orders in their first 60 days rarely churn in month 3</p>
+    <p class="pp-fig-sub">Monthly-plan members · month-3 churn by orders placed in first 60 days (incl. joining order) · share of joiners in brackets</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pct1", "highlight": ["3+ orders (29%)"],
+        "categories": ["1 order (38%)", "2 orders (33%)", "3+ orders (29%)"],
+        "series": [{ "name": "Month-3 churn", "values": [28.8, 17.9, 6.1] }] }
+      </script>
+    </div>
+    <figcaption>Weighted by share of joiners, these three groups reproduce the 18.6% overall rate.</figcaption>
+  </figure>
+
+  <p>This does not prove that a third order <em>causes</em> retention. Engaged people both order more and stay longer. To separate the two, we matched members with and without a third order on acquisition channel, first-basket value and category, region, device and join month (propensity-score matching, 11,200 pairs). The raw gap is 17.6 pp. After matching it shrinks to <strong>9.8 pp (95% CI 7.7–11.9 pp)</strong>. That is still large, and it is the effect size we would design an intervention around.</p>
+
+  <p>Cancel-flow answers explain the pattern. Among 3,412 month-3 cancellers who answered the exit question, most gave a reason about frequency rather than price:</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Most month-3 cancellers say they don’t order often enough</p>
+    <p class="pp-fig-sub">Voluntary month-3 cancellations, monthly plan · primary reason selected in cancel flow · n = 3,412</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "pct", "highlight": ["Don't order often enough", "Only joined for one sale"],
+        "categories": ["Don't order often enough", "Only joined for one sale", "Membership price", "Delivery experience", "Found a better option", "Other"],
+        "series": [{ "name": "Share of cancellers", "values": [38, 22, 14, 9, 7, 10] }] }
+      </script>
+    </div>
+    <figcaption>Involuntary churn (failed payments) accounts for a further 3.3 pp of the 18.6% month-3 rate and is not captured by the survey.<sup>1</sup></figcaption>
+  </figure>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">So what</div><p>Most month-3 churners are not unhappy members. They are members who never built a habit. That points to intervening in <strong>month 2</strong>, while there is still time to earn a third order, rather than offering a discount at the cancel screen once the decision is made.</p></div>
+
+  <h2><span class="pp-num">05</span>Recommendations</h2>
+  <p>We sized each option on about 6,200 monthly members who reach month 3 each month. Cutting the month-3 hazard by 4 pp would keep about 250 more members a month, roughly 3,000 a year. At an average incremental contribution of about $200 per retained member over the following 12 months (FP&amp;A’s Pine+ unit-economics model), that is worth about $0.6M a year.</p>
+  <ol class="pp-recs">
+    <li><strong>Test a month-2 “third order” nudge.</strong> Trigger a personalised email and app message on day 35 for monthly members with fewer than three orders, with category recommendations based on the first basket and a reminder of the free shipping they have used. Randomise 50/50 and use month-3 churn as the primary metric. At 6,200 members a month, 8 weeks detects a 2.5 pp effect at 80% power. <span class="pp-owner">Owner: Retention squad with CRM · Launch by: Oct 20, 2026 · Read-out: Jan 2027</span></li>
+    <li><strong>Test an annual-conversion offer in month 2.</strong> Offer the annual plan at $49 for the first year (normally $59) to monthly members on day 40–50. Measure 12-month retained revenue, not just switches, so we don’t pay to convert members who would have stayed anyway. <span class="pp-owner">Owner: Membership product with FP&amp;A · Design sign-off by: Oct 31, 2026</span></li>
+    <li><strong>Stop leading with the $1 monthly offer during sale events.</strong> Show the annual plan first on sale-day checkout and a clearer comparison of the two. Black Friday promo joiners churn at 26.8% in month 3, so part of what counts as sale-period member growth doesn’t last. <span class="pp-owner">Owner: Growth marketing · Before: Black Friday 2026 member campaign</span></li>
+    <li><strong>Add “3rd order in 60 days” to the weekly membership dashboard</strong> as a leading KPI next to new joiners, so the effect of changes shows up about 30 days before churn does. <span class="pp-owner">Owner: Insights (Jonah Feld) · By: Oct 9, 2026</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Population</dt><dd>All new Pine+ members who joined between Sep 1, 2025 and Mar 31, 2026 (96,400). Excludes employee memberships, gifted memberships and members re-joining within 90 days of a previous cancellation (4.1% of joiners). Each joiner is observed for 6 full months of tenure.</dd>
+      <dt>Definitions</dt><dd>Churn follows the canonical definitions in the <em>metric glossary</em>. A member churns on the date access ends, not the date they click cancel. Involuntary churn is a payment failure that is not recovered within the 14-day retry window.</dd>
+      <dt>Method</dt><dd>Kaplan–Meier survival curves by plan and channel; monthly hazards computed on members at risk at the start of each tenure month. Leading indicators were screened with univariate AUC and then a gradient-boosted classifier (5-fold CV). The effect of a third order was estimated by 1:1 nearest-neighbour propensity matching (caliper 0.05 SD), with bootstrap CIs from 1,000 resamples.</dd>
+      <dt>Limitations</dt><dd>Matching adjusts only for what we observe. Unmeasured intent (for example, an upcoming house move) probably still inflates the 9.8 pp estimate, which is why we recommend testing before scaling. Channel is last-touch at sign-up. The cancel-flow survey is optional (41% response) and single-choice.</dd>
+    </dl>
+  </section>
+
+  <div class="pp-footnotes">
+    <p><sup>1</sup> Involuntary churn in month 3 (3.3 pp) is higher than in month 2 (2.1 pp), partly because cards used for a one-off large purchase are more likely to be declined later. The payments team is testing card-updater coverage separately.</p>
+  </div>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

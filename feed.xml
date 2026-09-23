@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>Parcel &amp; Pine Insights Hub</title>
+  <link>/</link>
+  <description>Every analysis from the Insights team, in one place.</description>
+  <item>
+    <title>Monthly Pine+ members churn twice as fast in month 3, and a third order is the best early warning</title>
+    <link>/report.html?id=month-3-member-churn</link>
+    <guid isPermaLink="false">month-3-member-churn</guid>
+    <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
+    <category>Customer &amp; Growth</category>
+    <description>Monthly-plan Pine+ members churn at 18.6% in their third month, more than twice the rate of neighbouring months, while annual members show no such cliff. A third order within 60 days of joining is the strongest early signal of retention, so we recommend testing a month-2 order nudge and an annual-conversion offer.</description>
+  </item>
+  <item>
+    <title>A $69 Pine+ price wins FY27 and loses on each new cohort</title>
+    <link>/report.html?id=pine-plus-ltv-forecast-fy27</link>
+    <guid isPermaLink="false">pine-plus-ltv-forecast-fy27</guid>
+    <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+    <category>Finance &amp; Pricing</category>
+    <description>Three-year contribution LTV is $418 for annual Pine+ members and $189 for monthly members. Blended LTV is slipping because 29% of new joiners now choose monthly. Raising the annual price from $59 to $69 adds about $1.1M in FY27 in the central case but risks −$2.1M, so we recommend $65 from February 2027 and a year-end FY27 base of about 540k members.</description>
+  </item>
+  <item>
+    <title>Only Pine Fleet meets the 95% on-time promise, and padding our delivery dates has hidden how far carriers have slipped</title>
+    <link>/report.html?id=last-mile-delivery-sla-review</link>
+    <guid isPermaLink="false">last-mile-delivery-sla-review</guid>
+    <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
+    <category>Operations &amp; Supply Chain</category>
+    <description>From January to August, 92.1% of parcels arrived by the promised date against a 95% SLA. Only the in-house Pine Fleet (96.4%) met the target; national carriers reached 90.8% and white-glove partners 84.1%. Promise padding introduced in March hid a ~4 pp decline in carrier performance and cost about 1.2% of conversion in the padded lanes, so we recommend removing it lane by lane and moving carriers to scan-based SLAs with penalties.</description>
+  </item>
+  <item>
+    <title>App search fails customers who say “couch” — synonyms and typos cause 61% of null results</title>
+    <link>/report.html?id=app-search-relevance</link>
+    <guid isPermaLink="false">app-search-relevance</guid>
+    <pubDate>Thu, 27 Aug 2026 12:00:00 GMT</pubDate>
+    <category>Product &amp; Digital</category>
+    <description>App search trails web on null-result rate (8.7% vs 5.2%), top-3 click-through (31% vs 38%) and reformulation (22% vs 15%), because the app still queries the legacy v1 index with no synonym or typo handling. Log analysis of 9.8M queries and 12 usability sessions show that vocabulary mismatches such as “couch” vs “sofa” cause most failures. Porting web's synonym list and typo tolerance before peak is worth about $5.1M a year.</description>
+  </item>
+  <item>
+    <title>More shoppers know us; fewer pick us once they compare</title>
+    <link>/report.html?id=brand-tracker-wave-4</link>
+    <guid isPermaLink="false">brand-tracker-wave-4</guid>
+    <pubDate>Thu, 20 Aug 2026 12:00:00 GMT</pubDate>
+    <category>Marketing</category>
+    <description>Wave 4 of the quarterly brand tracker (n = 2,421) shows aided awareness up to 44%, a 6-point rise over four waves driven mainly by social ads. Only 36% of shoppers who consider us prefer us, the weakest conversion of the four brands tracked. The gap is perceived quality and sustainability, and Competitor C is closing in on our preference share.</description>
+  </item>
+  <item>
+    <title>Half of what returns cost us comes from two causes we can fix: damage in transit and product photos that mislead</title>
+    <link>/report.html?id=returns-root-cause-analysis</link>
+    <guid isPermaLink="false">returns-root-cause-analysis</guid>
+    <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
+    <category>Operations &amp; Supply Chain</category>
+    <description>In H1 2026, 11.0% of units shipped were returned (889k), at a cost of $29.4M. Damage in transit (31% of cost, concentrated in carton-shipped flat-pack furniture and fragile items packed on two auto-bagger lines) and 'didn't match description' (tied to missing scale shots and colour-calibrated swatches) make up about half of it. Repacking fragile SKUs, protecting or rerouting the most damage-prone furniture, and reshooting 1,200 SKUs would save about $5.6M a year, net of cost.</description>
+  </item>
+  <item>
+    <title>Late and damaged deliveries cost us 13 NPS points; product and design earn them back</title>
+    <link>/report.html?id=nps-verbatim-themes-h1-2026</link>
+    <guid isPermaLink="false">nps-verbatim-themes-h1-2026</guid>
+    <pubDate>Thu, 30 Jul 2026 12:00:00 GMT</pubDate>
+    <category>Customer &amp; Growth</category>
+    <description>Relationship NPS fell 3 points to +38 in H1 2026, with members and non-members falling together. Coding 14,120 verbatims shows delivery reliability and damaged items driving detractors, while product quality and design drive promoters. Linking responses to order data suggests flawless delivery would lift NPS to about +51.</description>
+  </item>
+  <item>
+    <title>Nearly half of new FC associates who leave in their first 90 days are gone within two weeks, and unstable schedules are the biggest cause</title>
+    <link>/report.html?id=fc-associate-attrition</link>
+    <guid isPermaLink="false">fc-associate-attrition</guid>
+    <pubDate>Wed, 22 Jul 2026 12:00:00 GMT</pubDate>
+    <category>People &amp; Workplace</category>
+    <description>38% of the 2,140 FC associates hired between January 2025 and March 2026 left within 90 days, and 46% of those left in their first two weeks. The strongest predictors are a shift change at short notice in the first 14 days, a trainer ratio worse than 1:8 and a commute over 30 minutes. Pay above the local median made no significant difference. We propose a randomised buddy programme and a 21-day schedule guarantee in Dallas before peak, targeting about $480k a year of the $2.3M annual cost.</description>
+  </item>
+  <item>
+    <title>Insights H1 2026 retro: our best work came from planned projects, but ad-hoc requests took almost half our time</title>
+    <link>/report.html?id=insights-team-h1-2026-retro</link>
+    <guid isPermaLink="false">insights-team-h1-2026-retro</guid>
+    <pubDate>Wed, 08 Jul 2026 12:00:00 GMT</pubDate>
+    <category>Methods &amp; Standards</category>
+    <description>In H1 2026 the nine-person Insights team published 12 pieces, supported 23 experiments and answered 312 ad-hoc requests. Most of the measurable impact came from planned work such as the checkout test and the carousel holdout. Ad-hoc work grew to 46% of team time, and 38% of those requests had already been answered somewhere, so H2 priorities are launching the Insights Hub, triaging intake and building a self-serve metric layer.</description>
+  </item>
+  <item>
+    <title>Engagement slipped 3 points, and nearly all of the drop is in our fulfilment centres</title>
+    <link>/report.html?id=engagement-survey-2026</link>
+    <guid isPermaLink="false">engagement-survey-2026</guid>
+    <pubDate>Thu, 25 Jun 2026 12:00:00 GMT</pubDate>
+    <category>People &amp; Workplace</category>
+    <description>81% of employees took the 2026 engagement survey, a record. The engagement index fell from 71% to 68% favourable. Corporate was flat, while FCs fell 4 points and Dallas FC fell 8. Manager support, growth and workload are the biggest drivers company-wide, and for FC associates schedule predictability matters most. We recommend acting first on FC scheduling (starting in Dallas) and on internal mobility.</description>
+  </item>
+  <item>
+    <title>Single-page checkout lifts conversion 5.6% — but the win is on mobile web, not the app</title>
+    <link>/report.html?id=checkout-redesign-ab-test</link>
+    <guid isPermaLink="false">checkout-redesign-ab-test</guid>
+    <pubDate>Thu, 18 Jun 2026 12:00:00 GMT</pubDate>
+    <category>Product &amp; Digital</category>
+    <description>A four-week A/B test (620k sessions) of a single-page checkout against the current three-step flow lifted session conversion from 3.40% to 3.59% (+5.6%, 95% CI +2.9% to +8.3%). Nearly all of the gain is on mobile web; the native apps are neutral. We recommend shipping to web with a 5% holdout, iterating on the app, and planning on about $20M of annualised revenue rather than the $53M point estimate.</description>
+  </item>
+  <item>
+    <title>Paid social pays back, but retargeting doesn't</title>
+    <link>/report.html?id=paid-social-geo-holdout</link>
+    <guid isPermaLink="false">paid-social-geo-holdout</guid>
+    <pubDate>Wed, 03 Jun 2026 12:00:00 GMT</pubDate>
+    <category>Marketing</category>
+    <description>A six-week matched-market holdout across 28 DMAs shows paid social drives real revenue: 2.15× incremental ROAS, against the 5.6× the platforms report. Prospecting clears our 1.8× hurdle at 2.81×. Retargeting returns only 0.97×, so we recommend moving $3.4M out of it for an expected +$2.0M a year in revenue.</description>
+  </item>
+  <item>
+    <title>Reno picks 35% more units per hour than Allentown, and most of the gap comes from slotting and pick paths, not people</title>
+    <link>/report.html?id=warehouse-pick-rate-benchmark</link>
+    <guid isPermaLink="false">warehouse-pick-rate-benchmark</guid>
+    <pubDate>Wed, 20 May 2026 12:00:00 GMT</pubDate>
+    <category>Operations &amp; Supply Chain</category>
+    <description>From January to April, pick productivity ranged from 62 units per labour hour at Reno to 46 at Allentown, against a network average of 53. A shift-level model attributes 83% of the Reno–Allentown gap to slotting, pick-path travel and batch size, and only 11% to associate tenure. Moving Allentown and Columbus halfway to Reno's practices would save about 21,800 pick hours (≈$0.53M) a year.</description>
+  </item>
+  <item>
+    <title>How to read a confidence interval, and why “significant” doesn’t mean “worth doing”</title>
+    <link>/report.html?id=reading-confidence-intervals</link>
+    <guid isPermaLink="false">reading-confidence-intervals</guid>
+    <pubDate>Wed, 06 May 2026 12:00:00 GMT</pubDate>
+    <category>Methods &amp; Standards</category>
+    <description>A plain-language guide to reading the confidence intervals in our experiment and survey reports. It explains why “statistically significant” and “meaningful” are separate questions, and how to judge a result against the minimum meaningful effect.</description>
+  </item>
+  <item>
+    <title>One in five customers drives 59% of revenue: our six customer segments for 2026</title>
+    <link>/report.html?id=customer-segmentation-2026</link>
+    <guid isPermaLink="false">customer-segmentation-2026</guid>
+    <pubDate>Wed, 22 Apr 2026 12:00:00 GMT</pubDate>
+    <category>Customer &amp; Growth</category>
+    <description>We rebuilt our customer segmentation with k-means on RFM, category mix and channel, which gives six named segments covering 2.3M active customers. Loyal Members and Nest Builders are 26% of customers but 59% of revenue. The segments are stable (ARI 0.87) and are now available in the warehouse and Braze for targeting.</description>
+  </item>
+  <item>
+    <title>The $75 free-shipping threshold is paying for itself, at a cost to new customers</title>
+    <link>/report.html?id=free-shipping-threshold-elasticity</link>
+    <guid isPermaLink="false">free-shipping-threshold-elasticity</guid>
+    <pubDate>Wed, 08 Apr 2026 12:00:00 GMT</pubDate>
+    <category>Finance &amp; Pricing</category>
+    <description>Raising the non-member free-shipping threshold from $49 to $75 on 2 March lifted non-member AOV by 12.6% and cut conversion by 6.8% relative to a marketplace control. Pine+ checkout sign-ups rose 23%. Net, we estimate +$8.7M a year in contribution, but new customers absorbed most of the conversion loss, and we recommend targeted fixes for them.</description>
+  </item>
+  <item>
+    <title>Our offices peak on Tuesday–Thursday and sit mostly empty on Mondays and Fridays, so Denver could give back a floor</title>
+    <link>/report.html?id=hybrid-office-utilization</link>
+    <guid isPermaLink="false">hybrid-office-utilization</guid>
+    <pubDate>Mon, 30 Mar 2026 12:00:00 GMT</pubDate>
+    <category>People &amp; Workplace</category>
+    <description>Badge and desk-booking data for Denver HQ and Chicago show attendance concentrated on Tuesday–Thursday. Denver averages 42% desk utilisation and its busiest day in 10 weeks used 612 of 900 desks, so the floor 6 give-back option (worth about $1.1M a year) is viable if midweek demand is spread more evenly. Teams with anchor days are together 2.3× as often, and people rate office days as worth the commute when their team is there.</description>
+  </item>
+  <item>
+    <title>“Complete the room” adds $0.32 per product-page session — about $9.6M a year</title>
+    <link>/report.html?id=recommendations-carousel-impact</link>
+    <guid isPermaLink="false">recommendations-carousel-impact</guid>
+    <pubDate>Thu, 12 Mar 2026 12:00:00 GMT</pubDate>
+    <category>Product &amp; Digital</category>
+    <description>A 10% customer holdout over eight weeks shows the “Complete the room” carousel adds $0.32 of revenue per product-page session (95% CI $0.20–$0.44), about $9.6M a year. That is 43% less than last-click attribution claims. The effect is concentrated in sofas and bedding, while decor is almost entirely cannibalised, so we recommend testing the carousel on the cart page and suppressing it on decor PDPs.</description>
+  </item>
+  <item>
+    <title>Send more email only to people who read it</title>
+    <link>/report.html?id=email-cadence-fatigue</link>
+    <guid isPermaLink="false">email-cadence-fatigue</guid>
+    <pubDate>Wed, 25 Feb 2026 12:00:00 GMT</pubDate>
+    <category>Marketing</category>
+    <description>We randomised 450,000 email subscribers to 2, 4 or 6 promotional emails a week for 12 weeks. Four a week lifted revenue per recipient by 21% over two. Six a week added no significant revenue, tripled unsubscribes and earned less once the test ended. We recommend an engagement-based cadence (6/4/2 by tier), worth an estimated +$4.6M a year with no more unsubscribes than today.</description>
+  </item>
+  <item>
+    <title>One definition each for active customer, active member, retained member and churn</title>
+    <link>/report.html?id=metric-glossary-active-member</link>
+    <guid isPermaLink="false">metric-glossary-active-member</guid>
+    <pubDate>Tue, 10 Feb 2026 12:00:00 GMT</pubDate>
+    <category>Methods &amp; Standards</category>
+    <description>Canonical definitions for active customer, active member, retained member, and voluntary and involuntary churn, with the logic in prose and rulings on edge cases. It also explains why billing, Membership Ops and CRM dashboards reported member counts about 25,000 apart for the same day.</description>
+  </item>
+  <item>
+    <title>How we run experiments: decide before you look</title>
+    <link>/report.html?id=experimentation-playbook</link>
+    <guid isPermaLink="false">experimentation-playbook</guid>
+    <pubDate>Tue, 20 Jan 2026 12:00:00 GMT</pubDate>
+    <category>Methods &amp; Standards</category>
+    <description>This is the team standard for running A/B tests, holdouts and geo tests at Parcel &amp; Pine. Every test is pre-registered with one primary metric, guardrails, an MDE and a fixed end date. The primary metric is read once, and every test ends in a one-page decision memo.</description>
+  </item>
+</channel></rss>

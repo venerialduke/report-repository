@@ -1,0 +1,28 @@
+{
+  "id": "nps-verbatim-themes-h1-2026",
+  "title": "Late and damaged deliveries cost us 13 NPS points; product and design earn them back",
+  "subtitle": "Relationship NPS fell to +38 in H1 2026. Coding 14,120 verbatims shows that customers love what we sell and are let down by how it gets to them.",
+  "type": "report",
+  "area": "Customer & Growth",
+  "topics": ["Survey Research", "Customer Experience", "Delivery"],
+  "tags": ["nps", "verbatims", "topic-modelling", "text-analytics", "damaged-items", "delivery-reliability", "voice-of-customer"],
+  "owners": [{ "name": "Aisha Rahman", "email": "aisha.rahman@parcelandpine.com", "role": "UX Researcher" }],
+  "published": "2026-07-30",
+  "updated": "2026-07-30",
+  "status": "final",
+  "summary": "Relationship NPS fell 3 points to +38 in H1 2026, with members and non-members falling together. Coding 14,120 verbatims shows delivery reliability and damaged items driving detractors, while product quality and design drive promoters. Linking responses to order data suggests flawless delivery would lift NPS to about +51.",
+  "key_findings": [
+    "Relationship NPS was +38 in H1 2026 (n = 21,860), down from +41 in H2 2025.",
+    "Delivery reliability appears in 41% of detractor verbatims and damaged items in 29%.",
+    "Product quality (44%) and design & style (37%) are the top promoter themes.",
+    "Customers whose last order was on time and undamaged score +51; late and damaged scores −46.",
+    "Delivery failures account for about 12.7 NPS points (10.9 after controlling for region and basket)."
+  ],
+  "code": [
+    { "label": "Verbatim topic model (BERTopic)", "path": "analyses/2026-07-nps-verbatims/01_topic_model.ipynb" },
+    { "label": "Codebook classifier & agreement audit", "path": "analyses/2026-07-nps-verbatims/02_llm_coding_audit.py" },
+    { "label": "Survey–order linkage & NPS impact", "path": "analyses/2026-07-nps-verbatims/03_order_linkage.sql" }
+  ],
+  "data_sources": ["Qualtrics — Relationship NPS", "dw.fct_shipments", "dw.fct_orders", "dw.fct_cx_contacts", "dw.dim_member"],
+  "related": ["last-mile-delivery-sla-review", "returns-root-cause-analysis", "free-shipping-threshold-elasticity", "brand-tracker-wave-4"]
+}

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Single-page checkout lifts conversion 5.6% — but the win is on mobile web, not the app — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · June 2026</span>
+    </div>
+    <span class="pp-eyebrow">Product &amp; Digital</span>
+    <h1>Single-page checkout lifts conversion 5.6% — but the win is on mobile web, not the app</h1>
+    <p class="pp-subtitle">Four weeks, 620k sessions: ship the new checkout to web now, and give the app team one more iteration before it goes to 100%.</p>
+    <div class="pp-byline">
+      <span>By <b>Priya Natarajan</b></span>
+      <span>Published <b>Jun 18, 2026</b></span>
+      <span>Test ran <b>May 4 – May 31, 2026</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>The single-page checkout converts better.</strong> Session conversion rose from 3.40% to 3.59%, a +5.6% relative lift (95% CI +2.9% to +8.3%). The result held in every week of the test and cleared our pre-registered 3.5% minimum detectable effect.</li>
+      <li><strong>Almost all of the lift comes from mobile web (+14.2%).</strong> Desktop web is positive but not conclusive (+5.0%). The iOS and Android apps are flat, and their intervals sit either side of zero.</li>
+      <li><strong>Guardrails held, with one thing to watch.</strong> Average order value dipped 1.3% (not significant), mostly because fewer customers added protection plans. Support contacts fell by 7%. Payment errors went up on Android only.</li>
+      <li><strong>Recommendation:</strong> ship to 100% of web traffic from June 23, and run a v2 app test with protection-plan placement and Android address fixes. FP&amp;A should plan on about <b>$20M</b> of annualised web revenue, not the $53M point estimate.</li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Conversion lift (all)</div><div class="pp-kpi-value">+5.6%</div><div class="pp-kpi-delta up">3.40% → 3.59% · CI +2.9% to +8.3%</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Mobile web lift</div><div class="pp-kpi-value">+14.2%</div><div class="pp-kpi-delta up">CI +7.9% to +20.8%</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Revenue per session</div><div class="pp-kpi-value">+4.2%</div><div class="pp-kpi-delta up">$4.82 → $5.02</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Sessions in test</div><div class="pp-kpi-value">620k</div><div class="pp-kpi-delta">50/50 split · web + app</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>The single-page checkout wins, and the result is robust</h2>
+  <p class="pp-lede">The Checkout squad designed the test to answer one question: does collapsing shipping, payment and review into one scrolling page get more people from cart to placed order? It does.</p>
+  <p>We randomised at the customer level (logged-in ID, falling back to device ID) and split 620,000 checkout-eligible sessions evenly: 310,212 saw the existing three-step flow and 309,788 saw the single page. The treatment converted 3.59% of sessions against 3.40% for control. That is +0.19 percentage points (95% CI +0.10 to +0.28 pp), or +5.6% relative. The sample-ratio check passed (p = 0.43) and pre-period conversion was identical between arms. We pre-registered the test on April 28 with a 3.5% relative MDE and a fixed four-week horizon, and we did not peek at the primary metric before May 31.<sup>1</sup></p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Treatment led in all four weeks, with a small novelty fade after week 1</p>
+    <p class="pp-fig-sub">Session conversion rate by test week (week starting) · % of checkout-eligible sessions</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "pct1", "yMin": 3.2, "yMax": 3.8,
+        "categories": ["May 4", "May 11", "May 18", "May 25"],
+        "series": [
+          { "name": "Single page", "values": [3.66, 3.60, 3.56, 3.55] },
+          { "name": "3-step (control)", "values": [3.38, 3.41, 3.40, 3.41] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_checkout_sessions joined to exp.assignments (experiment CHK-212). Memorial Day week (Wk 4) included.</figcaption>
+  </figure>
+
+  <p>The gap narrowed from +0.28 pp in week 1 to +0.14 pp in week 4. Some of that is novelty wearing off: returning customers who already knew the old flow explored the new one more at first. We cannot yet tell whether the effect will settle at the week-4 level or keep fading. That uncertainty is why the revenue number in section 04 carries a heavy haircut.</p>
+
+  <h2><span class="pp-num">02</span>Mobile web drives the lift; the app is neutral</h2>
+  <p class="pp-lede">The old three-step flow hurt most on small screens in a browser. Each step was a full page reload, and each reload was another chance to lose the customer.</p>
+  <p>We pre-registered platform as the one segment cut we would read. Mobile web, which is 38% of checkout sessions and has the lowest baseline conversion (2.6%), improved by +14.2%. Desktop web improved by +5.0%, but its interval includes zero. Both native apps were effectively flat. That fits the design: the apps already used an in-app sheet with no page reloads between steps, so there was much less friction to remove.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Mobile web gains 14%; both apps are within noise of zero</p>
+    <p class="pp-fig-sub">Relative lift in session conversion, single page vs. 3-step, by platform · %</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "pct1", "highlight": ["Mobile web"],
+        "categories": ["Mobile web", "Desktop web", "iOS app", "Android app"],
+        "series": [{ "name": "Relative lift", "values": [14.2, 5.0, 0.6, -1.2] }] }
+      </script>
+    </div>
+    <figcaption>Point estimates only; see the results table for 95% confidence intervals. Source: exp.assignments, dw.fct_checkout_sessions.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Primary metric and guardrails, with 95% confidence intervals</caption>
+      <thead><tr><th>Metric</th><th class="num">Control</th><th class="num">Single page</th><th class="num">Relative change</th><th class="num">95% CI</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr><td><b>Session conversion — all</b></td><td class="num">3.40%</td><td class="num">3.59%</td><td class="num">+5.6%</td><td class="num">+2.9% to +8.3%</td><td><span class="pp-badge good">Win</span></td></tr>
+        <tr><td>&nbsp;&nbsp;Mobile web (38% of sessions)</td><td class="num">2.60%</td><td class="num">2.97%</td><td class="num">+14.2%</td><td class="num">+7.9% to +20.8%</td><td><span class="pp-badge good">Win</span></td></tr>
+        <tr><td>&nbsp;&nbsp;Desktop web (24%)</td><td class="num">4.10%</td><td class="num">4.31%</td><td class="num">+5.0%</td><td class="num">−0.8% to +11.1%</td><td><span class="pp-badge warn">Inconclusive</span></td></tr>
+        <tr><td>&nbsp;&nbsp;iOS app (24%)</td><td class="num">4.00%</td><td class="num">4.02%</td><td class="num">+0.6%</td><td class="num">−4.9% to +6.2%</td><td><span class="pp-badge warn">Neutral</span></td></tr>
+        <tr><td>&nbsp;&nbsp;Android app (14%)</td><td class="num">3.30%</td><td class="num">3.26%</td><td class="num">−1.2%</td><td class="num">−8.6% to +6.7%</td><td><span class="pp-badge warn">Neutral</span></td></tr>
+        <tr><td>Revenue per session</td><td class="num">$4.82</td><td class="num">$5.02</td><td class="num">+4.2%</td><td class="num">+0.9% to +7.5%</td><td><span class="pp-badge good">Win</span></td></tr>
+        <tr><td>Average order value (guardrail, −3% margin)</td><td class="num">$141.80</td><td class="num">$139.90</td><td class="num">−1.3%</td><td class="num">−3.0% to +0.4%</td><td><span class="pp-badge good">Within margin</span></td></tr>
+        <tr><td>Payment error rate (guardrail)</td><td class="num">1.9%</td><td class="num">2.1%</td><td class="num">+0.2 pp</td><td class="num">−0.05 to +0.45 pp</td><td><span class="pp-badge warn">Watch</span></td></tr>
+        <tr><td>Support contacts per 1k orders (guardrail)</td><td class="num">18.4</td><td class="num">17.1</td><td class="num">−7.1%</td><td class="num">−13.0% to −0.9%</td><td><span class="pp-badge good">Improved</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">03</span>Customers get further through checkout, and guardrails mostly hold</h2>
+  <p class="pp-lede">The new page cuts drop-off at every stage. The largest gain is at address entry, which the new flow autocompletes inline.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">The single page keeps 5 pp more customers past the address stage</p>
+    <p class="pp-fig-sub">Share of checkout starts reaching each stage, by arm · %</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pct",
+        "categories": ["Start", "Address", "Payment", "Placed"],
+        "series": [
+          { "name": "3-step (control)", "values": [100, 78, 61, 52] },
+          { "name": "Single page", "values": [100, 83, 66, 55] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Web and app combined. Stage events are from the checkout event stream (dw.fct_checkout_events). Stage definitions are matched across both designs.</figcaption>
+  </figure>
+
+  <p><b>Average order value</b> fell 1.3%, which is inside our −3% non-inferiority margin. The cause is clear. The old step 2 showed the protection-plan offer on a page of its own, and the single page puts it in a collapsed row. Protection-plan attach fell from 6.8% to 5.9% of eligible orders, which accounts for about $1.40 of the $1.90 AOV gap. Merchandising has already asked for a v2 with the offer shown inline, and we think most of the gap can be recovered.</p>
+  <p><b>Payment errors</b> rose slightly overall. Web and iOS were flat; all of the increase came from Android. There, the new address component sometimes sends a ZIP+4 format that our payment processor's AVS check rejects. The Android error rate went from 2.0% to 2.9%. That probably explains why Android shows the only negative point estimate. The Payments team confirmed the bug on June 9 and a fix is in the 7.14 release.</p>
+  <p><b>Support contacts</b> fell 7%. CX Ops tagging shows fewer "where do I enter my promo code" and "my address won't save" contacts. On the old flow, both came from state getting lost between steps.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">What this test does not tell us</div><p>The test ran in May, outside peak and before Pine Days. Holiday customers are more often first-time, gift-buying and on mobile web, so the effect could be larger at peak. It could also be smaller if the page slows down under load. We will keep a 5% holdout on web through Cyber Week so we can check.</p></div>
+
+  <h2><span class="pp-num">04</span>Plan on $20M a year from web, not $53M</h2>
+  <p class="pp-lede">The point estimate is large. We would rather FP&amp;A plan on a number we expect to beat.</p>
+  <p>Web accounts for about 52% of orders, or roughly $645M of the 2026 plan. In the test, web revenue per session rose 8.2% (conversion +9.6%, AOV −1.3%). Applied naively to all web revenue, that is about $53M a year. We recommend a planning figure of <b>$20M</b>, for three reasons. The week-4 effect is already about half the week-1 effect. Our tests have historically shrunk by 30–50% after full rollout (see the <i>experimentation playbook</i>). And the lower end of the web CI supports only about $8M. We will re-measure against the web holdout at the end of Q3.</p>
+
+  <blockquote class="pp-quote">“For the first time I didn't have to go back to change the delivery date. I could just see it next to the total.”<cite>Usability participant, mobile web, pre-test research by Aisha Rahman (Mar 2026)</cite></blockquote>
+
+  <h2><span class="pp-num">05</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Ship the single-page checkout to 100% of web traffic, keeping a 5% holdout.</strong> Mobile web is a clear win, and desktop is positive with no guardrail concerns. <span class="pp-owner">Owner: Checkout squad (web) · By: Jun 23, 2026</span></li>
+    <li><strong>Keep the app on a 50/50 split and run v2.</strong> v2 adds the Android AVS fix and an inline protection-plan offer. Read it after 3 weeks with iOS and Android pre-registered as separate segments. <span class="pp-owner">Owner: App squad with Priya Natarajan · By: Jul 31, 2026</span></li>
+    <li><strong>Restore protection-plan visibility on web within two sprints.</strong> Expected to recover about $1.40 of AOV per order. <span class="pp-owner">Owner: Merchandising + Checkout squad · By: Jul 10, 2026</span></li>
+    <li><strong>Book $20M of annualised web revenue in the H2 forecast, not the point estimate.</strong> Revisit after the Q3 holdout read. <span class="pp-owner">Owner: FP&amp;A (Samuel Ortiz) · By: Q3 reforecast</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Design</dt><dd>Two-arm randomised controlled test (CHK-212), 50/50 split, randomised at the customer level, with device ID as the fallback for guests. Pre-registered on Apr 28, 2026: primary metric, guardrails with margins, a single segment cut (platform), and a 3.5% relative MDE at 80% power (with CUPED), which required about 300k sessions per arm.</dd>
+      <dt>Population</dt><dd>Sessions that reached cart with at least one in-stock item, on web and on app versions 7.11 and later, in the US. Marketplace orders and employee accounts were excluded. 620,000 sessions from 511,400 customers.</dd>
+      <dt>Period</dt><dd>May 4 – May 31, 2026 (4 full weeks).</dd>
+      <dt>Analysis</dt><dd>Difference in proportions with delta-method standard errors, clustered by customer. Revenue metrics winsorised at the 99.9th percentile. CUPED adjustment using each customer's 28-day pre-period conversion, which reduced variance by 18%. Segment CIs are not adjusted for multiplicity, but the mobile web result survives a Bonferroni correction across the four platforms.</dd>
+      <dt>Limitations</dt><dd>Off-peak period. Novelty effects are visible and may continue. AOV and payment errors had less power than conversion. Revenue projection assumes 2026 plan traffic and does not include lifetime value effects.</dd>
+    </dl>
+  </section>
+
+  <section class="pp-footnotes">
+    <p><sup>1</sup> Guardrails were monitored daily for safety (automatic stop if payment errors rose more than 1 pp). Checking a guardrail does not inflate the false-positive rate on the primary metric.</p>
+  </section>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

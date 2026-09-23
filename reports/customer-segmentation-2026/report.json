@@ -1,0 +1,32 @@
+{
+  "id": "customer-segmentation-2026",
+  "title": "One in five customers drives 59% of revenue: our six customer segments for 2026",
+  "subtitle": "A refreshed segmentation of 2.3M active customers, built on recency, frequency, spend, category mix and channel. It replaces the 2023 model and is now available as a field in the warehouse and in Braze.",
+  "type": "report",
+  "area": "Customer & Growth",
+  "topics": ["Segmentation", "Customer Behaviour", "Retention", "CRM"],
+  "tags": ["k-means", "rfm", "customer-segments", "category-mix", "channel-mix", "targeting", "braze"],
+  "owners": [
+    { "name": "Daniel Reyes", "email": "daniel.reyes@parcelandpine.com", "role": "Senior Analyst, Customer" },
+    { "name": "Priya Natarajan", "email": "priya.natarajan@parcelandpine.com", "role": "Lead Data Scientist, Experimentation" }
+  ],
+  "published": "2026-04-22",
+  "updated": "2026-05-04",
+  "status": "final",
+  "summary": "We rebuilt our customer segmentation with k-means on RFM, category mix and channel, which gives six named segments covering 2.3M active customers. Loyal Members and Nest Builders are 26% of customers but 59% of revenue. The segments are stable (ARI 0.87) and are now available in the warehouse and Braze for targeting.",
+  "key_findings": [
+    "Loyal Members (14% of customers) and Nest Builders (12%) generate 59% of trailing-12-month revenue.",
+    "One-and-Done buyers are 25% of customers but 4% of revenue, and 31% of their orders come through marketplaces.",
+    "Big-Ticket Planners are a new segment: 6% of customers, 15% of revenue, AOV $601, 71% of spend on furniture.",
+    "Next-6-month purchase rates range from 91% (Loyal Members) to 17% (One-and-Done) in a backtest.",
+    "About 52k non-member Loyal Members already shop like Pine+ members and are the best membership prospects."
+  ],
+  "code": [
+    { "label": "Feature build (SQL)", "path": "analyses/2026-04-customer-segmentation/01_features.sql" },
+    { "label": "Clustering & k selection", "path": "analyses/2026-04-customer-segmentation/02_kmeans_select_k.ipynb" },
+    { "label": "Stability backtest", "path": "analyses/2026-04-customer-segmentation/03_stability_backtest.py" },
+    { "label": "dbt model: segment table", "path": "dbt/models/marts/customer/dim_customer_segment_2026.sql" }
+  ],
+  "data_sources": ["dw.fct_orders", "dw.fct_order_lines", "dw.dim_customer", "dw.dim_product", "dw.dim_customer_segment_2026"],
+  "related": ["month-3-member-churn", "pine-plus-ltv-forecast-fy27", "email-cadence-fatigue", "metric-glossary-active-member"]
+}

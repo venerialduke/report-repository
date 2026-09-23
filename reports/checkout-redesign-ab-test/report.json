@@ -1,0 +1,29 @@
+{
+  "id": "checkout-redesign-ab-test",
+  "title": "Single-page checkout lifts conversion 5.6% — but the win is on mobile web, not the app",
+  "subtitle": "Four weeks, 620k sessions: ship the new checkout to web now, and give the app team one more iteration before it goes to 100%.",
+  "type": "report",
+  "area": "Product & Digital",
+  "topics": ["Experimentation", "Conversion", "Digital Experience"],
+  "tags": ["ab-test", "checkout", "conversion-rate", "mobile-web", "guardrail-metrics", "cuped", "app"],
+  "owners": [{ "name": "Priya Natarajan", "email": "priya.natarajan@parcelandpine.com", "role": "Lead Data Scientist, Experimentation" }],
+  "published": "2026-06-18",
+  "updated": "2026-06-22",
+  "status": "final",
+  "summary": "A four-week A/B test (620k sessions) of a single-page checkout against the current three-step flow lifted session conversion from 3.40% to 3.59% (+5.6%, 95% CI +2.9% to +8.3%). Nearly all of the gain is on mobile web; the native apps are neutral. We recommend shipping to web with a 5% holdout, iterating on the app, and planning on about $20M of annualised revenue rather than the $53M point estimate.",
+  "key_findings": [
+    "Session conversion rose from 3.40% to 3.59%, a +5.6% relative lift (95% CI +2.9% to +8.3%).",
+    "Mobile web lift was +14.2% (CI +7.9% to +20.8%); iOS (+0.6%) and Android (−1.2%) apps were neutral.",
+    "AOV fell 1.3%, inside the −3% guardrail, mainly because protection-plan attach dropped from 6.8% to 5.9%.",
+    "Support contacts per 1k orders fell 7%; payment errors rose only on Android because of a ZIP+4 AVS bug.",
+    "Recommended FP&A planning figure is about $20M annualised web revenue, versus a $53M naive point estimate."
+  ],
+  "code": [
+    { "label": "Pre-registration", "path": "analyses/2026-05-checkout-single-page/00_preregistration.md" },
+    { "label": "Assignment & sessions build", "path": "analyses/2026-05-checkout-single-page/01_sessions_build.sql" },
+    { "label": "CUPED analysis & segment reads", "path": "analyses/2026-05-checkout-single-page/02_cuped_analysis.py" },
+    { "label": "Revenue projection", "path": "analyses/2026-05-checkout-single-page/03_revenue_projection.ipynb" }
+  ],
+  "data_sources": ["exp.assignments", "dw.fct_checkout_sessions", "dw.fct_checkout_events", "dw.fct_orders", "Zendesk — contact reasons"],
+  "related": ["experimentation-playbook", "reading-confidence-intervals", "app-search-relevance"]
+}

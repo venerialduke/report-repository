@@ -1,0 +1,27 @@
+{
+  "id": "brand-tracker-wave-4",
+  "title": "More shoppers know us; fewer pick us once they compare",
+  "subtitle": "Brand tracker wave 4 (June 2026, n = 2,421). Aided awareness has risen 6 points in a year, mostly from social. But we turn consideration into preference worse than any competitor, and the gap is perceived quality.",
+  "type": "report",
+  "area": "Marketing",
+  "topics": ["Brand Health", "Survey Research", "Competitive Landscape"],
+  "tags": ["brand-tracker", "awareness", "consideration", "preference", "brand-attributes", "competitors", "quarterly-survey"],
+  "owners": [{ "name": "Lena Kowalski", "email": "lena.kowalski@parcelandpine.com", "role": "Author" }],
+  "published": "2026-08-20",
+  "updated": "2026-08-20",
+  "status": "final",
+  "summary": "Wave 4 of the quarterly brand tracker (n = 2,421) shows aided awareness up to 44%, a 6-point rise over four waves driven mainly by social ads. Only 36% of shoppers who consider us prefer us, the weakest conversion of the four brands tracked. The gap is perceived quality and sustainability, and Competitor C is closing in on our preference share.",
+  "key_findings": [
+    "Aided awareness is 44%, up 3 points since wave 3 (significant) and 6 points since wave 1. 34% of newly aware shoppers first heard of us through social ads.",
+    "Only 36% of those who consider us name us as first choice, against 49% for Competitor A and 45% for Competitor C.",
+    "We lead competitors on fast, reliable delivery (+9 pts) but trail on quality that lasts (−6), the top driver of preference, and on sustainable materials (−8).",
+    "Competitor C's preference share rose from 5.0% to 6.8% over four waves and is now within 0.4 points of ours (7.2%)."
+  ],
+  "code": [
+    { "label": "Weighting & cleaning", "path": "analyses/brand-tracker/wave-4/01_weighting.R" },
+    { "label": "Funnel & significance tests", "path": "analyses/brand-tracker/wave-4/02_funnel_sig_tests.R" },
+    { "label": "Derived importance of attributes", "path": "analyses/brand-tracker/wave-4/03_driver_analysis.ipynb" }
+  ],
+  "data_sources": ["Qualtrics — Brand Health Tracker (waves 1–4)", "survey.brand_tracker_responses", "US Census ACS 2024 (weighting targets)"],
+  "related": ["paid-social-geo-holdout", "nps-verbatim-themes-h1-2026", "customer-segmentation-2026", "returns-root-cause-analysis"]
+}

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paid social pays back, but retargeting doesn't — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · June 2026</span>
+    </div>
+    <span class="pp-eyebrow">Marketing</span>
+    <h1>Paid social pays back, but retargeting doesn't</h1>
+    <p class="pp-subtitle">A 28-market geo holdout shows paid social returns $2.15 per dollar, well under the 5.6× the platforms report. Nearly all of the gap is in retargeting, so we recommend moving $3.4M of it into prospecting and new tests.</p>
+    <div class="pp-byline">
+      <span>By <b>Lena Kowalski</b></span>
+      <span>Published <b>Jun 3, 2026</b></span>
+      <span>Data through <b>May 24, 2026</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>Paid social is incremental, just less than we thought.</strong> Turning it off in 14 markets for six weeks cut revenue there by 4.1% (95% CI 2.7–5.5%). That puts incremental ROAS (iROAS) at <strong>2.15×</strong> (CI 1.42–2.88×), against 5.6× in platform reporting. The platforms over-credit by about <strong>2.6×</strong>.</li>
+      <li><strong>Prospecting clears our hurdle rate and retargeting doesn't.</strong> Prospecting returned 2.81× incrementally. Retargeting returned 0.97×, meaning most of those buyers would have bought anyway. Only about 1 in 8 retargeting conversions the platforms claim is actually incremental.</li>
+      <li><strong>Recommendation:</strong> cut retargeting by 60% ($5.7M → $2.3M a year). Move $2.4M into prospecting and hold $1.0M for a paid search holdout in Q3. We expect about <strong>+$2.0M</strong> of incremental revenue a year at the same total spend. Owner: Performance Marketing.</li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Incremental ROAS (blended)</div><div class="pp-kpi-value">2.15×</div><div class="pp-kpi-delta">95% CI 1.42–2.88×</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Platform-reported ROAS</div><div class="pp-kpi-value">5.6×</div><div class="pp-kpi-delta down">2.6× over-credited</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Retargeting iROAS</div><div class="pp-kpi-value">0.97×</div><div class="pp-kpi-delta down">below 1.8× hurdle</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Test design</div><div class="pp-kpi-value">28 DMAs</div><div class="pp-kpi-delta">14 dark · 14 control · 6 weeks</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>Switching paid social off cost the dark markets about 4% of revenue</h2>
+  <p class="pp-lede">For eight weeks before the test, the two groups of markets moved together within a point of each other. Once paid social went dark, the holdout markets fell behind, and the gap stayed open for the full six weeks.</p>
+  <p>We paused all Meta, Pinterest and TikTok delivery in 14 designated market areas (DMAs) from 6 April to 17 May 2026. The other 14 DMAs, matched on pre-period revenue trend, Pine+ penetration and delivery footprint, kept running business as usual. The outcome was total revenue across web, app and phone orders shipped to each DMA. That captures the halo onto direct and organic traffic that platform attribution never sees.</p>
+  <p>The gap grew from about 3 points in week 1 to 5 points by week 4. That fits an adstock effect: people exposed to ads in March kept converting for a couple of weeks after we went dark. A synthetic-control model puts the average revenue shortfall across the test at <strong>4.1%</strong> (95% CI 2.7–5.5%), or <strong>$3.95M</strong> of revenue on <strong>$1.84M</strong> of withheld spend.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Holdout markets fell behind as soon as paid social went dark</p>
+    <p class="pp-fig-sub">Weekly revenue, indexed to each group's pre-period average (dashed line = 100) · 14 DMAs per group · 8 pre weeks, 6 test weeks</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "int", "yMin": 94, "yMax": 110,
+        "ref": { "value": 100 },
+        "categories": ["Pre −8", "Pre −7", "Pre −6", "Pre −5", "Pre −4", "Pre −3", "Pre −2", "Pre −1", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6"],
+        "series": [
+          { "name": "Control", "values": [99, 101, 100, 98, 102, 100, 101, 99, 104, 106, 103, 105, 107, 106] },
+          { "name": "Holdout", "values": [99, 100, 101, 98, 101, 100, 100, 100, 101, 102, 99, 100, 102, 101] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: dw.fct_orders joined to dw.dim_geo_dma; test window 6 Apr–17 May 2026. Both groups rose in the test window with the spring outdoor season.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>The two market groups were closely matched before the test</caption>
+      <thead><tr><th>Pre-period characteristic (8 weeks)</th><th class="num">Holdout</th><th class="num">Control</th></tr></thead>
+      <tbody>
+        <tr><td>DMAs</td><td class="num">14</td><td class="num">14</td></tr>
+        <tr><td>Share of US net revenue</td><td class="num">9.8%</td><td class="num">10.1%</td></tr>
+        <tr><td>Weekly revenue correlation with other group</td><td class="num" colspan="2">0.97</td></tr>
+        <tr><td>Pine+ share of revenue</td><td class="num">45%</td><td class="num">46%</td></tr>
+        <tr><td>Paid social share of media spend</td><td class="num">23%</td><td class="num">22%</td></tr>
+        <tr><td>DMAs served by Pine Fleet</td><td class="num">1 (Phoenix)</td><td class="num">1 (Columbus)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">02</span>The platforms claim 2.6× more revenue than paid social actually drives</h2>
+  <p class="pp-lede">Across the same markets and weeks, the platforms' own attribution (7-day click, 1-day view) credited paid social with 5.6× ROAS. The holdout says 2.15×.</p>
+  <p>Some over-crediting is normal. View-through windows count anyone who scrolled past an ad and later bought, and each platform counts the same order independently. How much the platforms over-credit, though, depends heavily on the tactic, and the budget decisions depend on that split.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Retargeting looks like our best tactic in-platform and is our worst in reality</p>
+    <p class="pp-fig-sub">Return on ad spend by tactic, platform-reported vs. measured by geo holdout · dashed line = FP&amp;A hurdle rate</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "x", "ref": { "value": 1.8, "label": "Hurdle 1.8×" },
+        "categories": ["Prospecting", "Retargeting", "Blended"],
+        "series": [
+          { "name": "Platform-reported ROAS", "values": [4.3, 7.9, 5.6] },
+          { "name": "Incremental ROAS (holdout)", "values": [2.81, 0.97, 2.15] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: Meta Ads Manager, Pinterest Ads and TikTok Ads exports (7d-click/1d-view) via mkt.stg_social_spend_daily; holdout estimates from synthetic control. Hurdle is contribution-margin breakeven including 12-month repeat value.</figcaption>
+  </figure>
+
+  <p>We split the 14 dark markets into two phases. For the first two weeks both tactics were paused. For the last four weeks retargeting alone was switched back on in 7 of the 14 markets. Comparing those 7 with the 7 that stayed fully dark isolates the retargeting effect. The prospecting effect is what remains.<sup>1</sup></p>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Incremental results by tactic, six-week test window</caption>
+      <thead><tr><th>Tactic</th><th class="num">Spend withheld</th><th class="num">Incremental revenue</th><th class="num">iROAS (95% CI)</th><th class="num">Platform ROAS</th><th class="num">Over-credit</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Prospecting</td><td class="num">$1.18M</td><td class="num">$3.31M</td><td class="num">2.81× (1.86–3.76)</td><td class="num">4.3×</td><td class="num">1.5×</td><td><span class="pp-badge good">Above hurdle</span></td></tr>
+        <tr><td>Retargeting</td><td class="num">$0.66M</td><td class="num">$0.64M</td><td class="num">0.97× (0.21–1.73)</td><td class="num">7.9×</td><td class="num">8.1×</td><td><span class="pp-badge bad">Below breakeven</span></td></tr>
+        <tr class="total"><td>Blended</td><td class="num">$1.84M</td><td class="num">$3.95M</td><td class="num">2.15× (1.42–2.88)</td><td class="num">5.6×</td><td class="num">2.6×</td><td><span class="pp-badge good">Above hurdle</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="pp-num">03</span>Only about one in eight retargeting conversions is incremental</h2>
+  <p class="pp-lede">Retargeting audiences are people who viewed a product or abandoned a cart in the last 14 days. Most of them were coming back anyway.</p>
+  <p>Put another way: of every 100 orders Meta attributes to a retargeting ad, about 12 would not have happened without it. For prospecting the figure is 67. That matches what the Customer squad sees in session data. The median retargeted buyer had already made 3.4 visits before seeing the ad, and 58% returned through direct or branded search, not the ad click.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Prospecting conversions are mostly real; retargeting conversions mostly aren't</p>
+    <p class="pp-fig-sub">Incremental conversions as a share of platform-attributed conversions (1 ÷ over-credit factor)</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "bar", "format": "pct", "highlight": ["Retargeting"],
+        "categories": ["Prospecting", "Blended", "Retargeting"],
+        "series": [{ "name": "Incremental share", "values": [67, 38, 12] }] }
+      </script>
+    </div>
+    <figcaption>Source: holdout estimates ÷ platform-attributed revenue in the same markets and weeks.</figcaption>
+  </figure>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">Why the dashboards got this wrong</div><p>Retargeting targets people who are already close to buying, so it will always look efficient in last-touch or platform attribution. The ad gets credit for an order that was coming anyway. That makes it a measurement problem more than a creative or bidding problem, and better optimisation inside the platform won't fix it.</p></div>
+
+  <h2><span class="pp-num">04</span>Moving $3.4M out of retargeting should add about $2M in revenue at the same total spend</h2>
+  <p class="pp-lede">Retargeting shouldn't go to zero. The top of the retargeting audience (cart abandoners in the last 3 days) likely still earns its keep. But current spend is well past the point of diminishing returns.</p>
+  <p>The 2026 paid social budget is $16.0M, of which $5.7M (36%) is retargeting. We propose cutting retargeting to $2.3M, restricted to 3-day cart abandoners. $2.4M of the savings would go to prospecting and $1.0M to a paid search geo holdout in Q3. Paid search is the next-largest channel we have never tested for incrementality.</p>
+  <p>Extra prospecting spend won't return the 2.81× we measured on average. Using the response curve from our marketing mix model, we assume <strong>2.2×</strong> on the marginal dollar. That gives +$5.3M from prospecting against −$3.3M lost from retargeting, for a net <strong>+$2.0M</strong> a year (80% range +$0.6M to +$3.4M). The range doesn't count any value from the paid search test.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Same $16M budget, weighted toward the tactic that drives revenue</p>
+    <p class="pp-fig-sub">Annual paid social budget, current plan vs. proposed · $</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "stacked", "format": "usd", "height": 280,
+        "categories": ["Current 2026 plan", "Proposed"],
+        "series": [
+          { "name": "Prospecting", "values": [10300000, 12700000] },
+          { "name": "Retargeting", "values": [5700000, 2300000] },
+          { "name": "Incrementality test reserve", "values": [0, 1000000] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Source: Marketing budget plan v3 (Apr 2026); proposal from this analysis.</figcaption>
+  </figure>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">What this doesn't tell us</div><p>The test ran in spring. Retargeting may do relatively better at peak, when more people are comparison-shopping between sites. We recommend a smaller retargeting-only holdout in November before committing the Q4 split.</p></div>
+
+  <h2><span class="pp-num">05</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Cut retargeting to 3-day cart abandoners and reduce its budget to $2.3M a year.</strong> Expected revenue impact −$3.3M, more than offset by #2. <span class="pp-owner">Owner: Performance Marketing (Jess Alvarez) · By: Jun 30, 2026</span></li>
+    <li><strong>Move $2.4M into prospecting</strong>, weighted toward the creative sets with the highest measured lift (lifestyle video and room-scene carousels). <span class="pp-owner">Owner: Performance Marketing · By: Jul 1, 2026</span></li>
+    <li><strong>Replace platform ROAS with calibrated iROAS in the weekly marketing dashboard.</strong> Use tactic-level multipliers (prospecting ÷1.5, retargeting ÷8.1) until the next test. <span class="pp-owner">Owner: Marketing Science (Lena Kowalski) &amp; Analytics Engineering (Jonah Feld) · By: Jun 20, 2026</span></li>
+    <li><strong>Run a paid search geo holdout in Q3 and a retargeting-only holdout in November.</strong> Funded from the $1.0M reserve. <span class="pp-owner">Owner: Marketing Science · Design review by: Jul 15, 2026</span></li>
+    <li><strong>Update the FY26 media plan and the MMM priors with these results.</strong> <span class="pp-owner">Owner: FP&amp;A with Marketing Science · By: Jul 10, 2026</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Design</dt><dd>Matched-market geo holdout. We ranked 210 DMAs on 52 weeks of revenue history and paired them on trend correlation, revenue size, Pine+ penetration and Pine Fleet coverage. We kept the 14 best-matched pairs and randomised which member of each pair went dark. We excluded the 6 Pine Fleet home metros except Phoenix and Columbus, which were matched to each other. The 28 DMAs cover 19.9% of US revenue.</dd>
+      <dt>Period</dt><dd>Pre-period 9 Feb–5 Apr 2026 (8 weeks). Test 6 Apr–17 May 2026 (6 weeks). We watched a one-week cool-down to 24 May for residual effects and found none detectable after week 1 of it.</dd>
+      <dt>Estimation</dt><dd>Augmented synthetic control on weekly net revenue by DMA, with confidence intervals from placebo-in-time and placebo-in-space permutations (1,000 draws). A difference-in-differences cross-check gave 4.3% (CI 2.6–6.0%).</dd>
+      <dt>Hurdle rate</dt><dd>1.8× revenue iROAS, set by FP&amp;A. This is contribution-margin breakeven on first-order revenue plus expected 12-month repeat revenue from new customers.</dd>
+      <dt>Limitations</dt><dd>(1) Spring seasonality only; peak may differ. (2) National brand and TV spend continued in all markets, so we measure paid social's effect on top of that baseline, not in isolation. (3) The retargeting estimate rests on 7 vs. 7 markets over 4 weeks and has a wide CI (0.21–1.73×). Even its upper bound is below the hurdle. (4) Spillover from people who live in one DMA and shop in another would bias the estimate slightly downward.</dd>
+    </dl>
+  </section>
+
+  <div class="pp-footnotes">
+    <p><sup>1</sup> Prospecting incremental revenue = total holdout effect − retargeting effect, scaled to spend. The two estimates share a control group, so their CIs are not independent. We bootstrapped the blended CI directly and did not sum the tactic CIs.</p>
+    <p>Thanks to Jess Alvarez and the Performance Marketing team for running the dark-market ops, and to FP&amp;A for the hurdle-rate model.</p>
+  </div>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "id": "peak-2026-capacity-plan",
+  "title": "Peak 2026 fits within our physical capacity in the base case, but we are 580 temps and 33k fleet stops short, and the high case breaks Black Friday week",
+  "subtitle": "Weekly forecast, by FC, of orders from Black Friday to Christmas under three scenarios, with the labour and carrier capacity we need to commit by mid-October.",
+  "type": "report",
+  "area": "Operations & Supply Chain",
+  "topics": ["Forecasting", "Capacity Planning", "Fulfilment", "Delivery"],
+  "tags": ["peak-2026", "black-friday", "capacity-plan", "temp-labor", "carrier-capacity", "scenarios", "demand-forecast"],
+  "owners": [{ "name": "Tom Becker", "email": "tom.becker@parcelandpine.com", "role": "Operations Analytics Lead" }],
+  "published": "2026-09-19",
+  "updated": "2026-09-19",
+  "status": "draft",
+  "summary": "DRAFT for the Peak Steering Group. The base forecast is 1.82M orders from Nov 16 to Dec 27 (+9.6% on 2025), with 410k in Black Friday week, within the 440k physical ceiling. We need about 1,400 temps (820 committed, so 580 must be signed by Oct 12), and Pine Fleet and national-carrier weekly caps are short in Black Friday week. In the high scenario (+12%), Black Friday week breaches the ceiling by ~19k orders, so we propose a pre-agreed demand-shaping trigger.",
+  "key_findings": [
+    "Base forecast: 1.82M peak-window orders (+9.6% vs. 2025); Black Friday week is 410k, 2.5× a normal week.",
+    "Core staff can ship ~270k orders a week; we need ~1,400 temps at peak and have 820 committed, and Allentown is the biggest hiring risk.",
+    "National-carrier weekly caps are 18k parcels short in Black Friday week, and Pine Fleet is 33k stops short over the window.",
+    "The high scenario (2.04M orders) exceeds the 440k-order physical ceiling by ~19k in Black Friday week, which only demand shaping can fix.",
+    "Incremental peak cost is $11.3M in the base case (low $9.4M, high ~$13.6M), vs. $9.8M in 2025."
+  ],
+  "code": [
+    { "label": "Weekly peak forecast model", "path": "analyses/2026-09-peak-capacity/01_peak_forecast.py" },
+    { "label": "FC labour capacity & temp need", "path": "analyses/2026-09-peak-capacity/02_labor_capacity.py" },
+    { "label": "Carrier capacity gap (SQL)", "path": "analyses/2026-09-peak-capacity/03_carrier_capacity.sql" },
+    { "label": "Scenario workbook", "path": "analyses/2026-09-peak-capacity/04_scenarios.ipynb" }
+  ],
+  "data_sources": ["dw.fct_orders", "dw.fct_labor_hours", "dw.fct_shipments", "Workday", "Transportation carrier commitments (Sep 2026)"],
+  "related": ["warehouse-pick-rate-benchmark", "last-mile-delivery-sla-review", "fc-associate-attrition", "pine-plus-ltv-forecast-fy27"]
+}

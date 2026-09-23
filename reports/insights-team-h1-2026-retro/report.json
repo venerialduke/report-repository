@@ -1,0 +1,26 @@
+{
+  "id": "insights-team-h1-2026-retro",
+  "title": "Insights H1 2026 retro: our best work came from planned projects, but ad-hoc requests took almost half our time",
+  "subtitle": "What the team shipped, which decisions it changed, what we learned, and what we will do differently in H2, starting with a single home for our work.",
+  "type": "article",
+  "area": "Methods & Standards",
+  "topics": ["Team Practice", "Analytics Operations"],
+  "tags": ["retrospective", "h1-2026", "ad-hoc-requests", "intake-triage", "insights-hub", "team-priorities"],
+  "owners": [{ "name": "Maya Okafor", "email": "maya.okafor@parcelandpine.com", "role": "Head of Insights" }],
+  "published": "2026-07-08",
+  "updated": "2026-07-08",
+  "status": "final",
+  "summary": "In H1 2026 the nine-person Insights team published 12 pieces, supported 23 experiments and answered 312 ad-hoc requests. Most of the measurable impact came from planned work such as the checkout test and the carousel holdout. Ad-hoc work grew to 46% of team time, and 38% of those requests had already been answered somewhere, so H2 priorities are launching the Insights Hub, triaging intake and building a self-serve metric layer.",
+  "key_findings": [
+    "12 published pieces, 23 experiments supported and 312 ad-hoc requests in H1 with 9 FTE.",
+    "The checkout test and carousel holdout account for about $30M of annualised revenue acted on by leadership.",
+    "Ad-hoc work rose from 41% of team hours in Q1 to 46% in Q2.",
+    "38% of ad-hoc requests asked something already answered in an existing report, dashboard or definition.",
+    "Pre-registered tests reached a decision in a median of 6 days after readout, versus 19 days without."
+  ],
+  "code": [
+    { "label": "Intake & time-log summary", "path": "team/retros/2026-h1/intake_summary.sql" }
+  ],
+  "data_sources": ["Linear — Insights intake board", "Insights weekly time logs", "exp.experiment_registry"],
+  "related": ["experimentation-playbook", "checkout-redesign-ab-test", "recommendations-carousel-impact", "metric-glossary-active-member"]
+}

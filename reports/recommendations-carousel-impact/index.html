@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>“Complete the room” adds $0.32 per product-page session — about $9.6M a year — Parcel &amp; Pine Insights</title>
+  <link rel="icon" href="../../shared/brand/logo.svg">
+  <link rel="stylesheet" href="../../shared/brand/report.css">
+</head>
+<body class="pp-report">
+<main>
+  <header class="pp-masthead">
+    <div class="pp-brandline">
+      <span class="pp-logo"><img src="../../shared/brand/logo.svg" alt="" width="22" height="22"> Parcel &amp; Pine Insights</span>
+      <span>Report · March 2026</span>
+    </div>
+    <span class="pp-eyebrow">Product &amp; Digital</span>
+    <h1>“Complete the room” adds $0.32 per product-page session — about $9.6M a year</h1>
+    <p class="pp-subtitle">An 8-week holdout shows the carousel is truly incremental in furniture and bedding, and does almost nothing in decor. The next test should be the cart page.</p>
+    <div class="pp-byline">
+      <span>By <b>Priya Natarajan</b></span>
+      <span>Published <b>Mar 12, 2026</b></span>
+      <span>Holdout <b>Jan 5 – Mar 1, 2026</b></span>
+    </div>
+  </header>
+
+  <section class="pp-tldr" aria-label="Key findings">
+    <h2>The short version</h2>
+    <ol>
+      <li><strong>The carousel pays for itself.</strong> Product-page (PDP) sessions that saw “Complete the room” generated $6.44 of revenue, against $6.12 in the 10% holdout. That is +$0.32 per session (95% CI +$0.20 to +$0.44), or about <b>$9.6M a year</b> at current traffic.</li>
+      <li><strong>Last-click attribution overstates it by 75%.</strong> The dashboard credits the carousel with $0.56 per session. 43% of that revenue would have happened anyway, because customers find the same items through search or navigation.</li>
+      <li><strong>Impact varies a lot by category.</strong> Sofas &amp; seating (+$0.52) and bedding (+$0.41) carry the result. In decor &amp; storage, 90% of attributed revenue is cannibalised.</li>
+      <li><strong>Recommendation:</strong> test the carousel on the cart page in April, trim it to 4 tiles on mobile, and stop showing it on decor PDPs. Keep a permanent 5% holdout.</li>
+    </ol>
+  </section>
+
+  <div class="pp-kpis">
+    <div class="pp-kpi"><div class="pp-kpi-label">Incremental revenue / PDP session</div><div class="pp-kpi-value">+$0.32</div><div class="pp-kpi-delta up">+5.2% · CI $0.20–$0.44</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Multi-category order share</div><div class="pp-kpi-value">38.2%</div><div class="pp-kpi-delta up">+3.1 pp vs. holdout (35.1%)</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Cannibalised share</div><div class="pp-kpi-value">43%</div><div class="pp-kpi-delta down">of last-click revenue</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">PDP sessions analysed</div><div class="pp-kpi-value">4.6M</div><div class="pp-kpi-delta">460k in holdout</div></div>
+  </div>
+
+  <h2><span class="pp-num">01</span>The carousel adds 5% to product-page revenue, every week of the holdout</h2>
+  <p class="pp-lede">For the first time we have a clean counterfactual for the recommendation carousel. The answer is a real, steady effect that is smaller than our dashboards have claimed.</p>
+  <p>The Recommendations squad launched “Complete the room” on all web and app PDPs in September 2025. It shows up to eight products the model predicts go with the item being viewed. Until now its value was measured by last-click revenue, which counts every order that included a clicked carousel item. To measure what the carousel actually adds, we held out 10% of customers (randomised by customer ID) for eight weeks from January 5. Those customers saw the page with no carousel.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Exposed sessions earned more than the holdout in all eight weeks</p>
+    <p class="pp-fig-sub">Revenue per PDP session by week, exposed vs. 10% holdout · USD</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "line", "format": "usd2", "yMin": 5.5, "yMax": 7,
+        "categories": ["Jan 5", "Jan 12", "Jan 19", "Jan 26", "Feb 2", "Feb 9", "Feb 16", "Feb 23"],
+        "series": [
+          { "name": "Carousel", "values": [6.65, 6.35, 6.27, 6.43, 6.33, 6.54, 6.44, 6.51] },
+          { "name": "Holdout", "values": [6.30, 6.05, 5.98, 6.10, 6.02, 6.20, 6.14, 6.17] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Revenue is net of cancellations and 30-day returns. Week of Jan 5 includes the end of the New Year sale. Source: dw.fct_pdp_sessions, dw.fct_orders, exp.assignments (REC-HOLDOUT-01).</figcaption>
+  </figure>
+
+  <p>The weekly gap stayed between $0.29 and $0.35, so the effect is not a novelty spike. On average, exposed sessions produced $6.44 against $6.12 in the holdout, a +5.2% lift. The effect comes mainly from basket breadth rather than price. The share of orders containing products from two or more categories rose from 35.1% to 38.2%. AOV rose 4.4%, and conversion was almost unchanged (+0.8%, CI −1.9% to +3.5%). In other words, the carousel does not persuade more people to buy. It persuades buyers to add the matching rug or lamp.</p>
+
+  <h2><span class="pp-num">02</span>Almost half of the revenue we credit to the carousel would have happened anyway</h2>
+  <p class="pp-lede">The carousel dashboard reports $0.56 of revenue per PDP session. The holdout shows the true figure is $0.32.</p>
+  <p>The difference is cannibalisation. Many customers who click a carousel item would have reached the same product another way: they would have searched for “oak side table”, opened the collection page, or come back later from an email. Last-click attribution credits all of that revenue to the carousel. The holdout credits only what disappears when the carousel is removed. This matters for how Merchandising sells carousel placements to vendors, and for how the squad reports its OKRs.</p>
+
+  <div class="pp-callout insight"><div class="pp-callout-title">So what</div><p>We should stop reporting last-click carousel revenue as “impact”. The squad's Q2 OKR should be set on incremental revenue per session, measured against the permanent holdout we recommend below.</p></div>
+
+  <h2><span class="pp-num">03</span>Furniture and bedding carry the effect; decor is almost pure cannibalisation</h2>
+  <p class="pp-lede">When the carousel completes a genuinely new need (a sofa next to a rug, a duvet next to sheets), it adds revenue. When it suggests small decor items customers would have found anyway, it adds almost nothing.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">In decor &amp; storage, $0.35 of the $0.39 attributed per session is cannibalised</p>
+    <p class="pp-fig-sub">Last-click carousel revenue per PDP session, split into incremental and cannibalised · USD</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "stacked-bar", "format": "usd2",
+        "categories": ["Sofas & seating", "Bedding & bath", "Dining", "Lighting", "Rugs", "Decor & storage"],
+        "series": [
+          { "name": "Incremental", "values": [0.52, 0.41, 0.30, 0.28, 0.22, 0.04] },
+          { "name": "Cannibalised", "values": [0.26, 0.25, 0.17, 0.16, 0.19, 0.35] }
+        ] }
+      </script>
+    </div>
+    <figcaption>Incremental = exposed minus holdout revenue per PDP session within category. Cannibalised = last-click attributed minus incremental. Source: dw.fct_pdp_sessions, dw.fct_reco_events.</figcaption>
+  </figure>
+
+  <div class="pp-table-wrap">
+    <table class="pp-table">
+      <caption>Carousel impact by product category of the viewed PDP</caption>
+      <thead><tr><th>Category</th><th class="num">Share of PDP sessions</th><th class="num">Last-click $ / session</th><th class="num">Incremental $ / session</th><th class="num">95% CI</th><th class="num">Cannibalised</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr><td>Sofas &amp; seating</td><td class="num">22%</td><td class="num">$0.78</td><td class="num">$0.52</td><td class="num">$0.28 to $0.76</td><td class="num">33%</td><td><span class="pp-badge good">Strong</span></td></tr>
+        <tr><td>Bedding &amp; bath</td><td class="num">24%</td><td class="num">$0.66</td><td class="num">$0.41</td><td class="num">$0.22 to $0.60</td><td class="num">38%</td><td><span class="pp-badge good">Strong</span></td></tr>
+        <tr><td>Dining</td><td class="num">11%</td><td class="num">$0.47</td><td class="num">$0.30</td><td class="num">$0.06 to $0.54</td><td class="num">36%</td><td><span class="pp-badge good">Positive</span></td></tr>
+        <tr><td>Lighting</td><td class="num">12%</td><td class="num">$0.44</td><td class="num">$0.28</td><td class="num">$0.05 to $0.51</td><td class="num">36%</td><td><span class="pp-badge good">Positive</span></td></tr>
+        <tr><td>Rugs</td><td class="num">14%</td><td class="num">$0.41</td><td class="num">$0.22</td><td class="num">$0.01 to $0.43</td><td class="num">46%</td><td><span class="pp-badge warn">Marginal</span></td></tr>
+        <tr><td>Decor &amp; storage</td><td class="num">17%</td><td class="num">$0.39</td><td class="num">$0.04</td><td class="num">−$0.14 to $0.22</td><td class="num">90%</td><td><span class="pp-badge bad">None</span></td></tr>
+        <tr><td><b>All PDPs</b></td><td class="num"><b>100%</b></td><td class="num"><b>$0.56</b></td><td class="num"><b>$0.32</b></td><td class="num"><b>$0.20 to $0.44</b></td><td class="num"><b>43%</b></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Decor &amp; storage PDPs show the carousel to 17% of sessions but produce under 3% of its incremental revenue. On these pages the model mostly suggests more items from the same collection: the matching basket, the second vase. Those items are already linked in the “From this collection” strip just above. We see a smaller version of the same pattern in rugs, where the carousel often suggests rug pads that are also offered as an add-on in the buy box.</p>
+
+  <h2><span class="pp-num">04</span>Customers rarely look past the fourth tile</h2>
+  <p class="pp-lede">4.8% of PDP sessions click at least one carousel tile, and more than four in five of those clicks land on the first four slots.</p>
+
+  <figure class="pp-figure">
+    <p class="pp-fig-title">Tiles 1–4 get 83% of carousel clicks</p>
+    <p class="pp-fig-sub">Share of PDP sessions clicking each carousel slot (first click only) · %</p>
+    <div class="pp-chart">
+      <script type="application/json">
+      { "type": "column", "format": "pct1", "highlight": ["Slot 1", "Slot 2", "Slot 3", "Slot 4"],
+        "categories": ["Slot 1", "Slot 2", "Slot 3", "Slot 4", "Slot 5", "Slot 6", "Slot 7", "Slot 8"],
+        "series": [{ "name": "Click-through", "values": [1.6, 1.1, 0.8, 0.5, 0.3, 0.2, 0.2, 0.1] }] }
+      </script>
+    </div>
+    <figcaption>Exposed sessions only, web and app combined. On mobile, slots 3–8 require a horizontal swipe. Source: dw.fct_reco_events.</figcaption>
+  </figure>
+
+  <p>On mobile, where the carousel adds about 180 px of scroll depth, dropping to four tiles would bring the reviews block up the page. That block is the second most-used element on PDPs. We would test this change rather than assume it, but the downside looks small: slots 5–8 account for only 0.8 pp of the 4.8% click-through, and on average they are the most cannibalised.</p>
+
+  <div class="pp-callout caveat"><div class="pp-callout-title">Guardrails</div><p>The carousel adds a median 40 ms to PDP render time. We saw no difference in PDP bounce rate (41.2% vs. 41.0%) or add-to-cart rate on the main item (8.9% vs. 8.9%). Carousel-attached items carry a 44% gross margin, slightly above the site average of 41%, so the revenue lift also holds on a margin basis.</p></div>
+
+  <h2><span class="pp-num">05</span>The cart page is the next place to test</h2>
+  <p class="pp-lede">The carousel works when it catches customers who have already decided on the main item and are open to finishing the room. The cart page is where most of those customers are.</p>
+  <p>Cart sessions have about four times the purchase intent of PDP sessions. Today the cart page shows only a generic “You may also like” strip, which has never been tested. If the cart carousel produced just half the per-session incremental revenue of the PDP version (+$0.16) across roughly 11M cart-page sessions a year, it would add <b>$1.8M</b>. At parity with the PDP it would add $3.5M. We recommend a 50/50 test starting in April and reading after four weeks, pre-registered with incremental revenue per cart session as the primary metric.</p>
+
+  <h2><span class="pp-num">06</span>Recommendations</h2>
+  <ol class="pp-recs">
+    <li><strong>Run a 50/50 test of “Complete the room” on the cart page.</strong> Primary metric: incremental revenue per cart session; guardrail: checkout start rate. <span class="pp-owner">Owner: Recommendations squad with Priya Natarajan · Launch by: Apr 13, 2026</span></li>
+    <li><strong>Suppress the carousel on decor &amp; storage PDPs.</strong> Replace it with “Complete the room” anchored on the room's furniture (e.g. show a sideboard next to a vase), and test the replacement. <span class="pp-owner">Owner: Recommendations squad · By: May 1, 2026</span></li>
+    <li><strong>Test a four-tile carousel on mobile.</strong> <span class="pp-owner">Owner: App squad · By: May 15, 2026</span></li>
+    <li><strong>Keep a permanent 5% customer holdout, and move the squad's OKR to incremental revenue per session.</strong> <span class="pp-owner">Owner: Head of Digital Product; Jonah Feld (metric build) · By: Q2 OKR setting</span></li>
+    <li><strong>Stop quoting last-click carousel revenue in vendor decks.</strong> Use the incremental figure instead. <span class="pp-owner">Owner: Merchandising · Effective immediately</span></li>
+  </ol>
+
+  <section class="pp-method">
+    <h2>Methodology</h2>
+    <dl>
+      <dt>Design</dt><dd>Customer-level holdout (REC-HOLDOUT-01): 10% of logged-in and device-identified customers saw no carousel on any PDP. Randomised by hashing customer ID; sample-ratio check passed (p = 0.61).</dd>
+      <dt>Population</dt><dd>US web and app PDP sessions, Jan 5 – Mar 1, 2026: 4.6M sessions from 1.38M customers. Marketplace listings and out-of-stock PDPs (where the carousel is already suppressed) were excluded.</dd>
+      <dt>Metrics</dt><dd>Revenue per PDP session attributes all revenue from orders placed within the same session or within 24 hours of it, net of cancellations and 30-day returns. Customer-clustered standard errors; revenue winsorised at the 99.9th percentile. Category results are cut by the category of the viewed PDP and are not adjusted for multiplicity.</dd>
+      <dt>Annualisation</dt><dd>4.6M sessions over 8 weeks ≈ 29.9M PDP sessions a year × $0.32 ≈ $9.6M. At the permanent 5% holdout, realised value is about $9.1M.</dd>
+      <dt>Limitations</dt><dd>Off-peak period (January–February skews toward sale and bedding traffic). The 24-hour window may miss slower cross-session effects, such as a customer who comes back a week later for the rug. The cart-page estimate is an assumption, not a measurement.</dd>
+    </dl>
+  </section>
+
+  <footer class="pp-footer"><span>Parcel &amp; Pine Insights · Internal</span><span>Questions? #insights-help</span></footer>
+</main>
+<script src="../../shared/brand/charts.js"></script>
+</body>
+</html>
