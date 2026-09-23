@@ -227,7 +227,9 @@
           base += v;
         } else {
           var bx = gx + si * (barW + gap);
-          var top = y(Math.max(v, 0)), bot = y(Math.min(v, 0));
+          var b0 = Math.min(Math.max(0, d.lo), d.hi); // baseline: zero, or the axis floor when yMin > 0
+          var vc = Math.min(Math.max(v, d.lo), d.hi);
+          var top = y(Math.max(vc, b0)), bot = y(Math.min(vc, b0));
           roundedTopRect(svg, bx, top, barW, bot - top, 4, fill, "mark", i);
           if (labels) {
             h("text", { x: bx + barW / 2, y: (v >= 0 ? top - 6 : bot + 14), "text-anchor": "middle", "font-size": 11.5, "font-weight": 600, fill: C.ink, "class": "mark", "data-i": i }, svg).textContent = fmt(v);
@@ -334,7 +336,10 @@
     var lastTick = Math.floor((cats.length - 1) / every) * every;
     var showLast = (cats.length - 1 - lastTick) * step >= labW;
     cats.forEach(function (c, i) {
-      if (i % every === 0 || (i === cats.length - 1 && showLast)) h("text", { x: x(i), y: H - m.b + 20, "text-anchor": "middle", "font-size": 11.5, fill: C.label }, svg).textContent = c;
+      var anchor = "middle";
+      if (i === 0 && x(i) - textW(c, 11.5) / 2 < 0) anchor = "start";
+      if (i === cats.length - 1 && x(i) + textW(c, 11.5) / 2 > W) anchor = "end";
+      if (i % every === 0 || (i === cats.length - 1 && showLast)) h("text", { x: x(i), y: H - m.b + 20, "text-anchor": anchor, "font-size": 11.5, fill: C.label }, svg).textContent = c;
     });
     refLine(svg, cfg, m.l, W - m.r, y, C);
     h("line", { "class": "xhair", x1: 0, x2: 0, y1: m.t, y2: H - m.b, stroke: C.axis, "stroke-width": 1, style: "opacity:0" }, svg);
