@@ -9,6 +9,7 @@ One place to find every report from the Parcel & Pine Insights team. It's a stat
 | Feature | How it works |
 |---|---|
 | **Discover** | Landing page with a *What's new* carousel, *Browse by area* tiles, and one carousel per area. |
+| **Area pages** | `area.html?a=<slug>` for each area. It has the latest report with its key findings, a *What we know* digest, every report with in-area search and filters, authors and topics, plus one-click AI brief and PDF bundle for the whole area. |
 | **Search** | Instant client-side search across titles, summaries, findings, tags, owners and the **full text of every report, including chart data**. Filter by area, type, topic, owner, tag and status. Everything is in the URL, so searches can be shared. |
 | **Rich metadata** | Each report has a `report.json` with area, topics, tags, owners, key findings, code links to the team repo, data sources and related reports. CI validates it. |
 | **Viewer** | `report.html?id=…` shows the report next to its metadata: owners, key findings, code, data sources and related reports. |
@@ -21,7 +22,7 @@ One place to find every report from the Parcel & Pine Insights team. It's a stat
 ## Repo layout
 
 ```
-index.html · report.html · bundle.html · resources.html   site pages
+index.html · area.html · report.html · bundle.html · resources.html   site pages
 assets/                                                   site CSS + JS (no framework, no build step)
 reports/<id>/index.html + report.json                     the reports
 shared/brand/                                             tokens.css, report.css, charts.js, logo, BRAND.md

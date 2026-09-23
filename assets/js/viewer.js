@@ -1,5 +1,5 @@
 // Report viewer: framed report + metadata rail + actions (select, AI, PDF, share) + comments.
-import { $, esc, icon, mountChrome, loadCatalog, fmtDate, selection, toast, avatarColor, initials, areaColor, relDate } from "./core.js";
+import { $, esc, icon, mountChrome, loadCatalog, fmtDate, selection, toast, avatarColor, initials, areaColor, areaURL, relDate } from "./core.js";
 import { mountComments } from "./comments.js";
 
 const id = new URLSearchParams(location.search).get("id");
@@ -13,7 +13,7 @@ async function main() {
     return;
   }
   document.title = `${r.title} — ${cfg.siteName}`;
-  $("#crumbs").innerHTML = `<a href="./">Insights Hub</a><span>/</span><a href="./?area=${encodeURIComponent(r.area)}">${esc(r.area)}</a><span>/</span><span class="cur" title="${esc(r.title)}">${esc(r.title)}</span>`;
+  $("#crumbs").innerHTML = `<a href="./">Insights Hub</a><span>/</span><a href="${areaURL(cat, r.area)}">${esc(r.area)}</a><span>/</span><span class="cur" title="${esc(r.title)}">${esc(r.title)}</span>`;
 
   // ---------- actions ----------
   const actions = $("#actions");
@@ -83,7 +83,7 @@ function renderRail(r, cat, cfg) {
     <section class="panel" style="border-top:4px solid ${areaColor(cat, r.area)}">
       <h3>About <span class="pill ${r.status === "final" ? "" : esc(r.status)}">${esc(statusBadge)}</span></h3>
       <dl>
-        <dt>Area</dt><dd><a href="./?area=${encodeURIComponent(r.area)}">${esc(r.area)}</a></dd>
+        <dt>Area</dt><dd><a href="${areaURL(cat, r.area)}">${esc(r.area)}</a></dd>
         <dt>Type</dt><dd>${r.type === "article" ? "Article" : "Report"}</dd>
         <dt>Published</dt><dd>${fmtDate(r.published)}</dd>
         ${r.updated && r.updated !== r.published ? `<dt>Updated</dt><dd>${fmtDate(r.updated)} <span style="color:var(--text-3)">(${relDate(r.updated)})</span></dd>` : ""}

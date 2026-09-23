@@ -109,7 +109,8 @@ export async function mountChrome(active) {
 
   const foot = document.createElement("footer");
   foot.className = "site-foot";
-  foot.innerHTML = `<div class="wrap"><span>${esc(cfg.orgName)} Insights · Internal prototype hosted on GitHub Pages</span>
+  foot.innerHTML = `<div class="wrap foot-areas" aria-label="Areas">${(cfg.areas || []).map((a) => `<a href="area.html?a=${encodeURIComponent(a.slug)}"><i style="background:${a.color}"></i>${esc(a.name)}</a>`).join("")}</div>
+    <div class="wrap"><span>${esc(cfg.orgName)} Insights · Internal prototype hosted on GitHub Pages</span>
     <span><a href="resources.html">Contribute a report</a> · <a href="feed.xml">RSS</a> · Questions? ${esc(cfg.helpChannel || "")}</span></div>`;
   document.body.appendChild(foot);
   mountTray();
@@ -179,6 +180,11 @@ const AV = ["#2a78d6", "#eb6834", "#1baf7a", "#4a3aa7", "#e34948", "#008300", "#
 export function avatarColor(name) { let h = 0; for (const c of name || "") h = (h * 31 + c.charCodeAt(0)) >>> 0; return AV[h % AV.length]; }
 export const initials = (n) => (n || "?").split(/\s+/).map((p) => p[0]).slice(0, 2).join("").toUpperCase();
 
+export function areaSlug(cat, areaName) {
+  return (cat.areas.find((a) => a.name === areaName) || {}).slug || "";
+}
+export const areaURL = (cat, areaName) => `area.html?a=${encodeURIComponent(areaSlug(cat, areaName))}`;
+
 export function areaColor(cat, areaName) {
   return (cat.areas.find((a) => a.name === areaName) || {}).color || "var(--accent)";
 }
@@ -197,7 +203,7 @@ export function cardHTML(r, cat, { snippet = "", highlight = null } = {}) {
     <div class="band"></div>
     <button class="select-toggle" data-id="${esc(r.id)}" aria-pressed="${sel}" title="Select for AI summary / PDF bundle" aria-label="Select ${esc(r.title)}">${icon("check")}</button>
     <div class="body">
-      <div class="meta-top"><span class="area">${esc(r.area)}</span>${pills}</div>
+      <div class="meta-top"><a class="area" href="${areaURL(cat, r.area)}">${esc(r.area)}</a>${pills}</div>
       <h3><a href="report.html?id=${encodeURIComponent(r.id)}">${hl(r.title)}</a></h3>
       <p class="summary">${hl(r.summary)}</p>
       ${snippet ? `<p class="snippet"><span>${snippet}</span></p>` : ""}

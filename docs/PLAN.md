@@ -13,6 +13,7 @@ A central, static home for the Insights team's HTML reports, hosted on GitHub Pa
 
 ```
 index.html              Landing: search, What's New carousel, area carousels, tag/type filters
+area.html?a=<slug>      Area landing page: latest report, findings digest, filtered list, authors, AI brief + PDF of the area
 report.html?id=<slug>   Viewer: report in an iframe + metadata rail, PDF, AI summary, comments
 bundle.html?ids=a,b     Printable bundle of several reports (one PDF, page breaks between)
 resources.html          Shared assets: brand kit, templates, Claude skills

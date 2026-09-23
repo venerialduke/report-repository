@@ -122,34 +122,26 @@ function renderBrowse() {
   const visible = cat.reports.filter((r) => r.status !== "superseded");
   $("#track-new").innerHTML = visible.slice(0, 10).map((r) => cardHTML(r, cat)).join("");
   $("#track-areas").innerHTML = cat.areas.filter((a) => a.count).map((a) => `
-    <button class="area-tile" style="--area-color:${a.color}" data-area="${esc(a.name)}">
+    <a class="area-tile" style="--area-color:${a.color}" href="area.html?a=${encodeURIComponent(a.slug)}">
       <span class="dot">${esc(a.name.split(/[ &]+/).filter(Boolean).map((w) => w[0]).slice(0, 2).join(""))}</span>
       <h3>${esc(a.name)}</h3><p>${esc(a.description)}</p>
-      <span class="n">${a.count} ${a.count === 1 ? "item" : "items"} →</span>
-    </button>`).join("");
-  $("#track-areas").addEventListener("click", (e) => {
-    const t = e.target.closest("[data-area]");
-    if (t) { state.area = [t.dataset.area]; writeState(true); render(); window.scrollTo({ top: 0, behavior: "smooth" }); }
-  });
+      <span class="n">${a.count} ${a.count === 1 ? "item" : "items"} · Open area →</span>
+    </a>`).join("");
   $("#area-rows").innerHTML = cat.areas.filter((a) => a.count).map((a) => {
     const rs = visible.filter((r) => r.area === a.name);
     if (!rs.length) return "";
     const key = "area-" + a.slug;
     return `<section class="section" aria-labelledby="${key}-h">
       <div class="section-head">
-        <div><h2 id="${key}-h">${esc(a.name)}</h2><p>${esc(a.description)}</p></div>
+        <div><h2 id="${key}-h"><a href="area.html?a=${encodeURIComponent(a.slug)}" style="text-decoration:none">${esc(a.name)}</a></h2><p>${esc(a.description)}</p></div>
         <div class="actions">
-          <button class="btn sm ghost" data-area-all="${esc(a.name)}">See all ${rs.length}</button>
+          <a class="btn sm ghost" href="area.html?a=${encodeURIComponent(a.slug)}">Area page · ${rs.length}</a>
           <button class="btn icon sm" data-scroll="${key}" data-dir="-1" aria-label="Scroll left"></button><button class="btn icon sm" data-scroll="${key}" data-dir="1" aria-label="Scroll right"></button>
         </div>
       </div>
       <div class="carousel"><div class="track" id="track-${key}">${rs.map((r) => cardHTML(r, cat)).join("")}</div></div>
     </section>`;
   }).join("");
-  $("#area-rows").addEventListener("click", (e) => {
-    const t = e.target.closest("[data-area-all]");
-    if (t) { state.area = [t.dataset.areaAll]; writeState(true); render(); window.scrollTo({ top: 0, behavior: "smooth" }); }
-  });
 }
 
 function render() {
