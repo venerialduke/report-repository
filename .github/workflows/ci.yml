@@ -25,5 +25,12 @@ jobs:
             echo "::error title=Stale catalog::Run 'npm run check' and commit catalog.json, search-index.json and feed.xml. GitHub Pages serves them straight from main."
             exit 1
           fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test the Google Docs/Slides import extractor
+        run: |
+          pip install -q -r scripts/import/requirements.txt
+          python3 scripts/import/test_extract.py
       - name: Syntax-check site scripts
         run: for f in assets/js/*.js shared/brand/charts.js scripts/*.mjs scripts/lib/*.mjs; do node --check "$f" || exit 1; done

@@ -3,6 +3,7 @@ import { $, esc, icon, mountChrome, loadCatalog, fmtDate, selection, toast, avat
 import { mountComments } from "./comments.js";
 
 const id = new URLSearchParams(location.search).get("id");
+const SOURCE_LABEL = { "google-docs": "Google Doc", "google-slides": "Google Slides", word: "Word document", powerpoint: "PowerPoint", notebook: "Notebook", other: "Source document" };
 
 async function main() {
   const cfg = await mountChrome("report");
@@ -114,6 +115,10 @@ function renderRail(r, cat, cfg) {
     </section>
 
     ${r.code?.length ? `<section class="panel"><h3>Code</h3><ul class="linklist">${r.code.map((c) => `<li><a href="${esc(codeURL(c.path))}" target="_blank" rel="noopener">${icon("code")}<span style="min-width:0">${esc(c.label)}<span class="p">${esc(c.path)}</span></span></a></li>`).join("")}</ul></section>` : ""}
+
+    ${r.source ? `<section class="panel"><h3>Original document</h3><ul class="linklist"><li>${r.source.url
+      ? `<a href="${esc(r.source.url)}" target="_blank" rel="noopener">${icon("file")}<span style="min-width:0">${esc(r.source.title || SOURCE_LABEL[r.source.type] || "Source")}<span class="p">${esc(SOURCE_LABEL[r.source.type] || r.source.type)}${r.source.imported ? ` · imported ${fmtDate(r.source.imported)}` : ""}</span></span></a>`
+      : `<span style="display:flex;gap:8px;padding:4px 0;font-size:13.5px">${icon("file")}<span>${esc(SOURCE_LABEL[r.source.type] || r.source.type)}${r.source.imported ? ` · imported ${fmtDate(r.source.imported)}` : ""}</span></span>`}</li></ul></section>` : ""}
 
     ${r.data_sources?.length ? `<section class="panel"><h3>Data sources</h3><ul class="linklist">${r.data_sources.map((d) => `<li><span style="display:flex;gap:8px;padding:4px 0;font-size:13.5px">${icon("db")}<span>${esc(d)}</span></span></li>`).join("")}</ul></section>` : ""}
 
