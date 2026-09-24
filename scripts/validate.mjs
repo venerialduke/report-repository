@@ -48,12 +48,23 @@ for (const id of targets) {
   (m.code || []).forEach((c, i) => { if (!c.label || !c.path) err(id, `code[${i}] needs label and path`); });
   (m.related || []).forEach((r) => { if (!ids.has(r)) warn(id, `related id "${r}" does not exist`); if (r === id) err(id, "related lists itself"); });
   if (m.key_findings && !Array.isArray(m.key_findings)) err(id, "key_findings must be an array");
+  if (m.source !== undefined) {
+    const SOURCES = new Set(["google-docs", "google-slides", "word", "powerpoint", "notebook", "other"]);
+    if (typeof m.source !== "object" || !m.source.type) err(id, 'source must be an object like { "type": "google-slides", "url": "…" }');
+    else {
+      if (!SOURCES.has(m.source.type)) warn(id, `source.type "${m.source.type}" is not one of ${[...SOURCES].join(", ")}`);
+      if (m.source.url && !/^https:\/\//.test(m.source.url)) err(id, "source.url must be an https:// link");
+      if (m.source.imported && !DATE.test(m.source.imported)) err(id, "source.imported must be YYYY-MM-DD");
+    }
+  }
   if (m.summary && m.summary.length > 600) warn(id, "summary is long (>600 chars) — keep it to 2–3 sentences");
 
   const htmlPath = path.join(dir, "index.html");
   if (!fs.existsSync(htmlPath)) { err(id, "index.html missing"); continue; }
   const html = fs.readFileSync(htmlPath, "utf8");
   if (!/<title>[^<]+<\/title>/.test(html)) err(id, "index.html has no <title>");
+  const flags = (html.match(/<!--\s*IMPORT:/g) || []).length;
+  if (flags) (m.status === "final" ? err : warn)(id, `${flags} unresolved IMPORT: flag(s) from the import skill — resolve them before marking the report final`);
   if (!html.includes("shared/brand/report.css")) warn(id, "does not link shared/brand/report.css");
   if (/(href|src)="\/(?!\/)/.test(html)) err(id, "root-absolute links (/...) break on GitHub Pages project sites — use relative paths");
   chartBlocks(html).forEach((b, i) => {

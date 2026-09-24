@@ -1,0 +1,24 @@
+{
+  "id": "pine-plus-referral-pilot",
+  "title": "Referred Pine+ members churned 7.1% in month 3, vs. 16.2% for paid social",
+  "subtitle": "8-week referral pilot readout: the pilot beat its sign-up target by 38% at $21 per sign-up, and we recommend rolling it out to all members in October.",
+  "type": "report",
+  "area": "Customer & Growth",
+  "topics": ["Membership", "Retention", "Acquisition"],
+  "tags": ["pine-plus", "referral", "churn", "pilot", "acquisition-channels", "cost-per-acquisition"],
+  "owners": [{ "name": "Daniel Reyes", "email": "daniel.reyes@parcelandpine.com", "role": "Senior Analyst, Customer" }],
+  "published": "2026-09-24",
+  "updated": "2026-09-24",
+  "status": "draft",
+  "summary": "The 8-week Pine+ referral pilot brought in 4,140 sign-ups, 38% above its target of 3,000, at $21 per sign-up. Referred monthly-plan members churned 7.1% in month 3 against 16.2% for paid social. We recommend extending the referral credit to all members from Oct 6 with a 10% holdout.",
+  "key_findings": [
+    "4,140 referred sign-ups in 8 weeks, 38% above the target of 3,000.",
+    "Month-3 churn: 7.1% for referred members vs. 16.2% for paid social (p < 0.01).",
+    "Cost per sign-up: $21 for referral vs. $27 for search and $34 for paid social.",
+    "Recommendation: roll out to all Pine+ members from Oct 6 with a 10% holdout; revisit the $15 credit after 12 weeks."
+  ],
+  "code": [],
+  "data_sources": ["Referral pilot readout deck (Google Slides)"],
+  "related": ["month-3-member-churn", "customer-segmentation-2026", "pine-plus-ltv-forecast-fy27"],
+  "source": { "type": "google-slides", "title": "Pine+ referral pilot readout (deck)", "imported": "2026-09-24" }
+}

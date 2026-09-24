@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "site": {
     "name": "Insights Hub",
     "org": "Parcel & Pine"
@@ -10,7 +10,7 @@
       "slug": "customer-growth",
       "description": "Acquisition, retention, segmentation and the voice of the customer.",
       "color": "#2a78d6",
-      "count": 3
+      "count": 4
     },
     {
       "name": "Product & Digital",
@@ -56,6 +56,69 @@
     }
   ],
   "reports": [
+    {
+      "id": "pine-plus-referral-pilot",
+      "title": "Referred Pine+ members churned 7.1% in month 3, vs. 16.2% for paid social",
+      "subtitle": "8-week referral pilot readout: the pilot beat its sign-up target by 38% at $21 per sign-up, and we recommend rolling it out to all members in October.",
+      "type": "report",
+      "area": "Customer & Growth",
+      "topics": [
+        "Membership",
+        "Retention",
+        "Acquisition"
+      ],
+      "tags": [
+        "pine-plus",
+        "referral",
+        "churn",
+        "pilot",
+        "acquisition-channels",
+        "cost-per-acquisition"
+      ],
+      "owners": [
+        {
+          "name": "Daniel Reyes",
+          "email": "daniel.reyes@parcelandpine.com",
+          "role": "Senior Analyst, Customer"
+        }
+      ],
+      "published": "2026-09-24",
+      "updated": "2026-09-24",
+      "status": "draft",
+      "summary": "The 8-week Pine+ referral pilot brought in 4,140 sign-ups, 38% above its target of 3,000, at $21 per sign-up. Referred monthly-plan members churned 7.1% in month 3 against 16.2% for paid social. We recommend extending the referral credit to all members from Oct 6 with a 10% holdout.",
+      "key_findings": [
+        "4,140 referred sign-ups in 8 weeks, 38% above the target of 3,000.",
+        "Month-3 churn: 7.1% for referred members vs. 16.2% for paid social (p < 0.01).",
+        "Cost per sign-up: $21 for referral vs. $27 for search and $34 for paid social.",
+        "Recommendation: roll out to all Pine+ members from Oct 6 with a 10% holdout; revisit the $15 credit after 12 weeks."
+      ],
+      "code": [],
+      "data_sources": [
+        "Referral pilot readout deck (Google Slides)"
+      ],
+      "related": [
+        "month-3-member-churn",
+        "customer-segmentation-2026",
+        "pine-plus-ltv-forecast-fy27"
+      ],
+      "source": {
+        "type": "google-slides",
+        "title": "Pine+ referral pilot readout (deck)",
+        "imported": "2026-09-24"
+      },
+      "url": "reports/pine-plus-referral-pilot/",
+      "headings": [
+        "The short version",
+        "01 The pilot beat its sign-up target by 38%",
+        "02 Referred members churn less in months 2–4, and the gap is widest in month 3",
+        "03 Referral was the cheapest channel and had the lowest month-3 churn",
+        "04 Recommendation: roll out to all members in October",
+        "Methodology"
+      ],
+      "charts": 1,
+      "words": 548,
+      "reading_minutes": 2
+    },
     {
       "id": "insights-hub-plan",
       "title": "Insights Hub plan: one home for every analysis, prototyped on GitHub Pages and headed for Databricks",
@@ -1880,6 +1943,12 @@
       "name": "brand-style",
       "description": "Copy-edits an Insights report into Parcel & Pine house style, covering voice, number and unit formatting, dates, pp vs %, capitalisation, topics and tags, and the team's preferred words (members, Pine+, FC). Use when asked to proofread, copy-edit, polish or make a report or report.json \"on brand\".",
       "path": ".claude/skills/brand-style/SKILL.md"
+    },
+    {
+      "id": "import-google-doc",
+      "name": "import-google-doc",
+      "description": "Converts a Google Doc or Google Slides deck (a link, a .docx/.pptx/.md export, or a Google Drive connector) into an Insights Hub report, asking the author for metadata. Use when someone wants to publish, import or turn a Google Doc, Slides deck or presentation into a Hub report.",
+      "path": ".claude/skills/import-google-doc/SKILL.md"
     },
     {
       "id": "report-construction",

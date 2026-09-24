@@ -17,6 +17,16 @@ npm run new -- <id> --title "Headline that states the finding" --area "<Area>" -
 
 This creates `reports/<id>/index.html` and `reports/<id>/report.json` from `shared/templates/report-starter/`.
 
+### Starting from a Google Doc or Slides deck?
+
+Ask Claude Code in this repo to *"import this Google Slides deck as a report"* and give it a link or an exported file. The **import-google-doc** skill will:
+- extract the text, tables, images, native chart data and speaker notes (`scripts/import/extract.py`);
+- propose all the metadata and ask you to confirm it in one round;
+- restructure the content into the house format, with numbers kept exactly as they appear in the source;
+- leave `<!-- IMPORT: … -->` flags where something needs your decision. CI won't let a report be marked `final` until they're resolved.
+
+Export formats: Docs as `.docx` (*File → Download → Microsoft Word*), Slides as `.pptx` (*File → Download → Microsoft PowerPoint*). A link works only if the file is shared "Anyone with the link". One-time setup: `pip install -r scripts/import/requirements.txt`.
+
 ## 2. Write the report
 
 - Keep the starter's structure: masthead → **short version** → KPI tiles → numbered, finding-led sections → recommendations (owner + date) → methodology & limitations.
