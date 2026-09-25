@@ -9,6 +9,7 @@
     "check": "node scripts/validate.mjs && node scripts/build-catalog.mjs",
     "new": "node scripts/new-report.mjs",
     "serve": "python3 -m http.server 8000",
+    "site": "node scripts/build-catalog.mjs && node scripts/assemble-site.mjs",
     "summaries": "node scripts/generate-summaries.mjs"
   },
   "engines": {
