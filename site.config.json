@@ -3,7 +3,7 @@
   "orgName": "Parcel & Pine",
   "tagline": "Every analysis from the Insights team, in one place.",
   "siteRepo": "https://github.com/ventiduke/report-repository",
-  "siteUrl": "https://ventiduke.github.io/report-repository/",
+  "siteUrl": "https://insights-headlines.netlify.app/",
   "teamRepo": "https://github.com/ventiduke/insights-analysis/blob/main/",
   "helpChannel": "#insights-help",
   "areas": [

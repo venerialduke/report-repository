@@ -13,7 +13,7 @@ Read first: `shared/brand/BRAND.md` (house style and chart rules), `.claude/skil
 
 ## 0. Before you start: audience check
 
-The Hub serves whatever is on `main`. **The GitHub Pages prototype is public.** Before importing, tell the author where the report will be visible and confirm the document is OK to publish there. Don't proceed with confidential material on the public prototype.
+The Hub serves whatever is on `main`. **The prototype (Netlify free tier, https://insights-headlines.netlify.app) is public.** Before importing, tell the author where the report will be visible and confirm the document is OK to publish there. Don't proceed with confidential material on the public prototype.
 
 ## 1. Get the source file
 

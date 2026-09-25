@@ -110,7 +110,7 @@ export async function mountChrome(active) {
   const foot = document.createElement("footer");
   foot.className = "site-foot";
   foot.innerHTML = `<div class="wrap foot-areas" aria-label="Areas">${(cfg.areas || []).map((a) => `<a href="area.html?a=${encodeURIComponent(a.slug)}"><i style="background:${a.color}"></i>${esc(a.name)}</a>`).join("")}</div>
-    <div class="wrap"><span>${esc(cfg.orgName)} Insights · Internal prototype hosted on GitHub Pages</span>
+    <div class="wrap"><span>${esc(cfg.orgName)} Insights · Internal prototype hosted on Netlify</span>
     <span><a href="resources.html">Contribute a report</a> · <a href="feed.xml">RSS</a> · Questions? ${esc(cfg.helpChannel || "")}</span></div>`;
   document.body.appendChild(foot);
   mountTray();

@@ -1,6 +1,6 @@
 # Insights Hub
 
-One place to find every report from the Parcel & Pine Insights team. It's a static site on **GitHub Pages**: reports are plain HTML files in this repo, and merging to `main` publishes them.
+One place to find every report from the Parcel & Pine Insights team. It's a static site hosted on **Netlify** at https://insights-headlines.netlify.app. Reports are plain HTML files in this repo, and merging to `main` publishes them.
 
 > The company, people and numbers in the sample reports are fictional. They're there to show what the hub looks like with real-looking content.
 
@@ -61,7 +61,7 @@ npm run new -- my-report-id --title "Headline that states the finding" --area "M
 
 One-time setup in Netlify: *Add new site → Import an existing project → GitHub → `report-repository`*. The build settings are read from `netlify.toml`, so leave the form fields as they are.
 
-**GitHub Pages** (the original prototype host) also works from `main`, since generated files are committed and CI checks they're current. Turn it off under *Settings → Pages* once Netlify is live.
+**GitHub Pages** (the original prototype host) still works from `main`, since generated files are committed and CI checks they're current. Turn it off under *Settings → Pages* once you no longer need it.
 
 - *(Optional)* **Settings → Secrets and variables → Actions → `ANTHROPIC_API_KEY`**. The `Refresh catalog & AI summaries` workflow then writes an AI summary for each new or changed report into `data/ai-summaries.json`.
 - *(Optional)* Turn on shared comments: follow [docs/COMMENTS.md](docs/COMMENTS.md).
@@ -70,5 +70,5 @@ One-time setup in Netlify: *Add new site → Import an existing project → GitH
 
 ## Plan & roadmap
 
-- **Readable plan** (goals, features, Databricks target, roadmap, risks): published in the Hub itself at `report.html?id=insights-hub-plan` ([live](https://ventiduke.github.io/report-repository/report.html?id=insights-hub-plan)).
+- **Readable plan** (goals, features, Databricks target, roadmap, risks): published in the Hub itself at `report.html?id=insights-hub-plan` ([live](https://insights-headlines.netlify.app/r/insights-hub-plan)).
 - **Build plan** (architecture, metadata schema): [docs/PLAN.md](docs/PLAN.md).
