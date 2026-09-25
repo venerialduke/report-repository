@@ -53,8 +53,8 @@ const catalog = {
 fs.writeFileSync(path.join(ROOT, "catalog.json"), JSON.stringify(catalog, null, 2) + "\n");
 fs.writeFileSync(path.join(ROOT, "search-index.json"), JSON.stringify(index) + "\n");
 
-// RSS feed (relative links are resolved against SITE_URL when set, e.g. in CI)
-const base = (process.env.SITE_URL || cfg.siteUrl || "").replace(/\/?$/, "/");
+// RSS feed links: SITE_URL if set, Netlify's production URL on Netlify builds, else siteUrl in config
+const base = (process.env.SITE_URL || (process.env.CONTEXT === "production" && process.env.URL) || cfg.siteUrl || "").replace(/\/?$/, "/");
 const x = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 const items = reports.filter((r) => r.status !== "draft").slice(0, 30).map((r) => `  <item>
     <title>${x(r.title)}</title>

@@ -1,0 +1,28 @@
+# Netlify: builds and publishes the Insights Hub on every push to main,
+# and a deploy preview (its own URL) for every pull request.
+
+[build]
+  command = "node scripts/validate.mjs && node scripts/build-catalog.mjs && node scripts/assemble-site.mjs"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Short, shareable links: /r/<report-id> and /area/<area-slug>
+[[redirects]]
+  from = "/r/:id"
+  to = "/report.html?id=:id"
+  status = 301
+
+[[redirects]]
+  from = "/area/:slug"
+  to = "/area.html?a=:slug"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # The report viewer embeds reports from the same site; nobody else may frame the Hub.
+    X-Frame-Options = "SAMEORIGIN"

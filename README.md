@@ -52,16 +52,23 @@ npm run new -- my-report-id --title "Headline that states the finding" --area "M
 
 ## Deploying
 
-The site is live at **https://venerialduke.github.io/report-repository/**. GitHub Pages serves `main` directly (Settings → Pages → Deploy from a branch → `main` / root), so **whatever is on `main` is the site**.
+**Netlify** (primary): `netlify.toml` tells Netlify to validate the reports, rebuild the catalog, and publish only the site files (`scripts/assemble-site.mjs` → `_site/`).
 
-- Generated files (`catalog.json`, `search-index.json`, `feed.xml`) are committed. `npm run check` rebuilds them, and CI fails a PR that forgets.
-- The `Refresh catalog & AI summaries` workflow runs on every push to `main` as a safety net. It rebuilds the generated files and commits them if they changed.
-- *(Optional)* **Settings → Secrets and variables → Actions → `ANTHROPIC_API_KEY`**. The same workflow then writes an AI summary for each new or changed report into `data/ai-summaries.json`, and it shows in the viewer's side panel.
+- Every push to `main` deploys the live site.
+- **Every pull request gets its own deploy preview URL**, so reviewers can read a new report exactly as it will look before merging.
+- Short links work: `/r/<report-id>` and `/area/<area-slug>`.
+- Try it locally: `npm run site`, then serve `_site/`.
+
+One-time setup in Netlify: *Add new site → Import an existing project → GitHub → `report-repository`*. The build settings are read from `netlify.toml`, so leave the form fields as they are.
+
+**GitHub Pages** (the original prototype host) also works from `main`, since generated files are committed and CI checks they're current. Turn it off under *Settings → Pages* once Netlify is live.
+
+- *(Optional)* **Settings → Secrets and variables → Actions → `ANTHROPIC_API_KEY`**. The `Refresh catalog & AI summaries` workflow then writes an AI summary for each new or changed report into `data/ai-summaries.json`.
 - *(Optional)* Turn on shared comments: follow [docs/COMMENTS.md](docs/COMMENTS.md).
 
-> GitHub Pages sites are public unless the repo belongs to an Enterprise org with private Pages. That's fine for a prototype with fictional data. For real reports, see the hosting options in [docs/PLAN.md](docs/PLAN.md).
+> Both Netlify's free tier and GitHub Pages serve **public** sites. That's fine for a prototype with fictional data. For real reports, see the hosting options in [docs/PLAN.md](docs/PLAN.md).
 
 ## Plan & roadmap
 
-- **Readable plan** (goals, features, Databricks target, roadmap, risks): published in the Hub itself at `report.html?id=insights-hub-plan` ([live](https://venerialduke.github.io/report-repository/report.html?id=insights-hub-plan)).
+- **Readable plan** (goals, features, Databricks target, roadmap, risks): published in the Hub itself at `report.html?id=insights-hub-plan` ([live](https://ventiduke.github.io/report-repository/report.html?id=insights-hub-plan)).
 - **Build plan** (architecture, metadata schema): [docs/PLAN.md](docs/PLAN.md).

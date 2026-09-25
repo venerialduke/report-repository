@@ -32,5 +32,7 @@ jobs:
         run: |
           pip install -q -r scripts/import/requirements.txt
           python3 scripts/import/test_extract.py
+      - name: Assemble the publishable site (what Netlify deploys)
+        run: node scripts/assemble-site.mjs
       - name: Syntax-check site scripts
         run: for f in assets/js/*.js shared/brand/charts.js scripts/*.mjs scripts/lib/*.mjs; do node --check "$f" || exit 1; done

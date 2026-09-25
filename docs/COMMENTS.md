@@ -10,14 +10,14 @@ The viewer shows a **Discussion** section under each report. Until giscus is con
 2. **Settings → General → Features → Discussions**: enable.
 3. In **Discussions**, create a category named **Report comments**, with the format **Announcement** so only giscus and maintainers can start threads.
 4. Install the giscus GitHub App on this repo: <https://github.com/apps/giscus>.
-5. Go to <https://giscus.app>, enter `venerialduke/report-repository`, and choose the **Report comments** category. Copy `data-repo-id` and `data-category-id` from the generated snippet.
+5. Go to <https://giscus.app>, enter `ventiduke/report-repository`, and choose the **Report comments** category. Copy `data-repo-id` and `data-category-id` from the generated snippet.
 6. Fill them in `site.config.json`:
 
 ```json
 "comments": {
   "provider": "giscus",
   "giscus": {
-    "repo": "venerialduke/report-repository",
+    "repo": "ventiduke/report-repository",
     "repoId": "R_kgDO…",
     "category": "Report comments",
     "categoryId": "DIC_kwDO…",
