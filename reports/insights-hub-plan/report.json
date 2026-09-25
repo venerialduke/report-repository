@@ -19,8 +19,8 @@
     "Top risk: confirming that non-analyst staff can open Databricks Apps."
   ],
   "code": [
-    { "label": "Build plan", "path": "https://github.com/venerialduke/report-repository/blob/main/docs/PLAN.md" },
-    { "label": "Contributing guide", "path": "https://github.com/venerialduke/report-repository/blob/main/docs/CONTRIBUTING.md" }
+    { "label": "Build plan", "path": "https://github.com/ventiduke/report-repository/blob/main/docs/PLAN.md" },
+    { "label": "Contributing guide", "path": "https://github.com/ventiduke/report-repository/blob/main/docs/CONTRIBUTING.md" }
   ],
   "data_sources": ["Insights Hub repository", "Planning discussions, Sep 2026"],
   "related": ["insights-team-h1-2026-retro", "metric-glossary-active-member", "experimentation-playbook"]
