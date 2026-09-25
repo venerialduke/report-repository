@@ -1,6 +1,6 @@
 # Insights Hub — Build Plan
 
-A central, static home for the Insights team's HTML reports, hosted on GitHub Pages.
+A central, static home for the Insights team's HTML reports, hosted on Netlify (https://insights-headlines.netlify.app); GitHub Pages was the first prototype host.
 
 ## Guiding principles
 

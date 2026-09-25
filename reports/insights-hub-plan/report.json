@@ -1,16 +1,34 @@
 {
   "id": "insights-hub-plan",
-  "title": "Insights Hub plan: one home for every analysis, prototyped on GitHub Pages and headed for Databricks",
+  "title": "Insights Hub plan: one home for every analysis, prototyped on Netlify and headed for Databricks",
   "subtitle": "What the Hub is for, what works today, the decisions we have made, and how it moves to a Databricks App with team-only and company-wide spaces.",
   "type": "article",
   "area": "Methods & Standards",
-  "topics": ["Insights Hub", "Roadmap", "Data Governance"],
-  "tags": ["insights-hub", "roadmap", "databricks", "unity-catalog", "github-pages", "publishing", "snapshots", "access-control"],
-  "owners": [{ "name": "Insights Hub working group", "role": "Plan owner" }],
+  "topics": [
+    "Insights Hub",
+    "Roadmap",
+    "Data Governance"
+  ],
+  "tags": [
+    "insights-hub",
+    "roadmap",
+    "databricks",
+    "unity-catalog",
+    "netlify",
+    "publishing",
+    "snapshots",
+    "access-control"
+  ],
+  "owners": [
+    {
+      "name": "Insights Hub working group",
+      "role": "Plan owner"
+    }
+  ],
   "published": "2026-09-23",
-  "updated": "2026-09-23",
+  "updated": "2026-09-25",
   "status": "draft",
-  "summary": "The Insights Hub prototype is live on GitHub Pages. It has search, area pages, a report viewer, PDF export, AI summaries, chart downloads, shared brand assets and Claude skills. The plan is to move it to a Databricks App with Unity Catalog Volumes per audience (team, org, restricted), publish frozen snapshots of reports, and keep reports static for now. The first decision needed is whether business readers can access a Databricks App.",
+  "summary": "The Insights Hub prototype is live on Netlify. It has search, area pages, a report viewer, PDF export, AI summaries, chart downloads, shared brand assets and Claude skills. The plan is to move it to a Databricks App with Unity Catalog Volumes per audience (team, org, restricted), publish frozen snapshots of reports, and keep reports static for now. The first decision needed is whether business readers can access a Databricks App.",
   "key_findings": [
     "The prototype has 14 features live, 22 sample reports and articles, and 5 Claude skills, with no servers needed.",
     "Reports stay portable: a folder with index.html and report.json, relative links, and charts as JSON.",
@@ -19,9 +37,22 @@
     "Top risk: confirming that non-analyst staff can open Databricks Apps."
   ],
   "code": [
-    { "label": "Build plan", "path": "https://github.com/ventiduke/report-repository/blob/main/docs/PLAN.md" },
-    { "label": "Contributing guide", "path": "https://github.com/ventiduke/report-repository/blob/main/docs/CONTRIBUTING.md" }
+    {
+      "label": "Build plan",
+      "path": "https://github.com/ventiduke/report-repository/blob/main/docs/PLAN.md"
+    },
+    {
+      "label": "Contributing guide",
+      "path": "https://github.com/ventiduke/report-repository/blob/main/docs/CONTRIBUTING.md"
+    }
   ],
-  "data_sources": ["Insights Hub repository", "Planning discussions, Sep 2026"],
-  "related": ["insights-team-h1-2026-retro", "metric-glossary-active-member", "experimentation-playbook"]
+  "data_sources": [
+    "Insights Hub repository",
+    "Planning discussions, Sep 2026"
+  ],
+  "related": [
+    "insights-team-h1-2026-retro",
+    "metric-glossary-active-member",
+    "experimentation-playbook"
+  ]
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Insights Hub plan: one home for every analysis, prototyped on GitHub Pages and headed for Databricks — Parcel &amp; Pine Insights</title>
+  <title>Insights Hub plan: one home for every analysis, prototyped on Netlify and headed for Databricks — Parcel &amp; Pine Insights</title>
   <link rel="icon" href="../../shared/brand/logo.svg">
   <link rel="stylesheet" href="../../shared/brand/report.css">
   <style>
@@ -45,7 +45,7 @@
       <span>Article · September 2026</span>
     </div>
     <span class="pp-eyebrow">Methods &amp; Standards</span>
-    <h1>Insights Hub plan: one home for every analysis, prototyped on GitHub Pages and headed for Databricks</h1>
+    <h1>Insights Hub plan: one home for every analysis, prototyped on Netlify and headed for Databricks</h1>
     <p class="pp-subtitle">What the Hub is for, what works today, the decisions we have made, and how it moves to a Databricks App with team-only and company-wide spaces.</p>
     <div class="pp-byline">
       <span>By <b>Insights Hub working group</b></span>
@@ -57,8 +57,8 @@
   <section class="pp-tldr" aria-label="Key points">
     <h2>The short version</h2>
     <ol>
-      <li><strong>The prototype is live.</strong> Reports are plain HTML files in git, and GitHub Pages serves them. The site has discovery, full-text search, area pages, a report viewer, PDF export, AI summaries, chart downloads, shared brand assets and Claude skills.</li>
-      <li><strong>Reports stay simple:</strong> a folder with <code>index.html</code> and <code>report.json</code>, relative links, and charts written as JSON. That keeps them portable from git to GitHub Pages to Databricks without edits.</li>
+      <li><strong>The prototype is live.</strong> Reports are plain HTML files in git, and Netlify publishes them, with a preview link for every pull request. The site has discovery, full-text search, area pages, a report viewer, PDF export, AI summaries, chart downloads, shared brand assets and Claude skills.</li>
+      <li><strong>Reports stay simple:</strong> a folder with <code>index.html</code> and <code>report.json</code>, relative links, and charts written as JSON. That keeps them portable from git to Netlify (or any static host) to Databricks without edits.</li>
       <li><strong>The destination is a Databricks App.</strong> It brings single sign-on, and each audience's reports sit in their own Unity Catalog Volume: <em>team</em> (Insights only), <em>org</em> (everyone) and later restricted spaces. Promotion is one field change.</li>
       <li><strong>We keep it static for now.</strong> Charts embed their data; there are no live queries. Published reports can be frozen into self-contained snapshots so later asset changes can't break them.</li>
       <li><strong>First decision needed:</strong> confirm that business readers can access a Databricks App. That decides whether the Hub can reach its whole audience there.</li>
@@ -69,7 +69,7 @@
     <div class="pp-kpi"><div class="pp-kpi-label">Sample reports &amp; articles</div><div class="pp-kpi-value">22</div><div class="pp-kpi-delta">across 7 areas</div></div>
     <div class="pp-kpi"><div class="pp-kpi-label">Features live in the prototype</div><div class="pp-kpi-value">14</div><div class="pp-kpi-delta">see section 02</div></div>
     <div class="pp-kpi"><div class="pp-kpi-label">Claude skills</div><div class="pp-kpi-value">5</div><div class="pp-kpi-delta">build, review, style, metadata</div></div>
-    <div class="pp-kpi"><div class="pp-kpi-label">Servers needed today</div><div class="pp-kpi-value">0</div><div class="pp-kpi-delta">static site on GitHub Pages</div></div>
+    <div class="pp-kpi"><div class="pp-kpi-label">Servers needed today</div><div class="pp-kpi-value">0</div><div class="pp-kpi-delta">static site on Netlify</div></div>
   </div>
 
   <h2><span class="pp-num">01</span>Goals: make every analysis findable, trustworthy and reusable</h2>
@@ -82,7 +82,7 @@
     <div class="goal"><b>Control</b><span>Publish privately to the team first, then promote to the company, with access enforced by the platform.</span></div>
   </div>
 
-  <h2><span class="pp-num">02</span>What works today: a complete prototype on GitHub Pages</h2>
+  <h2><span class="pp-num">02</span>What works today: a complete prototype on Netlify</h2>
   <div class="pp-table-wrap">
     <table class="pp-table">
       <thead><tr><th>Feature</th><th>What it does</th><th>Status</th></tr></thead>
@@ -105,13 +105,13 @@
     </table>
   </div>
 
-  <h2><span class="pp-num">03</span>How it works today: git is the source of truth and GitHub Pages serves <code>main</code></h2>
-  <p class="pp-lede">Publishing is a pull request. Nothing runs on a server; every feature runs in the reader's browser.</p>
+  <h2><span class="pp-num">03</span>How it works today: git is the source of truth and Netlify publishes <code>main</code></h2>
+  <p class="pp-lede">Publishing is a pull request, and every pull request gets a deploy preview. Nothing runs on a server; every feature runs in the reader's browser.</p>
   <figure class="pp-figure">
     <p class="pp-fig-title">Today: author → review → merge → live</p>
-    <p class="pp-fig-sub">GitHub Pages prototype</p>
+    <p class="pp-fig-sub">Netlify prototype (it started on GitHub Pages)</p>
     <div class="diagram-wrap">
-      <svg class="flow" viewBox="0 0 760 250" role="img" aria-label="Diagram: an analyst writes a report with help from Claude skills, opens a pull request, CI validates it, merging to main publishes it through GitHub Pages to readers; a refresh workflow on main rebuilds the catalog and AI summaries.">
+      <svg class="flow" viewBox="0 0 760 250" role="img" aria-label="Diagram: an analyst writes a report with help from Claude skills, opens a pull request, CI validates it, merging to main publishes it through Netlify to readers; a refresh workflow on main rebuilds the catalog and AI summaries.">
         <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c837f"/></marker></defs>
         <rect class="box" x="10" y="40" width="140" height="64" rx="10"/><text class="t" x="80" y="67" text-anchor="middle">Analyst</text><text class="s" x="80" y="86" text-anchor="middle">writes HTML + JSON</text>
         <rect class="box muted" x="10" y="150" width="140" height="56" rx="10"/><text class="t" x="80" y="174" text-anchor="middle">Claude skills</text><text class="s" x="80" y="192" text-anchor="middle">build · review · style</text>
@@ -124,7 +124,7 @@
         <path class="arrow" d="M340 72 H388"/><text class="lbl" x="364" y="64" text-anchor="middle">merge</text>
         <rect class="box muted" x="390" y="150" width="150" height="56" rx="10"/><text class="t" x="465" y="174" text-anchor="middle">Refresh workflow</text><text class="s" x="465" y="192" text-anchor="middle">catalog · AI summaries</text>
         <path class="arrow dash" d="M455 148 V106"/><path class="arrow dash" d="M475 106 V148"/>
-        <rect class="box pine" x="590" y="40" width="160" height="64" rx="10"/><text class="t" x="670" y="67" text-anchor="middle">GitHub Pages</text><text class="s" x="670" y="86" text-anchor="middle">public URL</text>
+        <rect class="box pine" x="590" y="40" width="160" height="64" rx="10"/><text class="t" x="670" y="67" text-anchor="middle">Netlify</text><text class="s" x="670" y="86" text-anchor="middle">site + PR previews</text>
         <path class="arrow" d="M540 72 H588"/>
         <rect class="box" x="590" y="150" width="160" height="56" rx="10"/><text class="t" x="670" y="174" text-anchor="middle">Readers</text><text class="s" x="670" y="192" text-anchor="middle">search · AI · PDF · CSV</text>
         <path class="arrow" d="M670 104 V148"/>
@@ -133,7 +133,7 @@
     <figcaption>Report folder: <code>reports/&lt;id&gt;/index.html</code> + <code>report.json</code> (+ <code>assets/</code>). Shared brand files live in <code>shared/brand/</code>.</figcaption>
   </figure>
 
-  <div class="pp-callout caveat"><div class="pp-callout-title">Prototype limitation</div><p>GitHub Pages sites are public. That's fine for fictional sample content, but real reports need the private hosting in section 04.</p></div>
+  <div class="pp-callout caveat"><div class="pp-callout-title">Prototype limitation</div><p>The Netlify free-tier site is public. That's fine for fictional sample content, but real reports need the private hosting in section 04.</p></div>
 
   <h2><span class="pp-num">04</span>Where it's going: a Databricks App, with Unity Catalog deciding who sees what</h2>
   <p class="pp-lede">Same reports, same front end. The app adds company login, and Unity Catalog permissions decide who can see which reports.</p>
@@ -164,7 +164,7 @@
 
   <h3>How it works</h3>
   <ul>
-    <li><b>Storage:</b> each Volume mirrors the repo layout (<code>reports/&lt;id&gt;/…</code>, <code>catalog.json</code>). Shared brand files ship with the app. Relative links resolve the same way in git, on GitHub Pages and in Databricks.</li>
+    <li><b>Storage:</b> each Volume mirrors the repo layout (<code>reports/&lt;id&gt;/…</code>, <code>catalog.json</code>). Shared brand files ship with the app. Relative links resolve the same way in git, on Netlify and in Databricks.</li>
     <li><b>Visibility:</b> a <code>"visibility": "team" | "org"</code> field in <code>report.json</code>. CI syncs each report to the matching Volume and removes it from the others. New reports default to <code>team</code>.</li>
     <li><b>Promotion:</b> a one-line pull request (<code>team</code> → <code>org</code>), with review and an audit trail. Demotion is the reverse. A <em>Promote</em> button in the app can come later.</li>
     <li><b>Access:</b> the app reads Volumes as the signed-in user, so Unity Catalog grants decide what each person sees in listings, search, area pages, AI and file access. A link to a report someone can't see shows a neutral "not available".</li>
@@ -204,7 +204,7 @@
   <h2><span class="pp-num">06</span>Roadmap: finish the prototype, then move in three steps</h2>
   <ol class="roadmap">
     <li class="done">
-      <h3>Prototype on GitHub Pages <span class="pp-badge good">Done</span></h3>
+      <h3>Prototype on GitHub Pages, then Netlify <span class="pp-badge good">Done</span></h3>
       <p>All features in section 02, 22 sample reports and articles, 5 Claude skills, CI and the refresh workflow.</p>
     </li>
     <li class="next">
@@ -246,7 +246,7 @@
       <thead><tr><th>Risk / question</th><th>Impact</th><th>Mitigation / next step</th></tr></thead>
       <tbody>
         <tr><td><b>Can business readers open a Databricks App?</b></td><td><span class="pp-badge bad">High</span></td><td>Confirm entitlements and licensing with the workspace admin before building step 1.</td></tr>
-        <tr><td><b>Prototype is public</b></td><td><span class="pp-badge warn">Medium</span></td><td>Sample content only until step 1. Never publish real reports to GitHub Pages.</td></tr>
+        <tr><td><b>Prototype is public</b></td><td><span class="pp-badge warn">Medium</span></td><td>Sample content only until step 1. Never publish real reports to the public prototype.</td></tr>
         <tr><td><b>Shared assets change and break reports</b></td><td><span class="pp-badge warn">Medium</span></td><td>Change shared assets rarely, version breaking changes (<code>shared/brand/v2/</code>), and publish snapshots.</td></tr>
         <tr><td><b>Team-only content leaks through the listing</b></td><td><span class="pp-badge warn">Medium</span></td><td>Build a per-user catalog from readable Volumes. Never ship one global catalog.</td></tr>
         <tr><td><b>Report HTML runs scripts with the reader's session</b></td><td><span class="pp-badge warn">Medium</span></td><td>Reviewed pull requests only. If direct publishing is ever allowed, add a sandboxed iframe and a Content-Security-Policy.</td></tr>

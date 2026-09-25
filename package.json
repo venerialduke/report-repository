@@ -2,7 +2,7 @@
   "name": "insights-hub",
   "private": true,
   "type": "module",
-  "description": "Parcel & Pine Insights Hub — static report catalogue for GitHub Pages",
+  "description": "Parcel & Pine Insights Hub — static report catalogue (deployed on Netlify)",
   "scripts": {
     "build": "node scripts/build-catalog.mjs",
     "validate": "node scripts/validate.mjs",
